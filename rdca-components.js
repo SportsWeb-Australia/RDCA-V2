@@ -40,7 +40,7 @@
       <a href="https://www.facebook.com/ringwooddca/" target="_blank" rel="noopener" aria-label="RDCA on Facebook"><i class="ti ti-brand-facebook"></i></a>
       <a href="https://www.instagram.com/rdca6519/" target="_blank" rel="noopener" aria-label="RDCA on Instagram"><i class="ti ti-brand-instagram"></i></a>
     </div>
-    <a href="#" style="background:var(--red);color:#fff;padding:4px 14px;border-radius:6px;font-size:11px;font-weight:700">Register for 2026-27</a>
+    <a href="/register.html" style="background:var(--red);color:#fff;padding:4px 14px;border-radius:6px;font-size:11px;font-weight:700">Register for 2026-27</a>
   </div>
 </div>`,
     "mobile-menu": `<div class="mob-menu" id="mob-menu">
@@ -77,7 +77,7 @@
   <a href="/communications.html" class="mob-link"><i class="ti ti-broadcast"></i> Communications</a>
   <a href="/contact.html" class="mob-link"><i class="ti ti-mail"></i> Contact</a>
   <div style="margin-top:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)">
-    <a class="btn btn-red" style="width:100%;justify-content:center" href="/competition.html"><i class="ti ti-user-plus"></i> Register for 2026-27</a>
+    <a class="btn btn-red" style="width:100%;justify-content:center" href="/register.html"><i class="ti ti-user-plus"></i> Register for 2026-27</a>
   </div>
 </div>`,
     "header-nav": `<nav class="nav-wrap">
@@ -127,7 +127,7 @@
       <button class="nav-icon-btn" data-rdca-alerts type="button" data-tip="Match-day alerts" aria-label="Match-day alerts"><i class="ti ti-bell" style="font-size:18px"></i></button>
       <button class="nav-icon-btn" type="button" data-tip="Search the site" aria-label="Search the site"><i class="ti ti-search" style="font-size:18px"></i></button>
       <button class="nav-icon-btn hamburger" onclick="document.getElementById('mob-menu').classList.add('open')"><i class="ti ti-menu-2" style="font-size:18px"></i></button>
-      <a class="btn btn-red btn-sm" href="/competition.html">Register</a>
+      <a class="btn btn-red btn-sm" href="/register.html">Register</a>
     </div>
   </div>
 </nav>`,
@@ -182,7 +182,7 @@
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">RDCA</div>
-      <a class="f-link" href="/board.html">The Board</a><a class="f-link" href="/committees.html">Committees &amp; Contacts</a><a class="f-link" href="/umpires.html">Umpires</a><a class="f-link" href="/umpire-appointments.html">Umpire Appointments</a><a class="f-link" href="/events.html">Events</a><a class="f-link" href="/documents.html">Documents &amp; Forms</a><a class="f-link" href="/child-safety.html">Child Safety</a><a class="f-link" href="/contact.html">Contact</a>
+      <a class="f-link" href="/board.html">The Board</a><a class="f-link" href="/committees.html">Committees &amp; Contacts</a><a class="f-link" href="/umpires.html">Umpires</a><a class="f-link" href="/communications.html">Communications</a><a class="f-link" href="/events.html">Events</a><a class="f-link" href="/documents.html">Documents &amp; Forms</a><a class="f-link" href="/child-safety.html">Child Safety</a><a class="f-link" href="/contact.html">Contact</a>
     </div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.04);padding:14px 20px">

@@ -2,7 +2,7 @@
    Strategy: network-first for page navigations AND app code (css/js/json) so a new deploy
    shows up on the next load instead of being masked by stale, same-named cached assets.
    Cache-first only for heavy static binaries (images/icons/fonts). Offline falls back to cache. */
-var CACHE = "rdca-v27";
+var CACHE = "rdca-v32";
 var CORE = [
   "/", "/index.html",
   "/_shared.css", "/_pages.css",

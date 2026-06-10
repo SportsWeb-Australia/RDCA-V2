@@ -165,9 +165,11 @@
       if (!list.length) { set(sel, ""); return; }
       var n = list[0];
       var catIcon = { "Association":"ti-flag","Representative":"ti-shield-half-filled","Umpires":"ti-gavel","Finals":"ti-trophy","Juniors":"ti-friends","Women's":"ti-cricket","Seniors":"ti-trophy","Veterans":"ti-medal" };
+      var img = n.image;
+      if (!img && n.slug) { var art = (D().articles || []).filter(function (a) { return a.slug === n.slug; })[0]; if (art && art.image) img = art.image; }
       var href = n.slug ? ("/article.html?slug=" + encodeURIComponent(n.slug)) : esc(n.url);
-      var media = n.image
-        ? '<div class="news-feat-media"><img src="' + esc(n.image) + '" alt="' + esc(n.title) + '"></div>'
+      var media = img
+        ? '<div class="news-feat-media"><img src="' + esc(img) + '" alt="' + esc(n.title) + '"></div>'
         : '<div class="news-feat-media is-ic"><i class="ti ' + (catIcon[n.cat] || "ti-news") + '"></i></div>';
       set(sel,
         '<a class="news-feat" href="' + href + '">' +
@@ -525,7 +527,8 @@
       var html = '<div class="section-block">' + panel(latest, true) + '</div>';
       if (rest.length) {
         html += '<div class="section-block"><div class="block-hed">All Selections by Division</div>' +
-                '<div class="block-sub">Every announced and provisional XI, grouped by grade.</div>' + divs + '</div>';
+                '<div class="block-sub">Every announced and provisional XI, grouped by grade.</div>' +
+                '<div class="mc-divisions">' + divs + '</div></div>';
       }
       set(sel, html);
     },

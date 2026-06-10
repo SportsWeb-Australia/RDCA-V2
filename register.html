@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- RDCA Register — player registration. Live submissions connect to the RDCA database via SportsWeb One. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Register to Play — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+<style>
+  .reg-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:start}
+  @media(max-width:880px){.reg-grid{grid-template-columns:1fr}}
+  .reg-side .panel{margin-bottom:16px}
+  .reg-pwr{display:flex;align-items:center;gap:10px;background:var(--navy);border:1px solid var(--navy3);border-radius:12px;padding:14px 16px;color:#fff}
+  .reg-pwr i{color:#ff7a7a;font-size:22px}
+  .reg-pwr b{color:#fff}
+  .reg-pwr span{font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.5}
+  .reg-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+  .reg-steps li{display:flex;gap:11px;font-size:13px;color:var(--text);line-height:1.5}
+  .reg-steps .n{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body data-page="register">
+
+<div data-rdca="masthead"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner wide">
+    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> Register</div>
+    <div class="eyebrow">2026-27 Season</div>
+    <h1>Register to Play</h1>
+    <p class="page-sub">Join the RDCA for the new season. Complete the form below and your details are sent securely to the Association &mdash; we'll connect you with your club to confirm training, fees and grading.</p>
+  </div>
+</header>
+
+<div class="page-wrap wide">
+  <div class="reg-grid">
+
+    <div class="panel panel-navy">
+      <div class="block-hed">Player Registration</div>
+      <p class="cform-intro">Tell us a few details and the Association will be in touch. <span class="cform-tag">(Preview form — live registrations connect to the RDCA database via SportsWeb One.)</span></p>
+
+      <form class="cform" id="reg-form" novalidate>
+        <div class="cform-row">
+          <label>First name<input type="text" name="firstName" placeholder="First name" autocomplete="given-name"></label>
+          <label>Last name<input type="text" name="lastName" placeholder="Last name" autocomplete="family-name"></label>
+        </div>
+        <div class="cform-row">
+          <label>Email<input type="email" name="email" placeholder="you@email.com" autocomplete="email"></label>
+          <label>Mobile<input type="tel" name="mobile" placeholder="04xx xxx xxx" autocomplete="tel"></label>
+        </div>
+        <div class="cform-row">
+          <label>Section
+            <select name="section">
+              <option>Seniors</option>
+              <option>Juniors</option>
+              <option>Women's</option>
+              <option>Veterans</option>
+              <option>Community Big Bash (T20)</option>
+            </select>
+          </label>
+          <label>Player type
+            <select name="playerType">
+              <option>New player</option>
+              <option>Returning player</option>
+              <option>Transferring from another club</option>
+            </select>
+          </label>
+        </div>
+        <label>Preferred club <span class="opt">(if you have one)</span>
+          <select name="club" id="reg-club"><option value="">Select a club…</option></select>
+        </label>
+        <label>Anything else? <span class="opt">(optional)</span><textarea name="notes" rows="3" placeholder="Age group, prior experience, questions…"></textarea></label>
+        <label class="cform-check"><input type="checkbox" name="consent"> <span>I consent to the RDCA contacting me about registration and sharing my details with my nominated club.</span></label>
+        <div class="cform-actions">
+          <button type="submit" class="btn btn-red"><i class="ti ti-user-plus"></i> Submit registration</button>
+          <a class="cform-tag" href="/clubs.html">or browse clubs first</a>
+        </div>
+        <div class="cform-note" id="reg-note" hidden></div>
+      </form>
+    </div>
+
+    <div class="reg-side">
+      <div class="reg-pwr">
+        <i class="ti ti-database"></i>
+        <span>Registrations are processed through <b>SportsWeb One</b> and connect directly to the Association's database &mdash; no double handling.</span>
+      </div>
+      <div class="panel">
+        <div class="block-hed">How it works</div>
+        <ol class="reg-steps" style="margin-top:10px">
+          <li><span class="n">1</span><div>Submit your details using the form.</div></li>
+          <li><span class="n">2</span><div>Your registration flows into the RDCA database via SportsWeb One.</div></li>
+          <li><span class="n">3</span><div>Your nominated club confirms training nights, fees and grading.</div></li>
+          <li><span class="n">4</span><div>You're added to the club &amp; RDCA contact lists for season updates.</div></li>
+        </ol>
+      </div>
+      <div class="panel">
+        <div class="block-hed">Need a hand?</div>
+        <p class="prose" style="margin-top:8px">Not sure which club is closest? Browse the <a href="/clubs.html">Club Directory</a>, or <a href="/contact.html">contact the Association</a> and we'll point you in the right direction.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/site-data.js"></script>
+<script>
+  (function(){
+    // Populate club dropdown from site data
+    var sel = document.getElementById("reg-club");
+    var clubs = ((window.RDCA_DATA || {}).clubs || []).slice().sort(function(a,b){ return (a.name||"").localeCompare(b.name||""); });
+    if (sel) clubs.forEach(function(c){ var o=document.createElement("option"); o.value=c.key||c.name; o.textContent=c.name; sel.appendChild(o); });
+
+    var f = document.getElementById("reg-form");
+    if (!f) return;
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var n = document.getElementById("reg-note");
+      n.hidden = false;
+      n.textContent = "Thanks for registering! This is a preview form — once live, your registration connects straight to the RDCA database via SportsWeb One and your club will be in touch.";
+      var b = f.querySelector("button[type=submit]");
+      if (b){ b.disabled = true; b.style.opacity = ".6"; b.style.cursor = "default"; }
+    });
+  })();
+</script>
+</body>
+</html>
