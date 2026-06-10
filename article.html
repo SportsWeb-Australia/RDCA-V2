@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- RDCA article page — opened as /article.html?slug=<slug>. Renders the full
+     article from site-data.js (articles[]). Real articles come from the feed. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Article — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+</head>
+<body data-page="news">
+
+<div data-rdca="masthead"></div>
+
+<header class="page-hero"><div class="page-hero-inner" id="art-hero"></div></header>
+<div class="page-wrap" id="art-body"></div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/site-data.js"></script>
+<script src="/rdca-render.js"></script>
+<script>
+(function(){
+  function qp(n){ return new URLSearchParams(location.search).get(n); }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];}); }
+  function fmtDate(d){ try{ var dt=new Date(d); if(isNaN(dt)) return d; return dt.toLocaleDateString("en-AU",{day:"numeric",month:"long",year:"numeric"}); }catch(e){ return d; } }
+
+  var slug = qp("slug") || qp("id");
+  var d = window.RDCA_DATA || {};
+  var arts = d.articles || [], news = d.news || [];
+  var a = null, i;
+  for (i=0;i<arts.length;i++){ if(arts[i].slug===slug){ a=arts[i]; break; } }
+
+  var hero = document.getElementById("art-hero");
+  var body = document.getElementById("art-body");
+
+  // fall back to a news[] item (excerpt only) if no full article exists yet
+  if (!a){
+    var n=null; for(i=0;i<news.length;i++){ if(news[i].slug===slug){ n=news[i]; break; } }
+    if (n){ a = { slug:slug, title:n.title, cat:n.cat, date:n.date, author:"RDCA", image:n.image,
+      body:"<p>"+esc(n.excerpt||"")+"</p><p><em>The full article will appear here once published.</em></p>", sample:true }; }
+  }
+
+  if (!a){
+    document.title = "Article not found — RDCA";
+    hero.innerHTML = '<div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> <a href="/news.html">News</a> <i class="ti ti-chevron-right"></i> Article</div><h1>Article not found</h1>';
+    body.innerHTML = '<div class="empty-state"><div class="empty-ic"><i class="ti ti-news-off"></i></div>'+
+      '<h2>We couldn\'t find that article</h2><p>It may have moved or isn\'t published yet.</p>'+
+      '<div class="empty-actions"><a class="btn btn-navy" href="/news.html"><i class="ti ti-arrow-left"></i> All news</a></div></div>';
+    return;
+  }
+
+  document.title = a.title + " — RDCA";
+  hero.innerHTML =
+    '<div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> <a href="/news.html">News</a> <i class="ti ti-chevron-right"></i> '+esc(a.cat||"Article")+'</div>'+
+    '<div class="eyebrow">'+esc(a.cat||"News")+'</div>'+
+    '<h1>'+esc(a.title)+'</h1>'+
+    '<p class="page-sub">'+(a.meta?esc(a.meta)+' &middot; ':'')+fmtDate(a.date)+(a.author?' &middot; By '+esc(a.author):'')+(a.readMins?' &middot; '+esc(a.readMins)+' min read':'')+'</p>';
+
+  var sampleNote = a.sample
+    ? '<div class="section-block"><div class="callout callout-blue"><i class="ti ti-info-circle"></i><div><strong>Sample article.</strong> This is placeholder editorial to show the article layout &mdash; real articles will be published from the RDCA news feed.</div></div></div>'
+    : '';
+
+  body.innerHTML =
+    (a.image ? '<div class="article-hero-img" style="background-image:url(\''+esc(a.image)+'\')"></div>' : '')+
+    sampleNote+
+    '<article class="article-body prose">'+(a.body||'')+'</article>'+
+    '<div class="section-block"><a class="btn btn-navy" href="/news.html"><i class="ti ti-arrow-left"></i> Back to all news</a></div>';
+})();
+</script>
+</body>
+</html>

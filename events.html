@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- RDCA Events listing — data-driven from /site-data.js (events[]). -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Events — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+</head>
+<body data-page="events">
+
+<div data-rdca="masthead"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner wide">
+    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> Events</div>
+    <div class="eyebrow">Calendar</div>
+    <h1>Upcoming Events</h1>
+    <p class="page-sub">Award nights, club forums and finals across the RDCA season. Tap any event for full details &mdash; date, time, venue and what's on.</p>
+  </div>
+</header>
+
+<div class="page-wrap wide">
+  <div class="section-block">
+    <div class="block-sub" id="events-note"></div>
+    <div id="events-mount"></div>
+  </div>
+</div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/site-data.js"></script>
+<script src="/rdca-render.js"></script>
+<script>
+  RDCA.render.events("#events-mount");
+  (function(){
+    var n = ((window.RDCA_DATA||{}).events||[]).length;
+    document.getElementById("events-note").innerHTML =
+      "Showing <strong>" + n + "</strong> upcoming events. Dates and details shown are illustrative sample data.";
+  })();
+</script>
+</body>
+</html>

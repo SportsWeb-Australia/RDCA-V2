@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- RDCA Board of Management — board members from site-data.js (board.members). -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Board of Management — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+</head>
+<body data-page="board">
+
+<div data-rdca="masthead"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner wide">
+    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> The Board</div>
+    <div class="eyebrow">RDCA Association</div>
+    <h1>Board of Management</h1>
+    <p class="page-sub">The people who govern the RDCA across every section of the competition.</p>
+  </div>
+</header>
+
+<div class="page-wrap wide">
+
+  <div class="section-block">
+    <div class="block-hed">Section Committees</div>
+    <div class="block-sub">Each section is run by its own committee, which reports to the Board of Management.</div>
+    <div class="committee-tiles">
+      <a class="committee-tile" href="/committees.html#junior-committee"><span class="ct-ic"><i class="ti ti-friends"></i></span><span class="ct-lbl">Junior Committee</span><i class="ti ti-chevron-right ct-arr"></i></a>
+      <a class="committee-tile" href="/committees.html#senior-committee"><span class="ct-ic"><i class="ti ti-trophy"></i></span><span class="ct-lbl">Senior Committee</span><i class="ti ti-chevron-right ct-arr"></i></a>
+      <a class="committee-tile" href="/committees.html#women-s-committee"><span class="ct-ic"><i class="ti ti-ball-baseball"></i></span><span class="ct-lbl">Women's Committee</span><i class="ti ti-chevron-right ct-arr"></i></a>
+      <a class="committee-tile" href="/committees.html#umpires-committee"><span class="ct-ic"><i class="ti ti-gavel"></i></span><span class="ct-lbl">Umpires Committee</span><i class="ti ti-chevron-right ct-arr"></i></a>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="block-hed">About the Association</div>
+    <div class="panel">
+    <div class="prose">
+      <p>The Ringwood &amp; District Cricket Association was formed in season 1920/21 and has fostered grassroots cricket and community sport in Melbourne's outer eastern suburbs ever since.</p>
+      <p>In August 2020 the RDCA amalgamated with the Yarra Valley Cricket Association (YVCA) &mdash; founded in 1906 and serving the Yarra Valley for 114 years &mdash; to continue under the RDCA name. The Association is a member of the Victorian Metropolitan Cricket Union (VMCU), which in turn reports to Cricket Victoria.</p>
+      <p>Its member clubs cater for male and female players of all ages across Junior, Senior, Veterans and Women's competitions, each administered by its own committee that reports to the Board of Management.</p>
+    </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="block-hed">Board Members</div>
+    <div class="block-sub">Office bearers of the RDCA Board of Management.</div>
+    <div id="board-mount"></div>
+  </div>
+
+</div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/site-data.js"></script>
+<script src="/rdca-render.js"></script>
+<script>RDCA.render.board("#board-mount");</script>
+</body>
+</html>

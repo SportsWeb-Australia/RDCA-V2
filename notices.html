@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- RDCA Community Notices — push-notification destination page. Self-contained content. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Community Notices — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+<style>
+  .nt-list{max-width:760px}
+  .nt{display:flex;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:18px 18px;margin-bottom:14px;scroll-margin-top:90px}
+  .nt-ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px}
+  .nt-cat{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+  .nt-tt{font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:.3px;color:var(--navy);line-height:1.05;margin-bottom:7px}
+  .nt p{font-size:14px;line-height:1.65;color:var(--text);margin:0 0 8px}
+  .nt a.nt-link{font-size:13px;font-weight:700;color:var(--red);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+  .nt-push{display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:rgba(204,34,34,.06);border:1px solid rgba(204,34,34,.2);border-radius:var(--r);padding:16px 18px;max-width:760px;margin-bottom:22px}
+  .nt-push .ti-bell-ringing{font-size:24px;color:var(--red);flex-shrink:0}
+  .nt-push-tx{flex:1;min-width:200px;font-size:13.5px;color:var(--text);line-height:1.5}
+</style>
+</head>
+<body data-page="notices">
+
+<div data-rdca="masthead"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner wide">
+    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> Community Notices</div>
+    <div class="eyebrow">Stay Informed</div>
+    <h1>Community Notices</h1>
+    <p class="page-sub">Important association‑wide announcements for clubs, players, officials and volunteers. New notices are sent to subscribers as push notifications.</p>
+  </div>
+</header>
+
+<div class="page-wrap wide">
+
+  <div class="nt-push">
+    <i class="ti ti-bell-ringing"></i>
+    <div class="nt-push-tx"><strong>Get notified instantly.</strong> Tap <em>Turn on alerts</em> and your browser will ask for permission to send notifications. Once you allow it, every new RDCA community notice &mdash; ground closures, washouts, AGM and event reminders &mdash; pops up on your phone or computer, even when this site is closed. Tap a notification to jump straight to the full detail here. You can turn alerts off anytime in your browser or device settings, and we never use them for spam.</div>
+    <button type="button" data-rdca-alerts class="btn btn-red"><i class="ti ti-bell"></i> Turn on alerts</button>
+  </div>
+
+  <div class="nt-list">
+
+    <div class="nt" id="agm">
+      <div class="nt-ic" style="background:rgba(204,34,34,.1);color:#cc2222"><i class="ti ti-calendar"></i></div>
+      <div>
+        <div class="nt-cat">Association</div>
+        <div class="nt-tt">AGM scheduled 28 January — all member clubs invited</div>
+        <p>The RDCA Annual General Meeting is scheduled for 28 January. All member clubs are invited and are encouraged to send at least one delegate.</p>
+        <p>Formal notice, the agenda and annual reports are circulated to club secretaries beforehand. Any items clubs wish to raise should be submitted to the Board in advance of the meeting.</p>
+        <a class="nt-link" href="/committees.html">RDCA committees &amp; contacts <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="nt" id="ground-closures">
+      <div class="nt-ic" style="background:rgba(30,61,107,.1);color:#1e3d6b"><i class="ti ti-cloud-rain"></i></div>
+      <div>
+        <div class="nt-cat">Grounds</div>
+        <div class="nt-tt">Ground closures in effect — check conditions before travel</div>
+        <p>Following recent weather, a number of grounds are closed or under assessment. Players and officials should check the latest ground status before travelling, as conditions can change at short notice on match mornings.</p>
+        <p>Club ground managers will update availability as council assessments are completed. When in doubt, confirm with your club before heading out.</p>
+        <a class="nt-link" href="/clubs.html">Find your club <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="nt" id="awards">
+      <div class="nt-ic" style="background:rgba(22,163,74,.1);color:#16a34a"><i class="ti ti-award"></i></div>
+      <div>
+        <div class="nt-cat">Events</div>
+        <div class="nt-tt">RDCA Awards Night — nominations open until 31 January</div>
+        <p>Nominations for the RDCA Annual Awards Night are open until 31 January. Clubs can nominate players, volunteers and teams across all grades — senior, junior, women's and veterans.</p>
+        <p>The Awards Night celebrates the season's standout contributors. See the event page for the date, venue and table bookings.</p>
+        <a class="nt-link" href="/event.html?event=awards-night">Awards Night details <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="nt" id="safe-cricket">
+      <div class="nt-ic" style="background:rgba(124,61,139,.1);color:#7c3d8b"><i class="ti ti-shield"></i></div>
+      <div>
+        <div class="nt-cat">Policy</div>
+        <div class="nt-tt">Safe Cricket policy updated — all clubs must review by February</div>
+        <p>The RDCA Safe Cricket / Child Safety policy has been updated. All clubs must review the revised policy and confirm compliance by the end of February.</p>
+        <p>The full policy and supporting resources are available on the Child Safety page. Club child‑safety officers should ensure all relevant volunteers are briefed.</p>
+        <a class="nt-link" href="/child-safety.html">Child Safety policy <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="muted-note" style="max-width:760px;margin-top:6px">Notice dates and details shown are illustrative sample content.</p>
+</div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+</body>
+</html>

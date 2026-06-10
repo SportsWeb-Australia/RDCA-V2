@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- RDCA single event page — data-driven from /site-data.js (events[]) via ?event=<slug>. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Event — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+</head>
+<body data-page="events">
+
+<div data-rdca="masthead"></div>
+
+<div class="page-wrap wide" style="padding-top:18px">
+  <header class="ev-detail-hero" id="event-hero"></header>
+  <div id="event-body"></div>
+</div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/site-data.js"></script>
+<script>
+(function () {
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[ch];}); }
+  function param(k){ try { return new URLSearchParams(location.search).get(k); } catch(e){ return null; } }
+
+  var data = window.RDCA_DATA || {};
+  var slug = param("event");
+  var e = (data.events || []).filter(function(x){ return x.slug === slug; })[0];
+
+  var hero = document.getElementById("event-hero");
+  var body = document.getElementById("event-body");
+
+  if (!e) {
+    document.title = "Event not found — RDCA";
+    hero.style.background = "linear-gradient(135deg,var(--navy),var(--navy3))";
+    hero.innerHTML =
+      '<div class="ev-detail-inner">' +
+        '<div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> <a href="/events.html">Events</a></div>' +
+        '<h1>Event not found</h1>' +
+        '<div class="ev-detail-sub">We couldn\'t find that event.</div>' +
+      '</div>';
+    body.innerHTML =
+      '<div class="empty-state"><div class="empty-ic"><i class="ti ti-calendar-off"></i></div>' +
+        '<h2>That event isn\'t listed</h2>' +
+        '<p>It may have passed or the link is out of date.</p>' +
+        '<div class="empty-actions"><a class="btn btn-navy" href="/events.html"><i class="ti ti-arrow-left"></i> Back to all events</a></div>' +
+      '</div>';
+    return;
+  }
+
+  document.title = e.title + " — RDCA";
+
+  if (e.image) { hero.style.backgroundImage = "url('" + e.image + "')"; }
+  else { hero.style.background = "linear-gradient(135deg,var(--navy),var(--navy3))"; }
+
+  hero.innerHTML =
+    '<div class="ev-detail-inner">' +
+      '<div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> ' +
+        '<a href="/events.html">Events</a> <i class="ti ti-chevron-right"></i> ' + esc(e.title) + '</div>' +
+      (e.category ? '<span class="ev-detail-cat">' + esc(e.category) + '</span>' : '') +
+      '<h1>' + esc(e.title) + '</h1>' +
+      '<div class="ev-detail-sub">' + esc(e.dateLabel || "") +
+        (e.venue ? ' &middot; ' + esc(e.venue) : '') + '</div>' +
+    '</div>';
+
+  function fact(icon, label, value){
+    return '<div class="ev-fact"><i class="ti ' + icon + '"></i><div>' +
+      '<div class="ev-fact-l">' + esc(label) + '</div>' +
+      '<div class="ev-fact-v">' + value + '</div></div></div>';
+  }
+
+  var facts = "";
+  if (e.dateLabel) facts += fact("ti-calendar-event", "Date", esc(e.dateLabel));
+  if (e.time)      facts += fact("ti-clock", "Time", esc(e.time));
+  if (e.venue)     facts += fact("ti-map-pin", "Venue", esc(e.venue) + (e.address ? '<br><span style="font-weight:400;color:var(--muted);font-size:12.5px">' + esc(e.address) + '</span>' : ''));
+
+  var prose = (e.details || []).map(function(p){ return '<p>' + esc(p) + '</p>'; }).join("");
+
+  body.innerHTML =
+    (e.summary ? '<p class="page-sub" style="margin:18px 0 0">' + esc(e.summary) + '</p>' : '') +
+    '<div class="ev-facts">' + facts + '</div>' +
+    '<div class="ev-prose">' + prose + '</div>' +
+    '<div class="empty-actions" style="justify-content:flex-start;margin-top:8px">' +
+      '<a class="btn btn-navy" href="/events.html"><i class="ti ti-arrow-left"></i> All events</a>' +
+      '<a class="btn btn-outline-red" href="/contact.html"><i class="ti ti-mail"></i> Get in touch</a>' +
+    '</div>' +
+    '<p class="muted-note" style="margin-top:22px">Event date and details shown are illustrative sample data.</p>';
+})();
+</script>
+</body>
+</html>

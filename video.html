@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- RDCA Live Video — sponsored FrogBox live stream + on-demand archive.
+     liveStream + videos are data-driven from /site-data.js. Stream/archive are placeholders. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Live Video — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+</head>
+<body data-page="video">
+
+<div data-rdca="masthead"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner wide">
+    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> Live Video</div>
+    <div class="eyebrow">Watch</div>
+    <h1>Live &amp; On-Demand</h1>
+    <p class="page-sub">Selected RDCA matches are streamed live via FrogBox, with replays kept here for the season.</p>
+  </div>
+</header>
+
+<div class="page-wrap wide">
+
+  <div class="section-block">
+    <div class="block-hed">Live Stream</div>
+    <div class="block-sub">When a game is on air the player appears here. Streaming is proudly sponsored.</div>
+    <div id="live-mount"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="callout callout-blue">
+      <i class="ti ti-broadcast"></i>
+      <div id="video-note"></div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="block-hed">Video Archive</div>
+    <div class="block-sub">Replays of recent live broadcasts.</div>
+    <div class="vid-grid" id="vid-mount"></div>
+  </div>
+
+</div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/site-data.js"></script>
+<script src="/rdca-render.js"></script>
+<script>
+(function(){
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[ch];}); }
+  var d  = window.RDCA_DATA || {};
+  var ls = d.liveStream || {};
+
+  var stage;
+  if (ls.status === "live" && ls.embedUrl){
+    stage = '<div class="live-stage"><iframe src="' + esc(ls.embedUrl) + '" allow="autoplay; fullscreen" allowfullscreen></iframe></div>';
+  } else {
+    stage =
+      '<div class="live-stage live-offline">' +
+        '<div class="live-overlay">' +
+          '<span class="live-badge"><span class="live-dot"></span> Offline</span>' +
+          '<div class="live-play"><i class="ti ti-player-play-filled"></i></div>' +
+          '<div class="live-title">' + esc(ls.title || "RDCA Live") + '</div>' +
+          '<div class="live-sub">' + esc(ls.sub || "") + '</div>' +
+          '<a class="btn btn-red btn-sm" href="' + esc(ls.channelUrl || "#") + '" target="_blank" rel="noopener">Visit our FrogBox channel <i class="ti ti-external-link"></i></a>' +
+        '</div>' +
+      '</div>';
+  }
+  var sponsor =
+    '<div class="live-sponsor">' +
+      '<span class="ls-lbl"><i class="ti ti-device-tv"></i> Streaming presented by</span>' +
+      '<span class="ls-name">' + esc(ls.sponsor || "Your business here") + '</span>' +
+      '<span class="flag flag-mock"><i class="ti ti-flag"></i> sponsor slot</span>' +
+    '</div>';
+  document.getElementById("live-mount").innerHTML = stage + sponsor;
+
+  var note = document.getElementById("video-note");
+  if (note) note.innerHTML = (d.videosNote || "");
+
+  var vids = d.videos || [];
+  var vh = vids.map(function(v){
+    var m = v.mock ? ' <span class="flag flag-mock"><i class="ti ti-flag"></i> sample</span>' : '';
+    return '<a class="vid-card" href="' + esc(v.url || "#") + '">' +
+             '<div class="vid-thumb" style="background-image:url(\'' + esc(v.thumb) + '\')">' +
+               '<span class="vid-play"><i class="ti ti-player-play-filled"></i></span>' +
+               '<span class="vid-comp">' + esc(v.comp) + '</span>' +
+             '</div>' +
+             '<div class="vid-body"><div class="vid-title">' + esc(v.title) + '</div>' +
+               '<div class="vid-meta"><i class="ti ti-calendar"></i> ' + esc(v.date) + m + '</div></div>' +
+           '</a>';
+  }).join("");
+  document.getElementById("vid-mount").innerHTML = vh ||
+    '<div class="empty-state"><div class="empty-ic"><i class="ti ti-device-tv"></i></div><h2>No replays yet</h2><p>Recorded broadcasts will appear here through the season.</p></div>';
+})();
+</script>
+</body>
+</html>

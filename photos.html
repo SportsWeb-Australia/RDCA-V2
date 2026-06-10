@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- RDCA Photos — season galleries hosted by Field of View Photography (ShootProof).
+     Album list is data-driven from /site-data.js (photoAlbums[]). Covers are placeholders. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Photos — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+</head>
+<body data-page="photos">
+
+<div data-rdca="masthead"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner wide">
+    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> Photos</div>
+    <div class="eyebrow">Gallery</div>
+    <h1>Photos</h1>
+    <p class="page-sub">Around the grounds, finals, presentation nights and premiership posters &mdash; full match-day galleries, season by season.</p>
+  </div>
+</header>
+
+<div class="page-wrap wide">
+
+  <div class="section-block">
+    <div class="callout callout-blue">
+      <i class="ti ti-camera"></i>
+      <div id="photos-note"></div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="block-hed">Season Galleries</div>
+    <div class="block-sub">Full match-day galleries, season by season. Each opens on the Field of View Photography site, where you can browse and order prints.</div>
+    <div class="album-grid" id="album-mount"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="block-hed">Premiership Posters</div>
+    <div class="block-sub">Celebrate the season's flag winners &mdash; commemorative premiership posters, ready to view and order.</div>
+    <div class="album-grid" id="poster-mount"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="fov-promo">
+      <div class="fov-logo"><img src="https://res.cloudinary.com/dozdbhjhs/image/upload/v1780760760/FOV_p2scu1.avif" alt="Field of View Photography"></div>
+      <div class="fov-body">
+        <div class="fov-eyebrow">Official Photography Partner</div>
+        <div class="fov-name">Field of View Photography</div>
+        <div class="fov-copy">Capturing the moments that matter &mdash; RDCA's official photographer, covering matches, events and finals right across the season. Browse the galleries above to view and order prints.</div>
+        <div class="fov-actions">
+          <a class="btn" href="https://www.fieldofview.com.au/" target="_blank" rel="noopener"><i class="ti ti-world"></i> fieldofview.com.au</a>
+          <a class="btn" href="mailto:admin@fieldofview.com.au"><i class="ti ti-mail"></i> admin@fieldofview.com.au</a>
+        </div>
+      </div>
+      <div class="fov-photos" id="fov-photos" aria-hidden="true"></div>
+    </div>
+  </div>
+
+</div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/site-data.js"></script>
+<script src="/rdca-render.js"></script>
+<script>
+(function(){
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[ch];}); }
+  var d = window.RDCA_DATA || {};
+  var note = document.getElementById("photos-note");
+  if (note) note.innerHTML = (d.photosNote || "");
+
+  var albums = d.photoAlbums || [];
+  function card(a){
+    var isPoster = a.tag === "Posters";
+    var tag = a.tag ? '<span class="album-tag' + (a.tag==="Latest" ? " is-latest" : "") + '">' + esc(a.tag) + '</span>' : '';
+    return '<a class="album-card" href="' + esc(a.url) + '" target="_blank" rel="noopener">' +
+             '<div class="album-cover" style="background-image:url(\'' + esc(a.cover) + '\')">' + tag +
+               '<span class="album-view"><i class="ti ti-' + (isPoster?'file-text':'photo') + '"></i> View ' + (isPoster?'posters':'gallery') + ' <i class="ti ti-external-link"></i></span>' +
+             '</div>' +
+             '<div class="album-body"><div class="album-season">' + esc(a.season) + '</div>' +
+               '<div class="album-sub"><i class="ti ti-camera"></i> Field of View Photography</div></div>' +
+           '</a>';
+  }
+  var galleries = albums.filter(function(a){return a.tag!=="Posters";});
+  var posters   = albums.filter(function(a){return a.tag==="Posters";});
+  document.getElementById("album-mount").innerHTML = galleries.map(card).join("") ||
+    '<div class="empty-state"><div class="empty-ic"><i class="ti ti-photo"></i></div><h2>Galleries coming soon</h2><p>Season galleries will appear here.</p></div>';
+  var pm = document.getElementById("poster-mount");
+  if (pm) pm.innerHTML = posters.map(card).join("") ||
+    '<div class="empty-state"><div class="empty-ic"><i class="ti ti-file-text"></i></div><h2>Posters coming soon</h2><p>Premiership posters will appear here.</p></div>';
+
+  // partner-card photo collage (desktop) — uses the shared photoStrip
+  var fp = document.getElementById("fov-photos");
+  if (fp) {
+    var strip = (d.photoStrip || []).slice(0, 4);
+    fp.innerHTML = strip.map(function(u){ return '<img src="' + esc(u) + '" alt="" loading="lazy">'; }).join("");
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- RDCA Honours — data-driven from site-data.js (honours). -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Honours &amp; Records — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+</head>
+<body data-page="honours">
+
+<div data-rdca="masthead"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> Honours &amp; Records</div>
+    <div class="eyebrow">RDCA History</div>
+    <h1>Honours &amp; Records</h1>
+    <p class="page-sub">Life members, hall of fame and premiership records.</p>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <div class="section-block">
+    <div class="block-hed">Life Members</div>
+    <div class="block-sub">Recipients of RDCA &amp; YVCA life membership. Select a name to read their citation.</div>
+    <div id="life-members-mount"></div>
+    <div style="font-size:12px;color:var(--muted);margin-top:10px">* as recorded on rdca.com</div>
+  </div>
+
+  <div class="section-block">
+    <div class="block-hed">Premiers</div>
+    <div class="block-sub">Premiership honour roll &mdash; records are being compiled. The full history is on the <a href="https://www.rdca.com/premiers" target="_blank" rel="noopener">live RDCA site</a>.</div>
+    <div id="premiers-mount"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="block-hed">Honour Boards</div>
+    <div class="block-sub">Explore the Hall of Fame, the association honour board, season awards and premiership galleries.</div>
+    <div class="tile-grid" id="honours-hub-mount"></div>
+  </div>
+</div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/site-data.js"></script>
+<script src="/rdca-render.js"></script>
+<script>
+RDCA.render.lifeMembers("#life-members-mount");
+RDCA.render.premiers("#premiers-mount");
+RDCA.render.honoursHub("#honours-hub-mount");
+</script>
+</body>
+</html>

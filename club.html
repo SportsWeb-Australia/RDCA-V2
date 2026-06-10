@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- RDCA single club profile — data-driven from /site-data.js (clubs[]) via ?club=<key>. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Club Profile — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+</head>
+<body data-page="clubs">
+
+<div data-rdca="masthead"></div>
+
+<header class="club-hero" id="club-hero"></header>
+
+<div class="page-wrap wide" id="club-body"></div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/site-data.js"></script>
+<script src="/rdca-render.js"></script>
+<script>
+(function(){
+  function qp(n){ return new URLSearchParams(location.search).get(n); }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[ch];}); }
+  function fact(ic,lbl,val){
+    return '<div class="club-fact"><div class="club-fact-ic"><i class="ti '+ic+'"></i></div>'+
+           '<div><div class="club-fact-lbl">'+lbl+'</div><div class="club-fact-val">'+val+'</div></div></div>';
+  }
+
+  var key   = qp("club") || qp("id");
+  var clubs = (window.RDCA_DATA && window.RDCA_DATA.clubs) || [];
+  var c = null, i;
+  for (i = 0; i < clubs.length; i++){ if (clubs[i].key === key){ c = clubs[i]; break; } }
+
+  var hero = document.getElementById("club-hero");
+  var body = document.getElementById("club-body");
+
+  if (!c){
+    document.title = "Club not found — RDCA";
+    hero.style.background = "linear-gradient(135deg,var(--navy),var(--navy3))";
+    hero.innerHTML =
+      '<div class="club-hero-inner"><div class="club-hero-tx">'+
+        '<div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> <a href="/clubs.html">Clubs</a></div>'+
+        '<h1>Club not found</h1></div></div>';
+    body.innerHTML =
+      '<div class="empty-state"><div class="empty-ic"><i class="ti ti-help-circle"></i></div>'+
+        '<h2>We couldn\'t find that club</h2>'+
+        '<p>The club you\'re looking for isn\'t in the directory yet.</p>'+
+        '<div class="empty-actions"><a class="btn btn-navy" href="/clubs.html"><i class="ti ti-arrow-left"></i> Back to Club Directory</a></div>'+
+      '</div>';
+    return;
+  }
+
+  document.title = c.name + " — RDCA";
+
+  var grad = (c.colors && c.colors.length >= 2)
+    ? ("linear-gradient(135deg," + c.colors[0] + "," + c.colors[1] + ")")
+    : "linear-gradient(135deg,var(--navy),var(--navy3))";
+  hero.style.background = grad;
+
+  function clubMono(n){ var b=(n||"").replace(/\s*CC$/i,"").trim().split(/\s+/).filter(Boolean); return (b.length>=2 ? b.map(function(w){return w[0];}).join("") : (b[0]||"")).slice(0,3).toUpperCase(); }
+  var logoImg = c.logo
+    ? '<img src="' + esc(c.logo) + '" alt="' + esc(c.name) + '">'
+    : '<span class="club-hero-mono">' + esc(clubMono(c.name)) + '</span>';
+
+  hero.innerHTML =
+    '<div class="club-hero-inner">'+
+      '<div class="club-hero-logo">' + logoImg + '</div>'+
+      '<div class="club-hero-tx">'+
+        '<div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> '+
+          '<a href="/clubs.html">Clubs</a> <i class="ti ti-chevron-right"></i> ' + esc(c.name) + '</div>'+
+        '<h1>' + esc(c.name) + '</h1>'+
+        '<span class="club-div-pill"><i class="ti ti-trophy"></i> ' + esc(c.grade) + '</span>'+
+      '</div>'+
+    '</div>';
+
+  var suburb = c.name.replace(/\s*CC$/, "").trim();
+  var ground = suburb + " Reserve";
+  var mapq   = encodeURIComponent(suburb + ", Victoria, Australia");
+  var pmock  = '<span class="flag flag-mock"><i class="ti ti-flag"></i> placeholder</span>';
+  var ptbc   = '<span class="flag flag-review"><i class="ti ti-clock"></i> to be added</span>';
+
+  body.innerHTML =
+    '<div class="section-block">'+
+      '<div class="callout callout-blue"><i class="ti ti-info-circle"></i>'+
+        '<div><strong>Full profile coming soon.</strong> Home ground, contacts, website and location for '+
+        esc(c.name) + ' will be added here. Fixtures, results and ladders are on the '+
+        '<a href="/competition.html">Competition Hub</a>.</div></div>'+
+    '</div>'+
+    '<div class="section-block"><div class="club-detail-grid">'+
+      '<div>'+
+        '<div class="block-hed">Club Information</div>'+
+        '<div class="panel">'+
+          fact("ti-trophy","Division", esc(c.grade)) +
+          fact("ti-map-pin-2","Home Ground", esc(ground) + " " + pmock) +
+          fact("ti-map","Region","Melbourne\'s outer east &amp; Yarra Valley") +
+          fact("ti-calendar","Established", ptbc) +
+        '</div>'+
+        '<div class="block-hed" style="margin-top:24px">Get in touch</div>'+
+        '<div class="panel">'+
+          fact("ti-world","Website", ptbc) +
+          fact("ti-mail","Email", ptbc) +
+          fact("ti-phone","Phone", ptbc) +
+        '</div>'+
+      '</div>'+
+      '<div>'+
+        '<div class="block-hed">Location</div>'+
+        '<iframe class="club-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" '+
+          'src="https://maps.google.com/maps?q=' + mapq + '&z=13&output=embed" title="Map of ' + esc(suburb) + '"></iframe>'+
+        '<div class="block-sub" style="margin-top:10px">Map shows the <strong>' + esc(suburb) + '</strong> area &mdash; replace with the club\'s exact ground once confirmed.</div>'+
+      '</div>'+
+    '</div></div>'+
+    '<div class="section-block"><a class="btn btn-navy" href="/clubs.html"><i class="ti ti-arrow-left"></i> Back to Club Directory</a></div>';
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!-- RDCA player profile — data-driven from /site-data.js (players[]) via ?player=<key>.
+     Trading card is the centrepiece (tap to flip for season stats). Data is mock. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Player Profile — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+</head>
+<body data-page="clubs">
+
+<div data-rdca="masthead"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner wide" id="player-hero"></div>
+</header>
+
+<div class="page-wrap wide" id="player-body"></div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/site-data.js"></script>
+<script src="/rdca-render.js"></script>
+<script>
+(function(){
+  function qp(n){ return new URLSearchParams(location.search).get(n); }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[ch];}); }
+  function initials(n){ return (n||"").split(/\s+/).map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase(); }
+  function fact(ic,lbl,val){
+    return '<div class="club-fact"><div class="club-fact-ic"><i class="ti '+ic+'"></i></div>'+
+           '<div><div class="club-fact-lbl">'+lbl+'</div><div class="club-fact-val">'+val+'</div></div></div>';
+  }
+  function cell(v,l){ return '<div class="statcell"><b>'+esc(v)+'</b><span>'+esc(l)+'</span></div>'; }
+
+  var key = qp("player") || qp("id");
+  var d = window.RDCA_DATA || {};
+  var players = d.players || [], clubs = d.clubs || [];
+  var p = null, i;
+  for (i=0;i<players.length;i++){ if (players[i].key===key){ p=players[i]; break; } }
+
+  var hero = document.getElementById("player-hero");
+  var body = document.getElementById("player-body");
+
+  if (!p){
+    document.title = "Player not found — RDCA";
+    hero.innerHTML = '<div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> Players</div><h1>Player not found</h1>';
+    body.innerHTML = '<div class="empty-state"><div class="empty-ic"><i class="ti ti-user-question"></i></div>'+
+      '<h2>We couldn\'t find that player</h2><p>This profile isn\'t available yet.</p>'+
+      '<div class="empty-actions"><a class="btn btn-navy" href="/clubs.html"><i class="ti ti-arrow-left"></i> Browse clubs</a></div></div>';
+    return;
+  }
+
+  var club=null; for(i=0;i<clubs.length;i++){ if(clubs[i].key===p.club){ club=clubs[i]; break; } }
+  var cc = (club && club.colors && club.colors.length>=2) ? club.colors : ["#0d1f3c","#0a1f47"];
+  var clubName = club ? club.name : (p.club||"");
+  var grad = "linear-gradient(160deg,"+cc[0]+","+cc[1]+")";
+  var LOGO = (window.RDCA && window.RDCA.LOGO) || "";
+  var bat = p.bat||{}, bowl = p.bowl||{};
+  var hasBowl = p.bowls && p.bowls !== "-" && (bowl.Wkts || (bowl.Best && bowl.Best!=="-"));
+  document.title = p.name + " — RDCA";
+
+  // hero
+  hero.innerHTML =
+    '<div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> '+
+      '<a href="/clubs.html">Clubs</a> <i class="ti ti-chevron-right"></i> '+
+      '<a href="/club.html?club='+encodeURIComponent(p.club)+'">'+esc(clubName)+'</a> '+
+      '<i class="ti ti-chevron-right"></i> '+esc(p.name)+'</div>'+
+    '<div class="eyebrow">Player Profile</div>'+
+    '<h1>'+esc(p.name)+'</h1>'+
+    '<p class="page-sub">'+esc(p.role)+' &middot; '+esc(clubName)+' &middot; RDCA '+esc(p.grade)+'</p>';
+
+  // trading card faces
+  var photo = p.photo
+    ? '<img src="'+esc(p.photo)+'" alt="'+esc(p.name)+'">'
+    : '<span class="tc-init">'+esc(initials(p.name))+'</span>';
+  var crest = (club && club.logo) ? club.logo : LOGO;       // dummy club logo on the card
+  var clubBadge = crest ? '<img class="tc-club" src="'+esc(crest)+'" alt="'+esc(clubName)+'">' : '';
+  var front =
+    '<div class="tcard-face tcard-front" style="background:'+grad+'">'+
+      '<div class="tc-top">'+(crest?'<img class="tc-crest" src="'+esc(crest)+'" alt="">':'')+
+        '<span class="tc-rarity">'+esc(p.rarity||"RDCA")+'</span>'+
+        (p.number!=null?'<span class="tc-num">#'+esc(p.number)+'</span>':'')+'</div>'+
+      '<div class="tc-photo">'+photo+clubBadge+'</div>'+
+      '<div class="tc-plate"><div class="tc-name">'+esc(p.name)+'</div>'+
+        '<div class="tc-role"><i class="ti ti-ball-baseball"></i> '+esc(p.role)+' &middot; '+esc(clubName)+'</div></div>'+
+      '<div class="tc-stats">'+
+        '<div class="tc-stat"><b>'+esc(bat.Runs!=null?bat.Runs:"-")+'</b><span>Runs</span></div>'+
+        '<div class="tc-stat"><b>'+esc(bat.Avg!=null?bat.Avg:"-")+'</b><span>Bat Avg</span></div>'+
+        '<div class="tc-stat"><b>'+esc(hasBowl&&bowl.Wkts!=null?bowl.Wkts:(bat.HS!=null?bat.HS:"-"))+'</b><span>'+(hasBowl?"Wkts":"High Score")+'</span></div>'+
+      '</div>'+
+      '<div class="tc-hint"><i class="ti ti-rotate-360"></i> Tap card for full season stats</div>'+
+    '</div>';
+  function row(k,v){ return '<div class="tc-bk-row"><span>'+k+'</span><b>'+esc(v)+'</b></div>'; }
+  var back =
+    '<div class="tcard-face tcard-back">'+
+      '<div class="tc-bk-hed">Season '+esc(p.season)+'</div>'+
+      '<div class="tc-bk-grp">Batting</div>'+
+      row("Matches",bat.M)+row("Runs",bat.Runs)+row("High score",bat.HS)+row("Average",bat.Avg)+row("Strike rate",bat.SR)+row("50s / 100s",(bat["50s"]||0)+" / "+(bat["100s"]||0))+
+      '<div class="tc-bk-grp">Bowling</div>'+
+      (hasBowl
+        ? row("Matches",bowl.M)+row("Wickets",bowl.Wkts)+row("Best",bowl.Best)+row("Average",bowl.Avg)+row("Economy",bowl.Econ)
+        : '<div class="tc-bk-note">Did not bowl this season.</div>')+
+      '<div class="tc-hint dark" style="position:static;margin-top:auto;justify-content:flex-end;padding-top:10px"><i class="ti ti-rotate-clockwise-2"></i> tap to flip back</div>'+
+    '</div>';
+  var card = '<div class="tcard-wrap"><div class="tcard" id="tcard"><div class="tcard-inner">'+front+back+'</div></div></div>';
+
+  var bio = esc(p.name)+' is a '+esc((p.role||"").toLowerCase())+' for '+esc(clubName)+', playing in the RDCA '+esc(p.grade)+'. '+
+            'Career and biography details will appear here once supplied by the club.';
+
+  var side =
+    '<div class="player-side">'+
+      '<div class="block-hed">Profile</div>'+
+      '<div class="panel">'+
+        fact("ti-shield","Club",'<a href="/club.html?club='+encodeURIComponent(p.club)+'">'+esc(clubName)+'</a>')+
+        fact("ti-trophy","Division",esc(p.grade))+
+        fact("ti-user","Role",esc(p.role))+
+        fact("ti-cricket","Batting",esc(p.bats))+
+        (hasBowl?fact("ti-ball-baseball","Bowling",esc(p.bowls)):"")+
+        fact("ti-map-pin","From",esc(p.town))+
+      '</div>'+
+      '<div class="player-bio">'+bio+'</div>'+
+      '<div style="margin-top:16px"><a class="btn btn-navy" href="/club.html?club='+encodeURIComponent(p.club)+'">'+esc(clubName)+' profile <i class="ti ti-arrow-right"></i></a></div>'+
+    '</div>';
+
+  var stats =
+    '<div class="section-block"><div class="block-hed">Season '+esc(p.season)+' &mdash; Batting</div>'+
+      '<div class="statgrid">'+cell(bat.M,"Mat")+cell(bat.Runs,"Runs")+cell(bat.HS,"HS")+cell(bat.Avg,"Avg")+cell(bat.SR,"SR")+cell(bat["50s"],"50s")+cell(bat["100s"],"100s")+'</div></div>'+
+    (hasBowl
+      ? '<div class="section-block"><div class="block-hed">Season '+esc(p.season)+' &mdash; Bowling</div>'+
+        '<div class="statgrid">'+cell(bowl.M,"Mat")+cell(bowl.Wkts,"Wkts")+cell(bowl.Best,"Best")+cell(bowl.Avg,"Avg")+cell(bowl.Econ,"Econ")+'</div></div>'
+      : "");
+
+  body.innerHTML =
+    '<div class="section-block"><div class="callout callout-blue"><i class="ti ti-info-circle"></i>'+
+      '<div><strong>Sample profile.</strong> '+esc(p.name)+'\'s details and statistics are placeholder data to show the layout &mdash; real player profiles will be powered from club / PlayHQ records.</div></div></div>'+
+    '<div class="section-block"><div class="player-grid">'+card+side+'</div></div>'+
+    stats;
+
+  var tc = document.getElementById("tcard");
+  if (tc) tc.addEventListener("click", function(){ this.classList.toggle("flipped"); });
+})();
+</script>
+</body>
+</html>

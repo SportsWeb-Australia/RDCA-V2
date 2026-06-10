@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- RDCA Competition Hub — links fixtures/results/ladders to PlayHQ (API-ready). -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Competition Hub — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+</head>
+<body data-page="competition">
+
+<div data-rdca="masthead"></div>
+<div data-rdca="ticker"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> Competition Hub</div>
+    <div class="eyebrow">Fixtures &middot; Results &middot; Ladders</div>
+    <h1>Competition Hub</h1>
+    <p class="page-sub">All RDCA grades across Seniors, Juniors, Women's and Veterans. Live fixtures, results and ladders are hosted on PlayHQ — jump straight to your competition below.</p>
+    <div class="page-hero-actions">
+      <a class="btn btn-red" style="min-width:230px;justify-content:flex-start" href="https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> RDCA on PlayHQ</a>
+      <a class="btn btn-outline-white" style="min-width:230px;justify-content:flex-start" href="/clubs.html"><img src="/rdca-logo.png" alt="" style="width:32px;height:32px;object-fit:contain"> Club Directory</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <div class="hub-note">
+    <i class="ti ti-info-circle"></i>
+    <span>Live fixtures, results and ladders are split into the three boards below. Once the PlayHQ data feed is connected each board will render live tables inline; until then every card opens the official PlayHQ page for that grade (and, where available, the direct team page).</span>
+  </div>
+
+  <div class="section-block" id="fixtures">
+    <div class="block-hed"><i class="ti ti-calendar-event hub-hed-ic"></i> Fixtures</div>
+    <div class="block-sub">Upcoming matches by round. Choose your competition — each opens the official PlayHQ fixtures for that grade.</div>
+    <div class="playhq-grid" id="mount-fixtures"></div>
+  </div>
+
+  <div class="section-block" id="results">
+    <div class="block-hed"><i class="ti ti-chart-bar hub-hed-ic"></i> Results</div>
+    <div class="block-sub">Completed match results and scorecards, by grade, live on PlayHQ.</div>
+    <div class="playhq-grid" id="mount-results"></div>
+  </div>
+
+  <div class="section-block" id="ladders">
+    <div class="block-hed"><i class="ti ti-list-numbers hub-hed-ic"></i> Ladders</div>
+    <div class="block-sub">Standings, points and percentage for each grade, live on PlayHQ.</div>
+    <div class="playhq-grid" id="mount-ladders"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="block-hed">Browse by Section</div>
+    <div class="block-sub">RDCA is a grade-based association. Explore each section for committees, documents, codes of conduct and representative pathways.</div>
+    <div class="tile-grid">
+      <a class="tile" href="/seniors.html"><div class="tile-ic"><i class="ti ti-trophy"></i></div><div><div class="tile-tt">Seniors</div><div class="tile-tx">Saturday senior grade cricket across divisions.</div></div><i class="ti ti-chevron-right"></i></a>
+      <a class="tile" href="/juniors.html"><div class="tile-ic"><i class="ti ti-friends"></i></div><div><div class="tile-tt">Juniors</div><div class="tile-tx">Boys' &amp; girls' age groups and rep pathways.</div></div><i class="ti ti-chevron-right"></i></a>
+      <a class="tile" href="/womens.html"><div class="tile-ic"><i class="ti ti-ball-baseball"></i></div><div><div class="tile-tt">Women's</div><div class="tile-tx">Women's cricket in the East competition.</div></div><i class="ti ti-chevron-right"></i></a>
+      <a class="tile" href="/veterans.html"><div class="tile-ic"><i class="ti ti-medal"></i></div><div><div class="tile-tt">Veterans</div><div class="tile-tx">Veterans cricket for older players.</div></div><i class="ti ti-chevron-right"></i></a>
+    </div>
+  </div>
+
+</div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/playhq.js"></script>
+<script src="/site-data.js"></script>
+<script src="/rdca-render.js"></script>
+<script>
+  RDCA.render.playhqBoard("#mount-fixtures", "fixtures");
+  RDCA.render.playhqBoard("#mount-results",  "results");
+  RDCA.render.playhqBoard("#mount-ladders",  "ladders");
+</script>
+</body>
+</html>

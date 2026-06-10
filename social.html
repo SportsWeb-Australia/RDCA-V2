@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- RDCA Social Media — live Facebook page feeds for RDCA, Cricket Victoria and Cricket Australia.
+     Org list + links are data-driven from /site-data.js (social[]). Feeds use the Facebook Page Plugin;
+     what each feed shows depends on the organisation's Facebook page settings. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Social Media — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+<style>.soc-btn{background:var(--navy);color:#fff;border-color:var(--navy)}.soc-btn:hover{background:var(--red);border-color:var(--red);color:#fff}</style>
+</head>
+<body data-page="social">
+
+<div data-rdca="masthead"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner wide">
+    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> Social Media</div>
+    <div class="eyebrow">Stay Connected</div>
+    <h1>Social Media</h1>
+    <p class="page-sub">The latest from the RDCA, plus Cricket Victoria and Cricket Australia &mdash; all in one place.</p>
+  </div>
+</header>
+
+<div class="page-wrap wide">
+
+  <div class="section-block">
+    <div class="callout callout-navy">
+      <i class="ti ti-rss"></i>
+      <div id="social-note"></div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div id="social-mount"></div>
+  </div>
+
+</div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/site-data.js"></script>
+<script src="/rdca-render.js"></script>
+<script>
+(function(){
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[ch];}); }
+  var d = window.RDCA_DATA || {};
+  var note = document.getElementById("social-note");
+  if (note) note.innerHTML = (d.socialNote || "");
+
+  var orgs = d.social || [];
+  function handleFrom(url, host){ try { return String(url).split(host)[1].replace(/[\/?#].*$/,"").replace(/\/$/,""); } catch(e){ return ""; } }
+  var html = orgs.map(function(o){
+    var links = (o.links || []).map(function(l){
+      return '<a class="soc-btn" href="' + esc(l.u) + '" target="_blank" rel="noopener" title="' + esc(l.t) +
+             '" aria-label="' + esc(o.name) + ' on ' + esc(l.t) + '"><i class="ti ti-' + esc(l.i) + '"></i></a>';
+    }).join("");
+
+    // Facebook live timeline (Page Plugin)
+    var fbCol = o.fb
+      ? '<div class="soc-feed-col"><div class="soc-feed-head"><i class="ti ti-brand-facebook"></i> Facebook</div>' +
+          '<iframe class="fb-embed" title="' + esc(o.name) + ' on Facebook" ' +
+          'src="https://www.facebook.com/plugins/page.php?href=' + encodeURIComponent(o.fb) +
+          '&tabs=timeline&width=500&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" ' +
+          'width="500" height="640" style="border:none;overflow:hidden" scrolling="no" frameborder="0" ' +
+          'allowfullscreen="true" loading="lazy" ' +
+          'allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>'
+      : '';
+
+    // Instagram — follow panel (a true in-page IG feed needs a Meta Graph token; this links straight to the live profile)
+    var ig = (o.links || []).filter(function(l){ return l.i === "brand-instagram"; })[0];
+    var igCol = ig
+      ? '<div class="soc-feed-col"><div class="soc-feed-head"><i class="ti ti-brand-instagram"></i> Instagram</div>' +
+          '<a class="ig-card" href="' + esc(ig.u) + '" target="_blank" rel="noopener" aria-label="' + esc(o.name) + ' on Instagram">' +
+            '<div class="ig-card-ic"><i class="ti ti-brand-instagram"></i></div>' +
+            '<div class="ig-card-handle">@' + esc(handleFrom(ig.u, "instagram.com/")) + '</div>' +
+            '<div class="ig-card-sub">Latest photos &amp; reels from ' + esc(o.name) + '</div>' +
+            '<span class="ig-card-btn">View Instagram <i class="ti ti-external-link"></i></span>' +
+          '</a></div>'
+      : '';
+
+    // TikTok — only if the organisation has one
+    var tkCol = o.tiktok
+      ? '<div class="soc-feed-col"><div class="soc-feed-head"><i class="ti ti-brand-tiktok"></i> TikTok</div>' +
+          '<a class="tk-card" href="' + esc(o.tiktok) + '" target="_blank" rel="noopener" aria-label="' + esc(o.name) + ' on TikTok">' +
+            '<div class="tk-card-ic"><i class="ti ti-brand-tiktok"></i></div>' +
+            '<div class="ig-card-handle">@' + esc(handleFrom(o.tiktok, "tiktok.com/@")) + '</div>' +
+            '<div class="ig-card-sub">Watch the latest clips</div>' +
+            '<span class="tk-card-btn">View TikTok <i class="ti ti-external-link"></i></span>' +
+          '</a></div>'
+      : '';
+
+    var feeds = (fbCol || igCol || tkCol) ? '<div class="soc-feeds">' + fbCol + igCol + tkCol + '</div>' : '';
+    return '<section class="soc-block">' +
+             '<div class="soc-bar">' +
+               '<div><div class="soc-name">' + esc(o.name) + '</div>' +
+               (o.tag ? '<div class="soc-tag">' + esc(o.tag) + '</div>' : '') + '</div>' +
+               (links ? '<div class="soc-links">' + links + '</div>' : '') +
+             '</div>' + feeds +
+           '</section>';
+  }).join("");
+
+  document.getElementById("social-mount").innerHTML = html ||
+    '<div class="empty-state"><div class="empty-ic"><i class="ti ti-brand-facebook"></i></div><h2>Feeds coming soon</h2><p>Social feeds will appear here.</p></div>';
+})();
+</script>
+</body>
+</html>

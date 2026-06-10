@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- RDCA Contact — association details (handover §15). Online form backend to be added. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+</head>
+<body data-page="contact">
+
+<div data-rdca="masthead"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner wide">
+    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> Contact</div>
+    <div class="eyebrow">Get in touch</div>
+    <h1>Contact the RDCA</h1>
+    <p class="page-sub">Ringwood &amp; District Cricket Association — proudly serving Melbourne's eastern suburbs since 1892.</p>
+  </div>
+</header>
+
+<div class="page-wrap wide">
+  <div class="contact-grid">
+
+    <div class="panel">
+      <div class="block-hed">Association Details</div>
+      <div class="doc-list" style="margin-top:8px">
+        <a class="doc-item" href="mailto:admin@rdca.com.au"><div class="doc-ic"><i class="ti ti-mail"></i></div><div><div class="doc-tt">admin@rdca.com.au</div><div class="doc-mt">Email the association</div></div></a>
+        <a class="doc-item" href="tel:1300732200"><div class="doc-ic"><i class="ti ti-phone"></i></div><div><div class="doc-tt">1300 732 200</div><div class="doc-mt">Phone</div></div></a>
+        <div class="doc-item"><div class="doc-ic"><i class="ti ti-map-pin"></i></div><div><div class="doc-tt">Ringwood, Victoria</div><div class="doc-mt">Australia</div></div></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <a href="https://www.facebook.com/ringwooddca/" target="_blank" rel="noopener" class="csoc" aria-label="RDCA on Facebook"><i class="ti ti-brand-facebook"></i></a>
+        <a href="https://www.instagram.com/rdca6519/" target="_blank" rel="noopener" class="csoc" aria-label="RDCA on Instagram"><i class="ti ti-brand-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="panel panel-navy">
+      <div class="block-hed">Send an Enquiry</div>
+      <p class="cform-intro">Send us a message and we'll get back to you. <span class="cform-tag">(Preview form — to be replaced with the RDCA Zoho enquiry form.)</span></p>
+
+      <!-- ZOHO ENQUIRY FORM EMBED GOES HERE — replace the <form> below with the Zoho embed code -->
+      <form class="cform" id="enquiry-form" novalidate>
+        <div class="cform-row">
+          <label>Name<input type="text" name="name" placeholder="Your name" autocomplete="name"></label>
+          <label>Email<input type="email" name="email" placeholder="you@email.com" autocomplete="email"></label>
+        </div>
+        <div class="cform-row">
+          <label>Phone <span class="opt">(optional)</span><input type="tel" name="phone" placeholder="04xx xxx xxx" autocomplete="tel"></label>
+          <label>Topic
+            <select name="topic">
+              <option>General enquiry</option>
+              <option>Juniors</option>
+              <option>Seniors</option>
+              <option>Veterans</option>
+              <option>Women's cricket</option>
+              <option>Umpires</option>
+              <option>Sponsorship</option>
+            </select>
+          </label>
+        </div>
+        <label>Message<textarea name="message" rows="4" placeholder="How can we help?"></textarea></label>
+        <div class="cform-actions">
+          <button type="submit" class="btn btn-red"><i class="ti ti-send"></i> Send enquiry</button>
+          <a class="cform-tag" href="mailto:admin@rdca.com.au">or email admin@rdca.com.au</a>
+        </div>
+        <div class="cform-note" id="enquiry-note" hidden></div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="section-block" style="margin-top:24px">
+    <div class="callout callout-blue">
+      <i class="ti ti-info-circle"></i>
+      <div>Looking for a specific section? Visit <a href="/committees.html">Committees &amp; Contacts</a> for senior, junior, veterans, women's and umpires committees.</div>
+    </div>
+  </div>
+</div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script>
+  (function(){
+    var f = document.getElementById("enquiry-form");
+    if (!f) return;
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var n = document.getElementById("enquiry-note");
+      n.hidden = false;
+      n.textContent = "Thanks! This is a preview form — the live RDCA enquiry form (Zoho) will be embedded here and deliver messages straight to the association.";
+      var b = f.querySelector("button[type=submit]");
+      if (b){ b.disabled = true; b.style.opacity = ".6"; b.style.cursor = "default"; }
+    });
+  })();
+</script>
+</body>
+</html>
