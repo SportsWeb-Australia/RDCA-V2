@@ -58,17 +58,23 @@
 
   <div class="section-block">
     <div class="fov-promo">
-      <div class="fov-logo"><img src="https://res.cloudinary.com/dozdbhjhs/image/upload/v1780760760/FOV_p2scu1.avif" alt="Field of View Photography"></div>
-      <div class="fov-body">
-        <div class="fov-eyebrow">Official Photography Partner</div>
-        <div class="fov-name">Field of View Photography</div>
-        <div class="fov-copy">Capturing the moments that matter &mdash; RDCA's official photographer, covering matches, events and finals right across the season. Browse the galleries above to view and order prints.</div>
-        <div class="fov-actions">
-          <a class="btn" href="https://www.fieldofview.com.au/" target="_blank" rel="noopener"><i class="ti ti-world"></i> fieldofview.com.au</a>
-          <a class="btn" href="mailto:admin@fieldofview.com.au"><i class="ti ti-mail"></i> admin@fieldofview.com.au</a>
+      <div class="fov-info">
+        <div class="fov-logo"><img src="https://res.cloudinary.com/dozdbhjhs/image/upload/v1780760760/FOV_p2scu1.avif" alt="Field of View Photography"></div>
+        <div class="fov-body">
+          <div class="fov-eyebrow">Official Photography Partner</div>
+          <div class="fov-name">Field of View Photography</div>
+          <div class="fov-copy">Capturing the moments that matter &mdash; RDCA's official photographer, covering matches, events and finals right across the season. Browse the galleries above to view and order prints.</div>
+          <div class="fov-actions">
+            <a class="btn" href="https://www.fieldofview.com.au/" target="_blank" rel="noopener"><i class="ti ti-world"></i> fieldofview.com.au</a>
+            <a class="btn" href="mailto:admin@fieldofview.com.au"><i class="ti ti-mail"></i> admin@fieldofview.com.au</a>
+          </div>
         </div>
       </div>
-      <div class="fov-photos" id="fov-photos" aria-hidden="true"></div>
+      <div class="fov-gallery">
+        <button class="fov-nav" id="fov-prev" type="button" aria-label="Scroll back"><i class="ti ti-chevron-left" style="pointer-events:none"></i></button>
+        <div class="fov-scroll" id="fov-scroll"><div class="fov-track" id="fov-track" aria-hidden="true"></div></div>
+        <button class="fov-nav" id="fov-next" type="button" aria-label="Scroll forward"><i class="ti ti-chevron-right" style="pointer-events:none"></i></button>
+      </div>
     </div>
   </div>
 
@@ -107,11 +113,45 @@
   if (pm) pm.innerHTML = posters.map(card).join("") ||
     '<div class="empty-state"><div class="empty-ic"><i class="ti ti-file-text"></i></div><h2>Posters coming soon</h2><p>Premiership posters will appear here.</p></div>';
 
-  // partner-card photo strip — horizontal scroll of smaller individual images
-  var fp = document.getElementById("fov-photos");
-  if (fp) {
+  // partner-card photo carousel — auto-scrolling marquee with prev/next, mirrors the sponsor carousel
+  var ftrack = document.getElementById("fov-track");
+  if (ftrack) {
     var strip = (d.photoStrip || []).slice(0, 8);
-    fp.innerHTML = strip.map(function(u){ return '<img src="' + esc(u) + '" alt="" loading="lazy">'; }).join("");
+    if (strip.length) {
+      var imgs = strip.map(function(u){ return '<img src="' + esc(u) + '" alt="" loading="lazy">'; }).join("");
+      ftrack.innerHTML = imgs + imgs;   // doubled set for seamless looping
+      initFovCarousel();
+    }
+  }
+
+  function initFovCarousel(){
+    var el = document.getElementById("fov-scroll");
+    var track = document.getElementById("fov-track");
+    if (!el || !track) return;
+    var half = 0, pos = 0, speed = 0.4, boost = 0, paused = false;
+    function measure(){ half = track.scrollWidth / 2; }   // track holds the image set twice
+    measure();
+    window.addEventListener("resize", measure);
+    setTimeout(measure, 600); setTimeout(measure, 2000); // re-measure once images load
+    el.addEventListener("mouseenter", function(){ paused = true; });
+    el.addEventListener("mouseleave", function(){ paused = false; });
+    function group(){ return Math.max(el.clientWidth * 0.9, 160); }
+    var prev = document.getElementById("fov-prev"), next = document.getElementById("fov-next");
+    if (next) next.addEventListener("click", function(){ boost += group(); });
+    if (prev) prev.addEventListener("click", function(){ boost -= group(); });
+    function frame(){
+      var step = paused ? 0 : speed;
+      if (boost !== 0){
+        var rush = Math.max(speed, group() / 20);
+        var dd = boost > 0 ? Math.min(boost, rush) : Math.max(boost, -rush);
+        step += dd; boost -= dd;
+      }
+      pos += step;
+      if (half > 0){ if (pos >= half) pos -= half; else if (pos < 0) pos += half; }
+      el.scrollLeft = pos;
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
   }
 })();
 </script>
