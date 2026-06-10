@@ -153,7 +153,7 @@
     '<div class="player-side">'+
       '<div class="block-hed">Profile</div>'+
       '<div class="panel">'+
-        fact("ti-shield","Club",'<a href="/club.html?club='+encodeURIComponent(p.club)+'">'+esc(clubName)+'</a>')+
+        factIcon('<img src="'+esc(crest)+'" alt="'+esc(clubName)+'" style="width:34px;height:34px;object-fit:contain;background:#fff;border-radius:8px;padding:3px">',"Club",'<a href="/club.html?club='+encodeURIComponent(p.club)+'">'+esc(clubName)+'</a>')+
         fact("ti-trophy","Division",esc(p.grade))+
         factIcon(roleIcon(p),"Role",esc(p.role))+
         fact("ti-cricket","Batting",esc(p.bats))+

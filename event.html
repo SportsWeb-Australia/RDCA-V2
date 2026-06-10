@@ -97,6 +97,7 @@
     '<div class="ev-facts">' + facts + '</div>' +
     '<div class="ev-prose">' + prose + '</div>' +
     '<div class="empty-actions" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-start;margin-top:26px">' +
+      '<a class="btn btn-red" href="' + esc(e.ticketUrl || "#") + '"' + (e.ticketUrl ? ' target="_blank" rel="noopener"' : '') + '><i class="ti ti-ticket"></i> Buy tickets</a>' +
       '<a class="btn btn-navy" href="/events.html"><i class="ti ti-arrow-left"></i> All events</a>' +
       '<a class="btn btn-outline-red" href="/contact.html"><i class="ti ti-mail"></i> Get in touch</a>' +
     '</div>' +

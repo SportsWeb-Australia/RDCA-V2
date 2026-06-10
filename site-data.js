@@ -84,7 +84,7 @@ window.RDCA_DATA = {
   players: [
     { key:"jake-smith", name:"Jake Smith", club:"ringwood", grade:"Premier Division", role:"Opening Batter",
       bats:"Right-hand bat", bowls:"Right-arm medium", number:34, born:"2001", town:"Ringwood",
-      rarity:"Season Top Scorer", photo:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&h=760&q=75&auto=format&fit=crop&crop=faces", season:"2024/25",
+      rarity:"Season Top Scorer", photo:"/player-jake-smith.jpg", season:"2024/25",
       bat:{ M:15, Runs:687, HS:"142", Avg:57.3, SR:81.2, "50s":5, "100s":2 },
       bowl:{ M:15, Wkts:6, Best:"2/14", Avg:31.0, Econ:4.6 }, mock:true },
     { key:"mia-chen", name:"Mia Chen", club:"croydon", grade:"Premier Division", role:"All-rounder",
@@ -106,12 +106,15 @@ window.RDCA_DATA = {
   socialNote:"Live feeds from the RDCA and the wider Victorian and Australian cricket community \u2014 Facebook timelines pulled straight from each official page, with quick links to follow along on Instagram and beyond.",
   social:[
     { key:"rdca", name:"RDCA", tag:"Ringwood & District Cricket Association", fb:"https://www.facebook.com/ringwooddca",
+      igElfsight:"elfsight-app-77e3ee7b-b629-4756-ae3f-d9c9669bf1a8",
       links:[
         {t:"Facebook", u:"https://www.facebook.com/ringwooddca", i:"brand-facebook"},
         {t:"Instagram", u:"https://www.instagram.com/rdca6519", i:"brand-instagram"},
         {t:"Website",  u:"https://www.rdca.com",                 i:"world"}
       ], real:true },
     { key:"cv", name:"Cricket Victoria", tag:"State governing body \u00b7 Victoria", fb:"https://www.facebook.com/cricketvictoria",
+      igElfsight:"elfsight-app-d8dc3b0d-c826-4542-9ad4-df19d1be82d0",
+      tiktok:"https://www.tiktok.com/@vic.cricket", tiktokId:"vic.cricket",
       links:[
         {t:"Facebook",  u:"https://www.facebook.com/cricketvictoria",  i:"brand-facebook"},
         {t:"Instagram", u:"https://www.instagram.com/cricketvictoria", i:"brand-instagram"},
@@ -119,6 +122,8 @@ window.RDCA_DATA = {
         {t:"Website",   u:"https://www.cricketvictoria.com.au",         i:"world"}
       ], real:true },
     { key:"ca", name:"Cricket Australia", tag:"National governing body", fb:"https://www.facebook.com/cricketcomau",
+      igElfsight:"elfsight-app-b4e629f8-43e9-4069-9b2f-a287b0d84cf8",
+      tiktok:"https://www.tiktok.com/@cricketaus", tiktokId:"cricketaus",
       links:[
         {t:"Facebook",  u:"https://www.facebook.com/cricketcomau",      i:"brand-facebook"},
         {t:"Instagram", u:"https://www.instagram.com/cricketaustralia", i:"brand-instagram"},
@@ -227,7 +232,7 @@ window.RDCA_DATA = {
       codeOfConduct:{ label:"Veterans Code of Conduct", url:"https://www.rdca.com/veterans-code-of-conduct", real:true }
     },
     womens: {
-      title:"Women's", icon:"ti-ball-baseball",
+      title:"Women's", icon:"ti-cricket",
       blurb:"Women's cricket in the RDCA, played in the East competition.",
       playhqKey:"womens",
       aboutText:"<p>Women&rsquo;s cricket in the RDCA is played in the East competition, offering a welcoming and competitive environment for women and girls to take up or continue playing. New players of all experience levels are encouraged to get involved through their local club.</p>",

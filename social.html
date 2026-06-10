@@ -78,7 +78,10 @@
     // Behold) connected to that account, or a Meta Graph token — IG has no free plugin like Facebook's.
     var ig = (o.links || []).filter(function(l){ return l.i === "brand-instagram"; })[0];
     var igCol = "";
-    if (o.igEmbed) {
+    if (o.igElfsight) {
+      igCol = '<div class="soc-feed-col"><div class="soc-feed-head"><i class="ti ti-brand-instagram"></i> Instagram</div>' +
+              '<div class="ig-elfsight"><div class="' + esc(o.igElfsight) + '" data-elfsight-app-lazy></div></div></div>';
+    } else if (o.igEmbed) {
       igCol = '<div class="soc-feed-col"><div class="soc-feed-head"><i class="ti ti-brand-instagram"></i> Instagram</div>' +
               '<iframe class="ig-embed" title="' + esc(o.name) + ' on Instagram" src="' + esc(o.igEmbed) + '" ' +
               'loading="lazy" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div>';
@@ -103,16 +106,23 @@
           'allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>'
       : '';
 
-    // TikTok — only if the organisation has one
-    var tkCol = o.tiktok
-      ? '<div class="soc-feed-col"><div class="soc-feed-head"><i class="ti ti-brand-tiktok"></i> TikTok</div>' +
+    // TikTok — official creator embed when configured
+    var tkCol = "";
+    if (o.tiktokId) {
+      var tkUrl = o.tiktok || ("https://www.tiktok.com/@" + o.tiktokId);
+      tkCol = '<div class="soc-feed-col"><div class="soc-feed-head"><i class="ti ti-brand-tiktok"></i> TikTok</div>' +
+              '<div class="tk-embed-wrap"><blockquote class="tiktok-embed" cite="' + esc(tkUrl) + '" data-unique-id="' + esc(o.tiktokId) + '" data-embed-type="creator" style="max-width:780px;min-width:288px;margin:0">' +
+                '<section><a target="_blank" href="' + esc(tkUrl) + '?refer=creator_embed">@' + esc(o.tiktokId) + '</a></section>' +
+              '</blockquote></div></div>';
+    } else if (o.tiktok) {
+      tkCol = '<div class="soc-feed-col"><div class="soc-feed-head"><i class="ti ti-brand-tiktok"></i> TikTok</div>' +
           '<a class="tk-card" href="' + esc(o.tiktok) + '" target="_blank" rel="noopener" aria-label="' + esc(o.name) + ' on TikTok">' +
             '<div class="tk-card-ic"><i class="ti ti-brand-tiktok"></i></div>' +
             '<div class="ig-card-handle">@' + esc(handleFrom(o.tiktok, "tiktok.com/@")) + '</div>' +
             '<div class="ig-card-sub">Watch the latest clips</div>' +
             '<span class="tk-card-btn">View TikTok <i class="ti ti-external-link"></i></span>' +
-          '</a></div>'
-      : '';
+          '</a></div>';
+    }
 
     var feeds = (fbCol || igCol || tkCol) ? '<div class="soc-feeds">' + igCol + fbCol + tkCol + '</div>' : '';
     return '<section class="soc-block">' +
@@ -126,6 +136,11 @@
 
   document.getElementById("social-mount").innerHTML = html ||
     '<div class="empty-state"><div class="empty-ic"><i class="ti ti-brand-facebook"></i></div><h2>Feeds coming soon</h2><p>Social feeds will appear here.</p></div>';
+
+  // Load third-party feed scripts AFTER their target elements exist in the DOM
+  function loadOnce(src){ if (document.querySelector('script[data-feed="'+src+'"]')) return; var s=document.createElement("script"); s.async=true; s.src=src; s.setAttribute("data-feed",src); document.body.appendChild(s); }
+  if (orgs.some(function(o){ return o.igElfsight; })) loadOnce("https://elfsightcdn.com/platform.js");
+  if (orgs.some(function(o){ return o.tiktokId; }))   loadOnce("https://www.tiktok.com/embed.js");
 })();
 </script>
 </body>

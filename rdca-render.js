@@ -144,7 +144,7 @@
       var catIcon = {
         "Association":"ti-flag", "Representative":"ti-shield-half-filled",
         "Umpires":"ti-gavel", "Finals":"ti-trophy", "Juniors":"ti-friends",
-        "Women's":"ti-ball-baseball", "Seniors":"ti-trophy", "Veterans":"ti-medal"
+        "Women's":"ti-cricket", "Seniors":"ti-trophy", "Veterans":"ti-medal"
       };
       var html = (D().news || []).map(function (n) {
         var href = n.slug ? ("/article.html?slug=" + encodeURIComponent(n.slug)) : esc(n.url);
@@ -157,6 +157,29 @@
                  '<div class="tile-tx">' + esc(n.cat) + ' &middot; ' + esc(n.date) + '<br>' + esc(n.excerpt) + '</div></div></a>';
       }).join("");
       set(sel, html);
+    },
+
+    // ---- featured latest article (hero card at top of news page) ----
+    newsFeatured: function (sel) {
+      var list = D().news || [];
+      if (!list.length) { set(sel, ""); return; }
+      var n = list[0];
+      var catIcon = { "Association":"ti-flag","Representative":"ti-shield-half-filled","Umpires":"ti-gavel","Finals":"ti-trophy","Juniors":"ti-friends","Women's":"ti-cricket","Seniors":"ti-trophy","Veterans":"ti-medal" };
+      var href = n.slug ? ("/article.html?slug=" + encodeURIComponent(n.slug)) : esc(n.url);
+      var media = n.image
+        ? '<div class="news-feat-media"><img src="' + esc(n.image) + '" alt="' + esc(n.title) + '"></div>'
+        : '<div class="news-feat-media is-ic"><i class="ti ' + (catIcon[n.cat] || "ti-news") + '"></i></div>';
+      set(sel,
+        '<a class="news-feat" href="' + href + '">' +
+          media +
+          '<div class="news-feat-body">' +
+            '<span class="news-feat-tag"><i class="ti ti-star-filled"></i> Latest article</span>' +
+            '<div class="news-feat-cat">' + esc(n.cat) + ' &middot; ' + esc(n.date) + '</div>' +
+            '<h2 class="news-feat-title">' + esc(n.title) + '</h2>' +
+            '<p class="news-feat-ex">' + esc(n.excerpt) + '</p>' +
+            '<span class="news-feat-link">Read article <i class="ti ti-arrow-right"></i></span>' +
+          '</div>' +
+        '</a>');
     },
 
     // ---- news archive (compact list of older items) ----
@@ -211,12 +234,16 @@
       var P = (typeof window !== "undefined" && window.RDCA_PLAYHQ) ? window.RDCA_PLAYHQ : {};
       var comp = (P.competitions || {})[s.playhqKey] || {};
       var facts = [];
-      if (comp.label)        facts.push(["ti-trophy", "Competition", comp.label]);
-      if (comp.season)       facts.push(["ti-calendar-event", "Season", comp.season]);
-      if (s.committee && s.committee.label) facts.push(["ti-users", "Administered by", s.committee.label]);
+      if (comp.label)        facts.push(["ti-trophy", "Competition", esc(comp.label)]);
+      if (comp.season)       facts.push(["ti-calendar-event", "Season", esc(comp.season)]);
+      if (s.committee && s.committee.label) {
+        var cval = esc(s.committee.label);
+        if (s.committee.url) cval = '<a class="sec-fact-link" href="' + esc(s.committee.url) + '">' + cval + '</a>';
+        facts.push(["ti-users", "Administered by", cval]);
+      }
       var factsHtml = facts.map(function (f) {
         return '<div class="sec-fact"><span class="sec-fact-ic"><i class="ti ' + f[0] + '"></i></span>' +
-               '<div class="sec-fact-tx"><span>' + esc(f[1]) + '</span><b>' + esc(f[2]) + '</b></div></div>';
+               '<div class="sec-fact-tx"><span>' + esc(f[1]) + '</span><b>' + f[2] + '</b></div></div>';
       }).join("");
       set(sel,
         '<div class="section-block"><div class="sec-about">' +

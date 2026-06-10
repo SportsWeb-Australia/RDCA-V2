@@ -193,3 +193,26 @@
     if (b) { e.preventDefault(); enable(); }
   });
 })();
+
+/* ---- Back-to-top button (all pages) ---- */
+(function () {
+  if (document.getElementById("rdcaToTop")) return;
+  var b = document.createElement("button");
+  b.id = "rdcaToTop";
+  b.type = "button";
+  b.setAttribute("aria-label", "Back to top");
+  b.innerHTML = '<i class="ti ti-arrow-up"></i>';
+  b.style.cssText = "position:fixed;right:20px;bottom:20px;z-index:1200;width:46px;height:46px;border:none;border-radius:50%;background:#0d1f3c;color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(13,31,60,.32);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s";
+  b.addEventListener("mouseenter", function () { b.style.background = "#cc2222"; });
+  b.addEventListener("mouseleave", function () { b.style.background = "#0d1f3c"; });
+  b.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+  function show() {
+    var on = window.scrollY > 400;
+    b.style.opacity = on ? "1" : "0";
+    b.style.visibility = on ? "visible" : "hidden";
+    b.style.transform = on ? "translateY(0)" : "translateY(8px)";
+  }
+  function mount() { if (document.body && !b.parentNode) { document.body.appendChild(b); show(); } }
+  window.addEventListener("scroll", show, { passive: true });
+  if (document.body) mount(); else document.addEventListener("DOMContentLoaded", mount);
+})();

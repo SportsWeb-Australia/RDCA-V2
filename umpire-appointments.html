@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- RDCA Umpire Appointments — who is officiating where each round. Self-contained sample content. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Umpire Appointments — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+<style>
+  .ua-round{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--red);border-radius:12px;padding:13px 16px;margin-bottom:22px;box-shadow:var(--shadow)}
+  .ua-round i{color:var(--red);font-size:18px}
+  .ua-round b{color:var(--navy);font-size:14px}
+  .ua-round span{color:var(--muted);font-size:13px}
+  .ua-div{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.4px;color:var(--navy);margin:26px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px}
+  .ua-div:first-of-type{margin-top:4px}
+  .ua-div i{color:var(--red);font-size:18px}
+  .ua-list{display:flex;flex-direction:column;gap:12px}
+  .ua-card{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 20px}
+  .ua-match{flex:1;min-width:220px}
+  .ua-teams{font-weight:700;font-size:15px;color:var(--navy);line-height:1.3}
+  .ua-teams .v{color:var(--muted);font-weight:600;margin:0 6px}
+  .ua-meta{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:6px;margin-top:4px;flex-wrap:wrap}
+  .ua-meta i{font-size:13px}
+  .ua-officials{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .ua-ump{display:flex;align-items:center;gap:9px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:8px 13px}
+  .ua-ump-ic{width:32px;height:32px;border-radius:8px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+  .ua-ump-tx{display:flex;flex-direction:column}
+  .ua-ump-tx span{font-size:9.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+  .ua-ump-tx b{font-size:13px;color:var(--navy);font-weight:700;line-height:1.2}
+  .ua-tbc{font-size:13px;color:var(--muted);font-style:italic}
+  @media(max-width:620px){.ua-card{align-items:flex-start}}
+</style>
+</head>
+<body data-page="umpires">
+
+<div data-rdca="masthead"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> <a href="/umpires.html">Umpires</a> <i class="ti ti-chevron-right"></i> Appointments</div>
+    <div class="eyebrow">Match Officials</div>
+    <h1>Umpire Appointments</h1>
+    <p class="page-sub">Who's officiating where this round across the RDCA. Appointments are confirmed by the Umpires Panel each week.</p>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <div class="ua-round">
+    <i class="ti ti-calendar-event"></i>
+    <b>Round 15</b> <span>&middot; Saturday 14 December &middot; Appointments confirmed</span>
+  </div>
+
+  <div class="ua-div"><i class="ti ti-trophy"></i> Premier Division</div>
+  <div class="ua-list">
+    <div class="ua-card">
+      <div class="ua-match">
+        <div class="ua-teams">Ringwood CC <span class="v">v</span> Croydon CC</div>
+        <div class="ua-meta"><i class="ti ti-map-pin"></i> Ringwood Reserve <span>&middot;</span> <i class="ti ti-clock"></i> 11:00 AM</div>
+      </div>
+      <div class="ua-officials">
+        <div class="ua-ump"><span class="ua-ump-ic"><i class="ti ti-gavel"></i></span><span class="ua-ump-tx"><span>Field</span><b>P. Anderson</b></span></div>
+        <div class="ua-ump"><span class="ua-ump-ic"><i class="ti ti-gavel"></i></span><span class="ua-ump-tx"><span>Field</span><b>M. Chen</b></span></div>
+      </div>
+    </div>
+    <div class="ua-card">
+      <div class="ua-match">
+        <div class="ua-teams">North Ringwood CC <span class="v">v</span> Lilydale CC</div>
+        <div class="ua-meta"><i class="ti ti-map-pin"></i> Quambee Reserve <span>&middot;</span> <i class="ti ti-clock"></i> 11:00 AM</div>
+      </div>
+      <div class="ua-officials">
+        <div class="ua-ump"><span class="ua-ump-ic"><i class="ti ti-gavel"></i></span><span class="ua-ump-tx"><span>Field</span><b>D. Roberts</b></span></div>
+        <div class="ua-ump"><span class="ua-ump-ic"><i class="ti ti-gavel"></i></span><span class="ua-ump-tx"><span>Field</span><b>S. Patel</b></span></div>
+      </div>
+    </div>
+    <div class="ua-card">
+      <div class="ua-match">
+        <div class="ua-teams">Wonga Park CC <span class="v">v</span> Warranwood CC</div>
+        <div class="ua-meta"><i class="ti ti-map-pin"></i> Wonga Park Reserve <span>&middot;</span> <i class="ti ti-clock"></i> 11:00 AM</div>
+      </div>
+      <div class="ua-officials">
+        <div class="ua-ump"><span class="ua-ump-ic"><i class="ti ti-gavel"></i></span><span class="ua-ump-tx"><span>Field</span><b>J. Thompson</b></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ua-div"><i class="ti ti-trophy"></i> Division 1</div>
+  <div class="ua-list">
+    <div class="ua-card">
+      <div class="ua-match">
+        <div class="ua-teams">Montrose CC <span class="v">v</span> Kilsyth CC</div>
+        <div class="ua-meta"><i class="ti ti-map-pin"></i> Montrose Recreation Reserve <span>&middot;</span> <i class="ti ti-clock"></i> 12:30 PM</div>
+      </div>
+      <div class="ua-officials">
+        <div class="ua-ump"><span class="ua-ump-ic"><i class="ti ti-gavel"></i></span><span class="ua-ump-tx"><span>Field</span><b>A. Wright</b></span></div>
+      </div>
+    </div>
+    <div class="ua-card">
+      <div class="ua-match">
+        <div class="ua-teams">Coldstream CC <span class="v">v</span> Mt Evelyn CC</div>
+        <div class="ua-meta"><i class="ti ti-map-pin"></i> Coldstream Reserve <span>&middot;</span> <i class="ti ti-clock"></i> 12:30 PM</div>
+      </div>
+      <div class="ua-officials">
+        <div class="ua-ump"><span class="ua-ump-ic"><i class="ti ti-gavel"></i></span><span class="ua-ump-tx"><span>Field</span><b>B. Singh</b></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ua-div"><i class="ti ti-trophy"></i> Division 2</div>
+  <div class="ua-list">
+    <div class="ua-card">
+      <div class="ua-match">
+        <div class="ua-teams">South Croydon CC <span class="v">v</span> Mooroolbark CC</div>
+        <div class="ua-meta"><i class="ti ti-map-pin"></i> Cheong Park <span>&middot;</span> <i class="ti ti-clock"></i> 12:30 PM</div>
+      </div>
+      <div class="ua-officials">
+        <div class="ua-tbc"><i class="ti ti-clock-hour-4"></i> Club-appointed &mdash; to be confirmed</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" style="margin-top:26px">
+    <div class="callout callout-blue">
+      <i class="ti ti-info-circle"></i>
+      <div>Appointments are made by the RDCA Umpires Panel and can change up to match day. For umpiring enquiries, see <a href="/umpires.html">Umpires</a> or <a href="/contact.html">contact the association</a>.</div>
+    </div>
+  </div>
+
+  <p class="muted-note" style="margin-top:8px">Round, fixtures and appointments shown are illustrative sample data.</p>
+</div>
+
+<div data-rdca="ad-banner"></div>
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+</body>
+</html>

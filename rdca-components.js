@@ -54,7 +54,7 @@
   <a href="/competition.html" class="mob-link"><i class="ti ti-layout-grid"></i> Competition Hub</a>
   <a href="/seniors.html" class="mob-link"><i class="ti ti-trophy"></i> Seniors</a>
   <a href="/juniors.html" class="mob-link"><i class="ti ti-friends"></i> Juniors</a>
-  <a href="/womens.html" class="mob-link"><i class="ti ti-ball-baseball"></i> Women's</a>
+  <a href="/womens.html" class="mob-link"><i class="ti ti-cricket"></i> Women's</a>
   <a href="/veterans.html" class="mob-link"><i class="ti ti-medal"></i> Veterans</a>
   <a href="/community-big-bash.html" class="mob-link"><i class="ti ti-flame"></i> Community Big Bash</a>
   <div class="mob-group">Club &amp; Community</div>
@@ -69,6 +69,8 @@
   <a href="/board.html" class="mob-link"><i class="ti ti-users"></i> The Board</a>
   <a href="/committees.html" class="mob-link"><i class="ti ti-address-book"></i> Committees &amp; Contacts</a>
   <a href="/umpires.html" class="mob-link"><i class="ti ti-gavel"></i> Umpires</a>
+  <a href="/umpire-appointments.html" class="mob-link"><i class="ti ti-clipboard-check"></i> Umpire Appointments</a>
+  <a href="/events.html" class="mob-link"><i class="ti ti-calendar"></i> Events</a>
   <a href="/documents.html" class="mob-link"><i class="ti ti-folder"></i> Documents &amp; Forms</a>
   <a href="/sponsors.html" class="mob-link"><i class="ti ti-heart-handshake"></i> Sponsors &amp; Partners</a>
   <a href="/child-safety.html" class="mob-link"><i class="ti ti-shield-check"></i> Child Safety</a>
@@ -111,6 +113,8 @@
           <a href="/board.html">The Board</a>
           <a href="/committees.html">Committees &amp; Contacts</a>
           <a href="/umpires.html">Umpires</a>
+          <a href="/umpire-appointments.html">Umpire Appointments</a>
+          <a href="/events.html">Events</a>
           <a href="/documents.html">Documents &amp; Forms</a>
           <a href="/sponsors.html">Sponsors &amp; Partners</a>
           <a href="/child-safety.html">Child Safety</a>
@@ -159,7 +163,7 @@
   <div class="footer-top">
     <div>
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-        <img src="${LOGO}" alt="RDCA" style="width:52px;height:52px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))">
+        <a href="/index.html" aria-label="RDCA home" style="display:inline-flex"><img src="${LOGO}" alt="RDCA" style="width:52px;height:52px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))"></a>
         <div><div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;letter-spacing:.5px">RDCA</div><div style="font-size:10px;color:rgba(255,255,255,.82)">Ringwood &amp; District Cricket Association</div></div>
       </div>
       <div style="font-size:12px;color:rgba(255,255,255,.85);line-height:1.7;max-width:240px;margin-bottom:14px">Proudly serving Melbourne's eastern suburbs. Dedicated to growing the great game of cricket in the east.</div>
@@ -178,7 +182,7 @@
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">RDCA</div>
-      <a class="f-link" href="/board.html">The Board</a><a class="f-link" href="/committees.html">Committees &amp; Contacts</a><a class="f-link" href="/umpires.html">Umpires</a><a class="f-link" href="/documents.html">Documents &amp; Forms</a><a class="f-link" href="/child-safety.html">Child Safety</a><a class="f-link" href="/contact.html">Contact</a>
+      <a class="f-link" href="/board.html">The Board</a><a class="f-link" href="/committees.html">Committees &amp; Contacts</a><a class="f-link" href="/umpires.html">Umpires</a><a class="f-link" href="/umpire-appointments.html">Umpire Appointments</a><a class="f-link" href="/events.html">Events</a><a class="f-link" href="/documents.html">Documents &amp; Forms</a><a class="f-link" href="/child-safety.html">Child Safety</a><a class="f-link" href="/contact.html">Contact</a>
     </div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.04);padding:14px 20px">
