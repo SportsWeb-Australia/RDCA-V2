@@ -65,6 +65,7 @@ img{display:block;max-width:100%}
 .mob-link{padding:13px 16px;font-size:15px;font-weight:500;color:rgba(255,255,255,.75);border-radius:10px;display:flex;align-items:center;gap:10px;transition:all .15s}
 .mob-link:hover{background:rgba(255,255,255,.08);color:#fff}
 .mob-link i{font-size:18px;width:24px;color:rgba(255,255,255,.4)}
+.mob-link-logo{width:24px;height:22px;object-fit:contain;flex-shrink:0}
 /* TICKER */
 .ticker-bar{background:#060e1a;padding:8px 0;overflow:hidden}
 .ticker-inner{display:flex;align-items:center}

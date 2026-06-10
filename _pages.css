@@ -38,7 +38,7 @@
 
 /* ---- link tiles (section landing, quick links) ---- */
 .tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.tile{display:flex;gap:13px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+.tile{display:flex;gap:13px;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
 .tile:hover{transform:translateY(-2px);box-shadow:var(--shadow2);border-color:rgba(204,34,34,.35)}
 .tile-ic{flex:0 0 48px;width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;font-size:27px;box-shadow:0 4px 12px rgba(13,31,60,.28)}
 .tile-ic i{color:#fff;filter:drop-shadow(0 1px 1px rgba(0,0,0,.25))}
@@ -142,6 +142,7 @@
 .callout-navy strong{color:#fff}
 .callout-navy a{color:#ff7a7a}
 .callout-navy a.btn,.callout-navy .btn{color:#fff}
+@media(max-width:560px){.callout{flex-wrap:wrap}.callout .btn{flex:1 1 100%;justify-content:center;margin-top:6px}}
 .callout-navy i{background:var(--red);color:#fff;box-shadow:0 2px 8px rgba(204,34,34,.45)}
 
 /* ---- intentionally-blank / awaiting-content empty state ---- */
@@ -159,10 +160,10 @@
 @media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
 .csoc{width:42px;height:42px;border-radius:10px;background:var(--navy);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:20px;text-decoration:none;transition:all .15s}
 .csoc:hover{background:#ee2b2b;transform:translateY(-2px);box-shadow:0 6px 16px rgba(238,43,43,.4)}
-.ad-banner-wrap{max-width:1480px;margin:0 auto;padding:16px 20px}
+.ad-banner-wrap{max-width:1480px;margin:0 auto;padding:16px 20px;position:relative}
 .ad-banner{position:relative;display:flex;align-items:center;gap:20px;flex-wrap:wrap;background:linear-gradient(120deg,#0d1f3c,#1e3d6b);border-radius:16px;padding:20px 22px;overflow:hidden;box-shadow:var(--shadow)}
 .ad-banner::after{content:"";position:absolute;top:0;left:0;bottom:0;width:5px;background:linear-gradient(180deg,#ee2b2b,#a3161f)}
-.ad-flag{position:absolute;top:9px;right:14px;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.ad-flag{position:absolute;top:16px;right:34px;transform:translateY(-50%);z-index:4;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.82);background:linear-gradient(135deg,#0d1f3c,#1e3d6b);border:1px solid rgba(255,255,255,.22);padding:4px 11px;border-radius:20px;box-shadow:0 3px 10px rgba(6,12,24,.4)}
 .ad-dummy{flex:1;min-width:220px;display:flex;align-items:center;gap:16px}
 .ad-dummy-logo{width:54px;height:54px;flex-shrink:0;border-radius:13px;background:rgba(255,255,255,.1);border:1px dashed rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:27px;color:rgba(255,255,255,.85)}
 .ad-dummy-tx{display:flex;flex-direction:column;min-width:0}
@@ -242,6 +243,7 @@
 .tl-grade{font-size:13px;font-weight:600;color:var(--text)}
 .tl-club{font-size:13px;font-weight:700;color:var(--navy)}
 .tl-tbc{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);background:var(--bg);border:1px dashed var(--border);padding:3px 10px;border-radius:20px}
+@media(max-width:560px){.tl{margin-top:10px}.tl-item{margin-bottom:26px}.tl-card{padding:6px 14px;margin-top:10px}.tl-win{padding:13px 0}.tl-season{font-size:24px}}
 
 /* native prose blocks (section about / code of conduct) */
 .prose{color:var(--text);font-size:14px;line-height:1.65;max-width:760px}
@@ -293,7 +295,7 @@
 .folder-body{background:var(--card);border:1px solid var(--border);border-top:none;border-radius:0 0 var(--r) var(--r);padding:18px;box-shadow:var(--shadow)}
 .folder-pane{display:none}
 .folder-pane.active{display:block}
-@media(max-width:560px){.folder-tab{font-size:14px;padding:9px 12px 11px}.folder-tab.active{padding-bottom:13px}.folder-body{padding:14px}}
+@media(max-width:560px){.folder-tabs{gap:8px;padding:0;border-bottom:none;align-items:stretch;margin-bottom:12px}.folder-tab{top:0;font-size:14px;padding:10px 14px;border:1px solid var(--border);border-radius:10px}.folder-tab.active{top:0;padding:10px 14px;border-color:var(--navy);box-shadow:none}.folder-body{padding:14px;border-top:1px solid var(--border);border-radius:var(--r)}}
 
 /* ---- single club profile page ---- */
 .club-hero{position:relative;color:#fff;overflow:hidden}
@@ -391,6 +393,7 @@ body[data-page="umpires"] .page-wrap .section-block{max-width:1180px;margin-left
 
 /* flip card */
 .tcard-wrap{width:360px;max-width:100%;perspective:1500px}
+@media(max-width:560px){.tcard-wrap{width:84%;max-width:320px;margin:8px auto 12px}}
 .tcard{position:relative;width:100%;aspect-ratio:63/88;cursor:pointer}
 .tcard-inner{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
 .tcard.flipped .tcard-inner{transform:rotateY(180deg)}
@@ -442,7 +445,7 @@ body[data-page="umpires"] .page-wrap .section-block{max-width:1180px;margin-left
 .fov-logo{background:#fff;border-radius:10px;padding:10px 14px;display:flex;align-items:center;flex-shrink:0}
 .fov-logo img{height:42px;max-width:160px;object-fit:contain;display:block}
 .fov-body{flex:1;min-width:240px}
-.fov-photos{flex:1 1 360px;min-width:260px;align-self:stretch;display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.fov-photos{flex:1 1 100%;width:100%;margin-top:6px;display:flex;gap:12px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
 .fov-photos img{flex:0 0 auto;width:150px;height:150px;object-fit:cover;border-radius:11px;border:2px solid rgba(255,255,255,.32);box-shadow:0 4px 12px rgba(0,0,0,.2);scroll-snap-align:start}
 .fov-photos::-webkit-scrollbar{height:7px}
 .fov-photos::-webkit-scrollbar-thumb{background:rgba(255,255,255,.4);border-radius:10px}
@@ -491,7 +494,7 @@ body[data-page="umpires"] .page-wrap .section-block{max-width:1180px;margin-left
 .ev-detail-hero h1{font-family:'Bebas Neue',sans-serif;font-size:42px;line-height:1;letter-spacing:.5px;margin:0 0 6px}
 .ev-detail-sub{font-size:14px;color:rgba(255,255,255,.85)}
 .ev-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:22px 0}
-.ev-fact{background:var(--card);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 16px;display:flex;gap:12px;align-items:flex-start;box-shadow:var(--shadow)}
+.ev-fact{background:var(--card);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 16px;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow)}
 .ev-fact > .ti{font-size:20px;color:var(--red);flex-shrink:0;margin-top:1px}
 .ev-fact-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:3px}
 .ev-fact-v{font-size:14px;font-weight:600;color:var(--navy);line-height:1.35}
@@ -619,7 +622,7 @@ body[data-page="umpires"] .page-wrap .section-block{max-width:1180px;margin-left
 
 /* ===== Social page — multi-channel feeds ===== */
 .soc-feeds{display:flex;flex-direction:column;gap:20px;align-items:stretch}
-.soc-feed-col{display:flex;flex-direction:column;gap:8px;width:100%;max-width:500px}
+.soc-feed-col{display:flex;flex-direction:column;gap:8px;width:100%;max-width:1400px}
 .ig-embed{width:100%;min-height:360px;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#fff;box-shadow:var(--shadow);display:block}
 .ig-strip{width:100%;border-radius:14px;border:1px solid var(--border);box-shadow:var(--shadow);text-decoration:none;display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:22px 26px;background:linear-gradient(120deg,#feda75,#fa7e1e 22%,#d62976 52%,#962fbf 78%,#4f5bd5);color:#fff;transition:transform .15s,box-shadow .15s}
 .ig-strip:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(214,41,118,.4)}
@@ -668,7 +671,8 @@ body[data-page="umpires"] .page-wrap .section-block{max-width:1180px;margin-left
 
 /* social third-party feed wrappers (Elfsight Instagram, TikTok embed) */
 .ig-elfsight{width:100%;min-height:420px}
-.tk-embed-wrap{width:100%;min-height:500px;display:flex;justify-content:flex-start}
+.tk-embed-wrap{width:100%;min-height:0;display:flex;justify-content:flex-start}
+@media(max-width:560px){.tk-embed-wrap{max-height:540px;overflow:hidden}}
 .tk-embed-wrap .tiktok-embed{margin:0!important;width:100%}
 
 /* roomier vertical rhythm on the section pages (seniors/juniors/veterans/women's) */

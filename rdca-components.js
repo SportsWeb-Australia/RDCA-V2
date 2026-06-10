@@ -58,7 +58,7 @@
   <a href="/veterans.html" class="mob-link"><i class="ti ti-medal"></i> Veterans</a>
   <a href="/community-big-bash.html" class="mob-link"><i class="ti ti-flame"></i> Community Big Bash</a>
   <div class="mob-group">Club &amp; Community</div>
-  <a href="/clubs.html" class="mob-link"><i class="ti ti-buildings"></i> Clubs</a>
+  <a href="/clubs.html" class="mob-link"><img src="/rdca-logo.png" class="mob-link-logo" alt=""> Clubs</a>
   <a href="/news.html" class="mob-link"><i class="ti ti-news"></i> News</a>
   <a href="/honours.html" class="mob-link"><i class="ti ti-award"></i> Honours</a>
   <div class="mob-group">Media</div>
@@ -76,7 +76,8 @@
   <a href="/child-safety.html" class="mob-link"><i class="ti ti-shield-check"></i> Child Safety</a>
   <a href="/communications.html" class="mob-link"><i class="ti ti-broadcast"></i> Communications</a>
   <a href="/contact.html" class="mob-link"><i class="ti ti-mail"></i> Contact</a>
-  <div style="margin-top:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)">
+  <div style="margin-top:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:10px">
+    <a class="btn btn-outline-white" style="width:100%;justify-content:center" href="https://store.rdca.com" target="_blank" rel="noopener"><i class="ti ti-shopping-cart"></i> Visit the Store</a>
     <a class="btn btn-red" style="width:100%;justify-content:center" href="/register.html"><i class="ti ti-user-plus"></i> Register for 2026-27</a>
   </div>
 </div>`,
@@ -122,6 +123,7 @@
           <a href="/contact.html">Contact</a>
         </div>
       </div>
+      <a class="nav-link" href="https://store.rdca.com" target="_blank" rel="noopener"><i class="ti ti-shopping-cart"></i> Store</a>
     </div>
     <div class="nav-actions">
       <button class="nav-icon-btn" data-rdca-alerts type="button" data-tip="Match-day alerts" aria-label="Match-day alerts"><i class="ti ti-bell" style="font-size:18px"></i></button>
@@ -137,8 +139,7 @@
     <div class="ticker-scroll"><div class="ticker-track"><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">Ringwood CC <b class="tk-sc">4/187</b><span class="tk-ov">42.2 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Croydon CC <b class="tk-sc">223</b></span><span class="tk-nt">Ringwood need 37 runs off 48 balls</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">North Ringwood CC <b class="tk-sc">3/96</b><span class="tk-ov">28.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Lilydale CC <b class="tk-sc">142</b></span><span class="tk-nt">North Ringwood need 47 to win</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">Wonga Park CC <b class="tk-sc">2/201</b><span class="tk-ov">38.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Warranwood CC <b class="tk-sc">264</b></span><span class="tk-nt">Wonga Park trail by 63, 12 overs left</span></div><div class="tk-it"><span class="tk-gr">Division 1</span><span class="tk-stat">Tea</span><span class="tk-tm">Montrose CC <b class="tk-sc">1/40</b><span class="tk-ov">12.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Kilsyth CC <b class="tk-sc">156</b></span><span class="tk-nt">Montrose need 117 to win</span></div><div class="tk-it"><span class="tk-gr">Division 1</span><span class="tk-live">Live</span><span class="tk-tm">Coldstream CC <b class="tk-sc">3/178</b><span class="tk-ov">36.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Mt Evelyn CC <b class="tk-sc">211</b></span><span class="tk-nt">Coldstream need 34 runs off 24 balls</span></div><div class="tk-it"><span class="tk-gr">Division 2</span><span class="tk-stat">Stumps</span><span class="tk-tm">South Croydon CC <b class="tk-sc">8/243</b><span class="tk-ov">80.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Mooroolbark CC <b class="tk-sc">4/131</b><span class="tk-ov">45.0 ov</span></span><span class="tk-nt">Mooroolbark trail by 112 — Day 1 of 2</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">Ringwood CC <b class="tk-sc">4/187</b><span class="tk-ov">42.2 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Croydon CC <b class="tk-sc">223</b></span><span class="tk-nt">Ringwood need 37 runs off 48 balls</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">North Ringwood CC <b class="tk-sc">3/96</b><span class="tk-ov">28.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Lilydale CC <b class="tk-sc">142</b></span><span class="tk-nt">North Ringwood need 47 to win</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">Wonga Park CC <b class="tk-sc">2/201</b><span class="tk-ov">38.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Warranwood CC <b class="tk-sc">264</b></span><span class="tk-nt">Wonga Park trail by 63, 12 overs left</span></div><div class="tk-it"><span class="tk-gr">Division 1</span><span class="tk-stat">Tea</span><span class="tk-tm">Montrose CC <b class="tk-sc">1/40</b><span class="tk-ov">12.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Kilsyth CC <b class="tk-sc">156</b></span><span class="tk-nt">Montrose need 117 to win</span></div><div class="tk-it"><span class="tk-gr">Division 1</span><span class="tk-live">Live</span><span class="tk-tm">Coldstream CC <b class="tk-sc">3/178</b><span class="tk-ov">36.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Mt Evelyn CC <b class="tk-sc">211</b></span><span class="tk-nt">Coldstream need 34 runs off 24 balls</span></div><div class="tk-it"><span class="tk-gr">Division 2</span><span class="tk-stat">Stumps</span><span class="tk-tm">South Croydon CC <b class="tk-sc">8/243</b><span class="tk-ov">80.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Mooroolbark CC <b class="tk-sc">4/131</b><span class="tk-ov">45.0 ov</span></span><span class="tk-nt">Mooroolbark trail by 112 — Day 1 of 2</span></div></div></div></div>
   </div>
 </div>`,
-    "ad-banner": `<div class="ad-banner-wrap"><div class="ad-banner">
-  <span class="ad-flag">Advertisement</span>
+    "ad-banner": `<div class="ad-banner-wrap"><span class="ad-flag">Advertisement</span><div class="ad-banner">
   <div class="ad-dummy">
     <div class="ad-dummy-logo"><i class="ti ti-building-store"></i></div>
     <div class="ad-dummy-tx"><b>Your Business Here</b><span>Put your brand in front of 4,200+ local cricketers and families every week across the RDCA.</span></div>
@@ -178,11 +179,11 @@
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">Club &amp; Community</div>
-      <a class="f-link" href="/clubs.html">Clubs</a><a class="f-link" href="/news.html">News</a><a class="f-link" href="/honours.html">Honours</a><a class="f-link" href="/photos.html">Photos</a><a class="f-link" href="/video.html">Live Video</a><a class="f-link" href="/social.html">Social Media</a><a class="f-link" href="/sponsors.html">Sponsors &amp; Partners</a>
+      <a class="f-link" href="/clubs.html">Clubs</a><a class="f-link" href="/news.html">News</a><a class="f-link" href="/honours.html">Honours</a><a class="f-link" href="/photos.html">Photos</a><a class="f-link" href="/video.html">Live Video</a><a class="f-link" href="/social.html">Social Media</a><a class="f-link" href="/sponsors.html">Sponsors &amp; Partners</a><a class="f-link" href="https://store.rdca.com" target="_blank" rel="noopener">Store</a>
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">RDCA</div>
-      <a class="f-link" href="/board.html">The Board</a><a class="f-link" href="/committees.html">Committees &amp; Contacts</a><a class="f-link" href="/umpires.html">Umpires</a><a class="f-link" href="/communications.html">Communications</a><a class="f-link" href="/events.html">Events</a><a class="f-link" href="/documents.html">Documents &amp; Forms</a><a class="f-link" href="/child-safety.html">Child Safety</a><a class="f-link" href="/contact.html">Contact</a>
+      <a class="f-link" href="/index.html">Home</a><a class="f-link" href="/board.html">The Board</a><a class="f-link" href="/committees.html">Committees &amp; Contacts</a><a class="f-link" href="/umpires.html">Umpires</a><a class="f-link" href="/communications.html">Communications</a><a class="f-link" href="/events.html">Events</a><a class="f-link" href="/documents.html">Documents &amp; Forms</a><a class="f-link" href="/child-safety.html">Child Safety</a><a class="f-link" href="/contact.html">Contact</a>
     </div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.04);padding:14px 20px">

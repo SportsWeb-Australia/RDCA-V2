@@ -486,12 +486,22 @@
       }
       var clubs = D().clubs || [];
       function clubOf(k){ for (var i=0;i<clubs.length;i++){ if (clubs[i].key===k) return clubs[i]; } return null; }
+      function hx(h){ h=String(h||"").replace("#",""); return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]; }
+      function mix(a,b,t){ var A=hx(a),B=hx(b); return "#"+[0,1,2].map(function(i){ var v=Math.round(A[i]*t+B[i]*(1-t)); return ("0"+v.toString(16)).slice(-2); }).join(""); }
+      function clubBg(club){
+        var base="#0b1424";
+        var cols=(club && club.colors && club.colors.length) ? club.colors : ["#142b50","#0a1830"];
+        var c1=cols[0], c2=cols[1]||cols[0];
+        var dB=mix(c2,base,0.22), dA=mix(c1,base,0.34), dC=mix(c1,base,0.46);
+        return "linear-gradient(150deg,"+dB+" 0%,"+dA+" 70%,"+dC+" 100%)";
+      }
       list.sort(function (a, b) { return (b.entered||"").localeCompare(a.entered||""); });
       var latest = list[0];
 
       function panel(t, isLatest) {
         var club = clubOf(t.club);
         var crest = (club && club.logo) ? club.logo : "";
+        var bg = clubBg(club);
         var rows = (t.players || []).map(function (p) {
           var tag = p.c ? '<span class="tsl-tag c">C</span>' : (p.wk ? '<span class="tsl-tag wk">WK</span>' : '');
           return '<div class="tsl-row"><span class="tsl-no">' + esc(p.n) + '</span>' +
@@ -499,7 +509,7 @@
                  '<span class="tsl-role">' + esc(p.role || "") + '</span>' + tag + '</div>';
         }).join("");
         var statusCls = /announc/i.test(t.status || "") ? "ok" : "prov";
-        return '<div class="tsl-panel">' +
+        return '<div class="tsl-panel" style="background:' + bg + '">' +
             (crest ? '<div class="tsl-crest"><img src="' + esc(crest) + '" alt=""></div>' : '') +
             (isLatest ? '<span class="tsl-kicker"><i class="ti ti-clock-hour-4" style="font-size:12px"></i> Latest selection</span>' : '') +
             '<div class="tsl-hd"><div>' +

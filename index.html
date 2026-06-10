@@ -267,10 +267,16 @@ a.ump-card:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,
 .sw1-copy{position:relative;z-index:1;font-size:11.5px;color:rgba(255,255,255,.66);line-height:1.5;margin-bottom:12px}
 .sw1-hed{position:relative;z-index:1;font-family:'Bebas Neue',sans-serif;font-size:22px;line-height:1.02;letter-spacing:.3px;color:#fff;margin-bottom:8px}
 .sw1-hed span{color:var(--red)}
-.sw1-eofy{position:relative;z-index:2;display:flex;align-items:center;gap:7px;margin:-18px -18px 14px;padding:7px 16px;background:linear-gradient(90deg,#caa23a,#e0b84e);color:#1c1405;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;text-decoration:none}
+.sw1-eofy{position:relative;z-index:2;display:flex;align-items:center;gap:7px;margin:6px -18px 14px;padding:7px 16px;background:linear-gradient(90deg,#caa23a,#e0b84e);color:#1c1405;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;text-decoration:none}
 .sw1-eofy i{font-size:13px}
 .sw1-eofy .sw1-eofy-cta{margin-left:auto;display:inline-flex;align-items:center;gap:3px;font-size:9.5px;white-space:nowrap}
 .sw1-eofy:hover{filter:brightness(1.06)}
+.sw1-wrap{position:relative;margin-top:24px}
+.sw1-adbadge{position:absolute;top:0;right:16px;transform:translateY(-50%);z-index:5;display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:30px;background:linear-gradient(135deg,#0d1f3c,#142c52);border:1px solid rgba(255,255,255,.16);box-shadow:0 6px 16px rgba(6,12,24,.5);text-decoration:none;white-space:nowrap;transition:transform .15s,box-shadow .15s}
+.sw1-adbadge:hover{transform:translateY(-50%) translateY(-2px);box-shadow:0 11px 24px rgba(6,12,24,.6)}
+.sw1-adbadge .sw1-ad-lbl{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#fff}
+.sw1-adbadge .sw1-ad-lbl i{font-size:14px;color:var(--red)}
+.sw1-adbadge .sw1-ad-cta{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;font-weight:700;color:#ff7a7a;padding-left:9px;border-left:1px solid rgba(255,255,255,.16)}
 .sw1-clusters{position:relative;z-index:1;display:flex;flex-direction:column;gap:7px;margin-bottom:12px}
 .sw1-cl{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);border-radius:11px;padding:9px 10px}
 .sw1-cl-ic{flex:0 0 30px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:rgba(204,34,34,.16);color:#ff6b6b;font-size:16px}
@@ -412,7 +418,7 @@ a.ump-card:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,
   <a href="/competition.html" class="mob-link"><i class="ti ti-layout-grid"></i> Competition Hub</a>
   <a href="/seniors.html" class="mob-link"><i class="ti ti-trophy"></i> Seniors</a>
   <a href="/juniors.html" class="mob-link"><i class="ti ti-friends"></i> Juniors</a>
-  <a href="/womens.html" class="mob-link"><i class="ti ti-ball-baseball"></i> Women's</a>
+  <a href="/womens.html" class="mob-link"><i class="ti ti-cricket"></i> Women's</a>
   <a href="/veterans.html" class="mob-link"><i class="ti ti-medal"></i> Veterans</a>
   <a href="/community-big-bash.html" class="mob-link"><i class="ti ti-flame"></i> Community Big Bash</a>
   <div class="mob-group">Club &amp; Community</div>
@@ -432,7 +438,8 @@ a.ump-card:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,
   <a href="/child-safety.html" class="mob-link"><i class="ti ti-shield-check"></i> Child Safety</a>
   <a href="/communications.html" class="mob-link"><i class="ti ti-broadcast"></i> Communications</a>
   <a href="/contact.html" class="mob-link"><i class="ti ti-mail"></i> Contact</a>
-  <div style="margin-top:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)">
+  <div style="margin-top:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:10px">
+    <a class="btn btn-outline-white" style="width:100%;justify-content:center" href="https://store.rdca.com" target="_blank" rel="noopener"><i class="ti ti-shopping-cart"></i> Visit the Store</a>
     <a class="btn btn-red" style="width:100%;justify-content:center" href="/register.html"><i class="ti ti-user-plus"></i> Register for 2026-27</a>
   </div>
 </div>
@@ -478,6 +485,7 @@ a.ump-card:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,
           <a href="/contact.html">Contact</a>
         </div>
       </div>
+      <a class="nav-link" href="https://store.rdca.com" target="_blank" rel="noopener"><i class="ti ti-shopping-cart"></i> Store</a>
     </div>
     <div class="nav-actions">
       <button class="nav-icon-btn" data-rdca-alerts type="button" data-tip="Match-day alerts" aria-label="Match-day alerts"><i class="ti ti-bell" style="font-size:18px"></i></button>
@@ -586,6 +594,7 @@ a.ump-card:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,
   </div>
   <div style="padding:18px 20px;background:var(--card)">
     <a class="btn btn-red" href="/register.html" style="width:100%;justify-content:flex-start;padding:13px 20px;font-size:15px"><i class="ti ti-user-plus" style="font-size:16px"></i> Register for 2026-27</a>
+    <a class="btn btn-outline-navy" href="https://store.rdca.com" target="_blank" rel="noopener" style="width:100%;justify-content:flex-start;padding:13px 20px;font-size:15px;margin-top:10px"><i class="ti ti-shopping-cart" style="font-size:16px"></i> Shop the Store</a>
   </div>
 </div>
 </div>
@@ -811,11 +820,9 @@ a.ump-card:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,
 </div>
 
 <!-- SW1 -->
+<div class="sw1-wrap">
+<a class="sw1-adbadge" href="/contact.html"><span class="sw1-ad-lbl"><i class="ti ti-speakerphone"></i> Advertise With Us</span><span class="sw1-ad-cta">Get in touch <i class="ti ti-arrow-right" style="font-size:12px"></i></span></a>
 <div class="sw1-promo">
-  <a href="/contact.html" style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:11px;padding:14px 16px;text-decoration:none;margin-bottom:18px;transition:transform .15s,background .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.transform='';this.style.background='rgba(255,255,255,.06)'">
-    <span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#fff"><i class="ti ti-speakerphone" style="font-size:16px;color:var(--red)"></i> Advertise With Us</span>
-    <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#ff7a7a">Get in touch <i class="ti ti-arrow-right" style="font-size:12px"></i></span>
-  </a>
   <a class="sw1-eofy" href="https://sportsweb.com.au/eofy" target="_blank" rel="noopener"><i class="ti ti-star-filled"></i> EOFY Club Upgrade Special <span class="sw1-eofy-cta">View EOFY Offer <i class="ti ti-chevron-right" style="font-size:11px"></i></span></a>
   <div class="sw1-eyebrow">Powered by</div>
   <div class="sw1-logo">Sports<span>Web</span> One</div>
@@ -846,6 +853,7 @@ a.ump-card:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,
   </div>
 
   <div class="sw1-trust"><i class="ti ti-map-pin"></i> Built in Australia by an Australian company for Australian sport.</div>
+</div>
 </div>
 <!-- /SW1 -->
 
@@ -926,11 +934,11 @@ a.ump-card:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">Club &amp; Community</div>
-      <a class="f-link" href="/clubs.html">Clubs</a><a class="f-link" href="/news.html">News</a><a class="f-link" href="/honours.html">Honours</a><a class="f-link" href="/photos.html">Photos</a><a class="f-link" href="/video.html">Live Video</a><a class="f-link" href="/social.html">Social Media</a><a class="f-link" href="/sponsors.html">Sponsors &amp; Partners</a>
+      <a class="f-link" href="/clubs.html">Clubs</a><a class="f-link" href="/news.html">News</a><a class="f-link" href="/honours.html">Honours</a><a class="f-link" href="/photos.html">Photos</a><a class="f-link" href="/video.html">Live Video</a><a class="f-link" href="/social.html">Social Media</a><a class="f-link" href="/sponsors.html">Sponsors &amp; Partners</a><a class="f-link" href="https://store.rdca.com" target="_blank" rel="noopener">Store</a>
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">RDCA</div>
-      <a class="f-link" href="/board.html">The Board</a><a class="f-link" href="/committees.html">Committees &amp; Contacts</a><a class="f-link" href="/umpires.html">Umpires</a><a class="f-link" href="/documents.html">Documents &amp; Forms</a><a class="f-link" href="/child-safety.html">Child Safety</a><a class="f-link" href="/contact.html">Contact</a>
+      <a class="f-link" href="/index.html">Home</a><a class="f-link" href="/board.html">The Board</a><a class="f-link" href="/committees.html">Committees &amp; Contacts</a><a class="f-link" href="/umpires.html">Umpires</a><a class="f-link" href="/communications.html">Communications</a><a class="f-link" href="/documents.html">Documents &amp; Forms</a><a class="f-link" href="/child-safety.html">Child Safety</a><a class="f-link" href="/contact.html">Contact</a>
     </div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.04);padding:14px 20px">
