@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- RDCA News — data-driven from site-data.js (news). -->
+<!-- RDCA Team Selections — latest XI featured, all selections grouped by division. Data-driven from site-data.js (teamSelections). -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>News &amp; Articles — RDCA</title>
+<title>Team Selections — RDCA</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,40 +21,30 @@
 <link rel="apple-touch-icon" href="/icon-192.png">
 <script src="/pwa.js" defer></script>
 </head>
-<body data-page="news">
+<body data-page="team-selections">
 
 <div data-rdca="masthead"></div>
 
 <header class="page-hero">
   <div class="page-hero-inner">
-    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> News &amp; Articles</div>
-    <div class="eyebrow">Latest from the RDCA</div>
-    <h1>News &amp; Articles</h1>
-    <p class="page-sub">Association news, match reports and notices.</p>
+    <div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> Team Selections</div>
+    <div class="eyebrow">Match Day</div>
+    <h1>Team Selections</h1>
+    <p class="page-sub">Announced and provisional XIs across the grades. The most recently entered selection is shown first, then every team grouped by division.</p>
   </div>
 </header>
 
 <div class="page-wrap">
-  <div class="section-block">
-    <div class="block-hed">Recent News</div>
-    <div class="block-sub">The latest news and announcements from across the Association.</div>
-    <div class="tile-grid" id="news-mount"></div>
-  </div>
-
-  <div class="section-block">
-    <div class="block-hed">Archive</div>
-    <div class="block-sub">Earlier articles and announcements from previous seasons.</div>
-    <div class="doc-list" id="news-archive-mount"></div>
-  </div>
-
+  <div id="ts-mount"></div>
 </div>
 
-<div data-rdca="ad-banner"></div>
 <div data-rdca="sponsor-carousel"></div>
 <div data-rdca="footer"></div>
 
 <script src="/site-data.js"></script>
 <script src="/rdca-render.js"></script>
-<script>RDCA.render.news("#news-mount");RDCA.render.newsArchive("#news-archive-mount");</script>
+<script>
+RDCA.render.teamSelections("#ts-mount");
+</script>
 </body>
 </html>

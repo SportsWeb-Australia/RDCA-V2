@@ -72,6 +72,26 @@
              '" aria-label="' + esc(o.name) + ' on ' + esc(l.t) + '"><i class="ti ti-' + esc(l.i) + '"></i></a>';
     }).join("");
 
+    // Instagram — live feed if a widget embed URL is configured (o.igEmbed),
+    // otherwise a full-width horizontal follow strip linking to the live profile.
+    // A true in-page IG feed requires a third-party widget (SnapWidget / LightWidget /
+    // Behold) connected to that account, or a Meta Graph token — IG has no free plugin like Facebook's.
+    var ig = (o.links || []).filter(function(l){ return l.i === "brand-instagram"; })[0];
+    var igCol = "";
+    if (o.igEmbed) {
+      igCol = '<div class="soc-feed-col"><div class="soc-feed-head"><i class="ti ti-brand-instagram"></i> Instagram</div>' +
+              '<iframe class="ig-embed" title="' + esc(o.name) + ' on Instagram" src="' + esc(o.igEmbed) + '" ' +
+              'loading="lazy" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div>';
+    } else if (ig) {
+      igCol = '<div class="soc-feed-col"><div class="soc-feed-head"><i class="ti ti-brand-instagram"></i> Instagram</div>' +
+          '<a class="ig-strip" href="' + esc(ig.u) + '" target="_blank" rel="noopener" aria-label="' + esc(o.name) + ' on Instagram">' +
+            '<span class="ig-strip-ic"><i class="ti ti-brand-instagram"></i></span>' +
+            '<span class="ig-strip-tx"><span class="ig-strip-handle">@' + esc(handleFrom(ig.u, "instagram.com/")) + '</span>' +
+              '<span class="ig-strip-sub">Latest photos &amp; reels from ' + esc(o.name) + '</span></span>' +
+            '<span class="ig-strip-btn">View Instagram <i class="ti ti-external-link"></i></span>' +
+          '</a></div>';
+    }
+
     // Facebook live timeline (Page Plugin)
     var fbCol = o.fb
       ? '<div class="soc-feed-col"><div class="soc-feed-head"><i class="ti ti-brand-facebook"></i> Facebook</div>' +
@@ -81,18 +101,6 @@
           'width="500" height="640" style="border:none;overflow:hidden" scrolling="no" frameborder="0" ' +
           'allowfullscreen="true" loading="lazy" ' +
           'allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>'
-      : '';
-
-    // Instagram — follow panel (a true in-page IG feed needs a Meta Graph token; this links straight to the live profile)
-    var ig = (o.links || []).filter(function(l){ return l.i === "brand-instagram"; })[0];
-    var igCol = ig
-      ? '<div class="soc-feed-col"><div class="soc-feed-head"><i class="ti ti-brand-instagram"></i> Instagram</div>' +
-          '<a class="ig-card" href="' + esc(ig.u) + '" target="_blank" rel="noopener" aria-label="' + esc(o.name) + ' on Instagram">' +
-            '<div class="ig-card-ic"><i class="ti ti-brand-instagram"></i></div>' +
-            '<div class="ig-card-handle">@' + esc(handleFrom(ig.u, "instagram.com/")) + '</div>' +
-            '<div class="ig-card-sub">Latest photos &amp; reels from ' + esc(o.name) + '</div>' +
-            '<span class="ig-card-btn">View Instagram <i class="ti ti-external-link"></i></span>' +
-          '</a></div>'
       : '';
 
     // TikTok — only if the organisation has one
@@ -106,7 +114,7 @@
           '</a></div>'
       : '';
 
-    var feeds = (fbCol || igCol || tkCol) ? '<div class="soc-feeds">' + fbCol + igCol + tkCol + '</div>' : '';
+    var feeds = (fbCol || igCol || tkCol) ? '<div class="soc-feeds">' + igCol + fbCol + tkCol + '</div>' : '';
     return '<section class="soc-block">' +
              '<div class="soc-bar">' +
                '<div><div class="soc-name">' + esc(o.name) + '</div>' +

@@ -207,7 +207,28 @@
     sectionAbout: function (sectionKey, sel) {
       var s = (D().sections || {})[sectionKey];
       if (!s || !s.aboutText) { set(sel, ""); return; }
-      set(sel, '<div class="section-block"><div class="block-hed">About ' + esc(s.title) + '</div><div class="prose">' + s.aboutText + '</div></div>');
+      var icon = s.icon || "ti-trophy";
+      var P = (typeof window !== "undefined" && window.RDCA_PLAYHQ) ? window.RDCA_PLAYHQ : {};
+      var comp = (P.competitions || {})[s.playhqKey] || {};
+      var facts = [];
+      if (comp.label)        facts.push(["ti-trophy", "Competition", comp.label]);
+      if (comp.season)       facts.push(["ti-calendar-event", "Season", comp.season]);
+      if (s.committee && s.committee.label) facts.push(["ti-users", "Administered by", s.committee.label]);
+      var factsHtml = facts.map(function (f) {
+        return '<div class="sec-fact"><span class="sec-fact-ic"><i class="ti ' + f[0] + '"></i></span>' +
+               '<div class="sec-fact-tx"><span>' + esc(f[1]) + '</span><b>' + esc(f[2]) + '</b></div></div>';
+      }).join("");
+      set(sel,
+        '<div class="section-block"><div class="sec-about">' +
+          '<div class="sec-about-hd">' +
+            '<span class="sec-about-ic"><i class="ti ' + icon + '"></i></span>' +
+            '<div><div class="sec-about-eyebrow">RDCA Section</div>' +
+              '<div class="sec-about-title">About ' + esc(s.title) + '</div></div>' +
+          '</div>' +
+          (s.blurb ? '<div class="sec-about-lead">' + esc(s.blurb) + '</div>' : '') +
+          '<div class="prose">' + s.aboutText + '</div>' +
+          (factsHtml ? '<div class="sec-facts">' + factsHtml + '</div>' : '') +
+        '</div></div>');
     },
 
     // ---- Live Match Centre: a grid of detailed game cards ----
@@ -232,7 +253,7 @@
       var dots = function(arr){ return (arr||[]).map(function(x){
         var cls = x==="4"?" d4":(x==="6"?" d6":((x==="W"||x==="w")?" dw":""));
         return '<span class="mc-dot'+cls+'">'+esc(x)+'</span>'; }).join(""); };
-      var html = games.map(function (g) {
+      function cardHtml(g) {
         var st = statusMap[g.status] || ["",""];
         return '<div class="mc-card">'+
           '<div class="mc-hd"><span class="mc-pill '+st[1]+'">'+(g.status==="live"?'<span class="mc-dot-live"></span> ':'')+st[0]+'</span>'+
@@ -249,6 +270,33 @@
           ((g.lastSix&&g.lastSix.length)?'<div class="mc-last6"><span class="mc-last6-lbl">Last 6</span><div class="mc-dots">'+dots(g.lastSix)+'</div>'+(g.crr&&g.crr!=="-"?'<span class="mc-crr">CRR '+esc(g.crr)+'</span>':'')+'</div>':'')+
           '<a class="btn btn-outline-navy btn-sm mc-cta" href="'+esc(g.url||"#")+'"'+((g.url&&g.url!=="#")?' target="_blank" rel="noopener"':'')+'><i class="ti ti-external-link"></i> Match Centre</a>'+
         '</div>';
+      }
+
+      // ---- group games by division (grade) ----
+      function divRank(grade) {
+        if (/premier/i.test(grade)) return 0;
+        var m = /division\s*(\d+)/i.exec(grade || "");
+        return m ? parseInt(m[1], 10) : 900;
+      }
+      var buckets = {}, gradesSeen = [];
+      games.forEach(function (g) {
+        var key = g.grade || "Other";
+        if (!buckets[key]) { buckets[key] = []; gradesSeen.push(key); }
+        buckets[key].push(g);
+      });
+      gradesSeen.sort(function (a, b) {
+        var ra = divRank(a), rb = divRank(b);
+        return ra !== rb ? ra - rb : a.localeCompare(b);
+      });
+      var html = gradesSeen.map(function (key) {
+        var list = buckets[key];
+        var live = list.filter(function (g) { return g.status === "live"; }).length;
+        var count = list.length + (list.length === 1 ? " match" : " matches") + (live ? ' · ' + live + ' live' : '');
+        return '<section class="mc-division">' +
+          '<div class="mc-division-hd"><span class="mc-division-nm">' + esc(key) + '</span>' +
+          '<span class="mc-division-ct">' + count + '</span></div>' +
+          '<div class="mc-grid">' + list.map(cardHtml).join("") + '</div>' +
+        '</section>';
       }).join("");
       set(sel, html);
     },
@@ -400,6 +448,61 @@
       set(sel, html);
     },
 
+    // ---- Team selections: featured latest + all grouped by division ----
+    teamSelections: function (sel) {
+      var list = (D().teamSelections || []).slice();
+      if (!list.length) {
+        set(sel, '<div class="empty-state"><div class="empty-ic"><i class="ti ti-clipboard-list"></i></div><h2>No team selections yet</h2><p>Announced XIs will appear here through the season.</p></div>');
+        return;
+      }
+      var clubs = D().clubs || [];
+      function clubOf(k){ for (var i=0;i<clubs.length;i++){ if (clubs[i].key===k) return clubs[i]; } return null; }
+      list.sort(function (a, b) { return (b.entered||"").localeCompare(a.entered||""); });
+      var latest = list[0];
+
+      function panel(t, isLatest) {
+        var club = clubOf(t.club);
+        var crest = (club && club.logo) ? club.logo : "";
+        var rows = (t.players || []).map(function (p) {
+          var tag = p.c ? '<span class="tsl-tag c">C</span>' : (p.wk ? '<span class="tsl-tag wk">WK</span>' : '');
+          return '<div class="tsl-row"><span class="tsl-no">' + esc(p.n) + '</span>' +
+                 '<span class="tsl-nm">' + esc(p.name) + '</span>' +
+                 '<span class="tsl-role">' + esc(p.role || "") + '</span>' + tag + '</div>';
+        }).join("");
+        var statusCls = /announc/i.test(t.status || "") ? "ok" : "prov";
+        return '<div class="tsl-panel">' +
+            (crest ? '<div class="tsl-crest"><img src="' + esc(crest) + '" alt=""></div>' : '') +
+            (isLatest ? '<span class="tsl-kicker"><i class="ti ti-clock-hour-4" style="font-size:12px"></i> Latest selection</span>' : '') +
+            '<div class="tsl-hd"><div>' +
+              '<div class="tsl-name">' + esc(t.team) + '</div>' +
+              '<div class="tsl-meta">' + esc(t.grade) + ' &middot; ' + esc(t.round) +
+                (t.date ? ' &middot; ' + esc(t.date) : '') + (t.venue ? ' &middot; ' + esc(t.venue) : '') + '</div></div>' +
+              (t.status ? '<span class="tsl-status ' + statusCls + '">' + (statusCls === "ok" ? '<i class="ti ti-check" style="font-size:12px"></i> ' : '') + esc(t.status) + '</span>' : '') +
+            '</div>' +
+            '<div class="tsl-grid">' + rows + '</div>' +
+          '</div>';
+      }
+
+      function rank(g){ if (/premier/i.test(g)) return 0; var m = /division\s*(\d+)/i.exec(g||""); return m ? parseInt(m[1],10) : 900; }
+      var rest = list.slice(1);
+      var buckets = {}, seen = [];
+      rest.forEach(function (t) { var g = t.grade || "Other"; if (!buckets[g]) { buckets[g] = []; seen.push(g); } buckets[g].push(t); });
+      seen.sort(function (a, b) { var ra = rank(a), rb = rank(b); return ra !== rb ? ra - rb : a.localeCompare(b); });
+      var divs = seen.map(function (g) {
+        var items = buckets[g];
+        return '<section class="mc-division"><div class="mc-division-hd"><span class="mc-division-nm">' + esc(g) + '</span>' +
+          '<span class="mc-division-ct">' + items.length + (items.length === 1 ? ' team' : ' teams') + '</span></div>' +
+          '<div class="tsl-list">' + items.map(function (t) { return panel(t, false); }).join("") + '</div></section>';
+      }).join("");
+
+      var html = '<div class="section-block">' + panel(latest, true) + '</div>';
+      if (rest.length) {
+        html += '<div class="section-block"><div class="block-hed">All Selections by Division</div>' +
+                '<div class="block-sub">Every announced and provisional XI, grouped by grade.</div>' + divs + '</div>';
+      }
+      set(sel, html);
+    },
+
     // ---- a single section page's links (juniors/seniors/veterans/womens) ----
     sectionLinks: function (sectionKey, sel) {
       var s = (D().sections || {})[sectionKey]; if (!s) return;
@@ -418,14 +521,20 @@
           '<i class="ti ti-chevron-right"></i></a>');
       }
       if (s.committee)     tile(s.committee.label, s.committee.url, "ti-users", s.committee);
-      // docList = the exact documents for this section (direct files), shown
-      // inline instead of bouncing to the rdca.com documents hub page.
-      if (s.docList && s.docList.length) {
-        s.docList.forEach(function (d) {
+      // Per-section document bank: prefer an explicit s.docList; otherwise pull the
+      // real downloadable files straight from D().documents by category, so each
+      // section shows its own downloadable docs instead of bouncing to rdca.com.
+      var DOC_CATS = { seniors:["Forms & Rules"], veterans:["Veterans"], womens:["Women's"], juniors:[] };
+      var autoDocs = (D().documents || []).filter(function (d) {
+        return (DOC_CATS[sectionKey] || []).indexOf(d.cat) >= 0;
+      });
+      var docList = (s.docList && s.docList.length) ? s.docList : autoDocs;
+      if (docList.length) {
+        docList.forEach(function (d) {
           var local = /^\/docs\//.test(d.url);
           var attrs = local ? ' download' : ' target="_blank" rel="noopener"';
           var icon = d.icon || "ti-file-text";
-          var rightIcon = local ? "ti-download" : "ti-external-link";
+          var rightIcon = local ? "ti-download" : "ti-download";
           tiles.push('<a class="tile" href="' + esc(d.url) + '"' + attrs + '>' +
             '<div class="tile-ic"><i class="ti ' + icon + '"></i></div>' +
             '<div><div class="tile-tt">' + esc(d.title) + flag(d) + '</div>' +

@@ -77,10 +77,12 @@
     : '';
 
   body.innerHTML =
-    (a.image ? '<div class="article-hero-img" style="background-image:url(\''+esc(a.image)+'\')"></div>' : '')+
+    (a.image
+      ? '<div class="article-hero-img" style="background-image:url(\''+esc(a.image)+'\')"></div>'
+      : '<div class="article-hero-img article-hero-ph"><i class="ti ti-news"></i></div>')+
     sampleNote+
     '<article class="article-body prose">'+(a.body||'')+'</article>'+
-    '<div class="section-block"><a class="btn btn-navy" href="/news.html"><i class="ti ti-arrow-left"></i> Back to all news</a></div>';
+    '<div class="section-block article-back"><a class="btn btn-navy" href="/news.html"><i class="ti ti-arrow-left"></i> Back to all news</a></div>';
 })();
 </script>
 </body>

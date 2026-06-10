@@ -70,7 +70,7 @@ img{display:block;max-width:100%}
 .ticker-inner{display:flex;align-items:center}
 .ticker-pill{background:var(--red);padding:5px 18px;font-size:11px;font-weight:700;color:#fff;letter-spacing:.6px;text-transform:uppercase;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:6px;border-radius:0 20px 20px 0;margin-right:8px}
 .ticker-scroll{flex:1;overflow:hidden;white-space:nowrap}
-.ticker-track{display:inline-flex;animation:scrtick 32s linear infinite}
+.ticker-track{display:inline-flex;animation:scrtick 60s linear infinite}
 .ticker-track:hover{animation-play-state:paused}
 @keyframes scrtick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 /* Live-scores ticker — classes are deliberately namespaced (tk-*) so they never
@@ -238,7 +238,7 @@ table.lt th.tl,table.lt td.tl{text-align:left}
 .footer-accent{height:4px;background:linear-gradient(90deg,var(--red),var(--navy3),var(--red))}
 .footer-top{max-width:1200px;margin:0 auto;padding:40px 20px 28px;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:40px}
 .f-soc{width:42px;height:42px;border-radius:9px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);font-size:20px;transition:all .14s}
-.f-soc:hover{background:var(--red);color:#fff}
+.f-soc:hover{background:#ee2b2b;color:#fff;transform:translateY(-2px)}
 .f-link{display:block;font-size:12px;color:rgba(255,255,255,.85);text-decoration:none;margin-bottom:8px;transition:color .14s}
 .f-link:hover{color:rgba(255,255,255,.9)}
 /* RESPONSIVE */

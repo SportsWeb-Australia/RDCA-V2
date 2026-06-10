@@ -1,7 +1,8 @@
 /* RDCA service worker — bump CACHE to invalidate on deploy.
-   Strategy: network-first for page navigations (fresh content, offline fallback to home),
-   cache-first for same-origin static assets. Cross-origin requests are left untouched. */
-var CACHE = "rdca-v10";
+   Strategy: network-first for page navigations AND app code (css/js/json) so a new deploy
+   shows up on the next load instead of being masked by stale, same-named cached assets.
+   Cache-first only for heavy static binaries (images/icons/fonts). Offline falls back to cache. */
+var CACHE = "rdca-v20";
 var CORE = [
   "/", "/index.html",
   "/_shared.css", "/_pages.css",
@@ -33,19 +34,27 @@ self.addEventListener("fetch", function (e) {
   var url = new URL(req.url);
   if (url.origin !== self.location.origin) return; // ignore fonts/images/playhq/maps etc.
 
-  if (req.mode === "navigate") {
+  var isPage = req.mode === "navigate";
+  var isCode = /\.(?:css|js|json|webmanifest)$/.test(url.pathname);
+
+  // Network-first for pages AND app code: a fresh deploy is shown immediately when online,
+  // and we fall back to the cached copy when offline.
+  if (isPage || isCode) {
     e.respondWith(
       fetch(req).then(function (r) {
         var copy = r.clone();
         caches.open(CACHE).then(function (c) { c.put(req, copy); });
         return r;
       }).catch(function () {
-        return caches.match(req).then(function (m) { return m || caches.match("/index.html"); });
+        return caches.match(req).then(function (m) {
+          return m || (isPage ? caches.match("/index.html") : undefined);
+        });
       })
     );
     return;
   }
 
+  // Cache-first for heavy static binaries (images, icons, fonts) that rarely change.
   e.respondWith(
     caches.match(req).then(function (m) {
       return m || fetch(req).then(function (r) {

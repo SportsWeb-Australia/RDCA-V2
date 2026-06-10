@@ -14,6 +14,17 @@
    ========================================================================== */
 
 window.RDCA_DATA = {
+  /* Team selections by division. `entered` drives "latest" (most recent shown first). Mock data. */
+  teamSelections: [
+    { id:"ringwood-1xi-r15", club:"ringwood", team:"Ringwood CC \u2014 1st XI", grade:"Premier Division", round:"Round 15", date:"Sat 14 Dec", venue:"Ringwood Reserve", status:"Announced", entered:"2026-12-10",
+      players:[ {n:1,name:"A. Robinson",role:"Opener"},{n:2,name:"J. Smith",role:"Batsman",c:true},{n:3,name:"T. Brown",role:"Batsman"},{n:4,name:"C. Williams",role:"All-rounder"},{n:5,name:"D. Clarke",role:"Batsman"},{n:6,name:"R. Evans",role:"W-Keeper",wk:true},{n:7,name:"P. Davis",role:"All-rounder"},{n:8,name:"S. Kumar",role:"Bowler"},{n:9,name:"M. Jones",role:"Bowler"},{n:10,name:"B. Taylor",role:"Bowler"},{n:11,name:"G. Morris",role:"Bowler"} ] },
+    { id:"croydon-1xi-r15", club:"croydon", team:"Croydon CC \u2014 1st XI", grade:"Premier Division", round:"Round 15", date:"Sat 14 Dec", venue:"Dorset Reserve", status:"Announced", entered:"2026-12-09",
+      players:[ {n:1,name:"L. Harper",role:"Opener"},{n:2,name:"N. Patel",role:"Opener"},{n:3,name:"D. Cruz",role:"Batsman",c:true},{n:4,name:"A. Singh",role:"All-rounder"},{n:5,name:"J. Murphy",role:"Batsman"},{n:6,name:"K. Lee",role:"W-Keeper",wk:true},{n:7,name:"R. Osei",role:"All-rounder"},{n:8,name:"M. Diaz",role:"Bowler"},{n:9,name:"T. Nguyen",role:"Bowler"},{n:10,name:"B. Walsh",role:"Bowler"},{n:11,name:"C. Reid",role:"Bowler"} ] },
+    { id:"kilsyth-1xi-r15", club:"kilsyth", team:"Kilsyth CC \u2014 1st XI", grade:"Division 1", round:"Round 15", date:"Sat 14 Dec", venue:"Pinks Reserve", status:"Announced", entered:"2026-12-08",
+      players:[ {n:1,name:"O. Reilly",role:"Opener"},{n:2,name:"H. Ali",role:"Opener"},{n:3,name:"S. Tran",role:"Batsman",c:true},{n:4,name:"W. Cole",role:"All-rounder"},{n:5,name:"F. Romano",role:"Batsman"},{n:6,name:"G. Tan",role:"W-Keeper",wk:true},{n:7,name:"P. Vella",role:"All-rounder"},{n:8,name:"D. Khan",role:"Bowler"},{n:9,name:"J. Park",role:"Bowler"},{n:10,name:"L. Brooks",role:"Bowler"},{n:11,name:"E. Ford",role:"Bowler"} ] },
+    { id:"coldstream-1xi-r15", club:"coldstream", team:"Coldstream CC \u2014 1st XI", grade:"Division 2", round:"Round 15", date:"Sat 14 Dec", venue:"Coldstream Rec", status:"Provisional", entered:"2026-12-07",
+      players:[ {n:1,name:"B. Singh",role:"Opener"},{n:2,name:"L. Ward",role:"Opener"},{n:3,name:"M. Hale",role:"Batsman",c:true},{n:4,name:"K. Roy",role:"All-rounder"},{n:5,name:"J. Otto",role:"Batsman"},{n:6,name:"T. Brooks",role:"W-Keeper",wk:true},{n:7,name:"A. Bell",role:"All-rounder"},{n:8,name:"S. Howard",role:"Bowler"},{n:9,name:"N. Price",role:"Bowler"},{n:10,name:"D. Scott",role:"Bowler"},{n:11,name:"R. Cole",role:"Bowler"} ] }
+  ],
 
   board: {
     note:"RDCA Board of Management — governs the Association across all sections.",
@@ -51,18 +62,18 @@ window.RDCA_DATA = {
   photosNote: "Match-day galleries are shot by Field of View Photography (an RDCA partner) and hosted on their site. Cover images here are placeholders \u2014 swap each for the season's real cover.",
   photoAlbums: [
     { season:"Season 2025/26",              tag:"Latest",  url:"https://fieldofviewphotography.shootproof.com/gallery/28411719/album/21236651", cover:"https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&q=70&auto=format&fit=crop" },
-    { season:"Season 2024/25",              tag:"",        url:"https://fieldofviewphotography.shootproof.com/gallery/25299604/album/18262926", cover:"https://images.unsplash.com/photo-1593766788306-28561086c716?w=600&q=70&auto=format&fit=crop" },
+    { season:"Season 2024/25",              tag:"",        url:"https://fieldofviewphotography.shootproof.com/gallery/25299604/album/18262926", cover:"https://images.unsplash.com/photo-1595210382051-4d2c31fcc2f4?w=600&q=70&auto=format&fit=crop" },
     { season:"Season 2023/24",              tag:"",        url:"https://fieldofviewphotography.shootproof.com/gallery/19340167/album/15929979", cover:"https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&q=70&auto=format&fit=crop" },
     { season:"Season 2022/23",              tag:"",        url:"https://fieldofviewphotography.shootproof.com/gallery/19340167/album/13278529", cover:"https://images.unsplash.com/photo-1512719994953-eabf50895df7?w=600&q=70&auto=format&fit=crop" },
     { season:"Premiership Posters 2024/25", tag:"Posters", url:"https://fieldofviewphotography.shootproof.com/gallery/15321413/album/19797650", cover:"https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&q=70&auto=format&fit=crop" },
     { season:"Premiership Posters 2023/24", tag:"Posters", url:"https://fieldofviewphotography.shootproof.com/gallery/15321413/album/16811579", cover:"https://images.unsplash.com/photo-1593766827228-8737b4534aa6?w=600&q=70&auto=format&fit=crop" }
   ],
-  photoStrip: ["https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1593766788306-28561086c716?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1512719994953-eabf50895df7?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1593766827228-8737b4534aa6?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1593766788306-28561086c716?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1512719994953-eabf50895df7?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&q=70&auto=format&fit=crop"],
+  photoStrip: ["https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1595210382051-4d2c31fcc2f4?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1512719994953-eabf50895df7?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1593766827228-8737b4534aa6?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1595210382051-4d2c31fcc2f4?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1512719994953-eabf50895df7?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&q=70&auto=format&fit=crop","https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&q=70&auto=format&fit=crop"],
   liveStream: { status:"offline", title:"RDCA Match of the Round", sub:"Live streaming returns each Saturday during the season.", sponsor:"Your business here", embedUrl:null, channelUrl:"https://www.frogbox.live/" },
   videosNote: "Selected RDCA games are streamed live via FrogBox and replays are kept here. The archive below is placeholder \u2014 wire it to the RDCA FrogBox channel.",
   videos: [
     { title:"Premier Division \u2014 Ringwood v Croydon", comp:"Premier Division", date:"Sat 14 Feb", thumb:"https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&q=70&auto=format&fit=crop", url:"#", mock:true },
-    { title:"Division 1 \u2014 Kilsyth v Lilydale",        comp:"Division 1",       date:"Sat 14 Feb", thumb:"https://images.unsplash.com/photo-1593766788306-28561086c716?w=600&q=70&auto=format&fit=crop", url:"#", mock:true },
+    { title:"Division 1 \u2014 Kilsyth v Lilydale",        comp:"Division 1",       date:"Sat 14 Feb", thumb:"https://images.unsplash.com/photo-1595210382051-4d2c31fcc2f4?w=600&q=70&auto=format&fit=crop", url:"#", mock:true },
     { title:"Women's \u2014 Grand Final",                 comp:"Women's",          date:"Sun 1 Feb",  thumb:"https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&q=70&auto=format&fit=crop", url:"#", mock:true },
     { title:"Premier Division \u2014 Semi Final",          comp:"Finals",           date:"Sat 7 Feb",  thumb:"https://images.unsplash.com/photo-1512719994953-eabf50895df7?w=600&q=70&auto=format&fit=crop", url:"#", mock:true },
     { title:"Juniors \u2014 U16 Grand Final",              comp:"Juniors",          date:"Sun 8 Feb",  thumb:"https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&q=70&auto=format&fit=crop", url:"#", mock:true },
@@ -290,7 +301,7 @@ window.RDCA_DATA = {
       away:{ club:"lilydale", name:"Lilydale CC", score:"142", overs:"", note:"All out 142" },
       required:"47 runs", rrr:"2.14", crr:"3.43",
       partnership:{ bat:"A. Khan 41*", bat2:"D. Lee 12*", runs:"38 runs" },
-      bestBowler:"S. Patel 3/29 (10 ov)", lastWicket:"R. Otto c &amp; b Patel 18 · Over 24.1",
+      bestBowler:"S. Patel 3/29 (10 ov)", lastWicket:"R. Otto c & b Patel 18 · Over 24.1",
       lastSix:["0","1","4","1","W","2"], url:"#" },
     { id:"d1-r14-cold-mtev", grade:"Division 1", round:"Round 14", venue:"Coldstream Rec", status:"live",
       home:{ club:"coldstream", name:"Coldstream CC", score:"3/178", overs:"36.0", batting:true },
@@ -578,7 +589,7 @@ window.RDCA_DATA = {
     { slug:"four-rdca-juniors-u17-squad", title:"Four RDCA juniors named in U17 state squad",
       cat:"Junior Pathway", date:"2026-08-26", author:"RDCA Media", readMins:3,
       meta:"Representative",
-      image:"https://images.unsplash.com/photo-1599982890963-3aebd1c1c1a0?w=1200&q=78&auto=format&fit=crop",
+      image:"https://images.unsplash.com/photo-1599982946086-eb42d9e14eb8?w=1200&q=78&auto=format&fit=crop",
       body:"<p>Four RDCA juniors have been selected in the U17 state squad following strong representative carnival campaigns, a terrific reward for the Association&rsquo;s rep pathway.</p><p>The quartet came through RDCA junior rep teams, balancing club commitments with the demands of representative cricket across the season.</p><p>RDCA congratulates the players, their clubs and the coaches and volunteers who support the junior pathway.</p>", sample:true },
     { slug:"croydon-cc-ground-redevelopment", title:"Croydon CC complete major ground redevelopment",
       cat:"Club News", date:"2026-08-07", author:"RDCA Media", readMins:3,
