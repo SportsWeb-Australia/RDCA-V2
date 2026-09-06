@@ -1,0 +1,45 @@
+{
+ "http_errors": {
+  "old_site_non_200": 0,
+  "honours_non_200": 0,
+  "new_site_non_200": 0,
+  "asset_fetch_failures": 1,
+  "document_fetch_failures": 0
+ },
+ "functional_failures": {
+  "forms_without_action": 2,
+  "forms_without_required_fields": 2,
+  "unbranded_404": 1,
+  "missing_skip_link": 1,
+  "images_missing_alt": 2,
+  "third_party_embed_failures_social_html": 16
+ },
+ "placeholder_pages": {
+  "placeholder_html_variants_pointing_at_old_site": 15,
+  "template_shells_rendering_not_found": 4,
+  "sample_flagged_datasets": 5
+ },
+ "empty_or_decaying_sources": {
+  "honours_lifemember_endpoint_empty_bytes": 316,
+  "honours_pages_with_content": 246,
+  "honours_pages_effectively_empty": 0
+ },
+ "broken_dependencies": {
+  "new_site_links_to_old_site_distinct_urls": 96,
+  "documents_hotlinked_to_old_host": 38,
+  "third_party_documents_correctly_external": 5,
+  "placeholder_links_resolving_to_old_site": 28
+ },
+ "cutover_risks": {
+  "redirects_required": 76,
+  "redirects_without_destination": 10,
+  "pages_with_meta_description": 0,
+  "pages_with_canonical": 0,
+  "pages_with_og": 0,
+  "pages_with_structured_data": 0,
+  "robots_txt": "404",
+  "sitemap_xml": "404",
+  "honours_subdomain_pages_at_risk": 246,
+  "records_rows_at_risk": 8164
+ }
+}
