@@ -213,7 +213,15 @@
     // ---- life members table ----
     lifeMembers: function (sel) {
       var h = D().honours || {};
-      var list = (h.db && h.db.lifeMembers && h.db.lifeMembers.length) ? h.db.lifeMembers : (h.lifeMembers || []);
+      // merge the database set with any hand-added members (e.g. seasons newer than the export)
+      var dbl = (h.db && h.db.lifeMembers) || [], manual = h.lifeMembers || [];
+      var seen = {}, list = [];
+      dbl.concat(manual).forEach(function (m) {
+        var k = (m.name || "").toLowerCase().replace(/[^a-z]/g, "") + "|" + (m.season || "");
+        if (seen[k]) return;
+        seen[k] = 1; list.push(m);
+      });
+      list.sort(function (a, b) { return String(b.season || "").localeCompare(String(a.season || "")); });
       var rows = list.map(function (m, i) {
         var id = "lm-" + i;
         var nm = '<button class="hof-name' + (m.bio ? '' : ' pending') + '" data-bio="' + id + '">' + esc(m.name) + '</button>';

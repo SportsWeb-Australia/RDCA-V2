@@ -796,3 +796,4 @@ border-radius:20px;padding:3px 10px;margin:2px 5px 2px 0;white-space:nowrap}
 .pr-full{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px 18px}
 .pr-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--border);padding:5px 0;font-size:13px}
 .pr-row span{color:var(--muted)}
+.pastnames{font-size:13px;line-height:1.8;color:var(--muted)}

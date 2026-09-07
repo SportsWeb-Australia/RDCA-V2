@@ -112,7 +112,9 @@
         '<div class="panel">'+
           fact("ti-trophy","Division", esc(c.grade)) +
           fact("ti-map-pin-2","Home Ground", esc(ground) + (hasGround ? "" : " " + pmock)) +
+          (c.established ? fact("ti-flag","Established", esc(c.established)) : "") +
           (c.melways ? fact("ti-map-2","Melways Ref", esc(c.melways)) : "") +
+          (c.suburb ? fact("ti-building-community","Suburb", esc(c.suburb)) : "") +
           (c.postal  ? fact("ti-mailbox","Postal", esc(c.postal)) : "") +
           fact("ti-map","Region","Melbourne\'s outer east &amp; Yarra Valley") +
           fact("ti-calendar","Established", ptbc) +
@@ -120,12 +122,15 @@
         '<div class="block-hed" style="margin-top:24px">Get in touch</div>'+
         '<div class="panel">'+
           fact("ti-world","Website", c.site ? '<a href="'+esc(c.site)+'" target="_blank" rel="noopener">'+esc(c.site.replace(/^https?:\/\//,""))+'</a>' : ptbc) +
+          (c.email ? fact("ti-mail","Email", '<a href="mailto:'+esc(c.email)+'">'+esc(c.email)+'</a>') : "") +
           fact("ti-phone","Club Rooms", c.phone ? '<a href="tel:'+esc(c.phone.replace(/\s/g,""))+'">'+esc(c.phone)+'</a>' : ptbc) +
           (c.seniors ? fact("ti-user","Seniors Contact", esc(c.seniors.name)+' &middot; <a href="tel:'+esc(c.seniors.phone.replace(/\s/g,""))+'">'+esc(c.seniors.phone)+'</a>') : "") +
           (c.juniors ? fact("ti-users","Juniors Contact", esc(c.juniors.name)+' &middot; <a href="tel:'+esc(c.juniors.phone.replace(/\s/g,""))+'">'+esc(c.juniors.phone)+'</a>') : "") +
           (c.contact ? fact("ti-user","Contact", esc(c.contact.name)+' &middot; <a href="tel:'+esc(c.contact.phone.replace(/\s/g,""))+'">'+esc(c.contact.phone)+'</a>') : "") +
           (hasInfo ? "" : fact("ti-mail","Email", ptbc)) +
         '</div>'+
+        (c.pastNames ? '<div class="block-hed" style="margin-top:24px">Club History</div>'+
+          '<div class="panel pastnames">'+c.pastNames+'</div>' : '')+
       '</div>'+
       '<div>'+
         '<div class="block-hed">Location</div>'+
