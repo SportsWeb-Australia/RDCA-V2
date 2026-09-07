@@ -40,3 +40,7 @@ RDCA-migration-archive/
 !audit/rdca-migration-gap-audit/raw-data/**
 !audit/rdca-migration-gap-audit/scripts/**
 !audit/rdca-migration-gap-audit/preserved/**
+
+# Raw honours DB dump contains club credential columns - archive only, never commit
+*.sql
+rdca_website.sql
