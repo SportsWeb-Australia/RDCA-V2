@@ -1,5 +1,19 @@
 # Needs Client Decision
 
+## Decision log (updated 2026-09-07)
+
+| # | Decision | Outcome |
+|---|---|---|
+| D2 | Code of Conduct | **RESOLVED — adopt the rewrite for now.** Note the closer analysis: the rewrite shares **0 of 373 phrases** with any old code, and the two "Players/Captains" PDFs are actually *Women's East Competition* codes, mislabelled. Recommend re-labelling those and revisiting the adopted code with the Association later. |
+| D4 | Annual reports | **RESOLVED — migrate** (Seniors, Juniors, Veterans) |
+| D7 | Blog posts | **RESOLVED — migrate all 13** |
+| D12 | SitePulse / Riddell record | **CLEARED to proceed** — rename the club record, then apply the patch |
+| D1 | honours.rdca.com source | **OPEN — blocking.** Not on Wix; it is cPanel/LiteSpeed hosting. See email request. |
+| D5 | Club roster | **OPEN** — Carson to confirm |
+| D3, D6, D8–D11 | — | Open, non-blocking |
+
+---
+
 Items an agency cannot decide alone. Nothing here is a bug — each is a judgement call for the RDCA. **No content has been silently dropped from the audit because it looked old.**
 
 ---
