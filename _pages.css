@@ -756,3 +756,29 @@ display:grid;place-items:center;font-size:19px;transition:.16s}
 .rs-go{opacity:.6;font-size:15px}
 .rs-note{margin:16px 0 0;font-size:12.5px;color:rgba(255,255,255,.7);display:flex;gap:8px;align-items:flex-start}
 @media(max-width:560px){.rs-wrap{padding:18px}.rs-hd h3{font-size:19px}}
+
+/* ---- Documents search ---- */
+.doc-search{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);
+border-radius:11px;padding:11px 14px;margin:0 0 14px;box-shadow:var(--shadow);max-width:460px}
+.doc-search i{color:var(--muted);font-size:17px}
+.doc-search input{flex:1;border:0;background:none;font:inherit;font-size:14.5px;color:inherit;outline:none;min-width:0}
+.doc-search input::-webkit-search-cancel-button{display:none}
+.doc-clear{border:0;background:rgba(13,31,60,.08);color:var(--muted);cursor:pointer;font-size:16px;
+line-height:1;width:22px;height:22px;border-radius:50%;display:grid;place-items:center}
+.doc-clear:hover{background:var(--red);color:#fff}
+.doc-count{font-size:12.5px;color:var(--muted);margin:-6px 0 12px}
+.folder.searching .folder-tabs{opacity:.45;pointer-events:none}
+.folder.searching .folder-pane{display:block!important}
+.folder.searching .doc-item[hidden]{display:none!important}
+
+/* ---- Plain editable page ---- */
+.plain-page{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+padding:26px 28px;box-shadow:var(--shadow);max-width:840px}
+.pp-date{font-size:12.5px;color:var(--muted);margin:0 0 14px;display:flex;align-items:center;gap:7px}
+.pp-body{font-size:15px;line-height:1.7}
+.pp-body p{margin:0 0 14px}
+.pp-body p:last-child{margin-bottom:0}
+.pp-body h2,.pp-body h3{color:var(--navy);margin:22px 0 10px}
+.pp-body ul,.pp-body ol{margin:0 0 14px;padding-left:22px}
+.pp-body li{margin:0 0 6px}
+@media(max-width:560px){.plain-page{padding:18px}}

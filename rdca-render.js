@@ -35,7 +35,9 @@
       function slugDiv(g){ return (g||"other").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""); }
       function clubMono(n){ var b=(n||"").replace(/\s*CC$/i,"").trim().split(/\s+/).filter(Boolean); return (b.length>=2 ? b.map(function(w){return w[0];}).join("") : (b[0]||"")).slice(0,3).toUpperCase(); }
       var order=[], groups={};
-      clubs.forEach(function(c){ var g=c.grade||"Other"; if(!groups[g]){groups[g]=[];order.push(g);} groups[g].push(c); });
+      // RDCA (meeting 2026-09): list alphabetically, do not break into divisions
+      var _sorted = clubs.slice().sort(function(a,b){ return (a.name||"").localeCompare(b.name||""); });
+      order.push("All Clubs"); groups["All Clubs"] = _sorted;
       var navy = "linear-gradient(135deg,var(--navy),var(--navy3))";
       function card(c){
         var grad = (c.colors && c.colors.length>=2) ? ("linear-gradient(135deg,"+c.colors[0]+","+c.colors[1]+")") : navy;
@@ -107,7 +109,11 @@
         tabs += '<button class="folder-tab' + act + '" type="button" data-fld="' + sl + '">' + esc(g) + '<span class="ft-n">' + groups[g].length + '</span></button>';
         panes += '<div class="folder-pane' + act + '" id="fld-' + sl + '"><div class="doc-list">' + groups[g].map(row).join("") + '</div></div>';
       });
-      set(sel, '<div class="folder"><div class="folder-tabs" role="tablist">' + tabs + '</div><div class="folder-body">' + panes + '</div></div>');
+      var searchBar = '<div class="doc-search"><i class="ti ti-search"></i>'
+        + '<input type="search" id="doc-q" placeholder="Search documents\u2026" aria-label="Search documents">'
+        + '<button type="button" class="doc-clear" hidden aria-label="Clear">&times;</button></div>'
+        + '<p class="doc-count" id="doc-count" hidden></p>';
+      set(sel, searchBar + '<div class="folder"><div class="folder-tabs" role="tablist">' + tabs + '</div><div class="folder-body">' + panes + '</div></div>');
     },
 
     // ---- committees / board ----
@@ -221,6 +227,16 @@
                ' <span class="hof-yr">' + esc(m.season) + '</span></h4>' + body + '</div></td></tr>';
       }).join("");
       set(sel, '<table class="honours-table hof-table"><thead><tr><th>Season</th><th>Life Member</th><th>Association</th></tr></thead><tbody>' + rows + '</tbody></table>');
+    },
+
+    // ---- Rep Cricket Selection: a plain page RDCA can type content into ----
+    repSelection: function (sel) {
+      var d = D().repSelection || {};
+      set(sel,
+        '<article class="plain-page">' +
+          (d.updated ? '<p class="pp-date"><i class="ti ti-calendar"></i> Updated ' + esc(d.updated) + '</p>' : '') +
+          '<div class="pp-body">' + (d.body || '<p>No content yet.</p>') + '</div>' +
+        '</article>');
     },
 
     // ---- RDCA Cricket Show on Radio Eastern 98.1 ----
@@ -767,7 +783,9 @@
       // Per-section document bank: prefer an explicit s.docList; otherwise pull the
       // real downloadable files straight from D().documents by category, so each
       // section shows its own downloadable docs instead of bouncing to rdca.com.
-      var DOC_CATS = { seniors:["Forms & Rules","Annual Reports"], veterans:["Veterans"], womens:["Women's"], juniors:[] };
+      var DOC_CATS = { seniors:["Seniors","Forms & Rules","Annual Reports"], seniorMen:["Seniors","Forms & Rules","Annual Reports"],
+                       veterans:["Veterans"], womens:["Women's"], seniorWomen:["Women's"],
+                       juniors:["Juniors"], juniorBoys:["Juniors"], juniorGirls:["Juniors"] };
       var autoDocs = (D().documents || []).filter(function (d) {
         return (DOC_CATS[sectionKey] || []).indexOf(d.cat) >= 0;
       });
@@ -841,5 +859,43 @@
       if (tbl) tbl.querySelectorAll(".hof-name.on").forEach(function (b) { b.classList.remove("on"); });
       if (!open) { row.classList.add("open"); n.classList.add("on"); }
     }
+  });
+})();
+
+/* ---- Documents search ---- */
+(function () {
+  document.addEventListener("input", function (e) {
+    if (!e.target || e.target.id !== "doc-q") return;
+    var q = (e.target.value || "").trim().toLowerCase();
+    var wrap = e.target.closest(".doc-search").parentNode;
+    var count = wrap.querySelector("#doc-count");
+    var clear = wrap.querySelector(".doc-clear");
+    var folder = wrap.querySelector(".folder");
+    if (clear) clear.hidden = !q;
+    var items = wrap.querySelectorAll(".doc-item");
+    if (!q) {
+      items.forEach(function (it) { it.hidden = false; });
+      folder.classList.remove("searching");
+      if (count) count.hidden = true;
+      return;
+    }
+    folder.classList.add("searching");
+    var n = 0;
+    items.forEach(function (it) {
+      var t = (it.textContent || "").toLowerCase();
+      var hit = t.indexOf(q) > -1;
+      it.hidden = !hit;
+      if (hit) n++;
+    });
+    if (count) {
+      count.hidden = false;
+      count.textContent = n + (n === 1 ? " document matches " : " documents match ") + '"' + e.target.value.trim() + '"';
+    }
+  });
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest(".doc-clear");
+    if (!b) return;
+    var input = b.parentNode.querySelector("#doc-q");
+    if (input) { input.value = ""; input.dispatchEvent(new Event("input", { bubbles: true })); input.focus(); }
   });
 })();
