@@ -1591,7 +1591,7 @@ window.RDCA_DATA = {
       "aboutText": "<p>Senior cricket is the heart of the RDCA &mdash; the traditional Saturday competition contested across multiple grades, from Premier Division through the lower divisions. Clubs field teams to suit players of every standard, from those chasing premierships to weekend social cricketers.</p>",
       "conduct": {
         "summary": "<p>RDCA matches are played in the true spirit of cricket. The Code of Conduct &mdash; based on the Victorian Metropolitan Cricket Union (VMCU) code &mdash; sets out the standards of behaviour expected of players, club officials, coaches and spectators: respect for umpires and opponents, fair play, and zero tolerance for abuse, intimidation or discrimination. Serious or repeated breaches can lead to reports and suspensions.</p>",
-        "url": "https://www.rdca.com/seniors-code-of-conduct"
+        "url": "/documents.html"
       },
       "committee": {
         "label": "Senior Committee",
@@ -1606,13 +1606,13 @@ window.RDCA_DATA = {
       },
       "codeOfConduct": {
         "label": "Senior Code of Conduct",
-        "url": "https://www.rdca.com/seniors-code-of-conduct",
+        "url": "/documents.html",
         "real": true
       },
       "links": [
         {
           "label": "Suspended Players",
-          "url": "https://www.rdca.com/suspended-players",
+          "url": "/suspended-players.html",
           "real": true
         }
       ]
@@ -1631,7 +1631,7 @@ window.RDCA_DATA = {
       },
       "documents": {
         "label": "Women's Documents",
-        "url": "https://www.rdca.com/copy-of-documents",
+        "url": "/documents.html",
         "real": true
       }
     },
@@ -1643,7 +1643,7 @@ window.RDCA_DATA = {
       "aboutText": "<p>RDCA junior cricket caters for boys and girls across a range of age groups, from entry-level formats through to under-17s. Alongside weekly club fixtures, the Association runs representative (rep) team pathways that give talented juniors the chance to test themselves against the best in the region.</p>",
       "conduct": {
         "summary": "<p>Junior matches are played in the true spirit of cricket, with an emphasis on safety, enjoyment and good sportsmanship. The Code of Conduct sets out what is expected of players, coaches, parents and spectators &mdash; respect for umpires and opponents, fair play, and zero tolerance for abuse or discrimination &mdash; and works alongside the Association&rsquo;s child safety commitments.</p>",
-        "url": "https://www.rdca.com/juniors-code-of-conduct"
+        "url": "/documents.html"
       },
       "committee": {
         "label": "Junior Committee",
@@ -1766,7 +1766,7 @@ window.RDCA_DATA = {
       "aboutText": "<p>RDCA junior cricket caters for boys and girls across a range of age groups, from entry-level formats through to under-17s. Alongside weekly club fixtures, the Association runs representative (rep) team pathways that give talented juniors the chance to test themselves against the best in the region.</p>",
       "conduct": {
         "summary": "<p>Junior matches are played in the true spirit of cricket, with an emphasis on safety, enjoyment and good sportsmanship. The Code of Conduct sets out what is expected of players, coaches, parents and spectators &mdash; respect for umpires and opponents, fair play, and zero tolerance for abuse or discrimination &mdash; and works alongside the Association&rsquo;s child safety commitments.</p>",
-        "url": "https://www.rdca.com/juniors-code-of-conduct"
+        "url": "/documents.html"
       },
       "committee": {
         "label": "Junior Committee",
@@ -1889,7 +1889,7 @@ window.RDCA_DATA = {
       "aboutText": "<p>RDCA junior cricket caters for boys and girls across a range of age groups, from entry-level formats through to under-17s. Alongside weekly club fixtures, the Association runs representative (rep) team pathways that give talented juniors the chance to test themselves against the best in the region.</p>",
       "conduct": {
         "summary": "<p>Junior matches are played in the true spirit of cricket, with an emphasis on safety, enjoyment and good sportsmanship. The Code of Conduct sets out what is expected of players, coaches, parents and spectators &mdash; respect for umpires and opponents, fair play, and zero tolerance for abuse or discrimination &mdash; and works alongside the Association&rsquo;s child safety commitments.</p>",
-        "url": "https://www.rdca.com/juniors-code-of-conduct"
+        "url": "/documents.html"
       },
       "committee": {
         "label": "Junior Committee",
@@ -2012,7 +2012,7 @@ window.RDCA_DATA = {
       "aboutText": "<p>Senior cricket is the heart of the RDCA &mdash; the traditional Saturday competition contested across multiple grades, from Premier Division through the lower divisions. Clubs field teams to suit players of every standard, from those chasing premierships to weekend social cricketers.</p>",
       "conduct": {
         "summary": "<p>RDCA matches are played in the true spirit of cricket. The Code of Conduct &mdash; based on the Victorian Metropolitan Cricket Union (VMCU) code &mdash; sets out the standards of behaviour expected of players, club officials, coaches and spectators: respect for umpires and opponents, fair play, and zero tolerance for abuse, intimidation or discrimination. Serious or repeated breaches can lead to reports and suspensions.</p>",
-        "url": "https://www.rdca.com/seniors-code-of-conduct"
+        "url": "/documents.html"
       },
       "committee": {
         "label": "Senior Committee",
@@ -2027,13 +2027,13 @@ window.RDCA_DATA = {
       },
       "codeOfConduct": {
         "label": "Senior Code of Conduct",
-        "url": "https://www.rdca.com/seniors-code-of-conduct",
+        "url": "/documents.html",
         "real": true
       },
       "links": [
         {
           "label": "Suspended Players",
-          "url": "https://www.rdca.com/suspended-players",
+          "url": "/suspended-players.html",
           "real": true
         }
       ]
@@ -2046,11 +2046,11 @@ window.RDCA_DATA = {
       "aboutText": "<p>RDCA Veterans cricket is an Over-40s Big Bash &mdash; a relaxed Twenty20 format for players who want to keep enjoying the game in their later cricketing years. Teams nominate each season, and players of all backgrounds are welcome.</p><p style='margin-top:10px'><em>The Veterans&rsquo; motto: &ldquo;Strive to do your best, never give up and treat people with respect.&rdquo;</em></p><p style='margin-top:10px'>To get involved, speak to your club or call Peter Chamings on <a href='tel:+61419693097'>0419 693 097</a>. Forms: <a href='/docs/Team-Nomination-Form.docx' target='_blank' rel='noopener'>Team Nomination (2026)</a> &middot; <a href='/docs/Big-Bash-Over-40s-T20-Rules-2026.docx' target='_blank' rel='noopener'>Big Bash T20 Rules (2026)</a>.</p>",
       "conduct": {
         "summary": "<p>Veterans cricket is played in great spirit, true to the section&rsquo;s motto. The Code of Conduct sets out the behaviour expected of all participants &mdash; respect for opponents and officials, fair play, and no abuse, intimidation or discrimination.</p>",
-        "url": "https://www.rdca.com/veterans-code-of-conduct"
+        "url": "/documents.html"
       },
       "about": {
         "label": "About Veterans",
-        "url": "https://www.rdca.com/about-veterans",
+        "url": "/veterans.html",
         "real": true
       },
       "committee": {
@@ -2061,12 +2061,12 @@ window.RDCA_DATA = {
       },
       "documents": {
         "label": "Veterans Documents",
-        "url": "https://www.rdca.com/veterans-documents",
+        "url": "/documents.html",
         "real": true
       },
       "codeOfConduct": {
         "label": "Veterans Code of Conduct",
-        "url": "https://www.rdca.com/veterans-code-of-conduct",
+        "url": "/documents.html",
         "real": true
       }
     },
@@ -2084,7 +2084,7 @@ window.RDCA_DATA = {
       },
       "documents": {
         "label": "Women's Documents",
-        "url": "https://www.rdca.com/copy-of-documents",
+        "url": "/documents.html",
         "real": true
       }
     }
