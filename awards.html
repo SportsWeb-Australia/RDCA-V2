@@ -14,7 +14,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <link rel="stylesheet" href="/_shared.css">
 <link rel="stylesheet" href="/_pages.css">
-<script src="/rdca-components.js"></script>
+<script src="/rdca-components.js">
+RDCA.render.awards("#awards-mount");
+RDCA.render.averages("#averages-mount");
+RDCA.render.lowerGradePremiers("#lgp-mount");
+</script>
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#0d1f3c">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +40,25 @@
 </header>
 
 <div class="page-wrap">
+  <div class="section-block">
+    <div class="block-hed">Season Awards</div>
+    <div class="block-sub">Best &amp; Fairest, All Rounder, club and umpiring awards by season.</div>
+    <div id="awards-mount"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="block-hed">Averages</div>
+    <div class="block-sub">Premier and lower grade batting and bowling averages.</div>
+    <div id="averages-mount"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="block-hed">Lower Grade Premiers</div>
+    <div class="block-sub">Senior lower grade premierships by season.</div>
+    <div id="lgp-mount"></div>
+  </div>
+
+
 
   <div class="section-block">
     <div class="callout callout-navy">
