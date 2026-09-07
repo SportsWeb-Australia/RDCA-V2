@@ -367,37 +367,47 @@ window.RDCA_DATA = {
       "season": "Season 2025/26",
       "tag": "Latest",
       "url": "https://fieldofviewphotography.shootproof.com/gallery/28411719/album/21236651",
-      "cover": "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&q=70&auto=format&fit=crop"
+      "cover": "/images/galleries/season-2025-26.webp",
+      "coverSquare": true,
+      "coverCredit": "Field of View Photography"
     },
     {
       "season": "Season 2024/25",
       "tag": "",
       "url": "https://fieldofviewphotography.shootproof.com/gallery/25299604/album/18262926",
-      "cover": "https://images.unsplash.com/photo-1595210382051-4d2c31fcc2f4?w=600&q=70&auto=format&fit=crop"
+      "cover": "/images/galleries/season-2024-25.webp",
+      "coverSquare": true,
+      "coverCredit": "Field of View Photography"
     },
     {
       "season": "Season 2023/24",
       "tag": "",
       "url": "https://fieldofviewphotography.shootproof.com/gallery/19340167/album/15929979",
-      "cover": "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&q=70&auto=format&fit=crop"
+      "cover": "/images/galleries/season-2023-24.webp",
+      "coverSquare": true,
+      "coverCredit": "Field of View Photography"
     },
     {
       "season": "Season 2022/23",
       "tag": "",
       "url": "https://fieldofviewphotography.shootproof.com/gallery/19340167/album/13278529",
-      "cover": "https://images.unsplash.com/photo-1512719994953-eabf50895df7?w=600&q=70&auto=format&fit=crop"
+      "cover": "/images/galleries/season-2022-23.webp",
+      "coverSquare": true,
+      "coverCredit": "Field of View Photography"
     },
     {
       "season": "Premiership Posters 2024/25",
       "tag": "Posters",
       "url": "https://fieldofviewphotography.shootproof.com/gallery/15321413/album/19797650",
-      "cover": "https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&q=70&auto=format&fit=crop"
+      "cover": "https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&q=70&auto=format&fit=crop",
+      "hidden": true
     },
     {
       "season": "Premiership Posters 2023/24",
       "tag": "Posters",
       "url": "https://fieldofviewphotography.shootproof.com/gallery/15321413/album/16811579",
-      "cover": "https://images.unsplash.com/photo-1593766827228-8737b4534aa6?w=600&q=70&auto=format&fit=crop"
+      "cover": "https://images.unsplash.com/photo-1593766827228-8737b4534aa6?w=600&q=70&auto=format&fit=crop",
+      "hidden": true
     }
   ],
   "photoStrip": [
