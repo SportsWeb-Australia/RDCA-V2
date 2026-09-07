@@ -362,6 +362,7 @@ window.RDCA_DATA = {
      // CONNECT later: SportsWeb One "Documents" library / Supabase storage.
      ========================================================================== */
   documents: [
+        { title:"RDCA Annual Report 2025/26", cat:"Annual Reports", url:"/docs/RDCA-Annual-Report-2025-26.pdf", type:"pdf", icon:"ti-report", real:true },
     // Key forms / rules / policies — direct files on rdca.com (live; no upload needed)
     { title:"Registration Form", cat:"Forms & Rules",              url:"/docs/Registration-Form.pdf", type:"pdf", icon:"ti-file-text", real:true },
     { title:"Senior Rules 2026-27", cat:"Forms & Rules",           url:"/docs/Senior-Rules-2026-27.pdf", type:"pdf", icon:"ti-file-text", real:true },
