@@ -190,6 +190,28 @@
         '</a>');
     },
 
+    // ---- Archived posts migrated from the old RDCA site ----
+    archivedPosts: function (sel) {
+      var list = D().archivedPosts || [];
+      if (!list.length) { set(sel, ""); return; }
+      var rows = list.map(function (a, i) {
+        var id = "ap-" + i;
+        return '<article class="ap-item">' +
+          '<button class="ap-head" data-bio="' + id + '">' +
+            '<span class="ap-date">' + esc(a.date || "") + '</span>' +
+            '<span class="ap-title">' + esc(a.title) + (a.imageOnly ? ' <span class="ap-tag">image only</span>' : '') + '</span>' +
+            '<i class="ti ti-chevron-down"></i>' +
+          '</button>' +
+          '<div class="ap-body hof-bio" id="' + id + '"><div class="ap-in">' +
+            (a.author ? '<p class="ap-by">By ' + esc(a.author) + '</p>' : '') + a.body +
+            '<p class="ap-src"><a href="' + esc(a.source) + '" target="_blank" rel="noopener">Original post <i class="ti ti-external-link"></i></a></p>' +
+          '</div></div></article>';
+      }).join("");
+      set(sel, '<p class="block-sub">' + list.length + ' posts archived from the previous RDCA website (2020). ' +
+        list.filter(function (x) { return x.imageOnly; }).length + ' were published as images only.</p>' +
+        '<div class="ap-list">' + rows + '</div>');
+    },
+
     // ---- news archive (compact list of older items) ----
     newsArchive: function (sel) {
       var html = (D().newsArchive || []).map(function (n) {
