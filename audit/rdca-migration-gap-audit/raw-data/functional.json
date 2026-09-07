@@ -1,0 +1,46 @@
+{
+ "desktop": {
+  "horizontalScroll": false,
+  "scrollW": 1440,
+  "innerW": 1440,
+  "navLinks": 8,
+  "burgerPresent": true,
+  "mobMenuLinks": 24,
+  "footerLinks": 23,
+  "focusable": 154,
+  "skipLink": false,
+  "imgsNoAlt": 2,
+  "imgsTotal": 58,
+  "h1count": 1,
+  "langAttr": "en",
+  "viewportMeta": "width=device-width,initial-scale=1.0",
+  "registerFields": 9,
+  "registerAction": "(none)",
+  "registerRequired": 0,
+  "contactAction": "(none)"
+ },
+ "mobile": {
+  "horizontalScroll": false,
+  "scrollW": 390,
+  "innerW": 390,
+  "navLinks": 8,
+  "burgerPresent": true,
+  "mobMenuLinks": 24,
+  "footerLinks": 23,
+  "focusable": 154,
+  "skipLink": false,
+  "imgsNoAlt": 2,
+  "imgsTotal": 58,
+  "h1count": 1,
+  "langAttr": "en",
+  "viewportMeta": "width=device-width,initial-scale=1.0",
+  "registerFields": 9,
+  "registerAction": "(none)",
+  "registerRequired": 0,
+  "contactAction": "(none)"
+ },
+ "notFound": {
+  "status": 404,
+  "text": "404: NOT_FOUND\nCode: NOT_FOUND\nID: syd1::4qzh4-1788691258940-8ddb7f96c17a\n\nRead our documentation to learn more about this error."
+ }
+}

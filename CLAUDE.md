@@ -1,0 +1,116 @@
+# RDCA Website — project guide for Claude Code
+
+Static, dependency-free website for the **RDCA (Ringwood & District Cricket Association)**. No build step, no framework, no package manager. Plain HTML + CSS + vanilla JS, deployed on Vercel from GitHub.
+
+- **Repo:** `SportsWeb-Australia/RDCA-V2` — files at repo ROOT (`index.html` at root, no subfolder).
+- **Live:** https://rdca-sportsweb-version2.vercel.app/ — Vercel project `rdca-sportsweb-version2` (`prj_h1CJmsIFg3Bsm1NVNQfu1VdEs6Gb`), team `sports-web-australia` (`team_WVI7n9g3cxLVECmGY4cEBAVF`). Auto-deploys on push to `main`.
+- An older `rdca-sportsweb` project/repo is the previous version — ignore it.
+- **Owner:** Carson (Click Sports Media, Melbourne). Prefers honest feedback, consolidated deliverables, and reviews via screenshots of the live deploy.
+- **Current service-worker cache at HEAD:** `rdca-v33` (see `sw.js`). The unapplied SitePulse patch bumps it to `rdca-v34`.
+
+## ⚠️ The git repo is the only source of truth
+
+Do **not** restore this project from `rdca-deploy-flat.zip` or follow `RDCA-HANDOVER.md` as a description of the live site. That bundle is a **stale snapshot** — its `_pages.css` / `rdca-components.js` predate the final 10 June uploads, and unzipping it over the repo would delete live features (see "Divergence" below). If a handover zip and this repo disagree, **the repo wins**.
+
+## How to deploy
+Commit and push — Vercel builds and deploys automatically. There is no compile step. **Every change touching HTML/CSS/JS must bump the `sw.js` cache name** (`rdca-vNN` → `rdca-v(N+1)`) or returning visitors get stale cached assets.
+
+## Architecture — two page types
+1. **`index.html` (homepage) is SELF-CONTAINED.** Its own inline `<style>`, markup, nav and footer. It does **not** load `_shared.css`, `_pages.css`, `site-data.js`, `rdca-render.js` or `rdca-components.js`. Edit `index.html` directly for homepage changes.
+2. **Every other page** loads `_shared.css` + `_pages.css`, injects shared chrome via `rdca-components.js` (`<div data-rdca="topbar|mobile-menu|header-nav|ticker|ad-banner|sponsor-carousel|footer">`), and renders content from `window.RDCA_DATA` in `site-data.js` via `window.RDCA.render.<fn>("#mount")` in `rdca-render.js`.
+
+## File map
+- `index.html` — homepage (self-contained).
+- `_shared.css` — design tokens: `--bg:#f0f2f5 --navy:#0d1f3c --navy3:#1e3d6b --red:#cc2222 --muted:#5a6880 --r:14px`.
+- `_pages.css` — component styles for all non-home pages (keep `{`/`}` balanced).
+- `rdca-render.js` — 22 render fns: `clubs, sponsors, documents, committees, news, newsFeatured, newsArchive, honours, lifeMembers, honoursHub, sectionAbout, matchCentre, repCricket, sectionConduct, board, premiers, umpires, playhqCompetitions, playhqBoard, teamSelections, sectionLinks, events`.
+- `rdca-components.js` — shared chrome injector (masthead + mobile menu, ticker, ad-banner, sponsor-carousel, footer).
+- `site-data.js` — all content in `window.RDCA_DATA` (38 clubs, teamSelections, news, articles, events, players, sections, committees, honours, social, umpires).
+- `pwa.js` — PWA install + match-day alerts + injected back-to-top button.
+- `playhq.js` — PlayHQ embed helper.
+- `sw.js` — service worker; network-first for pages/css/js/json, cache-first for images. **Bump `rdca-vNN` every change.**
+- `manifest.webmanifest`, `logos/` (37 club `.webp`), `docs/` (PDFs).
+- **41 HTML pages** (sections `seniors/juniors/veterans/womens.html` share a template driven by a `SECTION` var + `data-page`).
+
+## Where to make changes
+- Homepage → `index.html` directly.
+- Nav / footer / masthead / mobile menu → `rdca-components.js`.
+- Any other page's content → its render fn in `rdca-render.js` + data in `site-data.js`.
+- Shared styling → `_pages.css`; tokens → `_shared.css`.
+
+## Conventions & gotchas
+- **Tabler Icons** webfont `@tabler/icons-webfont@2.44.0` (`class="ti ti-*"`). Fonts: Bebas Neue (display), DM Sans (body), JetBrains Mono (mono).
+- All "Register" CTAs point to `/register.html` (front-end form only — see open items).
+- A **Store** link (`https://store.rdca.com`, opens in a new tab) sits in the desktop nav, the mobile menu (as a full-width outline button) and the footer Cricket column.
+- **Team-selection cards** derive their background from each club's `colors` in `site-data.js` via `clubBg()`/`mix()` in `teamSelections` (mixes club colour into dark navy `#0b1424`, keeps white text AA-readable). Change a club's look by editing `clubs[].colors`.
+- **Social feeds** (`social.html`) load Elfsight (Instagram) + official TikTok + Facebook Page Plugin, and only render on the live URL, not locally. `.soc-feed-col` is **1400px** wide — the feeds are *not* globally capped to 500px (Facebook's own plugin is hard-capped at 500px, but IG and TikTok are not). Older handover notes claiming a 500px cap are out of date.
+- **FOV photo strip** uses `.fov-gallery` / `.fov-nav` / `.fov-scroll` / `.fov-track` with prev/next arrow buttons — not a plain overflow-scroll strip.
+- The ad **"Advertisement" flag** is a pill positioned against `.ad-banner-wrap` (which is `position:relative`), sitting outside `.ad-banner`.
+
+### SitePulse feedback widget — NOT CURRENTLY APPLIED
+
+**State at HEAD:** the homepage still loads a **self-hosted** `/sitepulse-widget.js` with
+`data-website-id="16682aef-…"`. That ID belongs to **`ringwoodeagles.com.au`** in a dead prototype
+Supabase project — it is the wrong site and the wrong system. No other page carries any SitePulse tag.
+
+A prepared change that replaces it with the correct external widget on all 41 pages exists but is
+**deliberately unapplied**, preserved as a patch:
+
+- `audit/rdca-migration-gap-audit/preserved/sitepulse-changes.patch`
+- `audit/rdca-migration-gap-audit/SITEPULSE-PATCH-NOTE.md`
+
+The intended tag (once applied) is:
+
+```html
+<script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
+        data-club-id="973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60"
+        data-source="onboarding"
+        data-website-status="draft"></script>
+```
+
+- **Do not self-host or modify it** — it must load from that URL to stay current.
+- The external widget reads only `data-club-id`, `data-source`, `data-website-status`, `data-help-url`.
+  It ignores `data-website-id`.
+- It posts to the `sitepulse-ingest` edge function on the `sportsweb-one` Supabase project
+  (`uzibfawcwoapfbigpzum`), landing in `public.sitepulse_feedback`.
+- Flip `data-website-status` to `"live"` at go-live.
+- **Open issue (D12):** club `973aaf1c-…` has slug `rdca` and `sport_type` `cricket` but is **named
+  "Riddell District Cricket Association"**, while this site is *Ringwood* & DCA. No Supabase record has
+  been changed. Resolve before applying the patch.
+
+## Migration audit
+
+A full migration gap audit against the old Wix site (`https://www.rdca.com/`) lives in
+`audit/rdca-migration-gap-audit/`. Headline: **322 old pages discovered, 277 MISSING**; the historical
+records subsystem at **`honours.rdca.com`** (246 pages, 8,164 rows) was never migrated; **0 of 43
+documents** were migrated (all hot-linked to Wix). **The old site cannot safely be retired.**
+Start at `EXECUTIVE-SUMMARY.md`, then `NEXT-SESSION-HANDOVER.md`.
+
+## Divergence from the handover bundle (why the zip is stale)
+`rdca-deploy-flat.zip` / `RDCA-HANDOVER.md` describe a v34 that forked before the final 10 June uploads. Present in the repo and live, **absent from the zip**:
+- Store links (nav, mobile menu, footer) and the footer "Home" link
+- Club logo image in the mobile menu's Clubs link (`.mob-link-logo`)
+- Mobile 560px breakpoints for `.callout`, timeline (`.tl*`), folder tabs and team cards
+- The arrow-nav FOV photo strip (the zip reverts to a plain `.fov-photos` scroller)
+- 1400px social feed column and no 500px TikTok min-height
+- Repositioned pill-style ad flag
+
+## Validate (no build, so just node checks)
+```bash
+node --check rdca-render.js && node --check rdca-components.js && node --check pwa.js && node --check playhq.js
+# CSS brace balance:
+node -e 'const c=require("fs").readFileSync("_pages.css","utf8");const o=(c.match(/{/g)||[]).length,x=(c.match(/}/g)||[]).length;console.log(o,x,o===x?"OK":"MISMATCH")'
+# Data sanity:
+node -e 'global.window={};eval(require("fs").readFileSync("site-data.js","utf8"));console.log("clubs",window.RDCA_DATA.clubs.length)'
+```
+Preview locally with `python3 -m http.server 8000` (Instagram/Facebook/TikTok embeds only render on the live Vercel URL).
+
+## Open items / caveats (as of v34)
+- **Registration form is front-end only** (shows a confirmation note). Live submissions → RDCA database is the **SportsWeb One** integration step, not wired yet.
+- **SitePulse** is `data-website-status="draft"` — flip to `live` at go-live. Club record name needs correcting (above).
+- Event **ticket URLs**, **Community Big Bash** and **RDCA T20** links are `#` placeholders.
+- **Team selections, line-ups, player profiles and umpire appointments are MOCK data.** Ringwood's stored colours are muted silver/charcoal (`#9aa1a8`/`#2b2f36`), so its cards read grey — update `clubs[].colors` if the real colours differ.
+- **Photos** are stock placeholders; `player-jake-smith.jpg` is only 288×288 (soft when scaled).
+- Elfsight Instagram (free tier) shows a small badge + monthly view cap; Facebook and TikTok are free/official.
+- Club naming (Heathmont vs "Heathwood") and division groupings are provisional.
+- A duplicate clone of this repo exists at `~/Developer/rdca-v2` — avoid editing the wrong copy.

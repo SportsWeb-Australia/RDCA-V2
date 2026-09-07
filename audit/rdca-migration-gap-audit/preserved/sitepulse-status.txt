@@ -1,0 +1,46 @@
+ M about-umpires.html
+ M article.html
+ M awards.html
+ M become-an-umpire.html
+ M board.html
+ M child-safety.html
+ M club.html
+ M clubs.html
+ M committees.html
+ M communications.html
+ M community-big-bash.html
+ M competition.html
+ M contact.html
+ M documents.html
+ M event.html
+ M events.html
+ M hall-of-fame.html
+ M honour-board.html
+ M honours.html
+ M index.html
+ M juniors.html
+ M match-centre.html
+ M news.html
+ M notices.html
+ M photos.html
+ M placeholder.html
+ M player.html
+ M premiership-photos.html
+ M register.html
+ M rep-cricket.html
+ M seniors.html
+D  sitepulse-widget.js
+ M social.html
+ M sponsors.html
+ M sw.js
+ M team-selections.html
+ M umpire-appointments.html
+ M umpire-documents.html
+ M umpire-training.html
+ M umpires.html
+ M veterans.html
+ M video.html
+ M womens.html
+?? .DS_Store
+?? CLAUDE.md
+?? audit/

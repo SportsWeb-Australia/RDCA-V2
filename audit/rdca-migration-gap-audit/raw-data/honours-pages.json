@@ -1,0 +1,1970 @@
+[
+ {
+  "url": "https://honours.rdca.com/index.php?ID=allrounder",
+  "http": "200",
+  "bytes": 22127,
+  "chars": 2608,
+  "tables": 4,
+  "rows": 79
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=121",
+  "http": "200",
+  "bytes": 21908,
+  "chars": 3076,
+  "tables": 1,
+  "rows": 48
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=121F",
+  "http": "200",
+  "bytes": 1600,
+  "chars": 219,
+  "tables": 1,
+  "rows": 4
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=122",
+  "http": "200",
+  "bytes": 19098,
+  "chars": 2651,
+  "tables": 1,
+  "rows": 42
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=122F",
+  "http": "200",
+  "bytes": 1199,
+  "chars": 165,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=123",
+  "http": "200",
+  "bytes": 18110,
+  "chars": 2448,
+  "tables": 1,
+  "rows": 40
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=124",
+  "http": "200",
+  "bytes": 16821,
+  "chars": 2295,
+  "tables": 1,
+  "rows": 37
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=125",
+  "http": "200",
+  "bytes": 4855,
+  "chars": 650,
+  "tables": 1,
+  "rows": 11
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=131",
+  "http": "200",
+  "bytes": 1190,
+  "chars": 156,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=141",
+  "http": "200",
+  "bytes": 22361,
+  "chars": 3088,
+  "tables": 1,
+  "rows": 49
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=142",
+  "http": "200",
+  "bytes": 20876,
+  "chars": 2844,
+  "tables": 1,
+  "rows": 46
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=143",
+  "http": "200",
+  "bytes": 20004,
+  "chars": 2747,
+  "tables": 1,
+  "rows": 44
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=144",
+  "http": "200",
+  "bytes": 15882,
+  "chars": 2158,
+  "tables": 1,
+  "rows": 35
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=145",
+  "http": "200",
+  "bytes": 2111,
+  "chars": 285,
+  "tables": 1,
+  "rows": 5
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=161",
+  "http": "200",
+  "bytes": 27307,
+  "chars": 3726,
+  "tables": 1,
+  "rows": 60
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=162",
+  "http": "200",
+  "bytes": 25200,
+  "chars": 3561,
+  "tables": 1,
+  "rows": 55
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=163",
+  "http": "200",
+  "bytes": 19127,
+  "chars": 2676,
+  "tables": 1,
+  "rows": 42
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=164",
+  "http": "200",
+  "bytes": 13611,
+  "chars": 1921,
+  "tables": 1,
+  "rows": 30
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=171",
+  "http": "200",
+  "bytes": 1610,
+  "chars": 232,
+  "tables": 1,
+  "rows": 4
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=181",
+  "http": "200",
+  "bytes": 3968,
+  "chars": 558,
+  "tables": 1,
+  "rows": 9
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=AGR",
+  "http": "200",
+  "bytes": 7173,
+  "chars": 1038,
+  "tables": 1,
+  "rows": 16
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=BGR",
+  "http": "200",
+  "bytes": 7627,
+  "chars": 1034,
+  "tables": 1,
+  "rows": 17
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=CD2",
+  "http": "200",
+  "bytes": 2119,
+  "chars": 292,
+  "tables": 1,
+  "rows": 5
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=CD3",
+  "http": "200",
+  "bytes": 1608,
+  "chars": 226,
+  "tables": 1,
+  "rows": 4
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=CD4",
+  "http": "200",
+  "bytes": 1187,
+  "chars": 153,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=CGR",
+  "http": "200",
+  "bytes": 33456,
+  "chars": 4607,
+  "tables": 1,
+  "rows": 73
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=CH1",
+  "http": "200",
+  "bytes": 40565,
+  "chars": 5745,
+  "tables": 1,
+  "rows": 88
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=CH2",
+  "http": "200",
+  "bytes": 14172,
+  "chars": 2004,
+  "tables": 1,
+  "rows": 31
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=CH3",
+  "http": "200",
+  "bytes": 9909,
+  "chars": 1394,
+  "tables": 1,
+  "rows": 22
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=CH4",
+  "http": "200",
+  "bytes": 10424,
+  "chars": 1457,
+  "tables": 1,
+  "rows": 23
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=CH5",
+  "http": "200",
+  "bytes": 3024,
+  "chars": 405,
+  "tables": 1,
+  "rows": 7
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=CH6",
+  "http": "200",
+  "bytes": 1600,
+  "chars": 218,
+  "tables": 1,
+  "rows": 4
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=DGR",
+  "http": "200",
+  "bytes": 24729,
+  "chars": 3484,
+  "tables": 1,
+  "rows": 54
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=EGR",
+  "http": "200",
+  "bytes": 21012,
+  "chars": 2967,
+  "tables": 1,
+  "rows": 46
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=FGR",
+  "http": "200",
+  "bytes": 17346,
+  "chars": 2488,
+  "tables": 1,
+  "rows": 38
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=GGR",
+  "http": "200",
+  "bytes": 14171,
+  "chars": 2029,
+  "tables": 1,
+  "rows": 31
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=HGR",
+  "http": "200",
+  "bytes": 9907,
+  "chars": 1387,
+  "tables": 1,
+  "rows": 22
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=IGR",
+  "http": "200",
+  "bytes": 8606,
+  "chars": 1225,
+  "tables": 1,
+  "rows": 19
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=JGR",
+  "http": "200",
+  "bytes": 5842,
+  "chars": 841,
+  "tables": 1,
+  "rows": 13
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=KGR",
+  "http": "200",
+  "bytes": 5302,
+  "chars": 746,
+  "tables": 1,
+  "rows": 12
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=LGR",
+  "http": "200",
+  "bytes": 3980,
+  "chars": 568,
+  "tables": 1,
+  "rows": 9
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=MGR",
+  "http": "200",
+  "bytes": 3049,
+  "chars": 431,
+  "tables": 1,
+  "rows": 7
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=NW1",
+  "http": "200",
+  "bytes": 37166,
+  "chars": 5112,
+  "tables": 1,
+  "rows": 81
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=NW2",
+  "http": "200",
+  "bytes": 9616,
+  "chars": 1424,
+  "tables": 1,
+  "rows": 21
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=NW3",
+  "http": "200",
+  "bytes": 2093,
+  "chars": 265,
+  "tables": 1,
+  "rows": 5
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=OGR",
+  "http": "200",
+  "bytes": 3948,
+  "chars": 532,
+  "tables": 1,
+  "rows": 9
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=PSH",
+  "http": "200",
+  "bytes": 2536,
+  "chars": 363,
+  "tables": 1,
+  "rows": 6
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=WK1",
+  "http": "200",
+  "bytes": 24820,
+  "chars": 3568,
+  "tables": 1,
+  "rows": 54
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=WK2",
+  "http": "200",
+  "bytes": 12798,
+  "chars": 1862,
+  "tables": 1,
+  "rows": 28
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=WK3",
+  "http": "200",
+  "bytes": 8693,
+  "chars": 1283,
+  "tables": 1,
+  "rows": 19
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=WK4",
+  "http": "200",
+  "bytes": 4359,
+  "chars": 599,
+  "tables": 1,
+  "rows": 10
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=averages&grade=WK5",
+  "http": "200",
+  "bytes": 2110,
+  "chars": 285,
+  "tables": 1,
+  "rows": 5
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=10",
+  "http": "200",
+  "bytes": 8244,
+  "chars": 1411,
+  "tables": 5,
+  "rows": 39
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=13",
+  "http": "200",
+  "bytes": 14806,
+  "chars": 2544,
+  "tables": 4,
+  "rows": 68
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=14",
+  "http": "200",
+  "bytes": 6389,
+  "chars": 1066,
+  "tables": 4,
+  "rows": 29
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=15",
+  "http": "200",
+  "bytes": 23048,
+  "chars": 3977,
+  "tables": 5,
+  "rows": 107
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=17",
+  "http": "200",
+  "bytes": 10224,
+  "chars": 1741,
+  "tables": 3,
+  "rows": 46
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=18",
+  "http": "200",
+  "bytes": 20062,
+  "chars": 3506,
+  "tables": 6,
+  "rows": 95
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=19",
+  "http": "200",
+  "bytes": 20914,
+  "chars": 3615,
+  "tables": 5,
+  "rows": 97
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=2",
+  "http": "200",
+  "bytes": 21833,
+  "chars": 3777,
+  "tables": 7,
+  "rows": 105
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=20",
+  "http": "200",
+  "bytes": 23883,
+  "chars": 4081,
+  "tables": 7,
+  "rows": 114
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=21",
+  "http": "200",
+  "bytes": 8157,
+  "chars": 1403,
+  "tables": 3,
+  "rows": 37
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=22",
+  "http": "200",
+  "bytes": 31233,
+  "chars": 5402,
+  "tables": 7,
+  "rows": 150
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=24",
+  "http": "200",
+  "bytes": 19219,
+  "chars": 3408,
+  "tables": 7,
+  "rows": 92
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=25",
+  "http": "200",
+  "bytes": 15309,
+  "chars": 2652,
+  "tables": 4,
+  "rows": 71
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=26",
+  "http": "200",
+  "bytes": 25920,
+  "chars": 4350,
+  "tables": 5,
+  "rows": 123
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=27",
+  "http": "200",
+  "bytes": 10660,
+  "chars": 1870,
+  "tables": 4,
+  "rows": 49
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=28",
+  "http": "200",
+  "bytes": 17821,
+  "chars": 3020,
+  "tables": 6,
+  "rows": 84
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=29",
+  "http": "200",
+  "bytes": 25646,
+  "chars": 4386,
+  "tables": 7,
+  "rows": 123
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=3",
+  "http": "200",
+  "bytes": 14762,
+  "chars": 2556,
+  "tables": 6,
+  "rows": 70
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=30",
+  "http": "200",
+  "bytes": 15948,
+  "chars": 2763,
+  "tables": 6,
+  "rows": 75
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=31",
+  "http": "200",
+  "bytes": 22347,
+  "chars": 3810,
+  "tables": 6,
+  "rows": 106
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=32",
+  "http": "200",
+  "bytes": 11981,
+  "chars": 2031,
+  "tables": 3,
+  "rows": 55
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=33",
+  "http": "200",
+  "bytes": 23381,
+  "chars": 4006,
+  "tables": 6,
+  "rows": 110
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=34",
+  "http": "200",
+  "bytes": 20806,
+  "chars": 3636,
+  "tables": 5,
+  "rows": 96
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=35",
+  "http": "200",
+  "bytes": 30737,
+  "chars": 5275,
+  "tables": 7,
+  "rows": 147
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=36",
+  "http": "200",
+  "bytes": 32942,
+  "chars": 5546,
+  "tables": 7,
+  "rows": 160
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=37",
+  "http": "200",
+  "bytes": 6008,
+  "chars": 1016,
+  "tables": 3,
+  "rows": 27
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=38",
+  "http": "200",
+  "bytes": 7860,
+  "chars": 1356,
+  "tables": 5,
+  "rows": 36
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=39",
+  "http": "200",
+  "bytes": 10475,
+  "chars": 1881,
+  "tables": 5,
+  "rows": 49
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=4",
+  "http": "200",
+  "bytes": 18238,
+  "chars": 3126,
+  "tables": 3,
+  "rows": 83
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=40",
+  "http": "200",
+  "bytes": 5875,
+  "chars": 1013,
+  "tables": 3,
+  "rows": 26
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=42",
+  "http": "200",
+  "bytes": 1108,
+  "chars": 178,
+  "tables": 2,
+  "rows": 4
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=43",
+  "http": "200",
+  "bytes": 2618,
+  "chars": 441,
+  "tables": 3,
+  "rows": 11
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=44",
+  "http": "200",
+  "bytes": 5836,
+  "chars": 1032,
+  "tables": 3,
+  "rows": 26
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=45",
+  "http": "200",
+  "bytes": 2258,
+  "chars": 357,
+  "tables": 2,
+  "rows": 9
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=48",
+  "http": "200",
+  "bytes": 1612,
+  "chars": 264,
+  "tables": 2,
+  "rows": 6
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=5",
+  "http": "200",
+  "bytes": 7980,
+  "chars": 1376,
+  "tables": 3,
+  "rows": 36
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=50",
+  "http": "200",
+  "bytes": 3742,
+  "chars": 613,
+  "tables": 2,
+  "rows": 16
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=52",
+  "http": "200",
+  "bytes": 1395,
+  "chars": 221,
+  "tables": 2,
+  "rows": 5
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=53",
+  "http": "200",
+  "bytes": 1189,
+  "chars": 191,
+  "tables": 1,
+  "rows": 4
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=54",
+  "http": "200",
+  "bytes": 4430,
+  "chars": 757,
+  "tables": 2,
+  "rows": 19
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=55",
+  "http": "200",
+  "bytes": 1822,
+  "chars": 304,
+  "tables": 2,
+  "rows": 7
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=56",
+  "http": "200",
+  "bytes": 3983,
+  "chars": 654,
+  "tables": 2,
+  "rows": 17
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=58",
+  "http": "200",
+  "bytes": 768,
+  "chars": 100,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=59",
+  "http": "200",
+  "bytes": 774,
+  "chars": 106,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=6",
+  "http": "200",
+  "bytes": 10839,
+  "chars": 1816,
+  "tables": 3,
+  "rows": 50
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=61",
+  "http": "200",
+  "bytes": 1171,
+  "chars": 197,
+  "tables": 2,
+  "rows": 4
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=62",
+  "http": "200",
+  "bytes": 2859,
+  "chars": 483,
+  "tables": 2,
+  "rows": 12
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=64",
+  "http": "200",
+  "bytes": 943,
+  "chars": 143,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=65",
+  "http": "200",
+  "bytes": 749,
+  "chars": 94,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=67",
+  "http": "200",
+  "bytes": 755,
+  "chars": 100,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=68",
+  "http": "200",
+  "bytes": 749,
+  "chars": 94,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=69",
+  "http": "200",
+  "bytes": 1826,
+  "chars": 282,
+  "tables": 2,
+  "rows": 7
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=7",
+  "http": "200",
+  "bytes": 24121,
+  "chars": 4136,
+  "tables": 7,
+  "rows": 115
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=70",
+  "http": "200",
+  "bytes": 957,
+  "chars": 133,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=71",
+  "http": "200",
+  "bytes": 766,
+  "chars": 99,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=73",
+  "http": "200",
+  "bytes": 774,
+  "chars": 107,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=8",
+  "http": "200",
+  "bytes": 26103,
+  "chars": 4507,
+  "tables": 5,
+  "rows": 122
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=awards&club=9",
+  "http": "200",
+  "bytes": 23517,
+  "chars": 4004,
+  "tables": 6,
+  "rows": 110
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=bac",
+  "http": "200",
+  "bytes": 1396,
+  "chars": 155,
+  "tables": 1,
+  "rows": 6
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=bestfairest",
+  "http": "200",
+  "bytes": 27134,
+  "chars": 4923,
+  "tables": 4,
+  "rows": 127
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=jnrcc",
+  "http": "200",
+  "bytes": 6260,
+  "chars": 757,
+  "tables": 1,
+  "rows": 32
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=mostpromisingplayer",
+  "http": "200",
+  "bytes": 8333,
+  "chars": 1209,
+  "tables": 1,
+  "rows": 36
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=other",
+  "http": "200",
+  "bytes": 21671,
+  "chars": 3732,
+  "tables": 1,
+  "rows": 79
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=10",
+  "http": "200",
+  "bytes": 3124,
+  "chars": 617,
+  "tables": 1,
+  "rows": 19
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=11",
+  "http": "200",
+  "bytes": 579,
+  "chars": 64,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=13",
+  "http": "200",
+  "bytes": 5832,
+  "chars": 1305,
+  "tables": 1,
+  "rows": 36
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=14",
+  "http": "200",
+  "bytes": 1879,
+  "chars": 316,
+  "tables": 1,
+  "rows": 11
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=15",
+  "http": "200",
+  "bytes": 10546,
+  "chars": 2139,
+  "tables": 1,
+  "rows": 69
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=17",
+  "http": "200",
+  "bytes": 2410,
+  "chars": 479,
+  "tables": 1,
+  "rows": 14
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=18",
+  "http": "200",
+  "bytes": 8597,
+  "chars": 1842,
+  "tables": 1,
+  "rows": 55
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=19",
+  "http": "200",
+  "bytes": 8826,
+  "chars": 1835,
+  "tables": 1,
+  "rows": 57
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=2",
+  "http": "200",
+  "bytes": 10809,
+  "chars": 2270,
+  "tables": 1,
+  "rows": 70
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=20",
+  "http": "200",
+  "bytes": 10793,
+  "chars": 2150,
+  "tables": 1,
+  "rows": 71
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=21",
+  "http": "200",
+  "bytes": 4293,
+  "chars": 842,
+  "tables": 1,
+  "rows": 27
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=22",
+  "http": "200",
+  "bytes": 14638,
+  "chars": 2927,
+  "tables": 1,
+  "rows": 97
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=24",
+  "http": "200",
+  "bytes": 7898,
+  "chars": 1719,
+  "tables": 1,
+  "rows": 50
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=25",
+  "http": "200",
+  "bytes": 3736,
+  "chars": 625,
+  "tables": 1,
+  "rows": 24
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=26",
+  "http": "200",
+  "bytes": 11870,
+  "chars": 2519,
+  "tables": 1,
+  "rows": 77
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=27",
+  "http": "200",
+  "bytes": 3258,
+  "chars": 619,
+  "tables": 1,
+  "rows": 20
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=28",
+  "http": "200",
+  "bytes": 5394,
+  "chars": 1103,
+  "tables": 1,
+  "rows": 34
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=29",
+  "http": "200",
+  "bytes": 7427,
+  "chars": 1484,
+  "tables": 1,
+  "rows": 48
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=3",
+  "http": "200",
+  "bytes": 7543,
+  "chars": 1600,
+  "tables": 1,
+  "rows": 48
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=30",
+  "http": "200",
+  "bytes": 6739,
+  "chars": 1400,
+  "tables": 1,
+  "rows": 43
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=31",
+  "http": "200",
+  "bytes": 9325,
+  "chars": 1966,
+  "tables": 1,
+  "rows": 60
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=32",
+  "http": "200",
+  "bytes": 4883,
+  "chars": 1064,
+  "tables": 1,
+  "rows": 30
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=33",
+  "http": "200",
+  "bytes": 7618,
+  "chars": 1571,
+  "tables": 1,
+  "rows": 49
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=34",
+  "http": "200",
+  "bytes": 8952,
+  "chars": 1829,
+  "tables": 1,
+  "rows": 58
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=35",
+  "http": "200",
+  "bytes": 11163,
+  "chars": 2284,
+  "tables": 1,
+  "rows": 73
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=36",
+  "http": "200",
+  "bytes": 13775,
+  "chars": 3008,
+  "tables": 1,
+  "rows": 89
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=37",
+  "http": "200",
+  "bytes": 1225,
+  "chars": 238,
+  "tables": 1,
+  "rows": 6
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=38",
+  "http": "200",
+  "bytes": 3667,
+  "chars": 688,
+  "tables": 1,
+  "rows": 23
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=39",
+  "http": "200",
+  "bytes": 1936,
+  "chars": 373,
+  "tables": 1,
+  "rows": 11
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=4",
+  "http": "200",
+  "bytes": 6812,
+  "chars": 1473,
+  "tables": 1,
+  "rows": 43
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=40",
+  "http": "200",
+  "bytes": 2506,
+  "chars": 471,
+  "tables": 1,
+  "rows": 15
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=42",
+  "http": "200",
+  "bytes": 749,
+  "chars": 130,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=43",
+  "http": "200",
+  "bytes": 880,
+  "chars": 129,
+  "tables": 1,
+  "rows": 4
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=44",
+  "http": "200",
+  "bytes": 1848,
+  "chars": 285,
+  "tables": 1,
+  "rows": 11
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=45",
+  "http": "200",
+  "bytes": 744,
+  "chars": 125,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=48",
+  "http": "200",
+  "bytes": 736,
+  "chars": 117,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=5",
+  "http": "200",
+  "bytes": 4023,
+  "chars": 808,
+  "tables": 1,
+  "rows": 25
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=50",
+  "http": "200",
+  "bytes": 1374,
+  "chars": 283,
+  "tables": 1,
+  "rows": 7
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=52",
+  "http": "200",
+  "bytes": 586,
+  "chars": 71,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=53",
+  "http": "200",
+  "bytes": 1651,
+  "chars": 324,
+  "tables": 1,
+  "rows": 9
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=54",
+  "http": "200",
+  "bytes": 1663,
+  "chars": 336,
+  "tables": 1,
+  "rows": 9
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=55",
+  "http": "200",
+  "bytes": 739,
+  "chars": 120,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=56",
+  "http": "200",
+  "bytes": 1164,
+  "chars": 177,
+  "tables": 1,
+  "rows": 6
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=58",
+  "http": "200",
+  "bytes": 583,
+  "chars": 68,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=59",
+  "http": "200",
+  "bytes": 604,
+  "chars": 89,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=6",
+  "http": "200",
+  "bytes": 6121,
+  "chars": 1358,
+  "tables": 1,
+  "rows": 38
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=60",
+  "http": "200",
+  "bytes": 610,
+  "chars": 95,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=61",
+  "http": "200",
+  "bytes": 587,
+  "chars": 72,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=62",
+  "http": "200",
+  "bytes": 741,
+  "chars": 122,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=63",
+  "http": "200",
+  "bytes": 575,
+  "chars": 60,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=64",
+  "http": "200",
+  "bytes": 597,
+  "chars": 82,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=7",
+  "http": "200",
+  "bytes": 9794,
+  "chars": 2095,
+  "tables": 1,
+  "rows": 63
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=73",
+  "http": "200",
+  "bytes": 584,
+  "chars": 69,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=74",
+  "http": "200",
+  "bytes": 614,
+  "chars": 99,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=76",
+  "http": "200",
+  "bytes": 606,
+  "chars": 91,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=78",
+  "http": "200",
+  "bytes": 583,
+  "chars": 68,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=79",
+  "http": "200",
+  "bytes": 590,
+  "chars": 75,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=8",
+  "http": "200",
+  "bytes": 9281,
+  "chars": 1922,
+  "tables": 1,
+  "rows": 60
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=80",
+  "http": "200",
+  "bytes": 578,
+  "chars": 63,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&club=9",
+  "http": "200",
+  "bytes": 9820,
+  "chars": 2121,
+  "tables": 1,
+  "rows": 63
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=121",
+  "http": "200",
+  "bytes": 12256,
+  "chars": 1271,
+  "tables": 1,
+  "rows": 52
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=121F",
+  "http": "200",
+  "bytes": 1368,
+  "chars": 146,
+  "tables": 1,
+  "rows": 5
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=122",
+  "http": "200",
+  "bytes": 11005,
+  "chars": 1077,
+  "tables": 1,
+  "rows": 47
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=122F",
+  "http": "200",
+  "bytes": 903,
+  "chars": 94,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=122T2",
+  "http": "200",
+  "bytes": 684,
+  "chars": 69,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=123",
+  "http": "200",
+  "bytes": 10279,
+  "chars": 981,
+  "tables": 1,
+  "rows": 44
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=124",
+  "http": "200",
+  "bytes": 9823,
+  "chars": 937,
+  "tables": 1,
+  "rows": 42
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=125",
+  "http": "200",
+  "bytes": 4236,
+  "chars": 501,
+  "tables": 1,
+  "rows": 17
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=126",
+  "http": "200",
+  "bytes": 1598,
+  "chars": 154,
+  "tables": 1,
+  "rows": 6
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=127",
+  "http": "200",
+  "bytes": 1137,
+  "chars": 107,
+  "tables": 1,
+  "rows": 4
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=128",
+  "http": "200",
+  "bytes": 677,
+  "chars": 61,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=12T20",
+  "http": "200",
+  "bytes": 2280,
+  "chars": 229,
+  "tables": 1,
+  "rows": 9
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=131",
+  "http": "200",
+  "bytes": 677,
+  "chars": 61,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=141",
+  "http": "200",
+  "bytes": 12698,
+  "chars": 1302,
+  "tables": 1,
+  "rows": 54
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=142",
+  "http": "200",
+  "bytes": 11748,
+  "chars": 1190,
+  "tables": 1,
+  "rows": 50
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=142T2",
+  "http": "200",
+  "bytes": 681,
+  "chars": 65,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=143",
+  "http": "200",
+  "bytes": 11492,
+  "chars": 1144,
+  "tables": 1,
+  "rows": 49
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=144",
+  "http": "200",
+  "bytes": 9563,
+  "chars": 893,
+  "tables": 1,
+  "rows": 41
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=145",
+  "http": "200",
+  "bytes": 3007,
+  "chars": 299,
+  "tables": 1,
+  "rows": 12
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=146",
+  "http": "200",
+  "bytes": 894,
+  "chars": 85,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=14T20",
+  "http": "200",
+  "bytes": 2513,
+  "chars": 242,
+  "tables": 1,
+  "rows": 10
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=161",
+  "http": "200",
+  "bytes": 17369,
+  "chars": 1655,
+  "tables": 1,
+  "rows": 75
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=162",
+  "http": "200",
+  "bytes": 14271,
+  "chars": 1448,
+  "tables": 1,
+  "rows": 61
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=162T2",
+  "http": "200",
+  "bytes": 678,
+  "chars": 62,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=163",
+  "http": "200",
+  "bytes": 10938,
+  "chars": 1033,
+  "tables": 1,
+  "rows": 47
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=164",
+  "http": "200",
+  "bytes": 7703,
+  "chars": 850,
+  "tables": 1,
+  "rows": 32
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=16T20",
+  "http": "200",
+  "bytes": 2969,
+  "chars": 283,
+  "tables": 1,
+  "rows": 12
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=171",
+  "http": "200",
+  "bytes": 896,
+  "chars": 89,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=181",
+  "http": "200",
+  "bytes": 2278,
+  "chars": 229,
+  "tables": 1,
+  "rows": 9
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=19T20",
+  "http": "200",
+  "bytes": 1200,
+  "chars": 148,
+  "tables": 1,
+  "rows": 4
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=AGR",
+  "http": "200",
+  "bytes": 4766,
+  "chars": 589,
+  "tables": 1,
+  "rows": 19
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=BGR",
+  "http": "200",
+  "bytes": 5139,
+  "chars": 565,
+  "tables": 1,
+  "rows": 21
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=CD2",
+  "http": "200",
+  "bytes": 1135,
+  "chars": 105,
+  "tables": 1,
+  "rows": 4
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=CD3",
+  "http": "200",
+  "bytes": 893,
+  "chars": 84,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=CD4",
+  "http": "200",
+  "bytes": 683,
+  "chars": 67,
+  "tables": 1,
+  "rows": 2
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=CGR",
+  "http": "200",
+  "bytes": 19689,
+  "chars": 2060,
+  "tables": 1,
+  "rows": 84
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=CH1",
+  "http": "200",
+  "bytes": 23970,
+  "chars": 2386,
+  "tables": 1,
+  "rows": 103
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=CH2",
+  "http": "200",
+  "bytes": 7157,
+  "chars": 725,
+  "tables": 1,
+  "rows": 30
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=CH3",
+  "http": "200",
+  "bytes": 5251,
+  "chars": 501,
+  "tables": 1,
+  "rows": 22
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=CH4",
+  "http": "200",
+  "bytes": 5236,
+  "chars": 486,
+  "tables": 1,
+  "rows": 22
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=CH5",
+  "http": "200",
+  "bytes": 1807,
+  "chars": 173,
+  "tables": 1,
+  "rows": 7
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=CH6",
+  "http": "200",
+  "bytes": 888,
+  "chars": 79,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=DGR",
+  "http": "200",
+  "bytes": 12971,
+  "chars": 1362,
+  "tables": 1,
+  "rows": 55
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=EGR",
+  "http": "200",
+  "bytes": 11578,
+  "chars": 1216,
+  "tables": 1,
+  "rows": 49
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=FGR",
+  "http": "200",
+  "bytes": 9718,
+  "chars": 1017,
+  "tables": 1,
+  "rows": 41
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=GGR",
+  "http": "200",
+  "bytes": 8147,
+  "chars": 876,
+  "tables": 1,
+  "rows": 34
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=HGR",
+  "http": "200",
+  "bytes": 6046,
+  "chars": 647,
+  "tables": 1,
+  "rows": 25
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=IGR",
+  "http": "200",
+  "bytes": 5458,
+  "chars": 647,
+  "tables": 1,
+  "rows": 22
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=JGR",
+  "http": "200",
+  "bytes": 4239,
+  "chars": 494,
+  "tables": 1,
+  "rows": 17
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=KGR",
+  "http": "200",
+  "bytes": 3588,
+  "chars": 450,
+  "tables": 1,
+  "rows": 14
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=LGR",
+  "http": "200",
+  "bytes": 2060,
+  "chars": 203,
+  "tables": 1,
+  "rows": 8
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=MGR",
+  "http": "200",
+  "bytes": 1586,
+  "chars": 143,
+  "tables": 1,
+  "rows": 6
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=NW1",
+  "http": "200",
+  "bytes": 13164,
+  "chars": 1349,
+  "tables": 1,
+  "rows": 56
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=NW2",
+  "http": "200",
+  "bytes": 4887,
+  "chars": 526,
+  "tables": 1,
+  "rows": 20
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=NW3",
+  "http": "200",
+  "bytes": 1137,
+  "chars": 109,
+  "tables": 1,
+  "rows": 4
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=OGR",
+  "http": "200",
+  "bytes": 2260,
+  "chars": 210,
+  "tables": 1,
+  "rows": 9
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=PMSH",
+  "http": "200",
+  "bytes": 1367,
+  "chars": 144,
+  "tables": 1,
+  "rows": 5
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=PSH",
+  "http": "200",
+  "bytes": 2525,
+  "chars": 259,
+  "tables": 1,
+  "rows": 10
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=SNRT2",
+  "http": "200",
+  "bytes": 4345,
+  "chars": 420,
+  "tables": 1,
+  "rows": 18
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=VET1",
+  "http": "200",
+  "bytes": 7766,
+  "chars": 764,
+  "tables": 1,
+  "rows": 33
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=VET2",
+  "http": "200",
+  "bytes": 6861,
+  "chars": 675,
+  "tables": 1,
+  "rows": 29
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=VET3",
+  "http": "200",
+  "bytes": 5723,
+  "chars": 557,
+  "tables": 1,
+  "rows": 24
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=VET4",
+  "http": "200",
+  "bytes": 2987,
+  "chars": 306,
+  "tables": 1,
+  "rows": 12
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=VET5",
+  "http": "200",
+  "bytes": 3415,
+  "chars": 320,
+  "tables": 1,
+  "rows": 14
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=WK1",
+  "http": "200",
+  "bytes": 21156,
+  "chars": 2113,
+  "tables": 1,
+  "rows": 91
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=WK2",
+  "http": "200",
+  "bytes": 6301,
+  "chars": 688,
+  "tables": 1,
+  "rows": 26
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=WK3",
+  "http": "200",
+  "bytes": 4469,
+  "chars": 514,
+  "tables": 1,
+  "rows": 18
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=WK4",
+  "http": "200",
+  "bytes": 2492,
+  "chars": 224,
+  "tables": 1,
+  "rows": 10
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=premiers&grade=WK5",
+  "http": "200",
+  "bytes": 897,
+  "chars": 88,
+  "tables": 1,
+  "rows": 3
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=snrcc",
+  "http": "200",
+  "bytes": 6790,
+  "chars": 815,
+  "tables": 1,
+  "rows": 35
+ },
+ {
+  "url": "https://honours.rdca.com/index.php?ID=voy",
+  "http": "200",
+  "bytes": 3160,
+  "chars": 465,
+  "tables": 1,
+  "rows": 13
+ }
+]

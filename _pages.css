@@ -686,3 +686,114 @@ body[data-page="womens"] .section-block{margin-bottom:46px}
 /* registration consent checkbox (inside navy form) */
 .cform label.cform-check{flex-direction:row;align-items:flex-start;gap:9px;font-weight:400;color:rgba(255,255,255,.72);font-size:12.5px;line-height:1.45;cursor:pointer}
 .cform label.cform-check input{width:auto;margin-top:2px;flex:0 0 auto}
+
+/* ---- Hall of Fame / Life Members: tabs + click-through write-ups ---- */
+.hof-tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.hof-tab{border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer;
+font:700 13px/1 inherit;padding:10px 16px;border-radius:10px;display:flex;align-items:center;gap:8px;transition:.15s}
+.hof-tab:hover{color:var(--navy);border-color:var(--navy3)}
+.hof-tab.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.hof-tab em{font-style:normal;font-size:11px;font-weight:800;background:rgba(0,0,0,.12);
+padding:2px 7px;border-radius:20px}
+.hof-tab.active em{background:var(--red);color:#fff}
+.hof-pane{display:none}
+.hof-pane.active{display:block}
+.hof-note{font-size:12.5px;margin-top:12px}
+.hof-table td.hof-y{font-weight:700;color:var(--muted);white-space:nowrap}
+.hof-name{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--navy3);
+cursor:pointer;text-align:left;border-bottom:1px dashed rgba(30,61,107,.45)}
+.hof-name:hover{color:var(--red);border-bottom-color:var(--red)}
+.hof-name.on{color:var(--red);border-bottom-style:solid}
+.hof-name.pending{color:var(--muted);border-bottom-color:rgba(90,104,128,.4)}
+.hof-name.pending:hover{color:var(--navy3)}
+.hof-post{font-size:11px;font-weight:700;color:var(--red);letter-spacing:.4px}
+.hof-dec{color:var(--muted);font-size:11px}
+.hof-bio{display:none}
+.hof-bio.open{display:table-row}
+.hof-bio-in{background:linear-gradient(180deg,rgba(13,31,60,.05),transparent);
+border-left:3px solid var(--red);border-radius:0 10px 10px 0;padding:14px 18px;margin:2px 0 8px}
+.hof-bio-in h4{margin:0 0 8px;font-size:15px;color:var(--navy)}
+.hof-bio-in .hof-yr{font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.4px}
+.hof-bio-in p{margin:0 0 8px;font-size:13.5px;line-height:1.65}
+.hof-pending{color:var(--muted);font-style:italic;display:flex;align-items:center;gap:7px}
+.btn-sm{font-size:12px;padding:6px 12px}
+.yvca-empty{text-align:center;padding:38px 22px;border:1px dashed var(--border);border-radius:var(--r);
+background:var(--card);color:var(--muted)}
+.yvca-empty i{font-size:30px;color:var(--navy3);opacity:.6}
+.yvca-empty h4{margin:10px 0 6px;color:var(--navy);font-size:16px}
+.yvca-empty p{margin:0;font-size:13.5px;max-width:520px;margin-inline:auto}
+@media(max-width:560px){.hof-tab{flex:1;justify-content:center;padding:10px 8px}}
+
+/* ---- Season awards / premiership grids ---- */
+.aw-table th{font-size:11px;line-height:1.3;vertical-align:bottom}
+.aw-table .aw-med{display:block;font-size:9.5px;font-weight:600;opacity:.75;margin-top:3px;letter-spacing:0;text-transform:none}
+.aw-table td{font-size:13px;white-space:nowrap}
+.aw-table td.aw-s{font-weight:700;color:var(--navy);white-space:nowrap}
+.aw-n{color:var(--muted);opacity:.5}
+.aw-note{margin:0 0 12px;font-style:italic}
+.av-blk{margin:0 0 22px}
+.av-blk h4{margin:0 0 8px;font-size:14px;color:var(--navy);letter-spacing:.2px}
+.av-blk h4 span{font-weight:600;color:var(--red);font-size:12px;text-transform:uppercase;letter-spacing:.6px}
+
+/* ---- RDCA Cricket Show (Radio Eastern) ---- */
+.rs-wrap{background:linear-gradient(135deg,var(--navy),var(--navy3));border-radius:var(--r);padding:24px;color:#fff}
+.rs-hd{margin:0 0 18px}
+.rs-badge{display:inline-flex;align-items:center;gap:7px;background:var(--red);color:#fff;
+font-size:11px;font-weight:800;letter-spacing:.9px;text-transform:uppercase;padding:5px 11px;border-radius:20px}
+.rs-hd h3{margin:11px 0 6px;font-size:23px;color:#fff}
+.rs-hd p{margin:0;font-size:14px;color:rgba(255,255,255,.82);max-width:660px}
+.rs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:11px}
+.rs-card{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.09);
+border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:14px 15px;text-decoration:none;
+color:#fff;transition:.16s}
+.rs-card:not(.rs-static):hover{background:#fff;color:var(--navy);border-color:#fff;transform:translateY(-2px)}
+.rs-card:not(.rs-static):hover .rs-ic{background:var(--red);color:#fff}
+.rs-ic{width:40px;height:40px;flex:0 0 auto;border-radius:10px;background:rgba(255,255,255,.14);
+display:grid;place-items:center;font-size:19px;transition:.16s}
+.rs-tx{flex:1;min-width:0}
+.rs-tx h4{margin:0 0 3px;font-size:14px;font-weight:700}
+.rs-tx p{margin:0;font-size:12.5px;opacity:.8;line-height:1.45}
+.rs-go{opacity:.6;font-size:15px}
+.rs-note{margin:16px 0 0;font-size:12.5px;color:rgba(255,255,255,.7);display:flex;gap:8px;align-items:flex-start}
+@media(max-width:560px){.rs-wrap{padding:18px}.rs-hd h3{font-size:19px}}
+
+/* ---- Documents search ---- */
+.doc-search{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);
+border-radius:11px;padding:11px 14px;margin:0 0 14px;box-shadow:var(--shadow);max-width:460px}
+.doc-search i{color:var(--muted);font-size:17px}
+.doc-search input{flex:1;border:0;background:none;font:inherit;font-size:14.5px;color:inherit;outline:none;min-width:0}
+.doc-search input::-webkit-search-cancel-button{display:none}
+.doc-clear{border:0;background:rgba(13,31,60,.08);color:var(--muted);cursor:pointer;font-size:16px;
+line-height:1;width:22px;height:22px;border-radius:50%;display:grid;place-items:center}
+.doc-clear:hover{background:var(--red);color:#fff}
+.doc-count{font-size:12.5px;color:var(--muted);margin:-6px 0 12px}
+.folder.searching .folder-tabs{opacity:.45;pointer-events:none}
+.folder.searching .folder-pane{display:block!important}
+.folder.searching .doc-item[hidden]{display:none!important}
+
+/* ---- Plain editable page ---- */
+.plain-page{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+padding:26px 28px;box-shadow:var(--shadow);max-width:840px}
+.pp-date{font-size:12.5px;color:var(--muted);margin:0 0 14px;display:flex;align-items:center;gap:7px}
+.pp-body{font-size:15px;line-height:1.7}
+.pp-body p{margin:0 0 14px}
+.pp-body p:last-child{margin-bottom:0}
+.pp-body h2,.pp-body h3{color:var(--navy);margin:22px 0 10px}
+.pp-body ul,.pp-body ol{margin:0 0 14px;padding-left:22px}
+.pp-body li{margin:0 0 6px}
+@media(max-width:560px){.plain-page{padding:18px}}
+
+/* ---- Honours database views ---- */
+.lm-count{margin:0 0 12px}
+.lm-bio{font-size:13.5px;line-height:1.7}
+.lm-bio p{margin:0 0 10px}
+.lm-photo-note{font-size:12px;color:var(--muted);margin:0 0 10px;display:flex;align-items:center;gap:7px}
+.lm-photo-note code{background:rgba(13,31,60,.07);padding:2px 6px;border-radius:5px;font-size:11.5px}
+.pr-chip{display:inline-block;font-size:11.5px;background:rgba(13,31,60,.06);border:1px solid var(--border);
+border-radius:20px;padding:3px 10px;margin:2px 5px 2px 0;white-space:nowrap}
+.pr-chip b{color:var(--navy)}
+.pr-more{font-size:11.5px;color:var(--red);font-weight:700;margin-left:4px}
+.pr-full{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px 18px}
+.pr-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--border);padding:5px 0;font-size:13px}
+.pr-row span{color:var(--muted)}
+.pastnames{font-size:13px;line-height:1.8;color:var(--muted)}

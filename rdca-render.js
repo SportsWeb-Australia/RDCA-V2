@@ -35,7 +35,9 @@
       function slugDiv(g){ return (g||"other").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""); }
       function clubMono(n){ var b=(n||"").replace(/\s*CC$/i,"").trim().split(/\s+/).filter(Boolean); return (b.length>=2 ? b.map(function(w){return w[0];}).join("") : (b[0]||"")).slice(0,3).toUpperCase(); }
       var order=[], groups={};
-      clubs.forEach(function(c){ var g=c.grade||"Other"; if(!groups[g]){groups[g]=[];order.push(g);} groups[g].push(c); });
+      // RDCA (meeting 2026-09): list alphabetically, do not break into divisions
+      var _sorted = clubs.slice().sort(function(a,b){ return (a.name||"").localeCompare(b.name||""); });
+      order.push("All Clubs"); groups["All Clubs"] = _sorted;
       var navy = "linear-gradient(135deg,var(--navy),var(--navy3))";
       function card(c){
         var grad = (c.colors && c.colors.length>=2) ? ("linear-gradient(135deg,"+c.colors[0]+","+c.colors[1]+")") : navy;
@@ -107,7 +109,11 @@
         tabs += '<button class="folder-tab' + act + '" type="button" data-fld="' + sl + '">' + esc(g) + '<span class="ft-n">' + groups[g].length + '</span></button>';
         panes += '<div class="folder-pane' + act + '" id="fld-' + sl + '"><div class="doc-list">' + groups[g].map(row).join("") + '</div></div>';
       });
-      set(sel, '<div class="folder"><div class="folder-tabs" role="tablist">' + tabs + '</div><div class="folder-body">' + panes + '</div></div>');
+      var searchBar = '<div class="doc-search"><i class="ti ti-search"></i>'
+        + '<input type="search" id="doc-q" placeholder="Search documents\u2026" aria-label="Search documents">'
+        + '<button type="button" class="doc-clear" hidden aria-label="Clear">&times;</button></div>'
+        + '<p class="doc-count" id="doc-count" hidden></p>';
+      set(sel, searchBar + '<div class="folder"><div class="folder-tabs" role="tablist">' + tabs + '</div><div class="folder-body">' + panes + '</div></div>');
     },
 
     // ---- committees / board ----
@@ -206,13 +212,92 @@
 
     // ---- life members table ----
     lifeMembers: function (sel) {
-      var rows = ((D().honours && D().honours.lifeMembers) || []).map(function (m) {
-        var nm = m.doc
-          ? '<a href="' + esc(m.doc) + '" target="_blank" rel="noopener">' + esc(m.name) + ' <i class="ti ti-external-link" style="font-size:11px;color:var(--muted)"></i></a>'
-          : esc(m.name);
-        return '<tr><td>' + esc(m.season) + '</td><td>' + nm + flag(m) + '</td><td>' + esc(m.assoc) + '</td></tr>';
+      var h = D().honours || {};
+      // merge the database set with any hand-added members (e.g. seasons newer than the export)
+      var dbl = (h.db && h.db.lifeMembers) || [], manual = h.lifeMembers || [];
+      var seen = {}, list = [];
+      dbl.concat(manual).forEach(function (m) {
+        var k = (m.name || "").toLowerCase().replace(/[^a-z]/g, "") + "|" + (m.season || "");
+        if (seen[k]) return;
+        seen[k] = 1; list.push(m);
+      });
+      list.sort(function (a, b) { return String(b.season || "").localeCompare(String(a.season || "")); });
+      var rows = list.map(function (m, i) {
+        var id = "lm-" + i;
+        var nm = '<button class="hof-name' + (m.bio ? '' : ' pending') + '" data-bio="' + id + '">' + esc(m.name) + '</button>';
+        var body = m.bio ? '<div class="lm-bio">' + m.bio + '</div>'
+                         : '<p class="hof-pending"><i class="ti ti-file-text"></i> Write-up to be provided by the RDCA.</p>';
+        if (m.photo) body = '<p class="lm-photo-note"><i class="ti ti-photo"></i> Photograph on file: <code>' + esc(m.photo) + '</code> &mdash; image not yet supplied.</p>' + body;
+        if (m.doc) body += '<p><a class="btn btn-sm" href="' + esc(m.doc) + '" target="_blank" rel="noopener"><i class="ti ti-download"></i> Certificate</a></p>';
+        return '<tr><td>' + esc(m.season) + '</td><td>' + nm + flag(m) + '</td><td>' + esc(m.assoc || "RDCA") + '</td></tr>' +
+               '<tr class="hof-bio" id="' + id + '"><td colspan="3"><div class="hof-bio-in"><h4>' + esc(m.name) +
+               ' <span class="hof-yr">' + esc(m.season) + '</span></h4>' + body + '</div></td></tr>';
       }).join("");
-      set(sel, '<table class="honours-table"><thead><tr><th>Season</th><th>Life Member</th><th>Association</th></tr></thead><tbody>' + rows + '</tbody></table>');
+      set(sel, '<p class="block-sub lm-count">' + list.length + ' life members &middot; ' +
+        list.filter(function (x) { return x.bio; }).length + ' with write-ups</p>' +
+        '<table class="honours-table hof-table"><thead><tr><th style="width:110px">Season</th><th>Life Member</th><th style="width:110px">Association</th></tr></thead><tbody>' + rows + '</tbody></table>');
+    },
+
+    // ---- Board of Management history (from the honours database) ----
+    boardHistory: function (sel) {
+      var db = (D().honours || {}).db || {};
+      var ex = (db.boardHistory || []).filter(function (e) { return e.President || e.Secretary || e.Treasurer; });
+      if (!ex.length) { set(sel, ""); return; }
+      var ROLES = ["President", "Vice President", "Vice President 2", "Secretary", "Treasurer", "Records", "Operations"];
+      var used = ROLES.filter(function (r) { return ex.some(function (e) { return e[r]; }); });
+      var head = '<tr><th>Season</th>' + used.map(function (r) { return '<th>' + esc(r) + '</th>'; }).join("") + '</tr>';
+      var body = ex.map(function (e) {
+        return '<tr><td class="aw-s">' + esc(e.season) + '</td>' + used.map(function (r) {
+          return '<td>' + (e[r] ? esc(e[r]) : '<span class="aw-n">&mdash;</span>') + '</td>';
+        }).join("") + '</tr>';
+      }).join("");
+      set(sel, '<p class="block-sub">' + ex.length + ' seasons of RDCA Board of Management records.</p>' +
+        '<div class="tw"><table class="honours-table aw-table"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>');
+    },
+
+    // ---- Hall of Fame: Legends + Members tabs, click a name for the write-up ----
+    hallOfFame: function (sel) {
+      var hof = (D().honours && D().honours.hallOfFame) || { legends: [], members: [] };
+      function list(arr, key) {
+        if (!arr.length) return '<p class="muted">No entries yet.</p>';
+        var rows = arr.map(function (m, i) {
+          var id = "hof-" + key + "-" + i;
+          var extra = (m.honours ? ' <span class="hof-post">' + esc(m.honours) + '</span>' : '') +
+                      (m.deceased ? ' <span class="hof-dec" title="Deceased">&#10022;</span>' : '');
+          var body = m.bio
+            ? '<p>' + esc(m.bio) + '</p>' +
+              (m.bioSource ? '<p><a class="btn btn-sm" href="' + esc(m.bioSource) + '" target="_blank" rel="noopener"><i class="ti ti-file-text"></i> Induction program</a></p>' : '')
+            : '<p class="hof-pending"><i class="ti ti-file-text"></i> Write-up to be provided by the RDCA.</p>';
+          return '<tr><td class="hof-y">' + esc(m.year) + '</td>' +
+                 '<td><button class="hof-name' + (m.bio ? '' : ' pending') + '" data-bio="' + id + '">' + esc(m.name) + '</button>' + extra + '</td></tr>' +
+                 '<tr class="hof-bio" id="' + id + '"><td colspan="2"><div class="hof-bio-in"><h4>' + esc(m.formal || m.name) +
+                 ' <span class="hof-yr">Inducted ' + esc(m.year) + '</span></h4>' + body + '</div></td></tr>';
+        }).join("");
+        return '<table class="honours-table hof-table"><thead><tr><th style="width:82px">Year</th><th>Name</th></tr></thead><tbody>' + rows + '</tbody></table>';
+      }
+      var html =
+        '<div class="hof-tabs" role="tablist">' +
+          '<button class="hof-tab active" data-hof="hof-legends">Legends <em>' + hof.legends.length + '</em></button>' +
+          '<button class="hof-tab" data-hof="hof-members">Members <em>' + hof.members.length + '</em></button>' +
+        '</div>' +
+        '<div class="hof-pane active" id="hof-legends">' + list(hof.legends, "l") + '</div>' +
+        '<div class="hof-pane" id="hof-members">' + list(hof.members, "m") + '</div>' +
+        (hof.note ? '<p class="muted hof-note">' + esc(hof.note) + '</p>' : '');
+      set(sel, html);
+    },
+
+    // ---- YVCA historical records (content pending) ----
+    yvca: function (sel) {
+      var y = (D().honours && D().honours.yvca) || {};
+      if (!y.items || !y.items.length) {
+        set(sel, '<div class="yvca-empty"><i class="ti ti-history"></i>' +
+          '<h4>Yarra Valley Cricket Association</h4>' +
+          '<p>' + esc(y.note || "Historical YVCA statistical records will appear here.") + '</p></div>');
+        return;
+      }
+      set(sel, '<table class="honours-table"><tbody>' + y.items.map(function (it) {
+        return '<tr><td>' + esc(it.season || "") + '</td><td>' + esc(it.text || "") + '</td></tr>';
+      }).join("") + '</tbody></table>');
     },
 
     // ---- honour boards hub (links to live RDCA boards) ----
@@ -230,7 +315,14 @@
 
     // ---- section about (native) ----
     sectionAbout: function (sectionKey, sel) {
-      var s = (D().sections || {})[sectionKey];
+      var _all = (D().sections || {});
+      var s = _all[sectionKey];
+      if (s && s.inherit && _all[s.inherit]) {
+        var _b = _all[s.inherit], _m = {};
+        Object.keys(_b).forEach(function (k) { _m[k] = _b[k]; });
+        Object.keys(s).forEach(function (k) { _m[k] = s[k]; });
+        s = _m;
+      }
       if (!s || !s.aboutText) { set(sel, ""); return; }
       var icon = s.icon || "ti-trophy";
       var P = (typeof window !== "undefined" && window.RDCA_PLAYHQ) ? window.RDCA_PLAYHQ : {};
@@ -377,7 +469,14 @@
 
     // ---- section code of conduct (native) ----
     sectionConduct: function (sectionKey, sel) {
-      var s = (D().sections || {})[sectionKey];
+      var _all = (D().sections || {});
+      var s = _all[sectionKey];
+      if (s && s.inherit && _all[s.inherit]) {
+        var _b = _all[s.inherit], _m = {};
+        Object.keys(_b).forEach(function (k) { _m[k] = _b[k]; });
+        Object.keys(s).forEach(function (k) { _m[k] = s[k]; });
+        s = _m;
+      }
       if (!s || !s.conduct) { set(sel, ""); return; }
       var c = s.conduct;
       // Downloadable PDF hosted with the site (replaces the old rdca.com link).
@@ -410,19 +509,29 @@
 
     // ---- premiers timeline ----
     premiers: function (sel) {
-      var seasons = ((D().honours && D().honours.premiers) || []);
-      if (!seasons.length) { set(sel, ""); return; }
-      var html = '<div class="tl">' + seasons.map(function (s) {
-        var wins = (s.winners || []).map(function (w) {
-          var club = w.club
-            ? '<span class="tl-club">' + esc(w.club) + '</span>'
-            : '<span class="tl-tbc">TBC</span>';
-          return '<div class="tl-win"><span class="tl-grade">' + esc(w.grade) + '</span>' + club + '</div>';
-        }).join("");
-        return '<div class="tl-item"><div class="tl-season">' + esc(s.season) + flag(s) + '</div><div class="tl-card">' + wins + '</div></div>';
-      }).join("") + '</div>';
-      set(sel, html);
+      var h = D().honours || {}, db = h.db || {};
+      var labels = db.gradeLabels || {};
+      var list = (db.premiers && db.premiers.length) ? db.premiers : (h.premiers || []);
+      if (!list.length) { set(sel, '<p class="muted">No premiership records yet.</p>'); return; }
+      var rows = list.map(function (r, i) {
+        var id = "pr-" + i;
+        var w = (r.winners || []).filter(function (x) { return x.club; });
+        var chips = w.slice(0, 4).map(function (x) {
+          return '<span class="pr-chip">' + esc(labels[x.grade] || x.grade) + ': <b>' + esc(x.club) + '</b></span>';
+        }).join("") + (w.length > 4 ? '<span class="pr-more">+' + (w.length - 4) + ' more</span>' : '');
+        var full = '<div class="pr-full">' + w.map(function (x) {
+          return '<div class="pr-row"><span>' + esc(labels[x.grade] || x.grade) + '</span><b>' + esc(x.club) + '</b></div>';
+        }).join("") + '</div>';
+        return '<tr><td class="aw-s"><button class="hof-name" data-bio="' + id + '">' + esc(r.season) + '</button></td>' +
+               '<td>' + chips + '</td></tr>' +
+               '<tr class="hof-bio" id="' + id + '"><td colspan="2"><div class="hof-bio-in"><h4>' + esc(r.season) +
+               ' premierships <span class="hof-yr">' + w.length + ' grades</span></h4>' + full + '</div></td></tr>';
+      }).join("");
+      set(sel, '<p class="block-sub">' + list.length + ' seasons of premiership records, ' +
+        esc(list[list.length - 1].season) + ' to ' + esc(list[0].season) + '. Select a season for the full list.</p>' +
+        '<table class="honours-table hof-table"><thead><tr><th style="width:120px">Season</th><th>Premiers</th></tr></thead><tbody>' + rows + '</tbody></table>');
     },
+
 
     // ---- umpire links ----
     umpires: function (sel) {
@@ -545,7 +654,14 @@
 
     // ---- a single section page's links (juniors/seniors/veterans/womens) ----
     sectionLinks: function (sectionKey, sel) {
-      var s = (D().sections || {})[sectionKey]; if (!s) return;
+      var _all = (D().sections || {});
+      var s = _all[sectionKey];
+      if (s && s.inherit && _all[s.inherit]) {
+        var _b = _all[s.inherit], _m = {};
+        Object.keys(_b).forEach(function (k) { _m[k] = _b[k]; });
+        Object.keys(s).forEach(function (k) { _m[k] = s[k]; });
+        s = _m;
+      } if (!s) return;
       var tiles = [];
       function tile(label, url, icon, item){
         if (!url) return;
@@ -564,7 +680,9 @@
       // Per-section document bank: prefer an explicit s.docList; otherwise pull the
       // real downloadable files straight from D().documents by category, so each
       // section shows its own downloadable docs instead of bouncing to rdca.com.
-      var DOC_CATS = { seniors:["Forms & Rules"], veterans:["Veterans"], womens:["Women's"], juniors:[] };
+      var DOC_CATS = { seniors:["Seniors","Forms & Rules","Annual Reports"], seniorMen:["Seniors","Forms & Rules","Annual Reports"],
+                       veterans:["Veterans"], womens:["Women's"], seniorWomen:["Women's"],
+                       juniors:["Juniors"], juniorBoys:["Juniors"], juniorGirls:["Juniors"] };
       var autoDocs = (D().documents || []).filter(function (d) {
         return (DOC_CATS[sectionKey] || []).indexOf(d.cat) >= 0;
       });
@@ -613,4 +731,68 @@
   };
 
   window.RDCA.render = R;
+})();
+
+/* ---- Hall of Fame / Life Member interactions ---- */
+(function () {
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest(".hof-tab");
+    if (t) {
+      var box = t.parentNode.parentNode;
+      box.querySelectorAll(".hof-tab").forEach(function (x) { x.classList.remove("active"); });
+      box.querySelectorAll(".hof-pane").forEach(function (x) { x.classList.remove("active"); });
+      t.classList.add("active");
+      var p = document.getElementById(t.getAttribute("data-hof"));
+      if (p) p.classList.add("active");
+      return;
+    }
+    var n = e.target.closest(".hof-name");
+    if (n) {
+      var row = document.getElementById(n.getAttribute("data-bio"));
+      if (!row) return;
+      var open = row.classList.contains("open");
+      var tbl = n.closest("table");
+      if (tbl) tbl.querySelectorAll(".hof-bio.open").forEach(function (r) { r.classList.remove("open"); });
+      if (tbl) tbl.querySelectorAll(".hof-name.on").forEach(function (b) { b.classList.remove("on"); });
+      if (!open) { row.classList.add("open"); n.classList.add("on"); }
+    }
+  });
+})();
+
+/* ---- Documents search ---- */
+(function () {
+  document.addEventListener("input", function (e) {
+    if (!e.target || e.target.id !== "doc-q") return;
+    var q = (e.target.value || "").trim().toLowerCase();
+    var wrap = e.target.closest(".doc-search").parentNode;
+    var count = wrap.querySelector("#doc-count");
+    var clear = wrap.querySelector(".doc-clear");
+    var folder = wrap.querySelector(".folder");
+    if (clear) clear.hidden = !q;
+    var items = wrap.querySelectorAll(".doc-item");
+    if (!q) {
+      items.forEach(function (it) { it.hidden = false; });
+      folder.classList.remove("searching");
+      if (count) count.hidden = true;
+      return;
+    }
+    folder.classList.add("searching");
+    var n = 0;
+    items.forEach(function (it) {
+      var t = (it.textContent || "").toLowerCase();
+      var hit = t.indexOf(q) > -1;
+      it.hidden = !hit;
+      if (hit) n++;
+    });
+    if (count) {
+      count.hidden = false;
+      count.textContent = n + (n === 1 ? " document matches " : " documents match ") + '"' + e.target.value.trim() + '"';
+    }
+  });
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest(".doc-clear");
+    if (!b) return;
+    var input = b.parentNode.querySelector("#doc-q");
+    if (input) { input.value = ""; input.dispatchEvent(new Event("input", { bubbles: true })); input.focus(); }
+  });
 })();

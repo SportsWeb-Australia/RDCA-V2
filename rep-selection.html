@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- RDCA Rep Cricket — senior & junior representative pathways (men & women).
+     Each side container leads to line-up, fixtures, results and news.
+     Data lives in site-data.js (repCricket); rendered by rdca-render.js. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Rep Cricket Selection — RDCA</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/_shared.css">
+<link rel="stylesheet" href="/_pages.css">
+<script src="/rdca-components.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1f3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<script src="/pwa.js" defer></script>
+</head>
+<body data-page="rep-selection">
+<div data-rdca="topbar"></div>
+<div data-rdca="mobile-menu"></div>
+<div data-rdca="header-nav"></div>
+<div data-rdca="ticker"></div>
+
+<div class="page-hero">
+  <div class="page-hero-in">
+    <h1>Rep Cricket Selection</h1>
+    <p>Representative selection information for RDCA teams.</p>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <div class="section-block">
+    <div id="rep-selection-mount"></div>
+  </div>
+</div>
+
+<div data-rdca="sponsor-carousel"></div>
+<div data-rdca="footer"></div>
+
+<script src="/playhq.js"></script>
+<script src="/site-data.js"></script>
+<script src="/rdca-render.js"></script>
+<script>
+  document.getElementById("rep-note").textContent =
+    (window.RDCA_DATA && window.RDCA_DATA.repCricketNote) || "";
+  RDCA.render.repCricket("#rep-mount");
+</script>
+<script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
+        data-club-id="973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60"
+        data-source="onboarding"
+        data-website-status="draft"></script>
+<script>RDCA.render.repSelection("#rep-selection-mount");</script>
+</body>
+</html>

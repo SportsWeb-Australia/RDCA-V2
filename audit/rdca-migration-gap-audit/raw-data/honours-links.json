@@ -1,0 +1,991 @@
+{
+ "premiers": [
+  [
+   "index.php?ID=premiers&grade=CH1",
+   "Lindsay Trollope Shield"
+  ],
+  [
+   "index.php?ID=premiers&grade=CH2",
+   "Chandler Shield Reserves"
+  ],
+  [
+   "index.php?ID=premiers&grade=CH3",
+   "Chandler 3"
+  ],
+  [
+   "index.php?ID=premiers&grade=CH4",
+   "Chandler 4"
+  ],
+  [
+   "index.php?ID=premiers&grade=CH5",
+   "Chandler 5"
+  ],
+  [
+   "index.php?ID=premiers&grade=CH6",
+   "Chandler 6"
+  ],
+  [
+   "index.php?ID=premiers&grade=WK1",
+   "Bill Wilkins Cup"
+  ],
+  [
+   "index.php?ID=premiers&grade=WK2",
+   "Wilkins Cup Reserves"
+  ],
+  [
+   "index.php?ID=premiers&grade=WK3",
+   "A3 Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=WK4",
+   "A4 Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=WK5",
+   "A5 Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=NW1",
+   "Stuart Newey Plate"
+  ],
+  [
+   "index.php?ID=premiers&grade=NW2",
+   "Newey Plate Reserves"
+  ],
+  [
+   "index.php?ID=premiers&grade=NW3",
+   "B3 Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=PSH",
+   "Steve Pascoe Shield"
+  ],
+  [
+   "index.php?ID=premiers&grade=PMSH",
+   "Pat Meehan Shield"
+  ],
+  [
+   "index.php?ID=premiers&grade=AGR",
+   "A Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=BGR",
+   "B Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=CGR",
+   "C Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=CD2",
+   "C Division 2"
+  ],
+  [
+   "index.php?ID=premiers&grade=CD3",
+   "C Division 3"
+  ],
+  [
+   "index.php?ID=premiers&grade=CD4",
+   "C Division 4"
+  ],
+  [
+   "index.php?ID=premiers&grade=DGR",
+   "D Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=EGR",
+   "E Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=FGR",
+   "F Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=GGR",
+   "G Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=HGR",
+   "H Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=IGR",
+   "I Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=JGR",
+   "J Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=KGR",
+   "K Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=LGR",
+   "L Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=MGR",
+   "M Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=OGR",
+   "One Day Grade"
+  ],
+  [
+   "index.php?ID=premiers&grade=SNRT2",
+   "Saxon Sports T20"
+  ],
+  [
+   "index.php?ID=premiers&grade=181",
+   "Under 18"
+  ],
+  [
+   "index.php?ID=premiers&grade=171",
+   "Under 17-1"
+  ],
+  [
+   "index.php?ID=premiers&grade=161",
+   "Under 16-1"
+  ],
+  [
+   "index.php?ID=premiers&grade=162",
+   "Under 16-2"
+  ],
+  [
+   "index.php?ID=premiers&grade=163",
+   "Under 16-3"
+  ],
+  [
+   "index.php?ID=premiers&grade=164",
+   "Under 16-4"
+  ],
+  [
+   "index.php?ID=premiers&grade=141",
+   "Under 14-1"
+  ],
+  [
+   "index.php?ID=premiers&grade=142",
+   "Under 14-2"
+  ],
+  [
+   "index.php?ID=premiers&grade=143",
+   "Under 14-3"
+  ],
+  [
+   "index.php?ID=premiers&grade=144",
+   "Under 14-4"
+  ],
+  [
+   "index.php?ID=premiers&grade=145",
+   "Under 14-5"
+  ],
+  [
+   "index.php?ID=premiers&grade=146",
+   "Under 14-6"
+  ],
+  [
+   "index.php?ID=premiers&grade=131",
+   "Under 13-1"
+  ],
+  [
+   "index.php?ID=premiers&grade=121",
+   "Under 12-1"
+  ],
+  [
+   "index.php?ID=premiers&grade=122",
+   "Under 12-2"
+  ],
+  [
+   "index.php?ID=premiers&grade=123",
+   "Under 12-3"
+  ],
+  [
+   "index.php?ID=premiers&grade=124",
+   "Under 12-4"
+  ],
+  [
+   "index.php?ID=premiers&grade=125",
+   "Under 12-5"
+  ],
+  [
+   "index.php?ID=premiers&grade=126",
+   "Under 12-6"
+  ],
+  [
+   "index.php?ID=premiers&grade=127",
+   "Under 12-7"
+  ],
+  [
+   "index.php?ID=premiers&grade=128",
+   "Under 12-8"
+  ],
+  [
+   "index.php?ID=premiers&grade=121F",
+   "Under 12-1F"
+  ],
+  [
+   "index.php?ID=premiers&grade=122F",
+   "Under 12-2F"
+  ],
+  [
+   "index.php?ID=premiers&grade=19T20",
+   "Under 19 T20"
+  ],
+  [
+   "index.php?ID=premiers&grade=16T20",
+   "Under 16-1 T20"
+  ],
+  [
+   "index.php?ID=premiers&grade=162T2",
+   "Under 16-2 T20"
+  ],
+  [
+   "index.php?ID=premiers&grade=14T20",
+   "Under 14 T20"
+  ],
+  [
+   "index.php?ID=premiers&grade=142T2",
+   "Under 14-2 T20"
+  ],
+  [
+   "index.php?ID=premiers&grade=12T20",
+   "Under 12 T20"
+  ],
+  [
+   "index.php?ID=premiers&grade=122T2",
+   "Under 12-2 T20"
+  ],
+  [
+   "index.php?ID=premiers&grade=VET1",
+   "Masters 1"
+  ],
+  [
+   "index.php?ID=premiers&grade=VET2",
+   "Masters 2"
+  ],
+  [
+   "index.php?ID=premiers&grade=VET3",
+   "Masters 3"
+  ],
+  [
+   "index.php?ID=premiers&grade=VET4",
+   "Masters 4"
+  ],
+  [
+   "index.php?ID=premiers&grade=VET5",
+   "Legends 1"
+  ],
+  [
+   "index.php?ID=premiers&club=43",
+   "Academy"
+  ],
+  [
+   "index.php?ID=premiers&club=2",
+   "Ainslie Park"
+  ],
+  [
+   "index.php?ID=premiers&club=52",
+   "Aquinas"
+  ],
+  [
+   "index.php?ID=premiers&club=48",
+   "Bayswater"
+  ],
+  [
+   "index.php?ID=premiers&club=59",
+   "Bayswater North"
+  ],
+  [
+   "index.php?ID=premiers&club=3",
+   "Bayswater Park"
+  ],
+  [
+   "index.php?ID=premiers&club=64",
+   "Belgrave"
+  ],
+  [
+   "index.php?ID=premiers&club=73",
+   "Blackburn North"
+  ],
+  [
+   "index.php?ID=premiers&club=4",
+   "Boronia"
+  ],
+  [
+   "index.php?ID=premiers&club=50",
+   "Boronia Churches"
+  ],
+  [
+   "index.php?ID=premiers&club=79",
+   "Bulleen Templestowe"
+  ],
+  [
+   "index.php?ID=premiers&club=5",
+   "Chirnside Park"
+  ],
+  [
+   "index.php?ID=premiers&club=6",
+   "Croydon"
+  ],
+  [
+   "index.php?ID=premiers&club=55",
+   "Croydon High School"
+  ],
+  [
+   "index.php?ID=premiers&club=7",
+   "Croydon North"
+  ],
+  [
+   "index.php?ID=premiers&club=8",
+   "Croydon Ranges"
+  ],
+  [
+   "index.php?ID=premiers&club=9",
+   "East Ringwood"
+  ],
+  [
+   "index.php?ID=premiers&club=10",
+   "Eastfield"
+  ],
+  [
+   "index.php?ID=premiers&club=11",
+   "Eley Park"
+  ],
+  [
+   "index.php?ID=premiers&club=39",
+   "Ferntree Gully"
+  ],
+  [
+   "index.php?ID=premiers&club=78",
+   "Forrest Hill"
+  ],
+  [
+   "index.php?ID=premiers&club=40",
+   "Glen Park"
+  ],
+  [
+   "index.php?ID=premiers&club=76",
+   "Heatherdale"
+  ],
+  [
+   "index.php?ID=premiers&club=13",
+   "Heathmont"
+  ],
+  [
+   "index.php?ID=premiers&club=14",
+   "Heathmont Baptists"
+  ],
+  [
+   "index.php?ID=premiers&club=62",
+   "Heathmont Uniting"
+  ],
+  [
+   "index.php?ID=premiers&club=54",
+   "Johnson Park"
+  ],
+  [
+   "index.php?ID=premiers&club=15",
+   "Kilsyth"
+  ],
+  [
+   "index.php?ID=premiers&club=61",
+   "Knox Churches"
+  ],
+  [
+   "index.php?ID=premiers&club=17",
+   "Knox City"
+  ],
+  [
+   "index.php?ID=premiers&club=44",
+   "Knox Gardens"
+  ],
+  [
+   "index.php?ID=premiers&club=56",
+   "Knoxfield"
+  ],
+  [
+   "index.php?ID=premiers&club=18",
+   "Lilydale"
+  ],
+  [
+   "index.php?ID=premiers&club=19",
+   "Montrose"
+  ],
+  [
+   "index.php?ID=premiers&club=20",
+   "Mooroolbark"
+  ],
+  [
+   "index.php?ID=premiers&club=21",
+   "Mt Evelyn"
+  ],
+  [
+   "index.php?ID=premiers&club=22",
+   "North Ringwood"
+  ],
+  [
+   "index.php?ID=premiers&club=24",
+   "Norwood"
+  ],
+  [
+   "index.php?ID=premiers&club=25",
+   "Olinda"
+  ],
+  [
+   "index.php?ID=premiers&club=42",
+   "Park Orchards"
+  ],
+  [
+   "index.php?ID=premiers&club=26",
+   "Ringwood"
+  ],
+  [
+   "index.php?ID=premiers&club=37",
+   "Ringwood RSL"
+  ],
+  [
+   "index.php?ID=premiers&club=60",
+   "Riversdale"
+  ],
+  [
+   "index.php?ID=premiers&club=63",
+   "Ruskin Park"
+  ],
+  [
+   "index.php?ID=premiers&club=27",
+   "Scoresby/Ferndale"
+  ],
+  [
+   "index.php?ID=premiers&club=80",
+   "Seville"
+  ],
+  [
+   "index.php?ID=premiers&club=28",
+   "South Croydon"
+  ],
+  [
+   "index.php?ID=premiers&club=29",
+   "St Andrews"
+  ],
+  [
+   "index.php?ID=premiers&club=30",
+   "Sth Warrandyte Hawks"
+  ],
+  [
+   "index.php?ID=premiers&club=31",
+   "Templeton"
+  ],
+  [
+   "index.php?ID=premiers&club=58",
+   "Valley"
+  ],
+  [
+   "index.php?ID=premiers&club=38",
+   "Vermont"
+  ],
+  [
+   "index.php?ID=premiers&club=32",
+   "Wantirna"
+  ],
+  [
+   "index.php?ID=premiers&club=33",
+   "Wantirna South"
+  ],
+  [
+   "index.php?ID=premiers&club=34",
+   "Warrandyte"
+  ],
+  [
+   "index.php?ID=premiers&club=35",
+   "Warranwood"
+  ],
+  [
+   "index.php?ID=premiers&club=53",
+   "Westwood"
+  ],
+  [
+   "index.php?ID=premiers&club=36",
+   "Wonga Park"
+  ],
+  [
+   "index.php?ID=premiers&club=74",
+   "Yarra Junction"
+  ],
+  [
+   "index.php?ID=premiers&club=45",
+   "Yarra Valley"
+  ]
+ ],
+ "awards": [
+  [
+   "index.php?ID=bestfairest",
+   "Best and Fairest Medals"
+  ],
+  [
+   "index.php?ID=allrounder",
+   "All Rounder Trophies"
+  ],
+  [
+   "index.php?ID=snrcc",
+   "Club Championship"
+  ],
+  [
+   "index.php?ID=bac",
+   "Best Administered Club"
+  ],
+  [
+   "index.php?ID=other",
+   "Other Awards"
+  ],
+  [
+   "index.php?ID=averages&grade=CH1",
+   "Trollope Shield Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=CH2",
+   "Chandler Shield Reserves Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=CH3",
+   "Chandler 3 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=CH4",
+   "Chandler 4 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=CH5",
+   "Chandler 5 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=CH6",
+   "Chandler 6 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=WK1",
+   "Wilkins Cup Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=WK2",
+   "Wilkins Cup Reserves Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=WK3",
+   "A 3 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=WK4",
+   "A 4 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=WK5",
+   "A 5 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=NW1",
+   "Newey Plate Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=NW2",
+   "Newey Plate Reserves Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=NW3",
+   "B 3 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=PSH",
+   "Pascoe Shield Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=AGR",
+   "A Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=BGR",
+   "B Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=CGR",
+   "C Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=CD2",
+   "C Division 2 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=CD3",
+   "C Division 3 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=CD4",
+   "C Division 4 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=DGR",
+   "D Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=EGR",
+   "E Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=FGR",
+   "F Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=GGR",
+   "G Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=HGR",
+   "H Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=IGR",
+   "I Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=JGR",
+   "J Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=KGR",
+   "K Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=LGR",
+   "L Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=MGR",
+   "M Grade Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=OGR",
+   "One Day Grade Averages"
+  ],
+  [
+   "index.php?ID=mostpromisingplayer",
+   "Most Promising Player"
+  ],
+  [
+   "index.php?ID=jnrcc",
+   "Club Championship"
+  ],
+  [
+   "index.php?ID=voy",
+   "Volunteer of the Year"
+  ],
+  [
+   "index.php?ID=averages&grade=181",
+   "Under 18-1 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=171",
+   "Under 17-1 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=161",
+   "Under 16-1 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=162",
+   "Under 16-2 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=163",
+   "Under 16-3 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=164",
+   "Under 16-4 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=141",
+   "Under 14-1 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=142",
+   "Under 14-2 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=143",
+   "Under 14-3 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=144",
+   "Under 14-4 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=145",
+   "Under 14-5 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=131",
+   "Under 13-1 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=121",
+   "Under 12-1 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=122",
+   "Under 12-2 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=123",
+   "Under 12-3 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=124",
+   "Under 12-4 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=125",
+   "Under 12-5 Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=121F",
+   "Under 12-1F Averages"
+  ],
+  [
+   "index.php?ID=averages&grade=122F",
+   "Under 12-2F Averages"
+  ],
+  [
+   "index.php?ID=awards&club=43",
+   "Academy"
+  ],
+  [
+   "index.php?ID=awards&club=2",
+   "Ainslie Park"
+  ],
+  [
+   "index.php?ID=awards&club=52",
+   "Aquinas"
+  ],
+  [
+   "index.php?ID=awards&club=48",
+   "Bayswater"
+  ],
+  [
+   "index.php?ID=awards&club=59",
+   "Bayswater North"
+  ],
+  [
+   "index.php?ID=awards&club=3",
+   "Bayswater Park"
+  ],
+  [
+   "index.php?ID=awards&club=64",
+   "Belgrave"
+  ],
+  [
+   "index.php?ID=awards&club=73",
+   "Blackburn North"
+  ],
+  [
+   "index.php?ID=awards&club=4",
+   "Boronia"
+  ],
+  [
+   "index.php?ID=awards&club=50",
+   "Boronia Churches"
+  ],
+  [
+   "index.php?ID=awards&club=5",
+   "Chirnside Park"
+  ],
+  [
+   "index.php?ID=awards&club=6",
+   "Croydon"
+  ],
+  [
+   "index.php?ID=awards&club=55",
+   "Croydon High School"
+  ],
+  [
+   "index.php?ID=awards&club=7",
+   "Croydon North"
+  ],
+  [
+   "index.php?ID=awards&club=8",
+   "Croydon Ranges"
+  ],
+  [
+   "index.php?ID=awards&club=65",
+   "CYMS"
+  ],
+  [
+   "index.php?ID=awards&club=9",
+   "East Ringwood"
+  ],
+  [
+   "index.php?ID=awards&club=10",
+   "Eastfield"
+  ],
+  [
+   "index.php?ID=awards&club=39",
+   "Ferntree Gully"
+  ],
+  [
+   "index.php?ID=awards&club=40",
+   "Glen Park"
+  ],
+  [
+   "index.php?ID=awards&club=13",
+   "Heathmont"
+  ],
+  [
+   "index.php?ID=awards&club=14",
+   "Heathmont Baptists"
+  ],
+  [
+   "index.php?ID=awards&club=62",
+   "Heathmont Uniting"
+  ],
+  [
+   "index.php?ID=awards&club=54",
+   "Johnson Park"
+  ],
+  [
+   "index.php?ID=awards&club=15",
+   "Kilsyth"
+  ],
+  [
+   "index.php?ID=awards&club=61",
+   "Knox Churches"
+  ],
+  [
+   "index.php?ID=awards&club=17",
+   "Knox City"
+  ],
+  [
+   "index.php?ID=awards&club=44",
+   "Knox Gardens"
+  ],
+  [
+   "index.php?ID=awards&club=56",
+   "Knoxfield"
+  ],
+  [
+   "index.php?ID=awards&club=18",
+   "Lilydale"
+  ],
+  [
+   "index.php?ID=awards&club=19",
+   "Montrose"
+  ],
+  [
+   "index.php?ID=awards&club=20",
+   "Mooroolbark"
+  ],
+  [
+   "index.php?ID=awards&club=21",
+   "Mt Evelyn"
+  ],
+  [
+   "index.php?ID=awards&club=22",
+   "North Ringwood"
+  ],
+  [
+   "index.php?ID=awards&club=24",
+   "Norwood"
+  ],
+  [
+   "index.php?ID=awards&club=25",
+   "Olinda"
+  ],
+  [
+   "index.php?ID=awards&club=70",
+   "Oxley"
+  ],
+  [
+   "index.php?ID=awards&club=71",
+   "P.B.A."
+  ],
+  [
+   "index.php?ID=awards&club=42",
+   "Park Orchards"
+  ],
+  [
+   "index.php?ID=awards&club=26",
+   "Ringwood"
+  ],
+  [
+   "index.php?ID=awards&club=37",
+   "Ringwood RSL"
+  ],
+  [
+   "index.php?ID=awards&club=69",
+   "Ringwood S.A."
+  ],
+  [
+   "index.php?ID=awards&club=27",
+   "Scoresby/Ferndale"
+  ],
+  [
+   "index.php?ID=awards&club=28",
+   "South Croydon"
+  ],
+  [
+   "index.php?ID=awards&club=29",
+   "St Andrews"
+  ],
+  [
+   "index.php?ID=awards&club=30",
+   "Sth Warrandyte Hawks"
+  ],
+  [
+   "index.php?ID=awards&club=31",
+   "Templeton"
+  ],
+  [
+   "index.php?ID=awards&club=68",
+   "Tunstall"
+  ],
+  [
+   "index.php?ID=awards&club=67",
+   "Upwey United"
+  ],
+  [
+   "index.php?ID=awards&club=58",
+   "Valley"
+  ],
+  [
+   "index.php?ID=awards&club=38",
+   "Vermont"
+  ],
+  [
+   "index.php?ID=awards&club=32",
+   "Wantirna"
+  ],
+  [
+   "index.php?ID=awards&club=33",
+   "Wantirna South"
+  ],
+  [
+   "index.php?ID=awards&club=34",
+   "Warrandyte"
+  ],
+  [
+   "index.php?ID=awards&club=35",
+   "Warranwood"
+  ],
+  [
+   "index.php?ID=awards&club=53",
+   "Westwood"
+  ],
+  [
+   "index.php?ID=awards&club=36",
+   "Wonga Park"
+  ],
+  [
+   "index.php?ID=awards&club=45",
+   "Yarra Valley"
+  ]
+ ],
+ "honor": []
+}

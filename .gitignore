@@ -1,0 +1,46 @@
+# ---- OS noise ----
+.DS_Store
+**/.DS_Store
+
+# ---- Regenerable bulk audit artefacts ----
+# Screenshots: ~114 MB of PNGs, reproducible via audit/rdca-migration-gap-audit/scripts/crawl.js
+audit/rdca-migration-gap-audit/SCREENSHOTS/
+
+# Full rendered-DOM crawl dumps (old-pages.json ~6 MB, new-pages.json ~51 MB).
+# Regenerable via crawl.js. The derived manifests and matrices ARE committed.
+**/old-pages.json
+**/new-pages.json
+**/old-content-images.json
+**/new-routes.json
+
+# Temporary crawl working directories (downloaded originals live in the
+# preservation archive outside this repo, not here)
+audit/**/tmp/
+audit/**/shots-*/
+audit/**/imgs/
+audit/**/docs-old/
+audit/**/hon/
+*.crawl.log
+*-crawl.log
+
+# Node dependencies used only by the audit scripts
+node_modules/
+**/package-lock.json
+
+# The preservation archive and its package live OUTSIDE this repo by design
+# (~/Developer/RDCA-migration-archive/). Never vendor them in.
+RDCA-migration-archive/
+*.tar.gz
+
+# ---- Deliberately committed (negations guard against broader rules above) ----
+# Authored reports, manifests, inventories, evidence and scripts:
+!audit/rdca-migration-gap-audit/*.md
+!audit/rdca-migration-gap-audit/*.csv
+!audit/rdca-migration-gap-audit/*.json
+!audit/rdca-migration-gap-audit/raw-data/**
+!audit/rdca-migration-gap-audit/scripts/**
+!audit/rdca-migration-gap-audit/preserved/**
+
+# Raw honours DB dump contains club credential columns - archive only, never commit
+*.sql
+rdca_website.sql
