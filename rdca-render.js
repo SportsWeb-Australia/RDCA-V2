@@ -130,7 +130,9 @@
           return '<div class="board-card">' + av +
                    '<div class="board-name">' + esc(m.name) + flag(m) + '</div>' +
                    '<div class="board-role">' + esc(m.role || "") + '</div>' +
+                   (m.org ? '<div class="board-org">' + esc(m.org) + '</div>' : '') +
                    (c2 ? '<div class="board-contact">' + c2 + '</div>' : '') +
+                   (m.note ? '<div class="board-note">' + esc(m.note) + '</div>' : '') +
                  '</div>';
         }).join("");
         var gid = (g.name || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
