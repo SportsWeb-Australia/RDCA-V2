@@ -48,23 +48,35 @@
 
 <div class="page-wrap wide">
 
+  <!-- GALLERIES — lead feature -->
+  <div class="section-block gal-lead">
+    <div class="gal-hd">
+      <div>
+        <div class="gal-eyebrow"><i class="ti ti-camera"></i> Official match-day photography</div>
+        <h2 class="gal-title">Season Galleries</h2>
+        <p class="gal-sub">Every RDCA match-day gallery, shot by <strong>Field of View Photography</strong>. Browse, download and order prints directly.</p>
+      </div>
+      <a class="gal-all" href="https://fieldofviewphotography.shootproof.com/" target="_blank" rel="noopener">All galleries <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div id="gal-featured"></div>
+    <div class="gal-grid" id="album-mount"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="gal-hd tight">
+      <div>
+        <h2 class="gal-title sm">Premiership Posters</h2>
+        <p class="gal-sub">Commemorative posters for the season's flag winners &mdash; ready to view and order.</p>
+      </div>
+    </div>
+    <div class="gal-grid posters" id="poster-mount"></div>
+  </div>
+
   <div class="section-block">
     <div class="callout callout-blue">
       <i class="ti ti-camera"></i>
       <div id="photos-note"></div>
     </div>
-  </div>
-
-  <div class="section-block">
-    <div class="block-hed">Season Galleries</div>
-    <div class="block-sub">Full match-day galleries, season by season. Each opens on the Field of View Photography site, where you can browse and order prints.</div>
-    <div class="album-grid" id="album-mount"></div>
-  </div>
-
-  <div class="section-block">
-    <div class="block-hed">Premiership Posters</div>
-    <div class="block-sub">Celebrate the season's flag winners &mdash; commemorative premiership posters, ready to view and order.</div>
-    <div class="album-grid" id="poster-mount"></div>
   </div>
 
   <div class="section-block">
@@ -106,23 +118,31 @@
   if (note) note.innerHTML = (d.photosNote || "");
 
   var albums = d.photoAlbums || [];
-  function card(a){
+  function card(a, big){
     var isPoster = a.tag === "Posters";
-    var tag = a.tag ? '<span class="album-tag' + (a.tag==="Latest" ? " is-latest" : "") + '">' + esc(a.tag) + '</span>' : '';
-    return '<a class="album-card" href="' + esc(a.url) + '" target="_blank" rel="noopener">' +
-             '<div class="album-cover" style="background-image:url(\'' + esc(a.cover) + '\')">' + tag +
-               '<span class="album-view"><i class="ti ti-' + (isPoster?'file-text':'photo') + '"></i> View ' + (isPoster?'posters':'gallery') + ' <i class="ti ti-external-link"></i></span>' +
-             '</div>' +
-             '<div class="album-body"><div class="album-season">' + esc(a.season) + '</div>' +
-               '<div class="album-sub"><i class="ti ti-camera"></i> Field of View Photography</div></div>' +
-           '</a>';
+    var cover = a.cover ? esc(a.cover) : "";
+    var badge = a.tag ? '<span class="gc-tag' + (a.tag==="Latest" ? " latest" : "") + '">' + esc(a.tag) + '</span>' : '';
+    var season = esc(a.season).replace(/^(Season|Premiership Posters)\s*/,"");
+    var kind = isPoster ? "Posters" : "Match-day gallery";
+    return '<a class="gc' + (big ? ' gc-big' : '') + '" href="' + esc(a.url) + '" target="_blank" rel="noopener">' +
+             '<span class="gc-bg"' + (cover ? ' style="background-image:url(\'' + cover + '\')"' : '') + '></span>' +
+             '<span class="gc-shade"></span>' + badge +
+             '<span class="gc-in">' +
+               '<span class="gc-kind"><i class="ti ti-' + (isPoster?'file-text':'photo') + '"></i> ' + kind + '</span>' +
+               '<span class="gc-season">' + season + '</span>' +
+               '<span class="gc-go">View gallery <i class="ti ti-arrow-right"></i></span>' +
+             '</span></a>';
   }
   var galleries = albums.filter(function(a){return a.tag!=="Posters";});
   var posters   = albums.filter(function(a){return a.tag==="Posters";});
-  document.getElementById("album-mount").innerHTML = galleries.map(card).join("") ||
+  var featured = galleries.filter(function(a){return a.tag==="Latest";})[0] || galleries[0];
+  var rest = galleries.filter(function(a){return a!==featured;});
+  var fx = document.getElementById("gal-featured");
+  if (fx && featured) fx.innerHTML = card(featured, true);
+  document.getElementById("album-mount").innerHTML = rest.map(function(a){return card(a);}).join("") ||
     '<div class="empty-state"><div class="empty-ic"><i class="ti ti-photo"></i></div><h2>Galleries coming soon</h2><p>Season galleries will appear here.</p></div>';
   var pm = document.getElementById("poster-mount");
-  if (pm) pm.innerHTML = posters.map(card).join("") ||
+  if (pm) pm.innerHTML = posters.map(function(a){return card(a);}).join("") ||
     '<div class="empty-state"><div class="empty-ic"><i class="ti ti-file-text"></i></div><h2>Posters coming soon</h2><p>Premiership posters will appear here.</p></div>';
 
   // partner-card photo carousel — auto-scrolling marquee with prev/next, mirrors the sponsor carousel
