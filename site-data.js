@@ -304,13 +304,13 @@ window.RDCA_DATA = {
         "name": "Michael Finn",
         "phone": "0400 700 606",
         "email": "president@rdca.com",
-        "photo": "https://static.wixstatic.com/media/bad3dd_6f15d366553945be94fdd286d2d90f83~mv2.jpg/v1/fill/w_220,h_220,al_c,q_85,enc_avif,quality_auto/bad3dd_6f15d366553945be94fdd286d2d90f83~mv2.jpg",
+        "photo": "/images/committee/michael-finn.webp",
         "real": true
       },
       {
         "role": "Vice President",
         "name": "Pat Meehan",
-        "photo": "https://static.wixstatic.com/media/c4acf1_6be612129ee9478bb0a6862c7ada6aeb~mv2.jpg/v1/fill/w_220,h_220,al_c,q_85,enc_avif,quality_auto/c4acf1_6be612129ee9478bb0a6862c7ada6aeb~mv2.jpg",
+        "photo": "/images/committee/pat-meehan.webp",
         "real": true
       },
       {
@@ -318,7 +318,7 @@ window.RDCA_DATA = {
         "name": "Graeme Seymour",
         "phone": "0439 114 843",
         "email": "finance@rdca.com",
-        "photo": "https://static.wixstatic.com/media/9e3e38_a80cee731bb24a6d9cf1eca20284baa9~mv2.jpg/v1/fill/w_220,h_220,al_c,q_85,enc_avif,quality_auto/9e3e38_a80cee731bb24a6d9cf1eca20284baa9~mv2.jpg",
+        "photo": "/images/committee/graeme-seymour.webp",
         "real": true
       },
       {
@@ -332,7 +332,7 @@ window.RDCA_DATA = {
         "name": "Timothy Court",
         "phone": "0407 838 275",
         "email": "court@rdca.com",
-        "photo": "https://static.wixstatic.com/media/bad3dd_1a740526e320490489b01534c604bce3~mv2.jpg/v1/fill/w_220,h_220,al_c,q_85,enc_avif,quality_auto/bad3dd_1a740526e320490489b01534c604bce3~mv2.jpg",
+        "photo": "/images/committee/timothy-court.webp",
         "real": true
       },
       {
@@ -340,7 +340,7 @@ window.RDCA_DATA = {
         "name": "Jordan Russell",
         "phone": "0413 357 444",
         "email": "j_brussell@outlook.com",
-        "photo": "https://static.wixstatic.com/media/9e3e38_25b16187e9dd42bc82f6374e0570750d~mv2.jpg/v1/fill/w_220,h_220,al_c,q_85,enc_avif,quality_auto/9e3e38_25b16187e9dd42bc82f6374e0570750d~mv2.jpg",
+        "photo": "/images/committee/jordan-russell.webp",
         "real": true
       },
       {
@@ -348,7 +348,7 @@ window.RDCA_DATA = {
         "name": "Jo Fairy",
         "phone": "0411 313 334",
         "email": "marketing@rdca.com",
-        "photo": "https://static.wixstatic.com/media/bad3dd_f9f0950efb9048f3b8388b1a54351292~mv2.jpg/v1/fill/w_220,h_220,al_c,q_85,enc_avif,quality_auto/bad3dd_f9f0950efb9048f3b8388b1a54351292~mv2.jpg",
+        "photo": "/images/committee/jo-fairy.webp",
         "real": true
       }
     ]
@@ -2979,36 +2979,36 @@ window.RDCA_DATA = {
             "name": "Paul Broussard",
             "phone": "0438 342 358",
             "email": "seniors@rdca.com",
-            "photo": "https://static.wixstatic.com/media/c4acf1_2a526edbf4a441e1a0f16ace087f3a24~mv2.jpg/v1/crop/x_0,y_10,w_2250,h_2242/fill/w_263,h_262,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Paul%20Brousard_edited.jpg"
+            "photo": "/images/committee/paul-broussard.webp"
           },
           {
             "role": "Asst. Secretary — Minutes & Rules",
             "name": "Chris Anderson",
             "phone": "0401 945 830",
             "email": "Christopher.Anderson@education.vic.gov.au",
-            "photo": "https://static.wixstatic.com/media/93eb8a_6a891c8f31e94c6bb260c61d267b8630~mv2.jpg/v1/crop/x_0,y_608,w_2432,h_2432/fill/w_258,h_258,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Staff%20-%20Mr%20Chris%20Anderson.jpg"
+            "photo": "/images/committee/chris-anderson.webp"
           },
           {
             "role": "VMCU Rep",
             "name": "Pat Meehan",
-            "photo": "https://static.wixstatic.com/media/c4acf1_6be612129ee9478bb0a6862c7ada6aeb~mv2.jpg/v1/fill/w_199,h_258,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Pat%20Meehan%20medium.jpg"
+            "photo": "/images/committee/pat-meehan.webp"
           },
           {
             "role": "Veterans Secretary",
             "name": "Peter Chamings",
             "phone": "0419 693 097",
             "email": "peter.chamings@gmail.com",
-            "photo": "https://static.wixstatic.com/media/c4acf1_ad7dc3b3abaf4c539244e1f4c7fc6a43~mv2.jpg/v1/crop/x_0,y_181,w_1368,h_1363/fill/w_283,h_282,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/peter%20chamings%20veterans_edited_edited_jp.jpg"
+            "photo": "/images/committee/peter-chamings.webp"
           },
           {
             "role": "General Committee",
             "name": "David Peel",
-            "photo": "https://static.wixstatic.com/media/c4acf1_5ebb0c94f1f54f0b92cc820c61d77dfe~mv2.jpg/v1/crop/x_0,y_386,w_2316,h_2316/fill/w_258,h_258,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/David%20Peel.jpg"
+            "photo": "/images/committee/david-peel.webp"
           },
           {
             "role": "General Committee",
             "name": "Steve Oxley",
-            "photo": "https://static.wixstatic.com/media/c4acf1_296dfa3e8b4e4a559841e5fbf2e50cb1~mv2.webp/v1/fill/w_276,h_276,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Steve%20Oxley.webp"
+            "photo": "/images/committee/steve-oxley.webp"
           },
           {
             "role": "PlayHQ",
@@ -3037,14 +3037,14 @@ window.RDCA_DATA = {
             "name": "Gavin Kellar",
             "phone": "0401 032 404",
             "email": "gkellar@whitefriars.vic.edu.au",
-            "photo": "https://static.wixstatic.com/media/23872a_00948f2b62c64c3a9f6cb9edf9750219~mv2.jpg/v1/crop/x_0,y_84,w_652,h_652/fill/w_258,h_258,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/unnamed%20(18).jpg"
+            "photo": "/images/committee/gavin-kellar.webp"
           },
           {
             "role": "Secretary",
             "name": "Bill Stafford",
             "phone": "0400 442 050",
             "email": "billstafford1@bigpond.com",
-            "photo": "https://static.wixstatic.com/media/c846e3_87c61cb8cb344a71a7b9f2404cf45504~mv2.jpg/v1/crop/x_0,y_16,w_1078,h_1078/fill/w_258,h_258,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Bill.jpg"
+            "photo": "/images/committee/bill-stafford.webp"
           },
           {
             "role": "Girls' Coordinator",
@@ -3097,7 +3097,7 @@ window.RDCA_DATA = {
             "role": "Chair",
             "name": "Linda Bailey",
             "email": "lindabb101@gmail.com",
-            "photo": "https://static.wixstatic.com/media/c846e3_156ff6f95fc8411184bd0343bebfb850~mv2.jpg/v1/crop/x_0,y_368,w_2208,h_2208/fill/w_258,h_258,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/20201022_123117.jpg"
+            "photo": "/images/committee/linda-bailey.webp"
           },
           {
             "role": "Secretary",
@@ -3146,7 +3146,7 @@ window.RDCA_DATA = {
             "name": "Jordan Russell",
             "phone": "0413 357 444",
             "email": "j_brussell@outlook.com",
-            "photo": "https://static.wixstatic.com/media/9e3e38_25b16187e9dd42bc82f6374e0570750d~mv2.jpg/v1/crop/x_0,y_32,w_412,h_412/fill/w_258,h_258,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Jordan%202.jpg"
+            "photo": "/images/committee/jordan-russell.webp"
           },
           {
             "role": "Secretary",
@@ -3157,27 +3157,27 @@ window.RDCA_DATA = {
             "name": "Andy Laws",
             "phone": "0418 545 175",
             "email": "alaws2709@gmail.com",
-            "photo": "https://static.wixstatic.com/media/9e3e38_b284b8f5d7be414aa5e26843995635a9~mv2.jpg/v1/crop/x_0,y_504,w_3024,h_3024/fill/w_258,h_258,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Andy%20Laws.jpg"
+            "photo": "/images/committee/andy-laws.webp"
           },
           {
             "role": "Mentor",
             "name": "Steve Pascoe OAM",
             "phone": "0431 170 963",
             "email": "steve.ann1@outlook.com",
-            "photo": "https://static.wixstatic.com/media/bad3dd_f90584f1c3d443a788570bb91be5a33e~mv2.jpg/v1/crop/x_1,y_0,w_350,h_350/fill/w_258,h_258,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/steve-pascoe%20umpires.jpg"
+            "photo": "/images/committee/steve-pascoe-oam.webp"
           },
           {
             "role": "Committee Member",
             "name": "Lothar Pilz",
             "email": "rdca.lothar.pilz@gmail.com",
-            "photo": "https://static.wixstatic.com/media/9e3e38_6d8ba35774df489a9a1881b468676bdb~mv2.jpg/v1/fill/w_258,h_258,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Lothar.jpg"
+            "photo": "/images/committee/lothar-pilz.webp"
           },
           {
             "role": "Merchandise",
             "name": "Barry Johnson",
             "phone": "0417 102 057",
             "email": "barbaradawnjohnson@gmail.com",
-            "photo": "https://static.wixstatic.com/media/9e3e38_3cecca6276f842ce81619ee9653a38d6~mv2.jpg/v1/crop/x_0,y_80,w_480,h_480/fill/w_264,h_263,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Barry%20Johnson.jpg"
+            "photo": "/images/committee/barry-johnson.webp"
           },
           {
             "role": "Recruitment",
