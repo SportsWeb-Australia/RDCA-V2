@@ -91,39 +91,49 @@
     '</div>';
 
   var suburb = c.name.replace(/\s*CC$/, "").trim();
-  var ground = suburb + " Reserve";
-  var mapq   = encodeURIComponent(suburb + ", Victoria, Australia");
+  var ground = c.ground || (suburb + " Reserve");
+  var hasGround = !!c.ground;
+  var mapq   = encodeURIComponent(c.ground ? c.ground : (suburb + ", Victoria, Australia"));
   var pmock  = '<span class="flag flag-mock"><i class="ti ti-flag"></i> placeholder</span>';
   var ptbc   = '<span class="flag flag-review"><i class="ti ti-clock"></i> to be added</span>';
 
+  var hasInfo = !!(c.site || c.phone || c.seniors || c.juniors || c.contact);
   body.innerHTML =
+    (hasInfo ? '' :
     '<div class="section-block">'+
       '<div class="callout callout-blue"><i class="ti ti-info-circle"></i>'+
         '<div><strong>Full profile coming soon.</strong> Home ground, contacts, website and location for '+
         esc(c.name) + ' will be added here. Fixtures, results and ladders are on the '+
         '<a href="/competition.html">Competition Hub</a>.</div></div>'+
-    '</div>'+
+    '</div>')+
     '<div class="section-block"><div class="club-detail-grid">'+
       '<div>'+
         '<div class="block-hed">Club Information</div>'+
         '<div class="panel">'+
           fact("ti-trophy","Division", esc(c.grade)) +
-          fact("ti-map-pin-2","Home Ground", esc(ground) + " " + pmock) +
+          fact("ti-map-pin-2","Home Ground", esc(ground) + (hasGround ? "" : " " + pmock)) +
+          (c.melways ? fact("ti-map-2","Melways Ref", esc(c.melways)) : "") +
+          (c.postal  ? fact("ti-mailbox","Postal", esc(c.postal)) : "") +
           fact("ti-map","Region","Melbourne\'s outer east &amp; Yarra Valley") +
           fact("ti-calendar","Established", ptbc) +
         '</div>'+
         '<div class="block-hed" style="margin-top:24px">Get in touch</div>'+
         '<div class="panel">'+
-          fact("ti-world","Website", ptbc) +
-          fact("ti-mail","Email", ptbc) +
-          fact("ti-phone","Phone", ptbc) +
+          fact("ti-world","Website", c.site ? '<a href="'+esc(c.site)+'" target="_blank" rel="noopener">'+esc(c.site.replace(/^https?:\/\//,""))+'</a>' : ptbc) +
+          fact("ti-phone","Club Rooms", c.phone ? '<a href="tel:'+esc(c.phone.replace(/\s/g,""))+'">'+esc(c.phone)+'</a>' : ptbc) +
+          (c.seniors ? fact("ti-user","Seniors Contact", esc(c.seniors.name)+' &middot; <a href="tel:'+esc(c.seniors.phone.replace(/\s/g,""))+'">'+esc(c.seniors.phone)+'</a>') : "") +
+          (c.juniors ? fact("ti-users","Juniors Contact", esc(c.juniors.name)+' &middot; <a href="tel:'+esc(c.juniors.phone.replace(/\s/g,""))+'">'+esc(c.juniors.phone)+'</a>') : "") +
+          (c.contact ? fact("ti-user","Contact", esc(c.contact.name)+' &middot; <a href="tel:'+esc(c.contact.phone.replace(/\s/g,""))+'">'+esc(c.contact.phone)+'</a>') : "") +
+          (hasInfo ? "" : fact("ti-mail","Email", ptbc)) +
         '</div>'+
       '</div>'+
       '<div>'+
         '<div class="block-hed">Location</div>'+
         '<iframe class="club-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" '+
           'src="https://maps.google.com/maps?q=' + mapq + '&z=13&output=embed" title="Map of ' + esc(suburb) + '"></iframe>'+
-        '<div class="block-sub" style="margin-top:10px">Map shows the <strong>' + esc(suburb) + '</strong> area &mdash; replace with the club\'s exact ground once confirmed.</div>'+
+        (hasGround
+          ? '<div class="block-sub" style="margin-top:10px"><i class="ti ti-map-pin"></i> ' + esc(c.ground) + '</div>'
+          : '<div class="block-sub" style="margin-top:10px">Map shows the <strong>' + esc(suburb) + '</strong> area &mdash; exact ground address still to be supplied by the club.</div>')+
       '</div>'+
     '</div></div>'+
     '<div class="section-block"><a class="btn btn-navy" href="/clubs.html"><i class="ti ti-arrow-left"></i> Back to Club Directory</a></div>';

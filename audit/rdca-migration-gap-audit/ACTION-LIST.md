@@ -115,8 +115,8 @@ A public sporting-association site without a privacy policy is a likely complian
 | # | Task | Detail | Effort |
 |---|---|---|---|
 | 5.1 | **Confirm the club roster** | Data says 12 / 28 / 38 in three places; 37 logos | **Carson** |
-| 5.2 | Add club contact details | All 38 clubs currently have no email, contact or website | M |
-| 5.3 | Restore club location maps | 41 Google Maps embeds on the old site | M |
+| 5.2 | ~~Add club contact details~~ **LARGELY DONE** | Recovered from the old site and merged into `clubs[]`: 29 websites, 20 club-rooms phones, 20 seniors + 19 juniors contacts, 21 postal addresses, 23 Melways refs. Now rendered on `club.html`. | M |
+| 5.3 | **Club location maps — needs ground addresses** | `club.html` now embeds a Google map per club, using the exact ground address where known. **Only 6 of 38 clubs have one** (South Croydon supplied by the client; 5 recovered from the old site). The other 32 fall back to a suburb-level map and are labelled as such. **Ask clubs for their ground addresses.** | M |
 | 5.4 | Restore per-club detail | Old page 7,714 chars vs new 2,247 | M |
 
 ---
