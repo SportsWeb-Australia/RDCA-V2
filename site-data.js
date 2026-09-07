@@ -3324,7 +3324,7 @@ window.RDCA_DATA = {
       "name": "Cricket Victoria",
       "tier": "State Body",
       "url": "https://www.cricketvictoria.com.au/",
-      "logo": "https://static.wixstatic.com/media/c846e3_3001cafca72f4f7f80fbdcd9f9e40840~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_3001cafca72f4f7f80fbdcd9f9e40840~mv2.jpg",
+      "logo": "/sponsors/cricket-victoria.webp",
       "grad": [
         "#081a38",
         "#103063"
@@ -3338,7 +3338,7 @@ window.RDCA_DATA = {
       "name": "Kookaburra Sport",
       "tier": "Cricket Equipment",
       "url": "https://www.kookaburrasport.com.au/cricket/",
-      "logo": "https://static.wixstatic.com/media/c846e3_b5469719eebe4fd48cbe902842c98a51~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_b5469719eebe4fd48cbe902842c98a51~mv2.jpg",
+      "logo": "/sponsors/kookaburra-sport.webp",
       "grad": [
         "#6e0a14",
         "#b81428"
@@ -3352,7 +3352,7 @@ window.RDCA_DATA = {
       "name": "Saxon Sports",
       "tier": "Facilities & Coaching",
       "url": "https://www.saxonsports.com.au/",
-      "logo": "https://static.wixstatic.com/media/c846e3_4ebe3f8d2f934246b2207e2c99ca3fed~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_4ebe3f8d2f934246b2207e2c99ca3fed~mv2.jpg",
+      "logo": "/sponsors/saxon-sports.webp",
       "grad": [
         "#0a2e3a",
         "#13616f"
@@ -3366,7 +3366,7 @@ window.RDCA_DATA = {
       "name": "Club Builder",
       "tier": "Club Development",
       "url": "https://www.club-builder.com.au/",
-      "logo": "https://static.wixstatic.com/media/c846e3_5cd9e36249554dc5abfcf84cd995c270~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_5cd9e36249554dc5abfcf84cd995c270~mv2.jpg",
+      "logo": "/sponsors/club-builder.webp",
       "grad": [
         "#0d3a2a",
         "#1a7a55"
@@ -3380,7 +3380,7 @@ window.RDCA_DATA = {
       "name": "McPhail & Partners",
       "tier": "Accounting Partner",
       "url": "https://www.mcphailandpartners.com.au/",
-      "logo": "https://static.wixstatic.com/media/bad3dd_269fc0d2a92441fcb7085a65482c03ae~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/bad3dd_269fc0d2a92441fcb7085a65482c03ae~mv2.jpg",
+      "logo": "/sponsors/mcphail-partners.webp",
       "grad": [
         "#0a2440",
         "#14467a"
@@ -3394,7 +3394,7 @@ window.RDCA_DATA = {
       "name": "Brown & Co Lawyers",
       "tier": "Legal Partner",
       "url": "https://www.browncolawyers.com.au/",
-      "logo": "https://static.wixstatic.com/media/bad3dd_5142bf9dfdad45248731f5135ecc4789~mv2.png/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/bad3dd_5142bf9dfdad45248731f5135ecc4789~mv2.png",
+      "logo": "/sponsors/brown-co-lawyers.webp",
       "grad": [
         "#14181f",
         "#2a3340"
@@ -3408,7 +3408,7 @@ window.RDCA_DATA = {
       "name": "MoneyQuest Camberwell",
       "tier": "Finance Partner",
       "url": "https://www.moneyquest.com.au/broker/jason-butcher/",
-      "logo": "https://static.wixstatic.com/media/c846e3_d9768029a6674160ac50a887cadf5d39~mv2.png/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_d9768029a6674160ac50a887cadf5d39~mv2.png",
+      "logo": "/sponsors/moneyquest-camberwell.webp",
       "grad": [
         "#7a1408",
         "#c8501a"
@@ -3422,7 +3422,7 @@ window.RDCA_DATA = {
       "name": "Noel Jones",
       "tier": "Real Estate Partner",
       "url": "https://noeljones.com.au/",
-      "logo": "https://static.wixstatic.com/media/c846e3_1d15d2a318934c12aacab593c5c3ed4e~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_1d15d2a318934c12aacab593c5c3ed4e~mv2.jpg",
+      "logo": "/sponsors/noel-jones.webp",
       "grad": [
         "#0a2342",
         "#13447a"
@@ -3436,7 +3436,7 @@ window.RDCA_DATA = {
       "name": "Matrix Roofing",
       "tier": "Roofing Partner",
       "url": "https://matrixroofing.com.au/",
-      "logo": "https://static.wixstatic.com/media/c846e3_4cbed2531b0e45f7a63dc8543a295562~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_4cbed2531b0e45f7a63dc8543a295562~mv2.jpg",
+      "logo": "/sponsors/matrix-roofing.webp",
       "grad": [
         "#16181c",
         "#2c3138"
@@ -3450,7 +3450,7 @@ window.RDCA_DATA = {
       "name": "Shieldguard Security",
       "tier": "Security Partner",
       "url": "https://www.shieldguard.com.au/",
-      "logo": "https://static.wixstatic.com/media/c846e3_0f97cb15dfce4f66b896d3a39208dfe6~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_0f97cb15dfce4f66b896d3a39208dfe6~mv2.jpg",
+      "logo": "/sponsors/shieldguard-security.webp",
       "grad": [
         "#15181d",
         "#2e353f"
@@ -3464,7 +3464,7 @@ window.RDCA_DATA = {
       "name": "Best Embroidery",
       "tier": "Apparel Partner",
       "url": "https://bestembroidery.com.au/",
-      "logo": "https://static.wixstatic.com/media/c846e3_4488d45c1d93450c808c0e937ab9203e~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_4488d45c1d93450c808c0e937ab9203e~mv2.jpg",
+      "logo": "/sponsors/best-embroidery.webp",
       "grad": [
         "#3a0e1a",
         "#7a1f38"
@@ -3478,7 +3478,7 @@ window.RDCA_DATA = {
       "name": "ChildSafe",
       "tier": "Child Safety Partner",
       "url": "https://www.childsafe.org.au/",
-      "logo": "https://static.wixstatic.com/media/c846e3_52d6aa933bc64d7e9200a265329c2e2d~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_52d6aa933bc64d7e9200a265329c2e2d~mv2.jpg",
+      "logo": "/sponsors/childsafe.webp",
       "grad": [
         "#0a3a3f",
         "#127a72"
@@ -3492,7 +3492,7 @@ window.RDCA_DATA = {
       "name": "Outside the Locker Room",
       "tier": "Wellbeing Partner",
       "url": "https://otlr.org.au/",
-      "logo": "https://static.wixstatic.com/media/23872a_70c19482bff5426182eda9ee6fc844ec~mv2.png/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/23872a_70c19482bff5426182eda9ee6fc844ec~mv2.png",
+      "logo": "/sponsors/outside-the-locker-room.webp",
       "grad": [
         "#0a3a44",
         "#11808f"
@@ -3506,7 +3506,7 @@ window.RDCA_DATA = {
       "name": "Radio Eastern FM",
       "tier": "Community Radio",
       "url": "http://www.radioeasternfm.com.au/",
-      "logo": "https://static.wixstatic.com/media/c846e3_2b1f596dfc2d4ad88f33d5c12d4c992f~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_2b1f596dfc2d4ad88f33d5c12d4c992f~mv2.jpg",
+      "logo": "/sponsors/radio-eastern-fm.webp",
       "grad": [
         "#2a0e44",
         "#5a2090"
@@ -3520,7 +3520,7 @@ window.RDCA_DATA = {
       "name": "Michael Sukkar MP",
       "tier": "Federal Member for Deakin",
       "url": "http://www.michaelsukkar.com.au/",
-      "logo": "https://static.wixstatic.com/media/c846e3_d4e23c794e2249f9b4ff05c153f1a7ed~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_d4e23c794e2249f9b4ff05c153f1a7ed~mv2.jpg",
+      "logo": "/sponsors/michael-sukkar-mp.webp",
       "grad": [
         "#0a2746",
         "#13497e"
@@ -3534,7 +3534,7 @@ window.RDCA_DATA = {
       "name": "David Hodgett MP",
       "tier": "State Member for Croydon",
       "url": "https://davidhodgett.com.au/",
-      "logo": "https://static.wixstatic.com/media/c846e3_a15141a0f87d40b18d2391f76b47e019~mv2.jpg/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/c846e3_a15141a0f87d40b18d2391f76b47e019~mv2.jpg",
+      "logo": "/sponsors/david-hodgett-mp.webp",
       "grad": [
         "#0c2240",
         "#154173"
@@ -3548,7 +3548,7 @@ window.RDCA_DATA = {
       "name": "SportsWeb Australia",
       "tier": "Website Partner",
       "url": "https://sportsweb.com.au",
-      "logo": "https://static.wixstatic.com/media/23872a_5a7011130e6b4c21bc54751b83b21577~mv2.png/v1/fit/w_320,h_280,q_85,enc_avif,quality_auto/23872a_5a7011130e6b4c21bc54751b83b21577~mv2.png",
+      "logo": "/sponsors/sportsweb-australia.webp",
       "grad": [
         "#10153a",
         "#2a3a8a"
@@ -37248,7 +37248,7 @@ window.RDCA_DATA = {
       "real": true,
       "body": "<p>Check out the signboard and products available from Guardian. Contact guardian@retailings.com.au to organise your personalised signage. A great way to promote your sponsors and share the Covid safe message.</p>",
       "excerpt": "Check out the signboard and products available from Guardian. Contact guardian@retailings.com.au to organise your personalised signage. A great way to promote your sponso…",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/covid-safe-help-is-here.webp"
     },
     {
       "slug": "exciting-news",
@@ -37260,7 +37260,7 @@ window.RDCA_DATA = {
       "real": true,
       "body": "<p>We have a New Sponsor / Website designer. Sarah from Fusion Graphic Arts has been building a new user friendly site for us over the last month. Check out all the features.</p><p>If your club or business is needing an updated site please contact Sarah at sarah@fusiongraphicarts.com.au</p>",
       "excerpt": "We have a New Sponsor / Website designer. Sarah from Fusion Graphic Arts has been building a new user friendly site for us over the last month. Check out all the features…",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/exciting-news.webp"
     },
     {
       "slug": "more-covid-products-70-alcohol-wipes",
@@ -37272,7 +37272,7 @@ window.RDCA_DATA = {
       "real": true,
       "body": "<p>Thank you to AFT for supplying a great product for our clubs to purchase. and congratulations to Wonga Park on winning a box of 1000 wipes.</p>",
       "excerpt": "Thank you to AFT for supplying a great product for our clubs to purchase. and congratulations to Wonga Park on winning a box of 1000 wipes.",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/more-covid-products-70-alcohol-wipes.webp"
     },
     {
       "slug": "thank-you-craig-from-trackon",
@@ -37284,7 +37284,7 @@ window.RDCA_DATA = {
       "real": true,
       "body": "<p>Fantastic Covid safe packs at reduced pricing for our clubs. Contact Craig on 0434 269 034 or email trackon@optusnet.com.au</p>",
       "excerpt": "Fantastic Covid safe packs at reduced pricing for our clubs. Contact Craig on 0434 269 034 or email trackon@optusnet.com.au",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/thank-you-craig-from-trackon.webp"
     },
     {
       "slug": "umpires-wanted",
@@ -37296,7 +37296,7 @@ window.RDCA_DATA = {
       "real": true,
       "body": "<p>We welcome enquiries from anyone looking to get involved umpiring. Please call Adam Kuklych - Secretary 0475 451 101 - adamk@mcservices.com.au</p>",
       "excerpt": "We welcome enquiries from anyone looking to get involved umpiring. Please call Adam Kuklych - Secretary 0475 451 101 - adamk@mcservices.com.au",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/umpires-wanted.webp"
     },
     {
       "slug": "welcome-to-new-sponsor-all-weather-mini-diggers-great-to-have-you-on-board-for-20-21",
@@ -37309,7 +37309,7 @@ window.RDCA_DATA = {
       "imageOnly": true,
       "excerpt": "This post was published on the old site as an image with no accompanying text.",
       "body": "<p class=\"muted\">This post was published on the old RDCA site as an image only, with no text. The original image has not been supplied.</p>",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/welcome-to-new-sponsor-all-weather-mini-diggers-.webp"
     },
     {
       "slug": "who-wants-to-be-on-a-magazine-cover",
@@ -37321,7 +37321,7 @@ window.RDCA_DATA = {
       "real": true,
       "body": "<p>Association sponsor Field of View Sports Photography will be offering a new product this season. Check out the Magazine cover prints! When you order this product you automatically go into a draw to win a signature cricket bat valued at $749.</p><p>Field of View will be capturing our Representative Players at the VMCU Carnival in Jan</p>",
       "excerpt": "Association sponsor Field of View Sports Photography will be offering a new product this season. Check out the Magazine cover prints! When you order this product you auto…",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/who-wants-to-be-on-a-magazine-cover.webp"
     },
     {
       "slug": "thank-you-mandy",
@@ -37334,7 +37334,7 @@ window.RDCA_DATA = {
       "imageOnly": true,
       "excerpt": "This post was published on the old site as an image with no accompanying text.",
       "body": "<p class=\"muted\">This post was published on the old RDCA site as an image only, with no text. The original image has not been supplied.</p>",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/thank-you-mandy.webp"
     },
     {
       "slug": "rdca-saxon-sports-supporting-the-mukti-australia-cricket-project",
@@ -37346,7 +37346,7 @@ window.RDCA_DATA = {
       "real": true,
       "body": "<p>Mukti Australia is a Christian organisation seeking to provide hope and a better future for disadvantaged woman and children. The RDCA and Saxon Sports are joining forces with Mukti Australia&#x27;s Cricket Project to send cricket gear to Sri Lanka. If you have any cricket equipment or clothing (junior gear only) that you no longer use or are upgrading, please donate to Mukti Australia to support this worthy cause.</p>",
       "excerpt": "Mukti Australia is a Christian organisation seeking to provide hope and a better future for disadvantaged woman and children. The RDCA and Saxon Sports are joining forces…",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/rdca-saxon-sports-supporting-the-mukti-australia.webp"
     },
     {
       "slug": "ringwood-district-cricket-association",
@@ -37358,7 +37358,7 @@ window.RDCA_DATA = {
       "real": true,
       "body": "<p>Special General Meeting Outcome Ringwood &amp; District Cricket Association - Special General Meeting Outcome - August 2020 On the back on the Yarra Valley Cricket Associations vote last week to seek a merger with the Ringwood &amp; District Cricket Association, The RDCA tonight held a Special General Meeting for all Clubs, Delegates and Life Members to cast their vote on the acceptance of this proposal. I am pleased to announce that the resolution to allow the YVCA to merge with the RDCA was passed unanimously. On behalf of the RDCA, I would like to welcome all YVCA Clubs, Members, Life Members, Players and every single YVCA club volunteer to the RDCA family.</p><p>We are looking forward to a very special season launch. Go Cricket !! Michael Finn - RDCA President</p>",
       "excerpt": "Special General Meeting Outcome Ringwood & District Cricket Association - Special General Meeting Outcome - August 2020 On the back on the Yarra Valley Cricket Associatio…",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/ringwood-district-cricket-association.webp"
     },
     {
       "slug": "celebration-wine-available-100-years-for-the-rdca",
@@ -37371,7 +37371,7 @@ window.RDCA_DATA = {
       "imageOnly": true,
       "excerpt": "This post was published on the old site as an image with no accompanying text.",
       "body": "<p class=\"muted\">This post was published on the old RDCA site as an image only, with no text. The original image has not been supplied.</p>",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/celebration-wine-available-100-years-for-the-rdc.webp"
     },
     {
       "slug": "check-out-saxon-s-online-store",
@@ -37384,7 +37384,7 @@ window.RDCA_DATA = {
       "imageOnly": true,
       "excerpt": "This post was published on the old site as an image with no accompanying text.",
       "body": "<p class=\"muted\">This post was published on the old RDCA site as an image only, with no text. The original image has not been supplied.</p>",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/check-out-saxon-s-online-store.webp"
     },
     {
       "slug": "junior-trophy-collection",
@@ -37397,7 +37397,7 @@ window.RDCA_DATA = {
       "imageOnly": true,
       "excerpt": "This post was published on the old site as an image with no accompanying text.",
       "body": "<p class=\"muted\">This post was published on the old RDCA site as an image only, with no text. The original image has not been supplied.</p>",
-      "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
+      "image": "/images/news/junior-trophy-collection.webp"
     }
   ],
   "promoBanner": {
