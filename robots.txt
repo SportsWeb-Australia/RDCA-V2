@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Template shells that render from query parameters - no standalone content
+Disallow: /placeholder.html
+Disallow: /club.html$
+Disallow: /player.html$
+Disallow: /article.html$
+Disallow: /event.html$
+
+Sitemap: https://rdca-sportsweb-version2.vercel.app/sitemap.xml

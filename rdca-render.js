@@ -202,6 +202,22 @@
       set(sel, html);
     },
 
+    // ---- Policy pages (restored from the old RDCA site) ----
+    policy: function (sel, key) {
+      var pol = (D().policies || {})[key];
+      if (!pol) { set(sel, '<p class="muted">Policy not found.</p>'); return; }
+      if (pol.columns) {
+        var head = '<tr>' + pol.columns.map(function (c) { return '<th>' + esc(c) + '</th>'; }).join("") + '</tr>';
+        var rows = (pol.rows || []).map(function (r) {
+          return '<tr>' + pol.columns.map(function (c) { return '<td>' + esc(r[c] || "") + '</td>'; }).join("") + '</tr>';
+        }).join("");
+        set(sel, (pol.note ? '<div class="callout callout-blue"><i class="ti ti-info-circle"></i><div>' + esc(pol.note) + '</div></div>' : '') +
+          (rows ? '<div class="tw"><table class="honours-table"><thead>' + head + '</thead><tbody>' + rows + '</tbody></table></div>' : ''));
+        return;
+      }
+      set(sel, '<article class="plain-page"><div class="pp-body">' + pol.body + '</div></article>');
+    },
+
     // ---- honours table ----
     honours: function (sel) {
       var h = D().honours || {}; var rows = (h.premierships || []).map(function (r) {

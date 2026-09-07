@@ -115,6 +115,7 @@
           <a href="/events.html">Events</a>
           <a href="/sponsors.html">Sponsors &amp; Partners</a>
           <a href="/child-safety.html">Child Safety</a>
+          <a href="/suspended-players.html">Suspended Players</a>
           <a href="/communications.html">Communications</a>
           <a href="/contact.html">Contact</a>
         </div>
@@ -178,7 +179,7 @@
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">RDCA</div>
-      <a class="f-link" href="/index.html">Home</a><a class="f-link" href="/board.html">The Board</a><a class="f-link" href="/committees.html">Committees &amp; Contacts</a><a class="f-link" href="/umpires.html">Umpires</a><a class="f-link" href="/communications.html">Communications</a><a class="f-link" href="/events.html">Events</a><a class="f-link" href="/documents.html">Documents &amp; Forms</a><a class="f-link" href="/child-safety.html">Child Safety</a><a class="f-link" href="/contact.html">Contact</a>
+      <a class="f-link" href="/index.html">Home</a><a class="f-link" href="/board.html">The Board</a><a class="f-link" href="/committees.html">Committees &amp; Contacts</a><a class="f-link" href="/umpires.html">Umpires</a><a class="f-link" href="/communications.html">Communications</a><a class="f-link" href="/events.html">Events</a><a class="f-link" href="/documents.html">Documents &amp; Forms</a><a class="f-link" href="/child-safety.html">Child Safety</a><a class="f-link" href="/privacy-policy.html">Privacy Policy</a><a class="f-link" href="/social-media-policy.html">Social Media Policy</a><a class="f-link" href="/good-sports-policy.html">Good Sports Policy</a><a class="f-link" href="/contact.html">Contact</a>
     </div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.04);padding:14px 20px">
