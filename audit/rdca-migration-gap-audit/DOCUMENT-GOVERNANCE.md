@@ -96,8 +96,8 @@ A self-service on-site admin UI, where committee members log in and manage docum
 
 - **It presumes a CMS decision that has not been made.** The site is currently static, with content in `site-data.js`. A document portal needs authentication, upload handling, storage and an audit trail — that is a content management system for one content type. If the RDCA later adopts a CMS through SportsWeb One, a bespoke portal is thrown away.
 - **The problem right now is not access, it is data.** 42 of 74 entries have unconfirmed authorship and **none** have a review date. A portal would present those gaps more attractively without filling them. The register plus the AGM cadence fixes the actual problem.
-- **The volume does not justify it.** 51 self-hosted documents, changing a handful of times a season. That is comfortably within what a CSV and a publishing step handle.
-- **There are higher-value items outstanding** — the registration and contact forms still do not submit anywhere, and 17 sponsor logos and 13 archived post images are still hot-linked to the old site.
+- **The volume does not justify it.** 49 self-hosted documents, changing a handful of times a season. That is comfortably within what a CSV and a publishing step handle.
+- **There are higher-value items outstanding** — chiefly the missing award seasons and life-member records still to come from the RDCA, and the PlayHQ competition integration.
 
 **Revisit when** any of these becomes true: the RDCA makes a platform decision through SportsWeb One; document volume roughly doubles; or committee members are genuinely blocked by not being able to publish documents themselves. Until then the register earns its keep at a fraction of the cost.
 
