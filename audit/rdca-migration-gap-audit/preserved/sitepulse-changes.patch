@@ -661,19 +661,6 @@ index 72eca09..19b294f 100644
 +        data-website-status="draft"></script>
  </body>
  </html>
-diff --git a/sw.js b/sw.js
-index bcb7b7a..9da4ada 100644
---- a/sw.js
-+++ b/sw.js
-@@ -2,7 +2,7 @@
-    Strategy: network-first for page navigations AND app code (css/js/json) so a new deploy
-    shows up on the next load instead of being masked by stale, same-named cached assets.
-    Cache-first only for heavy static binaries (images/icons/fonts). Offline falls back to cache. */
--var CACHE = "rdca-v33";
-+var CACHE = "rdca-v34";
- var CORE = [
-   "/", "/index.html",
-   "/_shared.css", "/_pages.css",
 diff --git a/team-selections.html b/team-selections.html
 index 4f97e9b..df46c53 100644
 --- a/team-selections.html

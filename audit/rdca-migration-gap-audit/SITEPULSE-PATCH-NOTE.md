@@ -6,19 +6,20 @@
 
 | File | Purpose |
 |---|---|
-| `preserved/sitepulse-changes.patch` | `git diff HEAD` — 30,637 bytes, all tracked changes (staged + unstaged) |
+| `preserved/sitepulse-changes.patch` | The 41 HTML tag insertions + the `sitepulse-widget.js` deletion. **Excludes `sw.js`** — the cache bump to `rdca-v34` was claimed by the document-migration commit, so the patch no longer needs it. |
 | `preserved/sitepulse-status.txt` | `git status --porcelain` at capture time |
 | `preserved/CLAUDE.md.untracked` | Untracked file, not representable in the diff |
 
 ## Verification
 
-The patch was verified with `git apply --check --reverse` against the current working tree: **it reverses cleanly**, confirming it is a complete and valid representation of the current changes.
+Regenerated after the document migration so it no longer overlaps on `sw.js`. Verified with `git apply --check --reverse` against the working tree: **it reverses cleanly**.
+
+**Note:** applying this patch no longer bumps `sw.js`. Bump it manually (`rdca-v34` → `rdca-v35`) when applying, since any deploy needs a fresh cache name.
 
 ## Contents
 
 - 41 HTML pages: external SitePulse tag added before `</body>` (+164 lines)
 - `index.html`: old self-hosted tag removed (−1)
-- `sw.js`: `rdca-v33` → `rdca-v34`
 - `sitepulse-widget.js`: deletion staged in the index (−194)
 - `CLAUDE.md`: new, untracked (preserved separately)
 
