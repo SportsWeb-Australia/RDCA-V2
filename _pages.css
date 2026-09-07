@@ -822,3 +822,23 @@ background:rgba(13,31,60,.07);padding:2px 7px;border-radius:20px;margin-left:6px
 .ap-src{font-size:12.5px;margin:10px 0 0!important}
 .board-org{font-size:12px;color:var(--muted);margin-top:2px}
 .board-note{font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
+
+/* ---- registration: PlayHQ pathway ---- */
+.reg-cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:linear-gradient(135deg,var(--navy),var(--navy3));
+color:#fff;border-radius:var(--r);padding:22px 24px;margin:16px 0 18px}
+.reg-cta-ic{width:56px;height:56px;flex:0 0 auto;border-radius:14px;background:rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.24);display:grid;place-items:center;font-size:26px}
+.reg-cta-tx{flex:1;min-width:240px}
+.reg-cta-tx h3{margin:0 0 5px;font-size:19px;color:#fff}
+.reg-cta-tx p{margin:0;font-size:13.5px;color:rgba(255,255,255,.8);line-height:1.55}
+.reg-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.reg-step{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;position:relative}
+.reg-step span{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--red);
+color:#fff;font-weight:800;font-size:13px;margin-bottom:9px}
+.reg-step b{display:block;font-size:14.5px;color:var(--navy);margin-bottom:4px}
+.reg-step p{margin:0;font-size:13px;color:var(--muted);line-height:1.55}
+.cform .req{color:var(--red);font-weight:700}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cform-note.good{background:#e7f6ec;border-left:4px solid #176635;color:#0f4523}
+.cform-note.bad{background:#fdeaea;border-left:4px solid var(--red);color:#7a2020}
+.cform-note{padding:12px 15px;border-radius:3px 10px 10px 3px;font-size:13.5px;margin-top:12px}

@@ -71,30 +71,31 @@
       <!-- ZOHO ENQUIRY FORM EMBED GOES HERE — replace the <form> below with the Zoho embed code -->
       <form class="cform" id="enquiry-form" novalidate>
         <div class="cform-row">
-          <label>Name<input type="text" name="name" placeholder="Your name" autocomplete="name"></label>
-          <label>Email<input type="email" name="email" placeholder="you@email.com" autocomplete="email"></label>
+          <label>Name <span class="req">*</span><input type="text" name="name" required minlength="2" placeholder="Your name" autocomplete="name"></label>
+          <label>Email <span class="req">*</span><input type="email" name="email" required placeholder="you@email.com" autocomplete="email"></label>
         </div>
         <div class="cform-row">
           <label>Phone <span class="opt">(optional)</span><input type="tel" name="phone" placeholder="04xx xxx xxx" autocomplete="tel"></label>
           <label>Topic
-            <select name="topic">
+            <select name="subject">
               <option>General enquiry</option>
-              <option>Juniors</option>
-              <option>Seniors</option>
+              <option>Senior Men</option>
+              <option>Senior Women</option>
+              <option>Junior Boys</option>
+              <option>Junior Girls</option>
               <option>Veterans</option>
-              <option>Women's cricket</option>
-              <option>Umpires</option>
-              <option>Sponsor us</option>
-              <option>Advertise with us</option>
+              <option>Umpiring</option>
+              <option>Sponsorship</option>
+              <option>Website</option>
             </select>
           </label>
         </div>
-        <label>Message<textarea name="message" rows="4" placeholder="How can we help?"></textarea></label>
+        <label>Message <span class="req">*</span><textarea name="message" required minlength="10" rows="6" placeholder="How can we help?"></textarea></label>
+        <div class="hp" aria-hidden="true"><label>Leave this blank<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
         <div class="cform-actions">
           <button type="submit" class="btn btn-red"><i class="ti ti-send"></i> Send enquiry</button>
-          <a class="cform-tag" href="mailto:admin@rdca.com.au">or email admin@rdca.com.au</a>
         </div>
-        <div class="cform-note" id="enquiry-note" hidden></div>
+        <div class="cform-note" id="enquiry-note" role="status" aria-live="polite" hidden></div>
       </form>
     </div>
 
@@ -125,6 +126,29 @@
       if (b){ b.disabled = true; b.style.opacity = ".6"; b.style.cursor = "default"; }
     });
   })();
+</script>
+
+<script>
+(function(){
+  var f=document.getElementById("enquiry-form"); if(!f) return;
+  var note=document.getElementById("enquiry-note");
+  function say(msg,bad){ note.hidden=false; note.textContent=msg; note.className="cform-note"+(bad?" bad":" good"); }
+  f.addEventListener("submit",function(e){
+    e.preventDefault();
+    if(!f.checkValidity()){ f.reportValidity(); return; }
+    var btn=f.querySelector("button[type=submit]"), original=btn.innerHTML;
+    btn.disabled=true; btn.innerHTML='<i class="ti ti-loader"></i> Sending…';
+    var data={}; new FormData(f).forEach(function(v,k){ data[k]=v; });
+    fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})
+      .then(function(r){ return r.json().then(function(j){ return {ok:r.ok,j:j}; }); })
+      .then(function(res){
+        if(res.ok&&res.j.ok){ f.reset(); say("Thanks — your enquiry has been sent. We'll be in touch."); btn.remove(); }
+        else { say(res.j.error||"Something went wrong. Please try again.",true); btn.disabled=false; btn.innerHTML=original; }
+      })
+      .catch(function(){ say("We couldn't send that. Please check your connection and try again.",true);
+        btn.disabled=false; btn.innerHTML=original; });
+  });
+})();
 </script>
 <script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
         data-club-id="973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60"

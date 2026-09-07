@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- RDCA Register — player registration. Live submissions connect to the RDCA database via SportsWeb One. -->
+<!-- RDCA Register — registration is handled online by PlayHQ; this page is the pathway to it. -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -61,59 +61,32 @@
   <div class="reg-grid">
 
     <div class="panel panel-navy">
-      <div class="block-hed">Player Registration</div>
-      <p class="cform-intro">Tell us a few details and the Association will be in touch. <span class="cform-tag">(Preview form — live registrations connect to the RDCA database via SportsWeb One.)</span></p>
-
-      <form class="cform" id="reg-form" novalidate>
-        <div class="cform-row">
-          <label>First name<input type="text" name="firstName" placeholder="First name" autocomplete="given-name"></label>
-          <label>Last name<input type="text" name="lastName" placeholder="Last name" autocomplete="family-name"></label>
+      <div class="block-hed">Register to play</div>
+      <p class="cform-intro">Registration for every RDCA competition is handled online through <strong>PlayHQ</strong>, Cricket Australia's official registration platform. There are no forms to download or return.</p>
+      <div class="reg-cta">
+        <div class="reg-cta-ic"><i class="ti ti-user-plus"></i></div>
+        <div class="reg-cta-tx">
+          <h3>Register on PlayHQ</h3>
+          <p>Choose your club and competition, then complete registration and payment in one place. Senior men's and women's, junior boys' and girls', and veterans all register the same way.</p>
         </div>
-        <div class="cform-row">
-          <label>Email<input type="email" name="email" placeholder="you@email.com" autocomplete="email"></label>
-          <label>Mobile<input type="tel" name="mobile" placeholder="04xx xxx xxx" autocomplete="tel"></label>
-        </div>
-        <div class="cform-row">
-          <label>Section
-            <select name="section">
-              <option>Seniors</option>
-              <option>Juniors</option>
-              <option>Women's</option>
-              <option>Veterans</option>
-              <option>Community Big Bash (T20)</option>
-            </select>
-          </label>
-          <label>Player type
-            <select name="playerType">
-              <option>New player</option>
-              <option>Returning player</option>
-              <option>Transferring from another club</option>
-            </select>
-          </label>
-        </div>
-        <label>Preferred club <span class="opt">(if you have one)</span>
-          <select name="club" id="reg-club"><option value="">Select a club…</option></select>
-        </label>
-        <label>Anything else? <span class="opt">(optional)</span><textarea name="notes" rows="3" placeholder="Age group, prior experience, questions…"></textarea></label>
-        <label class="cform-check"><input type="checkbox" name="consent"> <span>I consent to the RDCA contacting me about registration and sharing my details with my nominated club.</span></label>
-        <div class="cform-actions">
-          <button type="submit" class="btn btn-red"><i class="ti ti-user-plus"></i> Submit registration</button>
-          <a class="cform-tag" href="/clubs.html">or browse clubs first</a>
-        </div>
-        <div class="cform-note" id="reg-note" hidden></div>
-      </form>
+        <a class="btn btn-red btn-lg" href="https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association" target="_blank" rel="noopener">Register on PlayHQ <i class="ti ti-external-link"></i></a>
+      </div>
+      <div class="callout callout-blue" style="margin-top:4px">
+        <i class="ti ti-help-circle"></i>
+        <div>Not sure which club or competition suits you? <a href="/contact.html">Contact the Association</a> and we'll point you in the right direction.</div>
+      </div>
     </div>
 
     <div class="reg-side">
       <div class="reg-pwr">
         <i class="ti ti-database"></i>
-        <span>Registrations are processed through <b>SportsWeb One</b> and connect directly to the Association's database &mdash; no double handling.</span>
+        <span>Registrations are processed by <b>PlayHQ</b>, Cricket Australia's official platform's database &mdash; no double handling.</span>
       </div>
       <div class="panel">
         <div class="block-hed">How it works</div>
         <ol class="reg-steps" style="margin-top:10px">
-          <li><span class="n">1</span><div>Submit your details using the form.</div></li>
-          <li><span class="n">2</span><div>Your registration flows into the RDCA database via SportsWeb One.</div></li>
+          <li><span class="n">1</span><div>Choose a club from the <a href="/clubs.html">club directory</a>.</div></li>
+          <li><span class="n">2</span><div>Register and pay online through PlayHQ.</div></li>
           <li><span class="n">3</span><div>Your nominated club confirms training nights, fees and grading.</div></li>
           <li><span class="n">4</span><div>You're added to the club &amp; RDCA contact lists for season updates.</div></li>
         </ol>
@@ -132,25 +105,7 @@
 <div data-rdca="footer"></div>
 
 <script src="/site-data.js"></script>
-<script>
-  (function(){
-    // Populate club dropdown from site data
-    var sel = document.getElementById("reg-club");
-    var clubs = ((window.RDCA_DATA || {}).clubs || []).slice().sort(function(a,b){ return (a.name||"").localeCompare(b.name||""); });
-    if (sel) clubs.forEach(function(c){ var o=document.createElement("option"); o.value=c.key||c.name; o.textContent=c.name; sel.appendChild(o); });
 
-    var f = document.getElementById("reg-form");
-    if (!f) return;
-    f.addEventListener("submit", function(e){
-      e.preventDefault();
-      var n = document.getElementById("reg-note");
-      n.hidden = false;
-      n.textContent = "Thanks for registering! This is a preview form — once live, your registration connects straight to the RDCA database via SportsWeb One and your club will be in touch.";
-      var b = f.querySelector("button[type=submit]");
-      if (b){ b.disabled = true; b.style.opacity = ".6"; b.style.cursor = "default"; }
-    });
-  })();
-</script>
 <script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
         data-club-id="973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60"
         data-source="onboarding"

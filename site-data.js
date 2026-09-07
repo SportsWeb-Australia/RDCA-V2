@@ -2617,14 +2617,6 @@ window.RDCA_DATA = {
       "real": true
     },
     {
-      "title": "Registration Form",
-      "cat": "Forms & Rules",
-      "url": "/docs/Registration-Form.pdf",
-      "type": "pdf",
-      "icon": "ti-file-text",
-      "real": true
-    },
-    {
       "title": "Senior Rules 2026-27",
       "cat": "Seniors",
       "url": "/docs/Senior-Rules-2026-27.pdf",
@@ -2814,14 +2806,6 @@ window.RDCA_DATA = {
       "url": "/docs/Member-Protection-Policy.pdf",
       "type": "pdf",
       "icon": "ti-shield-check",
-      "real": true
-    },
-    {
-      "title": "Registration Form",
-      "cat": "Women's",
-      "url": "/docs/Registration-Form.pdf",
-      "type": "pdf",
-      "icon": "ti-file-text",
       "real": true
     },
     {
