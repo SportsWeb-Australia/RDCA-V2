@@ -318,3 +318,9 @@ table.lt th.tl,table.lt td.tl{text-align:left}
 .nav-drop-toggle .ti-chevron-down{transition:transform .16s ease}
 .nav-item:hover .nav-drop-toggle .ti-chevron-down{transform:rotate(180deg)}
 .mob-group{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.32);margin:14px 0 5px;padding:0 4px}
+
+/* ---- skip link (WCAG 2.4.1) ---- */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:9999;background:var(--red,#cc2222);color:#fff;
+padding:11px 18px;border-radius:0 0 10px 0;font-weight:700;font-size:14px;text-decoration:none}
+.skip-link:focus{left:0;outline:3px solid #fff;outline-offset:-3px}
+main:focus{outline:none}

@@ -37399,5 +37399,77 @@ window.RDCA_DATA = {
       "body": "<p class=\"muted\">This post was published on the old RDCA site as an image only, with no text. The original image has not been supplied.</p>",
       "image": "https://static.wixstatic.com/media/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png/v1/fill/w_93,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23872a_06f1c7a3c3354cc192d35b11257dd999~mv2.png"
     }
-  ]
+  ],
+  "promoBanner": {
+    "note": "Rotating homepage banner. Mixes association promotions with sponsor placements. Edit or reorder the slides below; 'kind' controls the badge.",
+    "intervalMs": 6500,
+    "slides": [
+      {
+        "kind": "promo",
+        "badge": "Season 2026/27",
+        "icon": "ti-user-plus",
+        "title": "Register to play with an RDCA club",
+        "text": "Senior, junior, women's and veterans cricket across 36 clubs in Melbourne's outer east and the Yarra Valley.",
+        "cta": "Find a club",
+        "href": "/clubs.html",
+        "grad": [
+          "#0d1f3c",
+          "#1e3d6b"
+        ]
+      },
+      {
+        "kind": "promo",
+        "badge": "Live",
+        "icon": "ti-device-tv",
+        "title": "Watch RDCA cricket live",
+        "text": "Selected games streamed each round, plus replays and the RDCA Cricket Show on Radio Eastern 98.1 FM.",
+        "cta": "Live video",
+        "href": "/video.html",
+        "grad": [
+          "#176635",
+          "#25a54f"
+        ]
+      },
+      {
+        "kind": "sponsor",
+        "badge": "Proud Partner",
+        "icon": "ti-shovel",
+        "title": "Saints Landscaping",
+        "text": "Landscaping and garden maintenance across residential and commercial — proud partner of the RDCA.",
+        "cta": "Call 0426 044 788",
+        "href": "tel:0426044788",
+        "logo": "/sponsors/saints-landscaping.webp",
+        "grad": [
+          "#062545",
+          "#10406f"
+        ]
+      },
+      {
+        "kind": "promo",
+        "badge": "Honours",
+        "icon": "ti-trophy",
+        "title": "A century of RDCA records",
+        "text": "Premierships back to 1919/20, life members, Hall of Fame, awards and averages — now searchable online.",
+        "cta": "Explore honours",
+        "href": "/honours.html",
+        "grad": [
+          "#5b2333",
+          "#8c3a52"
+        ]
+      },
+      {
+        "kind": "advertise",
+        "badge": "Advertisement",
+        "icon": "ti-building-store",
+        "title": "Your business here",
+        "text": "Put your brand in front of 4,200+ local cricketers and families every week across the RDCA.",
+        "cta": "Advertise with us",
+        "href": "/contact.html",
+        "grad": [
+          "#0d1f3c",
+          "#1e3d6b"
+        ]
+      }
+    ]
+  }
 };
