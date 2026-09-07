@@ -52,9 +52,10 @@
   <a href="#" class="mob-link" data-rdca-alerts><i class="ti ti-bell"></i> Match-Day Alerts</a>
   <div class="mob-group">Competitions</div>
   <a href="/competition.html" class="mob-link"><i class="ti ti-layout-grid"></i> Competition Hub</a>
-  <a href="/seniors.html" class="mob-link"><i class="ti ti-trophy"></i> Seniors</a>
-  <a href="/juniors.html" class="mob-link"><i class="ti ti-friends"></i> Juniors</a>
-  <a href="/womens.html" class="mob-link"><i class="ti ti-cricket"></i> Women's</a>
+  <a href="/senior-men.html" class="mob-link"><i class="ti ti-trophy"></i> Senior Men</a>
+  <a href="/senior-women.html" class="mob-link"><i class="ti ti-cricket"></i> Senior Women</a>
+  <a href="/junior-boys.html" class="mob-link"><i class="ti ti-friends"></i> Junior Boys</a>
+  <a href="/junior-girls.html" class="mob-link"><i class="ti ti-friends"></i> Junior Girls</a>
   <a href="/veterans.html" class="mob-link"><i class="ti ti-medal"></i> Veterans</a>
   <a href="/community-big-bash.html" class="mob-link"><i class="ti ti-flame"></i> Community Big Bash</a>
   <div class="mob-group">Club &amp; Community</div>
@@ -90,9 +91,10 @@
         <a class="nav-link nav-drop-toggle" href="/competition.html">Competitions <i class="ti ti-chevron-down" style="font-size:12px"></i></a>
         <div class="nav-drop">
           <a href="/competition.html">Competition Hub</a>
-          <a href="/seniors.html">Seniors</a>
-          <a href="/juniors.html">Juniors</a>
-          <a href="/womens.html">Women's</a>
+          <a href="/senior-men.html">Senior Men</a>
+          <a href="/senior-women.html">Senior Women</a>
+          <a href="/junior-boys.html">Junior Boys</a>
+          <a href="/junior-girls.html">Junior Girls</a>
           <a href="/veterans.html">Veterans</a>
           <a href="/community-big-bash.html">Community Big Bash</a>
         </div>
@@ -175,7 +177,7 @@
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">Competitions</div>
-      <a class="f-link" href="/competition.html">Competition Hub</a><a class="f-link" href="/seniors.html">Seniors</a><a class="f-link" href="/juniors.html">Juniors</a><a class="f-link" href="/womens.html">Women's</a><a class="f-link" href="/veterans.html">Veterans</a><a class="f-link" href="/community-big-bash.html">Community Big Bash</a>
+      <a class="f-link" href="/competition.html">Competition Hub</a><a class="f-link" href="/senior-men.html">Senior Men</a><a class="f-link" href="/senior-women.html">Senior Women</a><a class="f-link" href="/junior-boys.html">Junior Boys</a><a class="f-link" href="/junior-girls.html">Junior Girls</a><a class="f-link" href="/veterans.html">Veterans</a><a class="f-link" href="/community-big-bash.html">Community Big Bash</a>
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">Club &amp; Community</div>

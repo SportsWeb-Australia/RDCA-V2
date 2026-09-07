@@ -223,6 +223,29 @@
       set(sel, '<table class="honours-table hof-table"><thead><tr><th>Season</th><th>Life Member</th><th>Association</th></tr></thead><tbody>' + rows + '</tbody></table>');
     },
 
+    // ---- RDCA Cricket Show on Radio Eastern 98.1 ----
+    radioShow: function (sel) {
+      var r = D().radioShow;
+      if (!r) { set(sel, ""); return; }
+      var cards = (r.ways || []).map(function (w) {
+        var inner =
+          '<div class="rs-ic"><i class="ti ' + esc(w.icon || "ti-radio") + '"></i></div>' +
+          '<div class="rs-tx"><h4>' + esc(w.label) + flag(w) + '</h4><p>' + esc(w.detail || "") + '</p></div>' +
+          (w.url ? '<span class="rs-go"><i class="ti ti-arrow-right"></i></span>' : '');
+        return w.url
+          ? '<a class="rs-card" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + inner + '</a>'
+          : '<div class="rs-card rs-static">' + inner + '</div>';
+      }).join("");
+      set(sel,
+        '<div class="rs-wrap"><div class="rs-hd">' +
+          '<div class="rs-badge"><i class="ti ti-broadcast"></i> ' + esc(r.station || "") + '</div>' +
+          '<h3>' + esc(r.title || "") + '</h3>' +
+          '<p>' + esc(r.blurb || "") + '</p>' +
+        '</div><div class="rs-grid">' + cards + '</div>' +
+        (r.note ? '<p class="rs-note"><i class="ti ti-info-circle"></i> ' + esc(r.note) + '</p>' : '') +
+        '</div>');
+    },
+
     // ---- Averages: premier grades + lower grades ----
     averages: function (sel) {
       var h = D().honours || {};
@@ -389,7 +412,14 @@
 
     // ---- section about (native) ----
     sectionAbout: function (sectionKey, sel) {
-      var s = (D().sections || {})[sectionKey];
+      var _all = (D().sections || {});
+      var s = _all[sectionKey];
+      if (s && s.inherit && _all[s.inherit]) {
+        var _b = _all[s.inherit], _m = {};
+        Object.keys(_b).forEach(function (k) { _m[k] = _b[k]; });
+        Object.keys(s).forEach(function (k) { _m[k] = s[k]; });
+        s = _m;
+      }
       if (!s || !s.aboutText) { set(sel, ""); return; }
       var icon = s.icon || "ti-trophy";
       var P = (typeof window !== "undefined" && window.RDCA_PLAYHQ) ? window.RDCA_PLAYHQ : {};
@@ -536,7 +566,14 @@
 
     // ---- section code of conduct (native) ----
     sectionConduct: function (sectionKey, sel) {
-      var s = (D().sections || {})[sectionKey];
+      var _all = (D().sections || {});
+      var s = _all[sectionKey];
+      if (s && s.inherit && _all[s.inherit]) {
+        var _b = _all[s.inherit], _m = {};
+        Object.keys(_b).forEach(function (k) { _m[k] = _b[k]; });
+        Object.keys(s).forEach(function (k) { _m[k] = s[k]; });
+        s = _m;
+      }
       if (!s || !s.conduct) { set(sel, ""); return; }
       var c = s.conduct;
       // Downloadable PDF hosted with the site (replaces the old rdca.com link).
@@ -704,7 +741,14 @@
 
     // ---- a single section page's links (juniors/seniors/veterans/womens) ----
     sectionLinks: function (sectionKey, sel) {
-      var s = (D().sections || {})[sectionKey]; if (!s) return;
+      var _all = (D().sections || {});
+      var s = _all[sectionKey];
+      if (s && s.inherit && _all[s.inherit]) {
+        var _b = _all[s.inherit], _m = {};
+        Object.keys(_b).forEach(function (k) { _m[k] = _b[k]; });
+        Object.keys(s).forEach(function (k) { _m[k] = s[k]; });
+        s = _m;
+      } if (!s) return;
       var tiles = [];
       function tile(label, url, icon, item){
         if (!url) return;
