@@ -66,6 +66,16 @@
 <script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
         data-club-id="973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60"
         data-source="onboarding"
-        data-website-status="draft"></script>
+        data-website-status="draft">
+  var _st = new URLSearchParams(location.search).get("status");
+  if (_st === "tbs") {
+    var _m = document.querySelector(".ph-body") || document.querySelector("main") || document.body;
+    var _t = new URLSearchParams(location.search).get("title") || "This team";
+    _m.innerHTML = '<div class="callout callout-blue" style="margin:22px 0">' +
+      '<i class="ti ti-users"></i><div><strong>' + _t + ' &mdash; not yet selected.</strong><br>' +
+      'Representative teams for the coming season have not been announced. ' +
+      'Selections will be published here once confirmed.</div></div>';
+  }
+</script>
 </body>
 </html>

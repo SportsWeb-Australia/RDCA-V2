@@ -686,3 +686,40 @@ body[data-page="womens"] .section-block{margin-bottom:46px}
 /* registration consent checkbox (inside navy form) */
 .cform label.cform-check{flex-direction:row;align-items:flex-start;gap:9px;font-weight:400;color:rgba(255,255,255,.72);font-size:12.5px;line-height:1.45;cursor:pointer}
 .cform label.cform-check input{width:auto;margin-top:2px;flex:0 0 auto}
+
+/* ---- Hall of Fame / Life Members: tabs + click-through write-ups ---- */
+.hof-tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.hof-tab{border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer;
+font:700 13px/1 inherit;padding:10px 16px;border-radius:10px;display:flex;align-items:center;gap:8px;transition:.15s}
+.hof-tab:hover{color:var(--navy);border-color:var(--navy3)}
+.hof-tab.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.hof-tab em{font-style:normal;font-size:11px;font-weight:800;background:rgba(0,0,0,.12);
+padding:2px 7px;border-radius:20px}
+.hof-tab.active em{background:var(--red);color:#fff}
+.hof-pane{display:none}
+.hof-pane.active{display:block}
+.hof-note{font-size:12.5px;margin-top:12px}
+.hof-table td.hof-y{font-weight:700;color:var(--muted);white-space:nowrap}
+.hof-name{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--navy3);
+cursor:pointer;text-align:left;border-bottom:1px dashed rgba(30,61,107,.45)}
+.hof-name:hover{color:var(--red);border-bottom-color:var(--red)}
+.hof-name.on{color:var(--red);border-bottom-style:solid}
+.hof-name.pending{color:var(--muted);border-bottom-color:rgba(90,104,128,.4)}
+.hof-name.pending:hover{color:var(--navy3)}
+.hof-post{font-size:11px;font-weight:700;color:var(--red);letter-spacing:.4px}
+.hof-dec{color:var(--muted);font-size:11px}
+.hof-bio{display:none}
+.hof-bio.open{display:table-row}
+.hof-bio-in{background:linear-gradient(180deg,rgba(13,31,60,.05),transparent);
+border-left:3px solid var(--red);border-radius:0 10px 10px 0;padding:14px 18px;margin:2px 0 8px}
+.hof-bio-in h4{margin:0 0 8px;font-size:15px;color:var(--navy)}
+.hof-bio-in .hof-yr{font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.4px}
+.hof-bio-in p{margin:0 0 8px;font-size:13.5px;line-height:1.65}
+.hof-pending{color:var(--muted);font-style:italic;display:flex;align-items:center;gap:7px}
+.btn-sm{font-size:12px;padding:6px 12px}
+.yvca-empty{text-align:center;padding:38px 22px;border:1px dashed var(--border);border-radius:var(--r);
+background:var(--card);color:var(--muted)}
+.yvca-empty i{font-size:30px;color:var(--navy3);opacity:.6}
+.yvca-empty h4{margin:10px 0 6px;color:var(--navy);font-size:16px}
+.yvca-empty p{margin:0;font-size:13.5px;max-width:520px;margin-inline:auto}
+@media(max-width:560px){.hof-tab{flex:1;justify-content:center;padding:10px 8px}}

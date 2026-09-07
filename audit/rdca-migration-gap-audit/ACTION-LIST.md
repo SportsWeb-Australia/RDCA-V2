@@ -26,8 +26,8 @@ Nothing can be retired while these stand. **96 old-site URLs are still linked fr
 | 1.1 | **Migrate 43 documents into `docs/`** | 31 unique files (12 are duplicates). Commit them, repoint every `url` in `site-data.js`. | M |
 | 1.2 | Keep 5 third-party documents external | Cricket Australia ×3, Cricket Victoria ×2 — correct as links | S |
 | 1.3 | Fix 3 fake document entries | "Junior/Seniors/Umpire Documents" point at HTML *pages*, not files | S |
-| 1.4 | **Migrate 8 junior rep line-ups** | U12/U14/U16/U17 Boys, U12/U14/U17 Girls — **plus U18 Girls**, which no placeholder even references | M |
-| 1.5 | **Delete `placeholder.html`** | 15 variants that redirect users back to the old site | S |
+| 1.4 | ~~Migrate 8 junior rep line-ups~~ **DONE (as placeholders)** | Client: teams not yet selected. All 8 rep links repointed from the old Wix pages to internal `placeholder.html?status=tbs`, which now renders a "not yet selected" notice. Replace with real line-ups once selections are announced. | S |
+| 1.5 | ~~Delete `placeholder.html`~~ **RETAINED** | Kept deliberately as the "team not yet selected" placeholder. No longer points at the old site. | S |
 | 1.6 | Repoint or remove all remaining `www.rdca.com` links | Target: zero | S |
 
 ---
@@ -103,7 +103,9 @@ A public sporting-association site without a privacy policy is a likely complian
 | 4.3 | Migrate sponsor logos | 28 | S |
 | 4.4 | Migrate committee photographs | ~35 across five committees | S |
 | 4.5 | Migrate annual-report imagery | 354 across three sets (ties to 3.10–3.12) | L |
-| 4.6 | Resolve 3 orphan club logos | `Bulls.png`, `Heatherdale.png`, `VCC Eagle Logo` have no counterpart; `northringwood.webp` has no old-site source | S |
+| 4.6 | ~~Resolve 3 orphan club logos~~ **DONE** | Heatherdale, Lusatia Park and Vermont logos recovered from the archive; all 36 clubs now have one. | S |
+| 4.6b | **Cross-check every club logo against the club-contacts roster** | Confirm each logo matches the correct club, that `Bulls.png -> Lusatia Park` and `VCC Eagle -> Vermont` are right, and decide what happens to the 4 now-unused logos (Croydon, Launching Place, Ringwood, Woori Yallock) | S |
+| ~~4.6c~~ | *(superseded)* | `Bulls.png`, `Heatherdale.png`, `VCC Eagle Logo` have no counterpart; `northringwood.webp` has no old-site source | S |
 | 4.7 | Replace the 288×288 placeholder headshot | `player-jake-smith.jpg` | S |
 
 ---

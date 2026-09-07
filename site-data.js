@@ -200,13 +200,13 @@ window.RDCA_DATA = {
       ],
       codeOfConduct:{ label:"Junior Code of Conduct", file:"/docs/RDCA-Code-of-Conduct.pdf", real:true },
       repTeams:[
-        { label:"Rep Team — U12 Boys",  url:"https://www.rdca.com/juniors-under-12s", real:true, blank:true },
-        { label:"Rep Team — U12 Girls", url:"https://www.rdca.com/junior-rep-girls", real:true, blank:true },
-        { label:"Rep Team — U14 Boys",  url:"https://www.rdca.com/juniors-under-14s", real:true, blank:true },
-        { label:"Rep Team — U14 Girls", url:"https://www.rdca.com/copy-of-rep-team-girls", real:true, blank:true },
-        { label:"Rep Team — U16 Boys",  url:"https://www.rdca.com/juniors-under-16s", real:true, blank:true },
-        { label:"Rep Team — U17 Girls", url:"https://www.rdca.com/copy-2-of-rep-team-girls", real:true, blank:true },
-        { label:"Rep Team — U17 Boys",  url:"https://www.rdca.com/juniors-under-18s", real:true, blank:true }
+        { label:"Rep Team — U12 Boys",  url:"/placeholder.html?title=U12%20Boys%20Rep%20Team&status=tbs", real:true, blank:true },
+        { label:"Rep Team — U12 Girls", url:"/placeholder.html?title=U12%20Girls%20Rep%20Team&status=tbs", real:true, blank:true },
+        { label:"Rep Team — U14 Boys",  url:"/placeholder.html?title=U14%20Boys%20Rep%20Team&status=tbs", real:true, blank:true },
+        { label:"Rep Team — U14 Girls", url:"/placeholder.html?title=U14%20Girls%20Rep%20Team&status=tbs", real:true, blank:true },
+        { label:"Rep Team — U16 Boys",  url:"/placeholder.html?title=U16%20Boys%20Rep%20Team&status=tbs", real:true, blank:true },
+        { label:"Rep Team — U17 Girls", url:"/placeholder.html?title=U17%20Girls%20Rep%20Team&status=tbs", real:true, blank:true },
+        { label:"Rep Team — U17 Boys",  url:"/placeholder.html?title=U17%20Boys%20Rep%20Team&status=tbs", real:true, blank:true }
       ]
     },
     seniors: {
@@ -268,20 +268,20 @@ window.RDCA_DATA = {
         key:"junior", label:"Junior Representative",
         blurb:"RDCA junior representative pathway across boys' and girls' age groups.",
         sides:[
-          { name:"U12 Boys", cat:"Boys", icon:"ti-shield-half-filled", info:"https://www.rdca.com/juniors-under-12s",
-            lineup:{ url:"https://www.rdca.com/juniors-under-12s", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } },
-          { name:"U12 Girls", cat:"Girls", icon:"ti-shield-half-filled", info:"https://www.rdca.com/junior-rep-girls",
-            lineup:{ url:"https://www.rdca.com/junior-rep-girls", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } },
-          { name:"U14 Boys", cat:"Boys", icon:"ti-shield-half-filled", info:"https://www.rdca.com/juniors-under-14s",
-            lineup:{ url:"https://www.rdca.com/juniors-under-14s", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } },
-          { name:"U14 Girls", cat:"Girls", icon:"ti-shield-half-filled", info:"https://www.rdca.com/copy-of-rep-team-girls",
-            lineup:{ url:"https://www.rdca.com/copy-of-rep-team-girls", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } },
-          { name:"U16 Boys", cat:"Boys", icon:"ti-shield-half-filled", info:"https://www.rdca.com/juniors-under-16s",
-            lineup:{ url:"https://www.rdca.com/juniors-under-16s", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } },
-          { name:"U17 Boys", cat:"Boys", icon:"ti-shield-half-filled", info:"https://www.rdca.com/juniors-under-18s",
-            lineup:{ url:"https://www.rdca.com/juniors-under-18s", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } },
-          { name:"U17 Girls", cat:"Girls", icon:"ti-shield-half-filled", info:"https://www.rdca.com/copy-2-of-rep-team-girls",
-            lineup:{ url:"https://www.rdca.com/copy-2-of-rep-team-girls", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } }
+          { name:"U12 Boys", cat:"Boys", icon:"ti-shield-half-filled", info:"/placeholder.html?title=U12%20Boys%20Rep%20Team&status=tbs",
+            lineup:{ url:"/placeholder.html?title=U12%20Boys%20Rep%20Team&status=tbs", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } },
+          { name:"U12 Girls", cat:"Girls", icon:"ti-shield-half-filled", info:"/placeholder.html?title=U12%20Girls%20Rep%20Team&status=tbs",
+            lineup:{ url:"/placeholder.html?title=U12%20Girls%20Rep%20Team&status=tbs", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } },
+          { name:"U14 Boys", cat:"Boys", icon:"ti-shield-half-filled", info:"/placeholder.html?title=U14%20Boys%20Rep%20Team&status=tbs",
+            lineup:{ url:"/placeholder.html?title=U14%20Boys%20Rep%20Team&status=tbs", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } },
+          { name:"U14 Girls", cat:"Girls", icon:"ti-shield-half-filled", info:"/placeholder.html?title=U14%20Girls%20Rep%20Team&status=tbs",
+            lineup:{ url:"/placeholder.html?title=U14%20Girls%20Rep%20Team&status=tbs", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } },
+          { name:"U16 Boys", cat:"Boys", icon:"ti-shield-half-filled", info:"/placeholder.html?title=U16%20Boys%20Rep%20Team&status=tbs",
+            lineup:{ url:"/placeholder.html?title=U16%20Boys%20Rep%20Team&status=tbs", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } },
+          { name:"U17 Boys", cat:"Boys", icon:"ti-shield-half-filled", info:"/placeholder.html?title=U17%20Boys%20Rep%20Team&status=tbs",
+            lineup:{ url:"/placeholder.html?title=U17%20Boys%20Rep%20Team&status=tbs", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } },
+          { name:"U17 Girls", cat:"Girls", icon:"ti-shield-half-filled", info:"/placeholder.html?title=U17%20Girls%20Rep%20Team&status=tbs",
+            lineup:{ url:"/placeholder.html?title=U17%20Girls%20Rep%20Team&status=tbs", blank:true, needsReview:true }, fixtures:{ playhq:"juniors" }, results:{ playhq:"juniors" }, news:{ url:"/news.html" } }
         ]
       }
     ]
@@ -362,6 +362,9 @@ window.RDCA_DATA = {
      // CONNECT later: SportsWeb One "Documents" library / Supabase storage.
      ========================================================================== */
   documents: [
+        { title:"RDCA Annual Report 2024/25", cat:"Annual Reports", url:"/docs/RDCA-Annual-Report-2024-25.docx", type:"docx", icon:"ti-report", real:true },
+        { title:"Hall of Fame Program 2025", cat:"Annual Reports", url:"/docs/RDCA-Hall-of-Fame-Program-2025.pdf", type:"pdf", icon:"ti-award", real:true },
+        { title:"Hall of Fame Induction 2026", cat:"Annual Reports", url:"/docs/RDCA-Hall-of-Fame-Induction-2026.pdf", type:"pdf", icon:"ti-award", real:true },
         { title:"RDCA Annual Report 2025/26", cat:"Annual Reports", url:"/docs/RDCA-Annual-Report-2025-26.pdf", type:"pdf", icon:"ti-report", real:true },
     // Key forms / rules / policies — direct files on rdca.com (live; no upload needed)
     { title:"Registration Form", cat:"Forms & Rules",              url:"/docs/Registration-Form.pdf", type:"pdf", icon:"ti-file-text", real:true },
@@ -470,6 +473,7 @@ window.RDCA_DATA = {
      // CONNECT later: SportsWeb One "Sponsors" collection (logo on Cloudinary).
      ========================================================================== */
   sponsors: [
+        { name:"Saints Landscaping", tier:"Landscaping Partner", url:"tel:0426044788", logo:"/sponsors/saints-landscaping.webp", grad:["#062545","#10406f"], logoMode:"bare", cta:"Call 0426 044 788", blurb:"Saints Landscaping specialises in high-quality landscaping and garden maintenance across the residential and commercial sectors \u2014 working with homeowners, builders and developers on new home builds to create attractive, functional outdoor spaces. They also help homeowners preparing to sell by transforming gardens to maximise street appeal and property value, partner with large corporations for reliable commercial property maintenance, and provide premium garden maintenance for high-end residential properties. Their focus is quality workmanship, reliability and exceptional customer service \u2014 outdoor spaces that are both beautiful and built to last.", real:true },
     { name:"SEDA College", tier:"Education Partner", url:"https://seda.vic.edu.au",
       logo:"https://res.cloudinary.com/dozdbhjhs/image/upload/v1780760760/seda-vic-logo_cxgyvs.svg",
       grad:["#081828","#0d2a4a"], logoMode:"invert", cta:"Learn More",
@@ -625,7 +629,57 @@ window.RDCA_DATA = {
      // CONNECT later: SportsWeb One "Honours" collection.
      ========================================================================== */
   honours: {
+      hallOfFame:{
+        note:"Two categories: Legends and Members. Write-ups are published as they are supplied; those marked pending are still to come from the RDCA.",
+        legends:[
+        { year:"2021", name:"Fred Hodgkins", formal:"J.R. (Fred) Hodgkins", initials:"J.R.", deceased:true },
+        { year:"2021", name:"Steve Pascoe", formal:"S. J. (Steve) Pascoe OAM", initials:"S. J.", honours:"OAM" },
+        { year:"2021", name:"Ian Spencer", formal:"I.J. (Ian) Spencer", initials:"I.J." },
+        { year:"2021", name:"Lindsay Trollope", formal:"K.L. (Lindsay) Trollope ASM", initials:"K.L.", honours:"ASM", deceased:true },
+        { year:"2021", name:"Bill Wilkins", formal:"W.R. (Bill) Wilkins OAM", initials:"W.R.", honours:"OAM", deceased:true },
+        { year:"2022", name:"Bill Dean", formal:"W.D. (Bill) Dean OAM JP", initials:"W.D.", honours:"OAM JP", deceased:true },
+        { year:"2022", name:"Don Strachan", formal:"D.J. (Don) Strachan ASM JP", initials:"D.J.", honours:"ASM JP", deceased:true },
+        { year:"2023", name:"Bob Bissett", formal:"A. R. (Bob) Bissett", initials:"A. R.", deceased:true },
+        { year:"2023", name:"Pat Meehan", formal:"P. T. (Pat) Meehan", initials:"P. T." },
+        { year:"2024", name:"Stuart Newey", formal:"S.N. (Stuart) Newey", initials:"S.N.", deceased:true },
+        { year:"2025", name:"Bill Stafford", formal:"W.G. (Bill) Stafford", initials:"W.G." }
+        ],
+        members:[
+        { year:"2021", name:"Roy Baldwin", formal:"R.W. (Roy) Baldwin OAM", initials:"R.W.", honours:"OAM", deceased:true },
+        { year:"2021", name:"Bill Baldwin", formal:"W.K. (Bill) Baldwin", initials:"W.K.", deceased:true },
+        { year:"2021", name:"Ken Johnston", formal:"K. B. (Ken) Johnston", initials:"K. B.", deceased:true },
+        { year:"2021", name:"Ann Pascoe", formal:"A.J. (Ann) Pascoe", initials:"A.J." },
+        { year:"2021", name:"Don Smith", formal:"D.W. (Don) Smith", initials:"D.W.", deceased:true },
+        { year:"2021", name:"Ken Trollope", formal:"K.G. (Ken) Trollope", initials:"K.G.", deceased:true },
+        { year:"2021", name:"Mark Unternahrer", formal:"M.A. (Mark) Unternahrer", initials:"M.A." },
+        { year:"2022", name:"Andrew Downs", formal:"A. R. (Andrew) Downs", initials:"A. R." },
+        { year:"2022", name:"Ken Dunham", formal:"K.J. (Ken) Dunham", initials:"K.J.", deceased:true },
+        { year:"2022", name:"Lincoln Grigg", formal:"L. J. (Lincoln) Grigg", initials:"L. J." },
+        { year:"2022", name:"Martien Pruysers", formal:"M. (Martien) Pruysers", initials:"M." },
+        { year:"2023", name:"Jason Disney", formal:"J. (Jason) Disney", initials:"J." },
+        { year:"2023", name:"Greg Mitchell", formal:"G.A.C. (Greg) Mitchell ASM", initials:"G.A.C.", honours:"ASM" },
+        { year:"2023", name:"David Mooney", formal:"D. P. (David) Mooney", initials:"D. P." },
+        { year:"2024", name:"Michael Edwards", formal:"M. (Michael) Edwards", initials:"M." },
+        { year:"2024", name:"Adrian Hammond", formal:"A.R. (Adrian) Hammond", initials:"A.R." },
+        { year:"2024", name:"Jeff Luscombe", formal:"J.W. (Jeff) Luscombe", initials:"J.W." },
+        { year:"2024", name:"Michael Piggott", formal:"M. F. (Michael) Piggott", initials:"M. F." },
+        { year:"2025", name:"Timothy Court", formal:"T. (Timothy) Court", initials:"T." },
+        { year:"2025", name:"Jay Sansom", formal:"J. (Jay) Sansom", initials:"J." },
+        { year:"2025", name:"Andrew Tonkin", formal:"A. (Andrew) Tonkin", initials:"A." },
+        { year:"2025", name:"Bill Oliver", formal:"W. (Bill) Oliver", initials:"W.", bio:"We must note that the full playing statistics for Bill Oliver are not held- we believe we have around 70% of the information. Bill\u2019s first game was for Kilsyth Under 16\u2019s in 1959/60 and his first senior game was in the next season. At Kilsyth he played 24 seasons of senior cricket including 18 in the first XI. Captain/Coach for 3 seasons, club Champion 12 times, premiership player, 5 first XI batting and 4 first XI bowling awards, club Life Member and an inaugural member of the Kilsyth Hall of Fame with Legend status. One year at Croydon United (no records held) before moving as Captain/Coach of Olinda where he was Club Champion six times. In his eleven seasons (in two stints) he won the first XI batting three times and the bowling twice. He was a Fairbairn Medallist (best and fairest in what is now Wilkins Cup) and a winner of the RDCA All Rounder award. We estimate he played around 134 First XI games at Olinda where he is a member of the club Hall of Fame. Bill then played at Glen Park for two seasons (including a first XI premiership) but no records are held for this. In summary Bill played 31 seasons of first XI cricket and an estimated 359 first XI games. He was Captain Coach for 16 of those seasons. We have records for 6,113 first eleven runs and 588 wickets. Including the junior and lower grades he played at Kilsyth he played an estimated 423 games over 38 seasons in total. Total runs known total 6,817 and known wickets total 701. He also played representative cricket for the RDCA. AND R.D.C.A. DISTRICT AND CRICKET CRICKET DISTRICT ASSOCIATION ASSOCIATION HALL OF FAM", bioSource:"/docs/RDCA-Hall-of-Fame-Program-2025.pdf" },
+        { year:"2026", name:"Kane Jones", formal:"K. (Kane) Jones", initials:"K." },
+        { year:"2026", name:"Drew Mckay", formal:"D. (Drew) Mckay", initials:"D.", bio:"L.J. (Lincoln) GRIGG (2022) Nominated by Wantirna South Cricket Club \u2014 Drew started his career at A.R. (Bob) BISSET* (2023) M. (Martien) PRUYSERS (2022) Wantirna South in 1994 at the age of 16 (no club junior teams then) before a premature retirement after the 2022/23 season. In season 2025/26 Drew is J. (Jason) DISNEY (2023) back playing for Wantirna South. Drew spent a number of years at Ringwood P.T. (Pat) MEEHAN (2023) C.C. but his performances there have not been included for Hall of Fame G.A.C. (Greg) MITCHELL asm (2023) considerations. A now continuing senior career has resulted in 270+ games S.N. (Stuart) NEWEY* (2024) D.P. (David) MOONEY (2023) achieving over 1,000 runs, 570+ wickets and 4 first XI premierships (all Chandler/Trollope). At club level he has won 7 bowling and 5 club champion M. (Michael) EDWARDS (2024) W.G. (Bill) STAFFORD (2025) awards. He served as the club\u2019s Captain/Coach for at least 3 years and is a A.R. (Adrian) HAMMOND (2024) club Life Member. Drew was named in the club\u2019s best First Eleven team in 2022. Drew\u2019s record of service to the RDCA included playing in representative J.W. (Jeff) LUSCOMBE (2024) teams at U18, U21 and senior levels for a total of 9 years. He won the Trollope Shield bowling award in 2012/13 M.F. (Michael) PIGGOTT (2024) and has, to date, been named in the RDCA All Stars team 7 times, including once as captain. A significant, and now continuing, career. T. (Timothy) COURT (2025) J. (Jay) SANSOM (2025)", bioSource:"/docs/RDCA-Hall-of-Fame-Induction-2026.pdf" },
+        { year:"2026", name:"Bruce Sansom", formal:"B. (Bruce) Sansom", initials:"B.", bio:"A. (Andrew) TONKIN (2025) Nominated by the Hall of Fame committee \u2014 Bruce commenced his career at W. (Bill) OLIVER (2025) Norwood C.C. in the late 1970\u2019s/early 1980\u2019s and it continues today. Although first eleven statistics are not available it is well known that the majority of Bruce\u2019s career has been played at that level. Bruce has played 700+ games, has scored 11,900+ runs and accumulated 700+ wickets. Bruce has won numerous club awards, is a club Life Member and has been on the club committee for a number of years, including 6 years as Secretary. He has a high score of 121 and best bowling figures of 7 for 89. Bruce is a dual HALL OF FAME Steve Pascoe Medallist (Best & Fairest in Wilkins) in 2002/03 and 2003/04. He won the Chandler Reserves bowling award in 1983/84. A significant and continuing career with Bruce\u2019s love of the game, and his club sees him continuing to mentor young players in the future.", bioSource:"/docs/RDCA-Hall-of-Fame-Induction-2026.pdf" },
+        { year:"2026", name:"Sarah Smith", formal:"S. (Sarah) Smith", initials:"S.", bio:"Nominated by Bayswater Park Cricket Club \u2014 Sarah becomes the first female playing member of the Hall of Fame after joining the Bayswater Park C.C. in 2008/09, the year of the club\u2019s first ladies\u2019 team. The team initially played in non-RDCA competitions but has played in RDCA competitions for the last 5 seasons. The club has always been affiliated with the RDCA so Sarah is eligible to be inducted into the Hall of Fame. In 17 seasons of playing cricket Sarah has amassed over 9,000 runs, taken nearly 190 wickets and played in 7 premierships. She has an amazing 70 scores of over 50 and 10 centuries with a high score of 122 not out. Fourteen club batting awards, 3 club bowling awards and 9 champion awards compliment 6 times HALL OF FAME premiership captain and 9 times selection in the club Team of the Year (includes male and female players). Sarah has provided valuable service to her club by way of 15 years on the committee including 4 as Vice President. At RDCA and VMCU level she has been a junior coach and Sarah has been the RDCA A Grade Champion player on 2 occasions. A strong career to date with involvement both on and off the field. DISTRICT CRICKET CRICKET ASSOCIATION ASSOCIATION CENTENARY DINNER CENTENARY DINNER TH FRIDAY 18 OCTOBER 2019FRIDAY 18 OCTOBER 2019 TH AND R.D.C.A. DISTRICT AND CRICKET CRICKET DISTRICT ASSOCIATION ASSOCIATION DORSET GARDENS HOTEL,DORSET GARDENS HOTEL, CROYDON CROYDON INCORPORATED CENTENARY DINNER HALL OF FAME CENTENARY DINNER INDUCTION CENTENARY DINNER FRIDAY 18TH OCTOBER 2019 2026 RDCA BOARD OF MANAGEMENT RDCA BOARD OF MANAGEMENT DORSET GARDENS", bioSource:"/docs/RDCA-Hall-of-Fame-Induction-2026.pdf" }
+        ]
+      },
+      yvca:{
+        note:"Historical Yarra Valley Cricket Association statistical records. Content to be supplied by the RDCA.",
+        pending:true, items:[]
+      },
     lifeMembers: [
+        { season:"2024/25", name:"Graeme Seymour", assoc:"RDCA", real:true, bioPending:true },
+        { season:"2024/25", name:"Sean Flynn", assoc:"RDCA", real:true, bioPending:true },
       { season:"2021/22", name:"Stuart Minetti",   assoc:"RDCA", doc:"/docs/Stuart-Minetti-2021-22.pdf", real:true },
       { season:"2019/20", name:"Gregor Mason",      assoc:"RDCA", doc:"/docs/Gregor-Mason-2019-20.pdf", real:true },
       { season:"2014/15", name:"Greg Mitchell",     assoc:"YVCA", doc:"/docs/Greg-Mitchell-2014-15.docx", real:true },
