@@ -1,7 +1,7 @@
 # Document Governance — Recommendation
 
 **RDCA (Ringwood & District Cricket Association)** · drafted 2026-09-07
-Companion to `DOCUMENT-REGISTER.csv` (87 rows).
+Companion to `DOCUMENT-REGISTER.csv` (74 rows).
 
 Nothing in this document invents a role, a committee or a meeting that the RDCA does not already have. Where a field could not be confirmed from a real source it is marked **UNCONFIRMED** rather than filled in.
 
@@ -11,15 +11,19 @@ Nothing in this document invents a role, a committee or a meeting that the RDCA 
 
 | Status | Count | Meaning |
 |---|---:|---|
-| SELF-HOSTED | 51 | The RDCA controls the file; it lives in the website repository |
+| SELF-HOSTED | 49 | The RDCA controls the file; it lives in the website repository |
 | SOURCE-REFERENCE | 17 | Content migrated into the site; the row records where it came from. Not a dependency |
-| INTERNAL-PAGE | 11 | The register entry points at a web page, not a file |
 | EXTERNAL-STABLE | 8 | Published by Cricket Australia or Cricket Victoria, who are the publishers of record |
 | HOT-LINKED-OLD-SITE | **0** | — |
+| INTERNAL-PAGE | **0** | Resolved — see below |
+
+**Resolved since first draft:** the register originally carried 11 INTERNAL-PAGE rows. Those were navigation links to `/documents.html`, not documents. Three were entries in the document list masquerading as files and have been removed at source; the other eight are ordinary section navigation and are no longer listed as documents. The register now contains only actual documents.
+
+**Registration forms retired:** registration is handled entirely online through PlayHQ. The downloadable "Registration Form" entries and `docs/Registration-Form.pdf` have been removed. Clearances & Transfers and the Team Nomination Form remain pending advice on whether PlayHQ also supersedes them.
 
 **Two findings matter.**
 
-**Authorship is confirmed for 34 of 87 entries (39%).** "Confirmed" here means the issuing body was read out of the document itself — RDCA, Cricket Victoria, Cricket Australia or the VMCU. The other 53 are marked UNCONFIRMED. They are not necessarily unowned; nobody has ever written it down.
+**Authorship is confirmed for 32 of 74 entries (43%).** "Confirmed" here means the issuing body was read out of the document itself — RDCA, Cricket Victoria, Cricket Australia or the VMCU. The other 42 are marked UNCONFIRMED. They are not necessarily unowned; nobody has ever written it down.
 
 **Not one document has a recorded review date.** That is the single biggest governance gap, and the reason to keep a register at all. Several documents carry a season in the title (2025/26, 2026/27) and are plainly seasonal, but nothing records who last checked them or when the next check is due.
 
@@ -91,7 +95,7 @@ A self-service on-site admin UI, where committee members log in and manage docum
 **Why wait:**
 
 - **It presumes a CMS decision that has not been made.** The site is currently static, with content in `site-data.js`. A document portal needs authentication, upload handling, storage and an audit trail — that is a content management system for one content type. If the RDCA later adopts a CMS through SportsWeb One, a bespoke portal is thrown away.
-- **The problem right now is not access, it is data.** 53 of 87 entries have unconfirmed authorship and **none** have a review date. A portal would present those gaps more attractively without filling them. The register plus the AGM cadence fixes the actual problem.
+- **The problem right now is not access, it is data.** 42 of 74 entries have unconfirmed authorship and **none** have a review date. A portal would present those gaps more attractively without filling them. The register plus the AGM cadence fixes the actual problem.
 - **The volume does not justify it.** 51 self-hosted documents, changing a handful of times a season. That is comfortably within what a CSV and a publishing step handle.
 - **There are higher-value items outstanding** — the registration and contact forms still do not submit anywhere, and 17 sponsor logos and 13 archived post images are still hot-linked to the old site.
 
@@ -103,7 +107,7 @@ A self-service on-site admin UI, where committee members log in and manage docum
 
 1. **Ratify the owner column** in §2 — the single highest-value step, and it is a meeting decision, not development work.
 2. **Identify who maintains `honours.rdca.com`** and formalise an Honorary Records Officer (§3).
-3. **Set a first review date** for the 51 self-hosted documents, ideally at the next pre-AGM check.
-4. **Fill the 53 UNCONFIRMED authorship fields** where anyone actually knows — do not guess, leave the rest unconfirmed.
+3. **Set a first review date** for the 49 self-hosted documents, ideally at the next pre-AGM check.
+4. **Fill the 42 UNCONFIRMED authorship fields** where anyone actually knows — do not guess, leave the rest unconfirmed.
 5. **Publish the shared read-only copy** so the committee can see the register without git.
-6. Decide whether the 11 INTERNAL-PAGE rows should point at real files or be removed from the register.
+6. Confirm whether PlayHQ also supersedes the Clearances & Transfers Guide and the Team Nomination Form; if so they follow the Registration Form out of the register.

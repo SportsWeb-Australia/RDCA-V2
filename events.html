@@ -47,6 +47,13 @@
 
 <div class="page-wrap wide">
   <div class="section-block">
+    <div class="block-hed">Calendar of Events</div>
+    <div class="block-sub">Association events by month.</div>
+    <div id="events-calendar-mount"></div>
+  </div>
+
+
+  <div class="section-block">
     <div class="block-sub" id="events-note"></div>
     <div id="events-mount"></div>
   </div>
@@ -69,6 +76,8 @@
 <script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
         data-club-id="973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60"
         data-source="onboarding"
-        data-website-status="draft"></script>
+        data-website-status="draft">
+RDCA.render.eventsCalendar("#events-calendar-mount");
+</script>
 </body>
 </html>

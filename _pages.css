@@ -842,3 +842,31 @@ color:#fff;font-weight:800;font-size:13px;margin-bottom:9px}
 .cform-note.good{background:#e7f6ec;border-left:4px solid #176635;color:#0f4523}
 .cform-note.bad{background:#fdeaea;border-left:4px solid var(--red);color:#7a2020}
 .cform-note{padding:12px 15px;border-radius:3px 10px 10px 3px;font-size:13.5px;margin-top:12px}
+
+/* ---- umpiring video resources ---- */
+.uv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.uv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.uv-frame{position:relative;padding-top:56.25%;background:#000}
+.uv-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.uv-tx{padding:13px 15px}
+.uv-tx b{display:block;font-size:14px;color:var(--navy);line-height:1.35}
+.uv-tx span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+
+/* ---- events calendar ---- */
+.ec{display:flex;flex-direction:column;gap:18px}
+.ec-month{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.ec-mhd{background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;font-family:'Bebas Neue',sans-serif;
+font-size:18px;letter-spacing:1.6px;padding:9px 18px}
+.ec-row{display:flex;align-items:center;gap:16px;padding:14px 18px;border-bottom:1px solid var(--border);
+text-decoration:none;color:inherit;transition:.15s}
+.ec-row:last-child{border-bottom:0}
+a.ec-row:hover{background:rgba(204,34,34,.04)}
+.ec-day{flex:0 0 auto;width:52px;text-align:center;border-right:2px solid var(--red);padding-right:12px}
+.ec-day b{display:block;font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--navy);line-height:1}
+.ec-day i{font-style:normal;font-size:10px;font-weight:700;letter-spacing:1px;color:var(--muted)}
+.ec-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.ec-body>b{font-size:14.5px;color:var(--navy)}
+.ec-meta{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:5px}
+.ec-cat{flex:0 0 auto;font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+background:rgba(13,31,60,.07);color:var(--muted);padding:4px 10px;border-radius:20px;white-space:nowrap}
+@media(max-width:560px){.ec-row{flex-wrap:wrap}.ec-cat{order:3}}

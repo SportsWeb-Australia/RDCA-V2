@@ -226,6 +226,51 @@
       set(sel, html);
     },
 
+    // ---- Umpiring video resources (MCC Laws of Cricket explainers) ----
+    umpireVideos: function (sel) {
+      var v = ((D().umpires || {}).videos) || {};
+      var items = v.items || [];
+      if (!items.length) { set(sel, ""); return; }
+      var cards = items.map(function (it) {
+        return '<div class="uv-card">' +
+          '<div class="uv-frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/' + esc(it.id) +
+          '" title="' + esc(it.title) + '" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>' +
+          '<div class="uv-tx"><b>' + esc(it.title) + '</b><span>' + esc(it.channel || "") + '</span></div></div>';
+      }).join("");
+      set(sel, (v.note ? '<p class="block-sub">' + esc(v.note) + '</p>' : '') +
+        '<div class="uv-grid">' + cards + '</div>');
+    },
+
+    // ---- Events calendar: month grid built from the events data ----
+    eventsCalendar: function (sel) {
+      var evs = (D().events || []).slice();
+      if (!evs.length) { set(sel, '<p class="muted">No events listed.</p>'); return; }
+      var MON = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+      // group by month label, preserving the order given
+      var order = [], groups = {};
+      evs.forEach(function (e) {
+        var m = (e.month || "").toUpperCase();
+        if (!groups[m]) { groups[m] = []; order.push(m); }
+        groups[m].push(e);
+      });
+      var html = order.map(function (m) {
+        var rows = groups[m].map(function (e) {
+          var href = e.slug ? "/event.html?event=" + encodeURIComponent(e.slug) : null;
+          var inner =
+            '<span class="ec-day"><b>' + esc(e.day || "") + '</b><i>' + esc(m) + '</i></span>' +
+            '<span class="ec-body"><b>' + esc(e.title || "") + '</b>' +
+              '<span class="ec-meta">' + esc(e.dateLabel || "") + (e.time ? ' &middot; ' + esc(e.time) : '') + '</span>' +
+              (e.venue ? '<span class="ec-meta"><i class="ti ti-map-pin"></i> ' + esc(e.venue) + '</span>' : '') +
+            '</span>' +
+            (e.category ? '<span class="ec-cat">' + esc(e.category) + '</span>' : '') + flag(e);
+          return href ? '<a class="ec-row" href="' + href + '">' + inner + '</a>'
+                      : '<div class="ec-row">' + inner + '</div>';
+        }).join("");
+        return '<div class="ec-month"><div class="ec-mhd">' + esc(m) + '</div>' + rows + '</div>';
+      }).join("");
+      set(sel, '<div class="ec">' + html + '</div>');
+    },
+
     // ---- Policy pages (restored from the old RDCA site) ----
     policy: function (sel, key) {
       var pol = (D().policies || {})[key];

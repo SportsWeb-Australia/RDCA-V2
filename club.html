@@ -104,8 +104,8 @@
 
   var suburb = c.name.replace(/\s*CC$/, "").trim();
   var ground = c.ground || (suburb + " Reserve");
-  var hasGround = !!c.ground;
-  var mapq   = encodeURIComponent(c.ground ? c.ground : (suburb + ", Victoria, Australia"));
+  var hasGround = !!(c.ground || c.mapQuery);
+  var mapq   = encodeURIComponent(c.mapQuery || (c.ground ? c.ground : (suburb + ", Victoria, Australia")));
   var pmock  = '<span class="flag flag-mock"><i class="ti ti-flag"></i> placeholder</span>';
   var ptbc   = '<span class="flag flag-review"><i class="ti ti-clock"></i> to be added</span>';
 
