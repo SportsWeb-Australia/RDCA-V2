@@ -68,7 +68,7 @@
   <div class="mob-group">RDCA</div>
   <a href="/board.html" class="mob-link"><i class="ti ti-users"></i> The Board</a>
   <a href="/committees.html" class="mob-link"><i class="ti ti-address-book"></i> Committees &amp; Contacts</a>
-  <a href="/rep-selection.html" class="mob-link"><i class="ti ti-clipboard-text"></i> Rep Cricket Selection</a>
+  <a href="/rep-selection.html" class="mob-link"><i class="ti ti-clipboard-text"></i> Selection Policy</a>
   <a href="/events.html" class="mob-link"><i class="ti ti-calendar"></i> Events</a>
   <a href="/documents.html" class="mob-link"><i class="ti ti-folder"></i> Documents &amp; Forms</a>
   <a href="/sponsors.html" class="mob-link"><i class="ti ti-heart-handshake"></i> Sponsors &amp; Partners</a>
@@ -113,7 +113,7 @@
         <div class="nav-drop">
           <a href="/board.html">The Board</a>
           <a href="/committees.html">Committees &amp; Contacts</a>
-          <a href="/rep-selection.html">Rep Cricket Selection</a>
+          <a href="/rep-selection.html">Selection Policy</a>
           <a href="/events.html">Events</a>
           <a href="/sponsors.html">Sponsors &amp; Partners</a>
           <a href="/child-safety.html">Child Safety</a>
