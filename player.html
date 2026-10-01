@@ -97,10 +97,10 @@
 
   if (!p){
     document.title = "Player not found — RDCA";
-    hero.innerHTML = '<div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> Players</div><h1>Player not found</h1>';
+    hero.innerHTML = '<div class="crumb"><a href="/">Home</a> <i class="ti ti-chevron-right"></i> Players</div><h1>Player not found</h1>';
     body.innerHTML = '<div class="empty-state"><div class="empty-ic"><i class="ti ti-user-question"></i></div>'+
       '<h2>We couldn\'t find that player</h2><p>This profile isn\'t available yet.</p>'+
-      '<div class="empty-actions"><a class="btn btn-navy" href="/clubs.html"><i class="ti ti-arrow-left"></i> Browse clubs</a></div></div>';
+      '<div class="empty-actions"><a class="btn btn-navy" href="/clubs"><i class="ti ti-arrow-left"></i> Browse clubs</a></div></div>';
     return;
   }
 
@@ -115,9 +115,9 @@
 
   // hero
   hero.innerHTML =
-    '<div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> '+
-      '<a href="/clubs.html">Clubs</a> <i class="ti ti-chevron-right"></i> '+
-      '<a href="/club.html?club='+encodeURIComponent(p.club)+'">'+esc(clubName)+'</a> '+
+    '<div class="crumb"><a href="/">Home</a> <i class="ti ti-chevron-right"></i> '+
+      '<a href="/clubs">Clubs</a> <i class="ti ti-chevron-right"></i> '+
+      '<a href="/club?club='+encodeURIComponent(p.club)+'">'+esc(clubName)+'</a> '+
       '<i class="ti ti-chevron-right"></i> '+esc(p.name)+'</div>'+
     '<div class="eyebrow">Player Profile</div>'+
     '<h1>'+esc(p.name)+'</h1>'+
@@ -165,7 +165,7 @@
     '<div class="player-side">'+
       '<div class="block-hed">Profile</div>'+
       '<div class="panel">'+
-        factIcon('<img src="'+esc(crest)+'" alt="'+esc(clubName)+'" style="width:34px;height:34px;object-fit:contain;background:#fff;border-radius:8px;padding:3px">',"Club",'<a href="/club.html?club='+encodeURIComponent(p.club)+'">'+esc(clubName)+'</a>')+
+        factIcon('<img src="'+esc(crest)+'" alt="'+esc(clubName)+'" style="width:34px;height:34px;object-fit:contain;background:#fff;border-radius:8px;padding:3px">',"Club",'<a href="/club?club='+encodeURIComponent(p.club)+'">'+esc(clubName)+'</a>')+
         fact("ti-trophy","Division",esc(p.grade))+
         factIcon(roleIcon(p),"Role",esc(p.role))+
         fact("ti-cricket","Batting",esc(p.bats))+
@@ -173,7 +173,7 @@
         fact("ti-map-pin","From",esc(p.town))+
       '</div>'+
       '<div class="player-bio">'+bio+'</div>'+
-      '<div style="margin-top:16px"><a class="btn btn-navy" href="/club.html?club='+encodeURIComponent(p.club)+'">'+esc(clubName)+' profile <i class="ti ti-arrow-right"></i></a></div>'+
+      '<div style="margin-top:16px"><a class="btn btn-navy" href="/club?club='+encodeURIComponent(p.club)+'">'+esc(clubName)+' profile <i class="ti ti-arrow-right"></i></a></div>'+
     '</div>';
 
   var stats =

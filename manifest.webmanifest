@@ -3,7 +3,7 @@
   "short_name": "RDCA",
   "description": "Fixtures, results, ladders, clubs, photos and live video for the Ringwood & District Cricket Association.",
   "id": "/index.html",
-  "start_url": "/index.html",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",

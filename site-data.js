@@ -1637,28 +1637,28 @@ window.RDCA_DATA = {
       "aboutText": "<p>Senior cricket is the heart of the RDCA &mdash; the traditional Saturday competition contested across multiple grades, from Premier Division through the lower divisions. Clubs field teams to suit players of every standard, from those chasing premierships to weekend social cricketers.</p>",
       "conduct": {
         "summary": "<p>RDCA matches are played in the true spirit of cricket. The Code of Conduct &mdash; based on the Victorian Metropolitan Cricket Union (VMCU) code &mdash; sets out the standards of behaviour expected of players, club officials, coaches and spectators: respect for umpires and opponents, fair play, and zero tolerance for abuse, intimidation or discrimination. Serious or repeated breaches can lead to reports and suspensions.</p>",
-        "url": "/documents.html"
+        "url": "/documents"
       },
       "committee": {
         "label": "Senior Committee",
-        "url": "/committees.html#senior-committee",
+        "url": "/committees#senior-committee",
         "internal": true,
         "real": true
       },
       "documents": {
         "label": "Seniors Documents",
-        "url": "/documents.html",
+        "url": "/documents",
         "real": true
       },
       "codeOfConduct": {
         "label": "Senior Code of Conduct",
-        "url": "/documents.html",
+        "url": "/documents",
         "real": true
       },
       "links": [
         {
           "label": "Suspended Players",
-          "url": "/suspended-players.html",
+          "url": "/suspended-players",
           "real": true
         }
       ]
@@ -1671,13 +1671,13 @@ window.RDCA_DATA = {
       "aboutText": "<p>Women&rsquo;s cricket in the RDCA is played in the East competition, offering a welcoming and competitive environment for women and girls to take up or continue playing. New players of all experience levels are encouraged to get involved through their local club.</p>",
       "committee": {
         "label": "Women's Committee",
-        "url": "/committees.html#women-s-committee",
+        "url": "/committees#women-s-committee",
         "internal": true,
         "real": true
       },
       "documents": {
         "label": "Women's Documents",
-        "url": "/documents.html",
+        "url": "/documents",
         "real": true
       }
     },
@@ -1689,11 +1689,11 @@ window.RDCA_DATA = {
       "aboutText": "<p>RDCA junior cricket caters for boys and girls across a range of age groups, from entry-level formats through to under-17s. Alongside weekly club fixtures, the Association runs representative (rep) team pathways that give talented juniors the chance to test themselves against the best in the region.</p>",
       "conduct": {
         "summary": "<p>Junior matches are played in the true spirit of cricket, with an emphasis on safety, enjoyment and good sportsmanship. The Code of Conduct sets out what is expected of players, coaches, parents and spectators &mdash; respect for umpires and opponents, fair play, and zero tolerance for abuse or discrimination &mdash; and works alongside the Association&rsquo;s child safety commitments.</p>",
-        "url": "/documents.html"
+        "url": "/documents"
       },
       "committee": {
         "label": "Junior Committee",
-        "url": "/committees.html#junior-committee",
+        "url": "/committees#junior-committee",
         "internal": true,
         "real": true
       },
@@ -1762,43 +1762,43 @@ window.RDCA_DATA = {
       "repTeams": [
         {
           "label": "Rep Team — U12 Boys",
-          "url": "/placeholder.html?title=U12%20Boys%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U12%20Boys%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U12 Girls",
-          "url": "/placeholder.html?title=U12%20Girls%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U12%20Girls%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U14 Boys",
-          "url": "/placeholder.html?title=U14%20Boys%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U14%20Boys%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U14 Girls",
-          "url": "/placeholder.html?title=U14%20Girls%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U14%20Girls%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U16 Boys",
-          "url": "/placeholder.html?title=U16%20Boys%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U16%20Boys%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U17 Girls",
-          "url": "/placeholder.html?title=U17%20Girls%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U17%20Girls%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U17 Boys",
-          "url": "/placeholder.html?title=U17%20Boys%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U17%20Boys%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         }
@@ -1812,11 +1812,11 @@ window.RDCA_DATA = {
       "aboutText": "<p>RDCA junior cricket caters for boys and girls across a range of age groups, from entry-level formats through to under-17s. Alongside weekly club fixtures, the Association runs representative (rep) team pathways that give talented juniors the chance to test themselves against the best in the region.</p>",
       "conduct": {
         "summary": "<p>Junior matches are played in the true spirit of cricket, with an emphasis on safety, enjoyment and good sportsmanship. The Code of Conduct sets out what is expected of players, coaches, parents and spectators &mdash; respect for umpires and opponents, fair play, and zero tolerance for abuse or discrimination &mdash; and works alongside the Association&rsquo;s child safety commitments.</p>",
-        "url": "/documents.html"
+        "url": "/documents"
       },
       "committee": {
         "label": "Junior Committee",
-        "url": "/committees.html#junior-committee",
+        "url": "/committees#junior-committee",
         "internal": true,
         "real": true
       },
@@ -1885,43 +1885,43 @@ window.RDCA_DATA = {
       "repTeams": [
         {
           "label": "Rep Team — U12 Boys",
-          "url": "/placeholder.html?title=U12%20Boys%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U12%20Boys%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U12 Girls",
-          "url": "/placeholder.html?title=U12%20Girls%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U12%20Girls%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U14 Boys",
-          "url": "/placeholder.html?title=U14%20Boys%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U14%20Boys%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U14 Girls",
-          "url": "/placeholder.html?title=U14%20Girls%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U14%20Girls%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U16 Boys",
-          "url": "/placeholder.html?title=U16%20Boys%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U16%20Boys%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U17 Girls",
-          "url": "/placeholder.html?title=U17%20Girls%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U17%20Girls%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U17 Boys",
-          "url": "/placeholder.html?title=U17%20Boys%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U17%20Boys%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         }
@@ -1935,11 +1935,11 @@ window.RDCA_DATA = {
       "aboutText": "<p>RDCA junior cricket caters for boys and girls across a range of age groups, from entry-level formats through to under-17s. Alongside weekly club fixtures, the Association runs representative (rep) team pathways that give talented juniors the chance to test themselves against the best in the region.</p>",
       "conduct": {
         "summary": "<p>Junior matches are played in the true spirit of cricket, with an emphasis on safety, enjoyment and good sportsmanship. The Code of Conduct sets out what is expected of players, coaches, parents and spectators &mdash; respect for umpires and opponents, fair play, and zero tolerance for abuse or discrimination &mdash; and works alongside the Association&rsquo;s child safety commitments.</p>",
-        "url": "/documents.html"
+        "url": "/documents"
       },
       "committee": {
         "label": "Junior Committee",
-        "url": "/committees.html#junior-committee",
+        "url": "/committees#junior-committee",
         "internal": true,
         "real": true
       },
@@ -2008,43 +2008,43 @@ window.RDCA_DATA = {
       "repTeams": [
         {
           "label": "Rep Team — U12 Boys",
-          "url": "/placeholder.html?title=U12%20Boys%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U12%20Boys%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U12 Girls",
-          "url": "/placeholder.html?title=U12%20Girls%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U12%20Girls%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U14 Boys",
-          "url": "/placeholder.html?title=U14%20Boys%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U14%20Boys%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U14 Girls",
-          "url": "/placeholder.html?title=U14%20Girls%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U14%20Girls%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U16 Boys",
-          "url": "/placeholder.html?title=U16%20Boys%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U16%20Boys%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U17 Girls",
-          "url": "/placeholder.html?title=U17%20Girls%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U17%20Girls%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         },
         {
           "label": "Rep Team — U17 Boys",
-          "url": "/placeholder.html?title=U17%20Boys%20Rep%20Team&status=tbs",
+          "url": "/placeholder?title=U17%20Boys%20Rep%20Team&status=tbs",
           "real": true,
           "blank": true
         }
@@ -2058,28 +2058,28 @@ window.RDCA_DATA = {
       "aboutText": "<p>Senior cricket is the heart of the RDCA &mdash; the traditional Saturday competition contested across multiple grades, from Premier Division through the lower divisions. Clubs field teams to suit players of every standard, from those chasing premierships to weekend social cricketers.</p>",
       "conduct": {
         "summary": "<p>RDCA matches are played in the true spirit of cricket. The Code of Conduct &mdash; based on the Victorian Metropolitan Cricket Union (VMCU) code &mdash; sets out the standards of behaviour expected of players, club officials, coaches and spectators: respect for umpires and opponents, fair play, and zero tolerance for abuse, intimidation or discrimination. Serious or repeated breaches can lead to reports and suspensions.</p>",
-        "url": "/documents.html"
+        "url": "/documents"
       },
       "committee": {
         "label": "Senior Committee",
-        "url": "/committees.html#senior-committee",
+        "url": "/committees#senior-committee",
         "internal": true,
         "real": true
       },
       "documents": {
         "label": "Seniors Documents",
-        "url": "/documents.html",
+        "url": "/documents",
         "real": true
       },
       "codeOfConduct": {
         "label": "Senior Code of Conduct",
-        "url": "/documents.html",
+        "url": "/documents",
         "real": true
       },
       "links": [
         {
           "label": "Suspended Players",
-          "url": "/suspended-players.html",
+          "url": "/suspended-players",
           "real": true
         }
       ]
@@ -2092,27 +2092,27 @@ window.RDCA_DATA = {
       "aboutText": "<p>RDCA Veterans cricket is an Over-40s Big Bash &mdash; a relaxed Twenty20 format for players who want to keep enjoying the game in their later cricketing years. Teams nominate each season, and players of all backgrounds are welcome.</p><p style='margin-top:10px'><em>The Veterans&rsquo; motto: &ldquo;Strive to do your best, never give up and treat people with respect.&rdquo;</em></p><p style='margin-top:10px'>To get involved, speak to your club or call Peter Chamings on <a href='tel:+61419693097'>0419 693 097</a>. Forms: <a href='/docs/Team-Nomination-Form.docx' target='_blank' rel='noopener'>Team Nomination (2026)</a> &middot; <a href='/docs/Big-Bash-Over-40s-T20-Rules-2026.docx' target='_blank' rel='noopener'>Big Bash T20 Rules (2026)</a>.</p>",
       "conduct": {
         "summary": "<p>Veterans cricket is played in great spirit, true to the section&rsquo;s motto. The Code of Conduct sets out the behaviour expected of all participants &mdash; respect for opponents and officials, fair play, and no abuse, intimidation or discrimination.</p>",
-        "url": "/documents.html"
+        "url": "/documents"
       },
       "about": {
         "label": "About Veterans",
-        "url": "/veterans.html",
+        "url": "/veterans",
         "real": true
       },
       "committee": {
         "label": "Veterans Committee",
-        "url": "/committees.html#veterans-committee",
+        "url": "/committees#veterans-committee",
         "internal": true,
         "real": true
       },
       "documents": {
         "label": "Veterans Documents",
-        "url": "/documents.html",
+        "url": "/documents",
         "real": true
       },
       "codeOfConduct": {
         "label": "Veterans Code of Conduct",
-        "url": "/documents.html",
+        "url": "/documents",
         "real": true
       }
     },
@@ -2124,13 +2124,13 @@ window.RDCA_DATA = {
       "aboutText": "<p>Women&rsquo;s cricket in the RDCA is played in the East competition, offering a welcoming and competitive environment for women and girls to take up or continue playing. New players of all experience levels are encouraged to get involved through their local club.</p>",
       "committee": {
         "label": "Women's Committee",
-        "url": "/committees.html#women-s-committee",
+        "url": "/committees#women-s-committee",
         "internal": true,
         "real": true
       },
       "documents": {
         "label": "Women's Documents",
-        "url": "/documents.html",
+        "url": "/documents",
         "real": true
       }
     }
@@ -2156,7 +2156,7 @@ window.RDCA_DATA = {
             "cat": "Men",
             "icon": "ti-trophy",
             "lineup": {
-              "url": "/placeholder.html?title=Senior%20Men%27s%20Rep%20Team&status=tbs",
+              "url": "/placeholder?title=Senior%20Men%27s%20Rep%20Team&status=tbs",
               "blank": true,
               "needsReview": true
             },
@@ -2167,7 +2167,7 @@ window.RDCA_DATA = {
               "playhq": "seniors"
             },
             "news": {
-              "url": "/news.html"
+              "url": "/news"
             }
           },
           {
@@ -2175,7 +2175,7 @@ window.RDCA_DATA = {
             "cat": "Women",
             "icon": "ti-trophy",
             "lineup": {
-              "url": "/placeholder.html?title=Senior%20Women%27s%20Rep%20Team&status=tbs",
+              "url": "/placeholder?title=Senior%20Women%27s%20Rep%20Team&status=tbs",
               "blank": true,
               "needsReview": true
             },
@@ -2186,7 +2186,7 @@ window.RDCA_DATA = {
               "playhq": "womens"
             },
             "news": {
-              "url": "/news.html"
+              "url": "/news"
             }
           }
         ]
@@ -2200,9 +2200,9 @@ window.RDCA_DATA = {
             "name": "U12 Boys",
             "cat": "Boys",
             "icon": "ti-shield-half-filled",
-            "info": "/placeholder.html?title=U12%20Boys%20Rep%20Team&status=tbs",
+            "info": "/placeholder?title=U12%20Boys%20Rep%20Team&status=tbs",
             "lineup": {
-              "url": "/placeholder.html?title=U12%20Boys%20Rep%20Team&status=tbs",
+              "url": "/placeholder?title=U12%20Boys%20Rep%20Team&status=tbs",
               "blank": true,
               "needsReview": true
             },
@@ -2213,16 +2213,16 @@ window.RDCA_DATA = {
               "playhq": "juniors"
             },
             "news": {
-              "url": "/news.html"
+              "url": "/news"
             }
           },
           {
             "name": "U12 Girls",
             "cat": "Girls",
             "icon": "ti-shield-half-filled",
-            "info": "/placeholder.html?title=U12%20Girls%20Rep%20Team&status=tbs",
+            "info": "/placeholder?title=U12%20Girls%20Rep%20Team&status=tbs",
             "lineup": {
-              "url": "/placeholder.html?title=U12%20Girls%20Rep%20Team&status=tbs",
+              "url": "/placeholder?title=U12%20Girls%20Rep%20Team&status=tbs",
               "blank": true,
               "needsReview": true
             },
@@ -2233,16 +2233,16 @@ window.RDCA_DATA = {
               "playhq": "juniors"
             },
             "news": {
-              "url": "/news.html"
+              "url": "/news"
             }
           },
           {
             "name": "U14 Boys",
             "cat": "Boys",
             "icon": "ti-shield-half-filled",
-            "info": "/placeholder.html?title=U14%20Boys%20Rep%20Team&status=tbs",
+            "info": "/placeholder?title=U14%20Boys%20Rep%20Team&status=tbs",
             "lineup": {
-              "url": "/placeholder.html?title=U14%20Boys%20Rep%20Team&status=tbs",
+              "url": "/placeholder?title=U14%20Boys%20Rep%20Team&status=tbs",
               "blank": true,
               "needsReview": true
             },
@@ -2253,16 +2253,16 @@ window.RDCA_DATA = {
               "playhq": "juniors"
             },
             "news": {
-              "url": "/news.html"
+              "url": "/news"
             }
           },
           {
             "name": "U14 Girls",
             "cat": "Girls",
             "icon": "ti-shield-half-filled",
-            "info": "/placeholder.html?title=U14%20Girls%20Rep%20Team&status=tbs",
+            "info": "/placeholder?title=U14%20Girls%20Rep%20Team&status=tbs",
             "lineup": {
-              "url": "/placeholder.html?title=U14%20Girls%20Rep%20Team&status=tbs",
+              "url": "/placeholder?title=U14%20Girls%20Rep%20Team&status=tbs",
               "blank": true,
               "needsReview": true
             },
@@ -2273,16 +2273,16 @@ window.RDCA_DATA = {
               "playhq": "juniors"
             },
             "news": {
-              "url": "/news.html"
+              "url": "/news"
             }
           },
           {
             "name": "U16 Boys",
             "cat": "Boys",
             "icon": "ti-shield-half-filled",
-            "info": "/placeholder.html?title=U16%20Boys%20Rep%20Team&status=tbs",
+            "info": "/placeholder?title=U16%20Boys%20Rep%20Team&status=tbs",
             "lineup": {
-              "url": "/placeholder.html?title=U16%20Boys%20Rep%20Team&status=tbs",
+              "url": "/placeholder?title=U16%20Boys%20Rep%20Team&status=tbs",
               "blank": true,
               "needsReview": true
             },
@@ -2293,16 +2293,16 @@ window.RDCA_DATA = {
               "playhq": "juniors"
             },
             "news": {
-              "url": "/news.html"
+              "url": "/news"
             }
           },
           {
             "name": "U17 Boys",
             "cat": "Boys",
             "icon": "ti-shield-half-filled",
-            "info": "/placeholder.html?title=U17%20Boys%20Rep%20Team&status=tbs",
+            "info": "/placeholder?title=U17%20Boys%20Rep%20Team&status=tbs",
             "lineup": {
-              "url": "/placeholder.html?title=U17%20Boys%20Rep%20Team&status=tbs",
+              "url": "/placeholder?title=U17%20Boys%20Rep%20Team&status=tbs",
               "blank": true,
               "needsReview": true
             },
@@ -2313,16 +2313,16 @@ window.RDCA_DATA = {
               "playhq": "juniors"
             },
             "news": {
-              "url": "/news.html"
+              "url": "/news"
             }
           },
           {
             "name": "U17 Girls",
             "cat": "Girls",
             "icon": "ti-shield-half-filled",
-            "info": "/placeholder.html?title=U17%20Girls%20Rep%20Team&status=tbs",
+            "info": "/placeholder?title=U17%20Girls%20Rep%20Team&status=tbs",
             "lineup": {
-              "url": "/placeholder.html?title=U17%20Girls%20Rep%20Team&status=tbs",
+              "url": "/placeholder?title=U17%20Girls%20Rep%20Team&status=tbs",
               "blank": true,
               "needsReview": true
             },
@@ -2333,7 +2333,7 @@ window.RDCA_DATA = {
               "playhq": "juniors"
             },
             "news": {
-              "url": "/news.html"
+              "url": "/news"
             }
           }
         ]
@@ -2582,35 +2582,35 @@ window.RDCA_DATA = {
     "links": [
       {
         "label": "About Umpires",
-        "url": "/about-umpires.html",
+        "url": "/about-umpires",
         "icon": "ti-info-circle",
         "internal": true,
         "real": true
       },
       {
         "label": "Umpires Committee",
-        "url": "/committees.html#umpires-committee",
+        "url": "/committees#umpires-committee",
         "icon": "ti-users",
         "internal": true,
         "real": true
       },
       {
         "label": "Become an Umpire",
-        "url": "/become-an-umpire.html",
+        "url": "/become-an-umpire",
         "icon": "ti-user-plus",
         "internal": true,
         "real": true
       },
       {
         "label": "Training",
-        "url": "/umpire-training.html",
+        "url": "/umpire-training",
         "icon": "ti-school",
         "internal": true,
         "real": true
       },
       {
         "label": "Umpire Documents",
-        "url": "/umpire-documents.html",
+        "url": "/umpire-documents",
         "icon": "ti-file-text",
         "internal": true,
         "real": true
@@ -36933,28 +36933,28 @@ window.RDCA_DATA = {
     "boards": [
       {
         "label": "Hall of Fame",
-        "url": "/hall-of-fame.html",
+        "url": "/hall-of-fame",
         "icon": "ti-award",
         "note": "Legends & inductees",
         "real": true
       },
       {
         "label": "Honour Board",
-        "url": "/honour-board.html",
+        "url": "/honour-board",
         "icon": "ti-clipboard-list",
         "note": "Life members & premiers",
         "real": true
       },
       {
         "label": "Awards",
-        "url": "/awards.html",
+        "url": "/awards",
         "icon": "ti-medal",
         "note": "Season award winners",
         "real": true
       },
       {
         "label": "Premiership Photos",
-        "url": "/premiership-photos.html",
+        "url": "/premiership-photos",
         "icon": "ti-photo",
         "note": "Premiership galleries",
         "real": true
@@ -37461,7 +37461,7 @@ window.RDCA_DATA = {
         "title": "Register to play with an RDCA club",
         "text": "Senior, junior, women's and veterans cricket across 36 clubs in Melbourne's outer east and the Yarra Valley.",
         "cta": "Find a club",
-        "href": "/clubs.html",
+        "href": "/clubs",
         "grad": [
           "#0d1f3c",
           "#1e3d6b"
@@ -37474,7 +37474,7 @@ window.RDCA_DATA = {
         "title": "Watch RDCA cricket live",
         "text": "Selected games streamed each round, plus replays and the RDCA Cricket Show on Radio Eastern 98.1 FM.",
         "cta": "Live video",
-        "href": "/video.html",
+        "href": "/video",
         "grad": [
           "#176635",
           "#25a54f"
@@ -37501,7 +37501,7 @@ window.RDCA_DATA = {
         "title": "A century of RDCA records",
         "text": "Premierships back to 1919/20, life members, Hall of Fame, awards and averages — now searchable online.",
         "cta": "Explore honours",
-        "href": "/honours.html",
+        "href": "/honours",
         "grad": [
           "#5b2333",
           "#8c3a52"
@@ -37514,7 +37514,7 @@ window.RDCA_DATA = {
         "title": "Your business here",
         "text": "Put your brand in front of 4,200+ local cricketers and families every week across the RDCA.",
         "cta": "Advertise with us",
-        "href": "/contact.html",
+        "href": "/contact",
         "grad": [
           "#0d1f3c",
           "#1e3d6b"

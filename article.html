@@ -70,16 +70,16 @@
 
   if (!a){
     document.title = "Article not found — RDCA";
-    hero.innerHTML = '<div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> <a href="/news.html">News</a> <i class="ti ti-chevron-right"></i> Article</div><h1>Article not found</h1>';
+    hero.innerHTML = '<div class="crumb"><a href="/">Home</a> <i class="ti ti-chevron-right"></i> <a href="/news">News</a> <i class="ti ti-chevron-right"></i> Article</div><h1>Article not found</h1>';
     body.innerHTML = '<div class="empty-state"><div class="empty-ic"><i class="ti ti-news-off"></i></div>'+
       '<h2>We couldn\'t find that article</h2><p>It may have moved or isn\'t published yet.</p>'+
-      '<div class="empty-actions"><a class="btn btn-navy" href="/news.html"><i class="ti ti-arrow-left"></i> All news</a></div></div>';
+      '<div class="empty-actions"><a class="btn btn-navy" href="/news"><i class="ti ti-arrow-left"></i> All news</a></div></div>';
     return;
   }
 
   document.title = a.title + " — RDCA";
   hero.innerHTML =
-    '<div class="crumb"><a href="/index.html">Home</a> <i class="ti ti-chevron-right"></i> <a href="/news.html">News</a> <i class="ti ti-chevron-right"></i> '+esc(a.cat||"Article")+'</div>'+
+    '<div class="crumb"><a href="/">Home</a> <i class="ti ti-chevron-right"></i> <a href="/news">News</a> <i class="ti ti-chevron-right"></i> '+esc(a.cat||"Article")+'</div>'+
     '<div class="eyebrow">'+esc(a.cat||"News")+'</div>'+
     '<h1>'+esc(a.title)+'</h1>'+
     '<p class="page-sub">'+(a.meta?esc(a.meta)+' &middot; ':'')+fmtDate(a.date)+(a.author?' &middot; By '+esc(a.author):'')+(a.readMins?' &middot; '+esc(a.readMins)+' min read':'')+'</p>';
@@ -94,7 +94,7 @@
       : '<div class="article-hero-img article-hero-ph"><i class="ti ti-news"></i></div>')+
     sampleNote+
     '<article class="article-body prose">'+(a.body||'')+'</article>'+
-    '<div class="section-block article-back"><a class="btn btn-navy" href="/news.html"><i class="ti ti-arrow-left"></i> Back to all news</a></div>';
+    '<div class="section-block article-back"><a class="btn btn-navy" href="/news"><i class="ti ti-arrow-left"></i> Back to all news</a></div>';
 })();
 </script>
 <script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"

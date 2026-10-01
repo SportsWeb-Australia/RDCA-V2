@@ -44,7 +44,7 @@
         var band = c.logo
           ? '<img src="' + esc(c.logo) + '" alt="' + esc(c.name) + '">'
           : '<span class="club-mono" style="color:' + ((c.colors && c.colors[1]) || '#0d1f3c') + '">' + esc(clubMono(c.name)) + '</span>';
-        var href = c.key ? ('/club.html?club=' + encodeURIComponent(c.key)) : '#';
+        var href = c.key ? ('/club?club=' + encodeURIComponent(c.key)) : '#';
         return '<a class="club-card" href="' + href + '">' +
                  '<div class="club-band" style="background:' + grad + '">' + band + '</div>' +
                  '<div class="club-body">' +
@@ -155,7 +155,7 @@
         "Women's":"ti-cricket", "Seniors":"ti-trophy", "Veterans":"ti-medal"
       };
       var html = (D().news || []).map(function (n) {
-        var href = n.slug ? ("/article.html?slug=" + encodeURIComponent(n.slug)) : esc(n.url);
+        var href = n.slug ? ("/article?slug=" + encodeURIComponent(n.slug)) : esc(n.url);
         var lead = n.image
           ? '<div class="tile-ic news-thumb"><img src="' + esc(n.image) + '" alt="' + esc(n.title) + '" loading="lazy"></div>'
           : '<div class="tile-ic"><i class="ti ' + (catIcon[n.cat] || "ti-news") + '"></i></div>';
@@ -175,7 +175,7 @@
       var catIcon = { "Association":"ti-flag","Representative":"ti-shield-half-filled","Umpires":"ti-gavel","Finals":"ti-trophy","Juniors":"ti-friends","Women's":"ti-cricket","Seniors":"ti-trophy","Veterans":"ti-medal" };
       var img = n.image;
       if (!img && n.slug) { var art = (D().articles || []).filter(function (a) { return a.slug === n.slug; })[0]; if (art && art.image) img = art.image; }
-      var href = n.slug ? ("/article.html?slug=" + encodeURIComponent(n.slug)) : esc(n.url);
+      var href = n.slug ? ("/article?slug=" + encodeURIComponent(n.slug)) : esc(n.url);
       var media = img
         ? '<div class="news-feat-media"><img src="' + esc(img) + '" alt="' + esc(n.title) + '"></div>'
         : '<div class="news-feat-media is-ic"><i class="ti ' + (catIcon[n.cat] || "ti-news") + '"></i></div>';
@@ -255,7 +255,7 @@
       });
       var html = order.map(function (m) {
         var rows = groups[m].map(function (e) {
-          var href = e.slug ? "/event.html?event=" + encodeURIComponent(e.slug) : null;
+          var href = e.slug ? "/event?event=" + encodeURIComponent(e.slug) : null;
           var inner =
             '<span class="ec-day"><b>' + esc(e.day || "") + '</b><i>' + esc(m) + '</i></span>' +
             '<span class="ec-body"><b>' + esc(e.title || "") + '</b>' +
@@ -675,7 +675,7 @@
         if (blank) {
           hr = /\/placeholder\.html\?/.test(href)
             ? esc(href)
-            : ('/placeholder.html?title=' + encodeURIComponent((item && item.repName) || label) + '&status=tbs');
+            : ('/placeholder?title=' + encodeURIComponent((item && item.repName) || label) + '&status=tbs');
         } else {
           hr = esc(href);
         }
@@ -912,7 +912,7 @@
         var blank = item && item.blank;
         var internal = item && item.internal;
         var href = blank
-          ? ('/placeholder.html?title=' + encodeURIComponent(label))
+          ? ('/placeholder?title=' + encodeURIComponent(label))
           : esc(url);
         var attrs = (blank || internal) ? '' : ' target="_blank" rel="noopener"';
         tiles.push('<a class="tile" href="' + href + '"' + attrs + '>' +
@@ -956,7 +956,7 @@
         var img = e.image
           ? "background-image:url('" + esc(e.image) + "')"
           : "background:linear-gradient(135deg,var(--navy),var(--navy3))";
-        return '<a class="ev-card" href="/event.html?event=' + encodeURIComponent(e.slug) + '">' +
+        return '<a class="ev-card" href="/event?event=' + encodeURIComponent(e.slug) + '">' +
             '<div class="ev-img" style="' + img + '"><div class="ev-img-ov"></div>' +
               '<div class="ev-meta">' +
                 '<span class="ev-date"><b>' + esc(e.day) + '</b>' + esc(e.month) + '</span>' +
