@@ -280,6 +280,20 @@
     if (pane) pane.classList.add("active");
   };
 
+  /* --- Cloudflare Web Analytics (privacy-friendly, cookieless) ---------------
+     GO-LIVE: paste the token from Cloudflare dashboard > Web Analytics > (site) >
+     "JS snippet" between the quotes below. Empty = off.
+     NOTE: if you instead enable Web Analytics with one click in the Cloudflare
+     PAGES project, leave this empty — otherwise the page is counted twice. */
+  var CF_ANALYTICS_TOKEN = "";
+  if (CF_ANALYTICS_TOKEN && document.head) {
+    var cfb = document.createElement("script");
+    cfb.defer = true;
+    cfb.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    cfb.setAttribute("data-cf-beacon", '{"token":"' + CF_ANALYTICS_TOKEN + '"}');
+    document.head.appendChild(cfb);
+  }
+
   // SportsWeb One "ready for PlayHQ" reader — loaded DARK. It only self-acts on
   // localhost or with ?sw1=1 (see rdca-sw1.js), so we only bother fetching the
   // script in those same cases. Production visitors never download it until the
