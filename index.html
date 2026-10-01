@@ -466,12 +466,13 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
   <a href="/" class="mob-link active"><i class="ti ti-home"></i> Home</a>
   <a href="#" class="mob-link" data-rdca-alerts><i class="ti ti-bell"></i> Match-Day Alerts</a>
   <div class="mob-group">Competitions</div>
-  <a href="/competition" class="mob-link"><i class="ti ti-layout-grid"></i> Competition Hub</a>
-  <a href="/seniors" class="mob-link"><i class="ti ti-trophy"></i> Seniors</a>
-  <a href="/juniors" class="mob-link"><i class="ti ti-friends"></i> Juniors</a>
-  <a href="/womens" class="mob-link"><i class="ti ti-cricket"></i> Women's</a>
+  <a href="/senior-men" class="mob-link"><i class="ti ti-trophy"></i> Senior Men</a>
+  <a href="/senior-women" class="mob-link"><i class="ti ti-cricket"></i> Senior Women</a>
+  <a href="/junior-boys" class="mob-link"><i class="ti ti-friends"></i> Junior Boys</a>
+  <a href="/junior-girls" class="mob-link"><i class="ti ti-friends"></i> Junior Girls</a>
   <a href="/veterans" class="mob-link"><i class="ti ti-medal"></i> Veterans</a>
   <a href="/community-big-bash" class="mob-link"><i class="ti ti-flame"></i> Community Big Bash</a>
+  <a href="/rep-cricket" class="mob-link"><i class="ti ti-shield-half-filled"></i> Rep Cricket</a>
   <div class="mob-group">Club &amp; Community</div>
   <a href="/clubs" class="mob-link"><i class="ti ti-buildings"></i> Clubs</a>
   <a href="/news" class="mob-link"><i class="ti ti-news"></i> News</a>
@@ -480,13 +481,15 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
   <a href="/photos" class="mob-link"><i class="ti ti-photo"></i> Photos</a>
   <a href="/video" class="mob-link"><i class="ti ti-device-tv"></i> Live Video</a>
   <a href="/social" class="mob-link"><i class="ti ti-share"></i> Social Media</a>
-  <div class="mob-group">RDCA</div>
+  <div class="mob-group">About Us</div>
   <a href="/board" class="mob-link"><i class="ti ti-users"></i> The Board</a>
   <a href="/committees" class="mob-link"><i class="ti ti-address-book"></i> Committees &amp; Contacts</a>
-  <a href="/umpires" class="mob-link"><i class="ti ti-gavel"></i> Umpires</a>
+  <a href="/rep-selection" class="mob-link"><i class="ti ti-clipboard-text"></i> Selection Policy</a>
+  <a href="/events" class="mob-link"><i class="ti ti-calendar"></i> Events</a>
   <a href="/documents" class="mob-link"><i class="ti ti-folder"></i> Documents &amp; Forms</a>
   <a href="/sponsors" class="mob-link"><i class="ti ti-heart-handshake"></i> Sponsors &amp; Partners</a>
   <a href="/child-safety" class="mob-link"><i class="ti ti-shield-check"></i> Child Safety</a>
+  <a href="/suspended-players" class="mob-link"><i class="ti ti-ban"></i> Suspended Players</a>
   <a href="/communications" class="mob-link"><i class="ti ti-broadcast"></i> Communications</a>
   <a href="/contact" class="mob-link"><i class="ti ti-mail"></i> Contact</a>
   <div style="margin-top:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:10px">
@@ -501,19 +504,21 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
     <div class="nav-links">
       <a class="nav-link active" href="/">Home</a>
       <div class="nav-item">
-        <a class="nav-link nav-drop-toggle" href="/competition">Competitions <i class="ti ti-chevron-down" style="font-size:12px"></i></a>
+        <a class="nav-link nav-drop-toggle" href="/senior-men">Cricket <i class="ti ti-chevron-down" style="font-size:12px"></i></a>
         <div class="nav-drop">
-          <a href="/competition">Competition Hub</a>
-          <a href="/seniors">Seniors</a>
-          <a href="/juniors">Juniors</a>
-          <a href="/womens">Women's</a>
+          <a href="/senior-men">Senior Men</a>
+          <a href="/senior-women">Senior Women</a>
+          <a href="/junior-boys">Junior Boys</a>
+          <a href="/junior-girls">Junior Girls</a>
           <a href="/veterans">Veterans</a>
           <a href="/community-big-bash">Community Big Bash</a>
+          <a href="/rep-cricket">Rep Cricket</a>
         </div>
       </div>
       <a class="nav-link" href="/clubs"><img src="/rdca-logo.png" class="nav-link-logo" alt="">Clubs</a>
       <a class="nav-link" href="/news">News</a>
       <a class="nav-link" href="/honours">Honours</a>
+      <a class="nav-link" href="/documents">Documents</a>
       <div class="nav-item">
         <a class="nav-link nav-drop-toggle" href="/photos">Media <i class="ti ti-chevron-down" style="font-size:12px"></i></a>
         <div class="nav-drop">
@@ -523,16 +528,16 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
         </div>
       </div>
       <div class="nav-item">
-        <a class="nav-link nav-drop-toggle" href="/board">RDCA <i class="ti ti-chevron-down" style="font-size:12px"></i></a>
+        <a class="nav-link nav-drop-toggle" href="/board">About Us <i class="ti ti-chevron-down" style="font-size:12px"></i></a>
         <div class="nav-drop">
           <a href="/board">The Board</a>
           <a href="/committees">Committees &amp; Contacts</a>
-          <a href="/umpires">Umpires</a>
-          <a href="/documents">Documents &amp; Forms</a>
+          <a href="/rep-selection">Selection Policy</a>
+          <a href="/events">Events</a>
           <a href="/sponsors">Sponsors &amp; Partners</a>
           <a href="/child-safety">Child Safety</a>
+          <a href="/suspended-players">Suspended Players</a>
           <a href="/communications">Communications</a>
-          <a href="/contact">Contact</a>
         </div>
       </div>
       <a class="nav-link" href="https://store.rdca.com" target="_blank" rel="noopener"><i class="ti ti-shopping-cart"></i> Store</a>
@@ -1006,7 +1011,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">Competitions</div>
-      <a class="f-link" href="/competition">Competition Hub</a><a class="f-link" href="/seniors">Seniors</a><a class="f-link" href="/juniors">Juniors</a><a class="f-link" href="/womens">Women's</a><a class="f-link" href="/veterans">Veterans</a><a class="f-link" href="/community-big-bash">Community Big Bash</a>
+      <a class="f-link" href="/senior-men">Senior Men</a><a class="f-link" href="/senior-women">Senior Women</a><a class="f-link" href="/junior-boys">Junior Boys</a><a class="f-link" href="/junior-girls">Junior Girls</a><a class="f-link" href="/veterans">Veterans</a><a class="f-link" href="/community-big-bash">Community Big Bash</a><a class="f-link" href="/rep-cricket">Rep Cricket</a>
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">Club &amp; Community</div>
