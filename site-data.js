@@ -1402,9 +1402,9 @@ window.RDCA_DATA = {
       "real": true,
       "site": "http://templetoncc.com.au",
       "phone": "9837 5755",
-      "postal": "P.O. Box 5281 Studfield 3152 Melways Ref: 63 G9 https://www.vermontcricket.com.au/ Contact: Trent Touhy 0408",
+      "postal": "P.O. Box 5281, Studfield 3152",
       "melways": "63 G9",
-      "ground": "Cnr Canterbury Road & Terrara Road, Vermont VIC 3133",
+      "ground": "",
       "seniors": {
         "name": "Stephen Mikecz",
         "phone": "0408 334 696"
@@ -1418,7 +1418,7 @@ window.RDCA_DATA = {
       "suburb": "Wantirna",
       "email": "tmp@rdca.com",
       "dbId": "31",
-      "mapQuery": "Cnr Canterbury Road & Terrara Road, Vermont VIC 3133, Wantirna, Victoria, Australia"
+      "mapQuery": "Wantirna, Victoria, Australia"
     },
     {
       "key": "vermont",
@@ -1426,7 +1426,9 @@ window.RDCA_DATA = {
       "logo": "/logos/vermont.webp",
       "code": "VER",
       "dbId": "38",
-      "mapQuery": "Vermont, Victoria, Australia"
+      "mapQuery": "Cnr Canterbury Road & Terrara Road, Vermont VIC 3133",
+      "site": "https://www.vermontcricket.com.au/",
+      "ground": "Cnr Canterbury Road & Terrara Road, Vermont VIC 3133"
     },
     {
       "key": "wandin",
