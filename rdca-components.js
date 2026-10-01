@@ -33,7 +33,6 @@
   <div style="display:flex;align-items:center;gap:18px">
     <div class="tb-item"><i class="ti ti-map-pin"></i> Ringwood, Victoria</div>
     <div class="tb-item"><i class="ti ti-mail"></i> admin@rdca.com.au</div>
-    <div class="tb-item"><i class="ti ti-phone"></i> 1300 732 200</div>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
     <div class="t-soc">

@@ -74,6 +74,12 @@
 .cg-item{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-left:3px solid var(--navy3);border-radius:10px;padding:9px 12px}
 .cg-grade{font-weight:700;color:var(--navy);font-size:13.5px;line-height:1.25}
 .cg-shield{font-size:11.5px;color:var(--muted);margin-top:2px}
+/* Match Centre grade filter */
+.mc-filter{display:flex;align-items:center;gap:8px;margin:0 0 20px;flex-wrap:wrap}
+.mc-filter-ic{color:var(--muted);font-size:17px}
+.mc-filter label{font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+.mc-grade-select{font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--border);border-radius:9px;padding:8px 32px 8px 12px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235a6880' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 10px center}
+.mc-grade-select:focus{outline:2px solid var(--navy3);outline-offset:1px}
 .rep-name{font-weight:700;font-size:15px;color:var(--navy);display:flex;align-items:center;gap:6px}
 .rep-cat{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
 .rep-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}

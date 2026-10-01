@@ -660,17 +660,25 @@
         var ra = divRank(a), rb = divRank(b);
         return ra !== rb ? ra - rb : a.localeCompare(b);
       });
-      var html = gradesSeen.map(function (key) {
+      var blocks = gradesSeen.map(function (key) {
         var list = buckets[key];
         var live = list.filter(function (g) { return g.status === "live"; }).length;
         var count = list.length + (list.length === 1 ? " match" : " matches") + (live ? ' · ' + live + ' live' : '');
-        return '<section class="mc-division">' +
+        return '<section class="mc-division" data-grade="' + esc(key) + '">' +
           '<div class="mc-division-hd"><span class="mc-division-nm">' + esc(key) + '</span>' +
           '<span class="mc-division-ct">' + count + '</span></div>' +
           '<div class="mc-grid">' + list.map(cardHtml).join("") + '</div>' +
         '</section>';
       }).join("");
-      set(sel, html);
+      // Grade filter — pick a grade to show only its matches (needs >1 grade).
+      var filter = gradesSeen.length > 1
+        ? '<div class="mc-filter"><i class="ti ti-filter mc-filter-ic"></i>' +
+            '<label for="mc-grade">Grade</label>' +
+            '<select id="mc-grade" class="mc-grade-select"><option value="">All grades</option>' +
+            gradesSeen.map(function (k) { return '<option value="' + esc(k) + '">' + esc(k) + '</option>'; }).join("") +
+            '</select></div>'
+        : '';
+      set(sel, filter + blocks);
     },
 
     // ---- Rep (representative) cricket: pathways → side containers ----
@@ -1066,5 +1074,15 @@
     if (!b) return;
     var input = b.parentNode.querySelector("#doc-q");
     if (input) { input.value = ""; input.dispatchEvent(new Event("input", { bubbles: true })); input.focus(); }
+  });
+  // Match Centre grade filter: show only the chosen grade's division (or all).
+  document.addEventListener("change", function (e) {
+    var sel = e.target.closest(".mc-grade-select");
+    if (!sel) return;
+    var want = sel.value;
+    var scope = sel.closest("#mc-mount, .mc-divisions, main") || document;
+    scope.querySelectorAll(".mc-division").forEach(function (d) {
+      d.hidden = want ? (d.getAttribute("data-grade") !== want) : false;
+    });
   });
 })();
