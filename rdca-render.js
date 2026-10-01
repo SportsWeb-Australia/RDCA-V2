@@ -685,7 +685,7 @@
       var html = (rc.pathways || []).map(function (p) {
         var cards = (p.sides || []).map(function (s) {
           return '<div class="rep-card">' +
-            '<div class="rep-card-hd"><div class="rep-ic"><i class="ti ' + (s.icon||"ti-shield-half-filled") + '"></i></div>' +
+            '<div class="rep-card-hd"><div class="rep-ic"><img src="/rdca-logo.png" alt=""></div>' +
               '<div><div class="rep-name">' + esc(s.name) + flag(s) + '</div>' +
               (s.cat ? '<div class="rep-cat">' + esc(s.cat) + '</div>' : '') + '</div></div>' +
             '<div class="rep-acts">' +

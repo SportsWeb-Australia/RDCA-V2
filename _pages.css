@@ -63,6 +63,7 @@
 .rep-card-hd{display:flex;align-items:center;gap:12px}
 .rep-ic{flex:0 0 44px;width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;font-size:22px;box-shadow:0 4px 12px rgba(13,31,60,.28)}
 .rep-ic i{color:#fff}
+.rep-ic img{width:30px;height:30px;object-fit:contain}
 .rep-name{font-weight:700;font-size:15px;color:var(--navy);display:flex;align-items:center;gap:6px}
 .rep-cat{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
 .rep-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
