@@ -2156,7 +2156,8 @@ window.RDCA_DATA = {
             "cat": "Men",
             "icon": "ti-trophy",
             "lineup": {
-              "url": "#",
+              "url": "/placeholder.html?title=Senior%20Men%27s%20Rep%20Team&status=tbs",
+              "blank": true,
               "needsReview": true
             },
             "fixtures": {
@@ -2174,7 +2175,8 @@ window.RDCA_DATA = {
             "cat": "Women",
             "icon": "ti-trophy",
             "lineup": {
-              "url": "#",
+              "url": "/placeholder.html?title=Senior%20Women%27s%20Rep%20Team&status=tbs",
+              "blank": true,
               "needsReview": true
             },
             "fixtures": {
