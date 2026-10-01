@@ -395,6 +395,6 @@
       ]
     }
   ],
-  "cleanUrls": false,
+  "cleanUrls": true,
   "trailingSlash": false
 }
