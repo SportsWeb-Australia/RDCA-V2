@@ -1,11 +1,6 @@
 {
   "redirects": [
     {
-      "source": "/about-umpires",
-      "destination": "/about-umpires.html",
-      "permanent": true
-    },
-    {
       "source": "/about-veterans",
       "destination": "/veterans.html",
       "permanent": true
@@ -16,16 +11,6 @@
       "permanent": true
     },
     {
-      "source": "/awards",
-      "destination": "/awards.html",
-      "permanent": true
-    },
-    {
-      "source": "/become-an-umpire",
-      "destination": "/become-an-umpire.html",
-      "permanent": true
-    },
-    {
       "source": "/blog",
       "destination": "/news.html",
       "permanent": true
@@ -33,11 +18,6 @@
     {
       "source": "/calendar-of-events",
       "destination": "/events.html",
-      "permanent": true
-    },
-    {
-      "source": "/child-safety",
-      "destination": "/child-safety.html",
       "permanent": true
     },
     {
@@ -88,21 +68,6 @@
     {
       "source": "/girls-comp",
       "destination": "/junior-girls.html",
-      "permanent": true
-    },
-    {
-      "source": "/good-sports-policy",
-      "destination": "/good-sports-policy.html",
-      "permanent": true
-    },
-    {
-      "source": "/hall-of-fame",
-      "destination": "/hall-of-fame.html",
-      "permanent": true
-    },
-    {
-      "source": "/honour-board",
-      "destination": "/honour-board.html",
       "permanent": true
     },
     {
@@ -176,11 +141,6 @@
       "permanent": true
     },
     {
-      "source": "/photos",
-      "destination": "/photos.html",
-      "permanent": true
-    },
-    {
       "source": "/post/celebration-wine-available-100-years-for-the-rdca",
       "destination": "/news.html",
       "permanent": true
@@ -251,11 +211,6 @@
       "permanent": true
     },
     {
-      "source": "/privacy-policy",
-      "destination": "/privacy-policy.html",
-      "permanent": true
-    },
-    {
       "source": "/rdca-clubs",
       "destination": "/clubs.html",
       "permanent": true
@@ -311,18 +266,8 @@
       "permanent": true
     },
     {
-      "source": "/social-media-policy",
-      "destination": "/social-media-policy.html",
-      "permanent": true
-    },
-    {
       "source": "/sponsorship",
       "destination": "/sponsors.html",
-      "permanent": true
-    },
-    {
-      "source": "/suspended-players",
-      "destination": "/suspended-players.html",
       "permanent": true
     },
     {
