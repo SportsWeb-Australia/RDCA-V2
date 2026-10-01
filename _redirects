@@ -1,0 +1,70 @@
+# Cloudflare Pages redirects — legacy Wix paths -> current pages (301).
+# Generated from vercel.json. Vercel ignores this file; Cloudflare Pages reads it.
+# Clean-URL handling (/clubs.html -> /clubs) is automatic on CF Pages, so
+# source==destination entries are intentionally omitted to avoid redirect loops.
+# Keep this in sync with vercel.json until the Vercel deployment is retired.
+
+/about-veterans                    /veterans                  301
+/appointments                      /umpire-appointments       301
+/blog                              /news                      301
+/calendar-of-events                /events                    301
+/copy-2-of-rep-team-girls          /rep-selection             301
+/copy-of-contacts-1                /umpires                   301
+/copy-of-documents                 /documents                 301
+/copy-of-info                      /documents                 301
+/copy-of-life-members              /honours                   301
+/copy-of-policies                  /contact                   301
+/copy-of-rep-team-girls            /rep-selection             301
+/copy-of-rep-team-u12-boys         /rep-selection             301
+/copy-of-rep-team-u16-girls        /rep-selection             301
+/girls-comp                        /junior-girls              301
+/honours-life-members              /honours                   301
+/info                              /documents                 301
+/junior-committee                  /committees                301
+/junior-rep-girls                  /rep-selection             301
+/junior-state-rep-players          /rep-cricket               301
+/juniors-all-abilities-comp        /junior-boys               301
+/juniors-annual-reports            /documents                 301
+/juniors-code-of-conduct           /documents                 301
+/juniors-documents                 /documents                 301
+/juniors-under-12s                 /rep-selection             301
+/juniors-under-14s                 /rep-selection             301
+/juniors-under-16s                 /rep-selection             301
+/juniors-under-18s                 /rep-selection             301
+/mycricket-database                /competition               301
+/post/celebration-wine-available-100-years-for-the-rdca /news                      301
+/post/check-out-saxon-s-online-store /news                      301
+/post/covid-safe-help-is-here      /news                      301
+/post/exciting-news                /news                      301
+/post/junior-trophy-collection     /news                      301
+/post/more-covid-products-70-alcohol-wipes /news                      301
+/post/rdca-saxon-sports-supporting-the-mukti-australia-cricket-project /news                      301
+/post/ringwood-district-cricket-association /news                      301
+/post/thank-you-craig-from-trackon /news                      301
+/post/thank-you-mandy              /news                      301
+/post/umpires-wanted               /news                      301
+/post/welcome-to-new-sponsor-all-weather-mini-diggers-great-to-have-you-on-board-for-20-21 /news                      301
+/post/who-wants-to-be-on-a-magazine-cover /news                      301
+/premiers                          /honours                   301
+/rdca-clubs                        /clubs                     301
+/records                           /honours                   301
+/rep-cricket-seniors               /rep-cricket               301
+/senior-committee                  /committees                301
+/seniors-all-abilities-comp        /senior-men                301
+/seniors-annual-reports            /documents                 301
+/seniors-code-of-conduct           /documents                 301
+/seniors-documents                 /documents                 301
+/seniors-inter-association         /rep-cricket               301
+/seniors-under-21s                 /senior-men                301
+/seniors-womens-comp               /senior-women              301
+/sponsorship                       /sponsors                  301
+/tables-for-pages                  /honours                   301
+/training                          /umpire-training           301
+/umpires-committee                 /committees                301
+/umpires-documents                 /umpire-documents          301
+/umpires-life-members              /honours                   301
+/veterans-annual-reports           /documents                 301
+/veterans-code-of-conduct          /documents                 301
+/veterans-committee                /committees                301
+/veterans-documents                /documents                 301
+/womens-committee                  /committees                301

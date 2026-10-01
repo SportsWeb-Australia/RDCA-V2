@@ -1,0 +1,6 @@
+# Cloudflare Pages custom headers (mirrors vercel.json security headers).
+# Vercel ignores this file; Cloudflare Pages reads it.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
