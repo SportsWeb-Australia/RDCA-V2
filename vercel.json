@@ -2,322 +2,322 @@
   "redirects": [
     {
       "source": "/about-veterans",
-      "destination": "/veterans.html",
+      "destination": "/veterans",
       "permanent": true
     },
     {
       "source": "/appointments",
-      "destination": "/umpire-appointments.html",
+      "destination": "/umpire-appointments",
       "permanent": true
     },
     {
       "source": "/blog",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/calendar-of-events",
-      "destination": "/events.html",
+      "destination": "/events",
       "permanent": true
     },
     {
       "source": "/copy-2-of-rep-team-girls",
-      "destination": "/rep-selection.html",
+      "destination": "/rep-selection",
       "permanent": true
     },
     {
       "source": "/copy-of-contacts-1",
-      "destination": "/umpires.html",
+      "destination": "/umpires",
       "permanent": true
     },
     {
       "source": "/copy-of-documents",
-      "destination": "/documents.html",
+      "destination": "/documents",
       "permanent": true
     },
     {
       "source": "/copy-of-info",
-      "destination": "/documents.html",
+      "destination": "/documents",
       "permanent": true
     },
     {
       "source": "/copy-of-life-members",
-      "destination": "/honours.html",
+      "destination": "/honours",
       "permanent": true
     },
     {
       "source": "/copy-of-policies",
-      "destination": "/contact.html",
+      "destination": "/contact",
       "permanent": true
     },
     {
       "source": "/copy-of-rep-team-girls",
-      "destination": "/rep-selection.html",
+      "destination": "/rep-selection",
       "permanent": true
     },
     {
       "source": "/copy-of-rep-team-u12-boys",
-      "destination": "/rep-selection.html",
+      "destination": "/rep-selection",
       "permanent": true
     },
     {
       "source": "/copy-of-rep-team-u16-girls",
-      "destination": "/rep-selection.html",
+      "destination": "/rep-selection",
       "permanent": true
     },
     {
       "source": "/girls-comp",
-      "destination": "/junior-girls.html",
+      "destination": "/junior-girls",
       "permanent": true
     },
     {
       "source": "/honours-life-members",
-      "destination": "/honours.html",
+      "destination": "/honours",
       "permanent": true
     },
     {
       "source": "/info",
-      "destination": "/documents.html",
+      "destination": "/documents",
       "permanent": true
     },
     {
       "source": "/junior-committee",
-      "destination": "/committees.html",
+      "destination": "/committees",
       "permanent": true
     },
     {
       "source": "/junior-rep-girls",
-      "destination": "/rep-selection.html",
+      "destination": "/rep-selection",
       "permanent": true
     },
     {
       "source": "/junior-state-rep-players",
-      "destination": "/rep-cricket.html",
+      "destination": "/rep-cricket",
       "permanent": true
     },
     {
       "source": "/juniors-all-abilities-comp",
-      "destination": "/junior-boys.html",
+      "destination": "/junior-boys",
       "permanent": true
     },
     {
       "source": "/juniors-annual-reports",
-      "destination": "/documents.html",
+      "destination": "/documents",
       "permanent": true
     },
     {
       "source": "/juniors-code-of-conduct",
-      "destination": "/documents.html",
+      "destination": "/documents",
       "permanent": true
     },
     {
       "source": "/juniors-documents",
-      "destination": "/documents.html",
+      "destination": "/documents",
       "permanent": true
     },
     {
       "source": "/juniors-under-12s",
-      "destination": "/rep-selection.html",
+      "destination": "/rep-selection",
       "permanent": true
     },
     {
       "source": "/juniors-under-14s",
-      "destination": "/rep-selection.html",
+      "destination": "/rep-selection",
       "permanent": true
     },
     {
       "source": "/juniors-under-16s",
-      "destination": "/rep-selection.html",
+      "destination": "/rep-selection",
       "permanent": true
     },
     {
       "source": "/juniors-under-18s",
-      "destination": "/rep-selection.html",
+      "destination": "/rep-selection",
       "permanent": true
     },
     {
       "source": "/mycricket-database",
-      "destination": "/competition.html",
+      "destination": "/competition",
       "permanent": true
     },
     {
       "source": "/post/celebration-wine-available-100-years-for-the-rdca",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/post/check-out-saxon-s-online-store",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/post/covid-safe-help-is-here",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/post/exciting-news",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/post/junior-trophy-collection",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/post/more-covid-products-70-alcohol-wipes",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/post/rdca-saxon-sports-supporting-the-mukti-australia-cricket-project",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/post/ringwood-district-cricket-association",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/post/thank-you-craig-from-trackon",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/post/thank-you-mandy",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/post/umpires-wanted",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/post/welcome-to-new-sponsor-all-weather-mini-diggers-great-to-have-you-on-board-for-20-21",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/post/who-wants-to-be-on-a-magazine-cover",
-      "destination": "/news.html",
+      "destination": "/news",
       "permanent": true
     },
     {
       "source": "/premiers",
-      "destination": "/honours.html",
+      "destination": "/honours",
       "permanent": true
     },
     {
       "source": "/rdca-clubs",
-      "destination": "/clubs.html",
+      "destination": "/clubs",
       "permanent": true
     },
     {
       "source": "/records",
-      "destination": "/honours.html",
+      "destination": "/honours",
       "permanent": true
     },
     {
       "source": "/rep-cricket-seniors",
-      "destination": "/rep-cricket.html",
+      "destination": "/rep-cricket",
       "permanent": true
     },
     {
       "source": "/senior-committee",
-      "destination": "/committees.html",
+      "destination": "/committees",
       "permanent": true
     },
     {
       "source": "/seniors-all-abilities-comp",
-      "destination": "/senior-men.html",
+      "destination": "/senior-men",
       "permanent": true
     },
     {
       "source": "/seniors-annual-reports",
-      "destination": "/documents.html",
+      "destination": "/documents",
       "permanent": true
     },
     {
       "source": "/seniors-code-of-conduct",
-      "destination": "/documents.html",
+      "destination": "/documents",
       "permanent": true
     },
     {
       "source": "/seniors-documents",
-      "destination": "/documents.html",
+      "destination": "/documents",
       "permanent": true
     },
     {
       "source": "/seniors-inter-association",
-      "destination": "/rep-cricket.html",
+      "destination": "/rep-cricket",
       "permanent": true
     },
     {
       "source": "/seniors-under-21s",
-      "destination": "/senior-men.html",
+      "destination": "/senior-men",
       "permanent": true
     },
     {
       "source": "/seniors-womens-comp",
-      "destination": "/senior-women.html",
+      "destination": "/senior-women",
       "permanent": true
     },
     {
       "source": "/sponsorship",
-      "destination": "/sponsors.html",
+      "destination": "/sponsors",
       "permanent": true
     },
     {
       "source": "/tables-for-pages",
-      "destination": "/honours.html",
+      "destination": "/honours",
       "permanent": true
     },
     {
       "source": "/training",
-      "destination": "/umpire-training.html",
+      "destination": "/umpire-training",
       "permanent": true
     },
     {
       "source": "/umpires-committee",
-      "destination": "/committees.html",
+      "destination": "/committees",
       "permanent": true
     },
     {
       "source": "/umpires-documents",
-      "destination": "/umpire-documents.html",
+      "destination": "/umpire-documents",
       "permanent": true
     },
     {
       "source": "/umpires-life-members",
-      "destination": "/honours.html",
+      "destination": "/honours",
       "permanent": true
     },
     {
       "source": "/veterans-annual-reports",
-      "destination": "/documents.html",
+      "destination": "/documents",
       "permanent": true
     },
     {
       "source": "/veterans-code-of-conduct",
-      "destination": "/documents.html",
+      "destination": "/documents",
       "permanent": true
     },
     {
       "source": "/veterans-committee",
-      "destination": "/committees.html",
+      "destination": "/committees",
       "permanent": true
     },
     {
       "source": "/veterans-documents",
-      "destination": "/documents.html",
+      "destination": "/documents",
       "permanent": true
     },
     {
       "source": "/womens-committee",
-      "destination": "/committees.html",
+      "destination": "/committees",
       "permanent": true
     }
   ],
