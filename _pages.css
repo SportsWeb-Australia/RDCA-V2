@@ -64,6 +64,16 @@
 .rep-ic{flex:0 0 44px;width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;font-size:22px;box-shadow:0 4px 12px rgba(13,31,60,.28)}
 .rep-ic i{color:#fff}
 .rep-ic img{width:30px;height:30px;object-fit:contain}
+/* Grades & Competitions blocks */
+.cg-block{margin:4px 0}
+.cg-intro{margin:0 0 14px}
+.cg-group{margin:16px 0}
+.cg-group-hd{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.4px;color:var(--navy);margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.cg-group-hd:before{content:"";width:14px;height:3px;background:var(--red);border-radius:2px}
+.cg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.cg-item{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-left:3px solid var(--navy3);border-radius:10px;padding:9px 12px}
+.cg-grade{font-weight:700;color:var(--navy);font-size:13.5px;line-height:1.25}
+.cg-shield{font-size:11.5px;color:var(--muted);margin-top:2px}
 .rep-name{font-weight:700;font-size:15px;color:var(--navy);display:flex;align-items:center;gap:6px}
 .rep-cat{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
 .rep-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}

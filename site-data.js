@@ -37521,5 +37521,178 @@ window.RDCA_DATA = {
         ]
       }
     ]
+  },
+  "competitions": {
+    "seniors": {
+      "label": "RDCA Seniors",
+      "intro": "The senior competition runs across Premier Shield tiers, lettered grades and lower Saturday grades. Fixtures, results and ladders for every grade are on PlayHQ.",
+      "groups": [
+        {
+          "name": "Premier Tiers",
+          "items": [
+            {
+              "grade": "Premier 1.1",
+              "shield": "Pat Meehan Shield"
+            },
+            {
+              "grade": "Premier 1.2",
+              "shield": "Bill Wilkins Cup"
+            },
+            {
+              "grade": "Premier 1.3",
+              "shield": "Stuart Newey Plate"
+            },
+            {
+              "grade": "Premier 1.4",
+              "shield": "Steve Pascoe Shield"
+            },
+            {
+              "grade": "Premier 1.5",
+              "shield": "Bill Stafford Shield"
+            },
+            {
+              "grade": "Premier 2.1",
+              "shield": "Ian Spencer Shield"
+            },
+            {
+              "grade": "Premier 2.2",
+              "shield": "David Beatty Shield"
+            },
+            {
+              "grade": "Premier 2.3",
+              "shield": "Timothy Court Shield"
+            },
+            {
+              "grade": "Premier 2.4",
+              "shield": "Greg Mitchell Shield"
+            },
+            {
+              "grade": "Premier 2.5",
+              "shield": "D-J Strachan Shield"
+            }
+          ]
+        },
+        {
+          "name": "Lettered Grades (Shields)",
+          "items": [
+            {
+              "grade": "A Grade",
+              "shield": "Neil Tull Shield"
+            },
+            {
+              "grade": "B Grade",
+              "shield": "Ann Pascoe Shield"
+            },
+            {
+              "grade": "C Grade",
+              "shield": "Adrian Hammond Shield"
+            },
+            {
+              "grade": "D Grade",
+              "shield": "Stuart Minetti Shield"
+            },
+            {
+              "grade": "E Grade",
+              "shield": "Ian Dench Shield"
+            },
+            {
+              "grade": "F Grade",
+              "shield": "Tony Gawne Shield"
+            },
+            {
+              "grade": "G Grade",
+              "shield": "Gregor Mason Shield"
+            },
+            {
+              "grade": "H Grade",
+              "shield": "Graeme Seymour Shield"
+            }
+          ]
+        },
+        {
+          "name": "Lower Saturday Grades",
+          "items": [
+            {
+              "grade": "I Grade"
+            },
+            {
+              "grade": "J Grade"
+            },
+            {
+              "grade": "K Grade"
+            },
+            {
+              "grade": "L Grade"
+            }
+          ]
+        }
+      ]
+    },
+    "juniors": {
+      "label": "RDCA Juniors",
+      "intro": "Age-group cricket across the region, from the entry-level Woolworths Cricket Blast through to Under-18s.",
+      "groups": [
+        {
+          "name": "Age Groups",
+          "items": [
+            {
+              "grade": "Under 18"
+            },
+            {
+              "grade": "Under 16",
+              "shield": "Stage 3"
+            },
+            {
+              "grade": "Under 14",
+              "shield": "Stage 2 / Stage 3"
+            },
+            {
+              "grade": "Under 12",
+              "shield": "Stage 1 / Stage 2"
+            },
+            {
+              "grade": "Under 10",
+              "shield": "Stage 1"
+            }
+          ]
+        },
+        {
+          "name": "Entry-level",
+          "items": [
+            {
+              "grade": "Woolworths Cricket Blast",
+              "shield": "Junior & Master Blasters"
+            }
+          ]
+        }
+      ]
+    },
+    "womens": {
+      "label": "RDCA Women's & Girls",
+      "intro": "Dedicated female competitions across district grades, played in the Women's East competition.",
+      "groups": [
+        {
+          "name": "Women's",
+          "items": [
+            {
+              "grade": "Women's Open / Seniors",
+              "shield": "Women's East"
+            }
+          ]
+        },
+        {
+          "name": "Girls",
+          "items": [
+            {
+              "grade": "Girls Under 16"
+            },
+            {
+              "grade": "Girls Under 13",
+              "shield": "Stage 1 & 2"
+            }
+          ]
+        }
+      ]
+    }
   }
 };

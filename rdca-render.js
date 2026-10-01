@@ -537,6 +537,34 @@
     },
 
     // ---- section about (native) ----
+    // ---- Grades & Competitions: the current season structure ----
+    // which = a section key (seniorMen/juniorBoys/seniorWomen/juniorGirls or the
+    // plain seniors/juniors/womens), or "all" to render every group.
+    competitions: function (which, sel) {
+      var C = D().competitions || {};
+      var MAP = { seniorMen: "seniors", seniors: "seniors",
+                  juniorBoys: "juniors", juniorGirls: "juniors", juniors: "juniors",
+                  seniorWomen: "womens", womens: "womens" };
+      var keys = which === "all" ? ["seniors", "juniors", "womens"] : [MAP[which] || which];
+      var showLabel = which === "all";
+      var html = keys.map(function (k) {
+        var comp = C[k]; if (!comp) return "";
+        var groups = (comp.groups || []).map(function (g) {
+          var chips = (g.items || []).map(function (it) {
+            return '<div class="cg-item"><span class="cg-grade">' + esc(it.grade) + '</span>' +
+                   (it.shield ? '<span class="cg-shield">' + esc(it.shield) + '</span>' : '') + '</div>';
+          }).join("");
+          return '<div class="cg-group"><h4 class="cg-group-hd">' + esc(g.name) + '</h4>' +
+                 '<div class="cg-grid">' + chips + '</div></div>';
+        }).join("");
+        return '<div class="cg-block">' +
+          (showLabel ? '<div class="block-hed">' + esc(comp.label) + '</div>' : '') +
+          (comp.intro ? '<p class="block-sub cg-intro">' + esc(comp.intro) + '</p>' : '') +
+          groups + '</div>';
+      }).join("");
+      set(sel, html || "");
+    },
+
     sectionAbout: function (sectionKey, sel) {
       var _all = (D().sections || {});
       var s = _all[sectionKey];

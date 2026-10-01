@@ -76,6 +76,12 @@
   </div>
 
   <div class="section-block">
+    <div class="block-hed"><i class="ti ti-trophy hub-hed-ic"></i> Grades &amp; Competitions</div>
+    <p class="block-sub">Every RDCA grade across Seniors, Juniors and Women's. Fixtures, results and ladders for each are on PlayHQ (above).</p>
+    <div id="comp-grades"></div>
+  </div>
+
+  <div class="section-block">
     <div class="block-hed">Browse by Section</div>
     <div class="block-sub">RDCA is a grade-based association. Explore each section for committees, documents, codes of conduct and representative pathways.</div>
     <div class="tile-grid">
@@ -100,6 +106,7 @@
   RDCA.render.playhqBoard("#mount-fixtures", "fixtures");
   RDCA.render.playhqBoard("#mount-results",  "results");
   RDCA.render.playhqBoard("#mount-ladders",  "ladders");
+  RDCA.render.competitions("all", "#comp-grades");
 </script>
 <script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
         data-club-id="973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60"
