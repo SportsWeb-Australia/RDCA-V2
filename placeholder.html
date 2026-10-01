@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<!-- RDCA reusable "intentionally blank" page. Point any link here for a page that
-     is blank on the current rdca.com site:
-       /placeholder.html?title=Rep%20Team%20U16%20Boys&src=https://www.rdca.com/juniors-under-16s
-     ?title = heading shown.  ?src = (optional) the current rdca.com page to link to. -->
+<!-- RDCA reusable "intentionally blank" page for content not yet supplied.
+       /placeholder.html?title=Rep%20Team%20U16%20Boys&status=tbs
+     ?title  = heading shown.
+     ?status = (optional) "tbs" shows the "representative team not yet selected"
+               message. Omit for the generic "awaiting content" state.
+     Never links out to the old rdca.com site (it disappears at cutover). -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -64,29 +66,27 @@
   (function(){
     var q = new URLSearchParams(location.search);
     var title = q.get("title") || "Page";
-    var src = q.get("src") || "";
+    var status = q.get("status") || "";
     document.getElementById("hero-title").textContent = title;
     document.getElementById("crumb-title").textContent = title;
     document.title = title + " — RDCA";
-    if (src) {
-      document.getElementById("src-action").innerHTML =
-        '<a class="btn btn-outline-red" href="' + src.replace(/"/g,"") + '" target="_blank" rel="noopener">View the current page on rdca.com <i class="ti ti-external-link"></i></a>';
+    // "tbs" = representative team not yet selected. Shown in-site; never links out
+    // to the old rdca.com (which disappears at cutover).
+    if (status === "tbs") {
+      var es = document.querySelector(".empty-state");
+      if (es) {
+        es.innerHTML =
+          '<div class="empty-ic"><i class="ti ti-users"></i></div>' +
+          '<h2>' + title + ' &mdash; not yet selected</h2>' +
+          '<p>Representative teams for the coming season have not been announced yet. ' +
+          'Selections will be published here once confirmed.</p>';
+      }
     }
   })();
 </script>
 <script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
         data-club-id="973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60"
         data-source="onboarding"
-        data-website-status="draft">
-  var _st = new URLSearchParams(location.search).get("status");
-  if (_st === "tbs") {
-    var _m = document.querySelector(".ph-body") || document.querySelector("main") || document.body;
-    var _t = new URLSearchParams(location.search).get("title") || "This team";
-    _m.innerHTML = '<div class="callout callout-blue" style="margin:22px 0">' +
-      '<i class="ti ti-users"></i><div><strong>' + _t + ' &mdash; not yet selected.</strong><br>' +
-      'Representative teams for the coming season have not been announced. ' +
-      'Selections will be published here once confirmed.</div></div>';
-  }
-</script>
+        data-website-status="draft"></script>
 </body>
 </html>

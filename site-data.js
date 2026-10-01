@@ -1017,11 +1017,11 @@ window.RDCA_DATA = {
       "name": "Heatherdale CC",
       "logo": "/logos/heatherdale.webp",
       "code": "HED",
-      "ground": "N?A",
-      "site": "N/A",
-      "phone": "N/A",
+      "ground": "",
+      "site": "",
+      "phone": "",
       "dbId": "76",
-      "mapQuery": "N?A, Victoria, Australia"
+      "mapQuery": ""
     },
     {
       "key": "heathwood",

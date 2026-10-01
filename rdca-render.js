@@ -528,7 +528,7 @@
         if (!href) return '<span class="rep-act rep-act-off"><i class="ti ' + icon + '"></i> ' + label + '</span>';
         var blank = item && item.blank;
         var ext = /^https?:/.test(href);
-        var hr = blank ? ('/placeholder.html?title=' + encodeURIComponent(label) + '&src=' + encodeURIComponent(href)) : esc(href);
+        var hr = blank ? ('/placeholder.html?title=' + encodeURIComponent(label) + '&status=tbs') : esc(href);
         var attrs = (ext && !blank) ? ' target="_blank" rel="noopener"' : '';
         return '<a class="rep-act" href="' + hr + '"' + attrs + '><i class="ti ' + icon + '"></i> ' + label + flag(item) + '</a>';
       }
@@ -753,7 +753,7 @@
         var blank = item && item.blank;
         var internal = item && item.internal;
         var href = blank
-          ? ('/placeholder.html?title=' + encodeURIComponent(label) + '&src=' + encodeURIComponent(url))
+          ? ('/placeholder.html?title=' + encodeURIComponent(label))
           : esc(url);
         var attrs = (blank || internal) ? '' : ' target="_blank" rel="noopener"';
         tiles.push('<a class="tile" href="' + href + '"' + attrs + '>' +
