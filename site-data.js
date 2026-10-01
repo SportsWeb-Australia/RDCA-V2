@@ -411,16 +411,16 @@ window.RDCA_DATA = {
     }
   ],
   "photoStrip": [
-    "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&q=70&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1595210382051-4d2c31fcc2f4?w=600&q=70&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&q=70&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1512719994953-eabf50895df7?w=600&q=70&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&q=70&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1593766827228-8737b4534aa6?w=600&q=70&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1595210382051-4d2c31fcc2f4?w=600&q=70&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1512719994953-eabf50895df7?w=600&q=70&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&q=70&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&q=70&auto=format&fit=crop"
+    "/photos/rdca-seniors-1.webp",
+    "/photos/rdca-womens-1.webp",
+    "/photos/rdca-t20-1.webp",
+    "/photos/rdca-seniors-2.webp",
+    "/photos/rdca-club-1.webp",
+    "/photos/rdca-vets-1.webp",
+    "/photos/rdca-seniors-3.webp",
+    "/photos/rdca-club-2.webp",
+    "/photos/rdca-seniors-4.webp",
+    "/photos/rdca-club-3.webp"
   ],
   "radioShow": {
     "title": "The RDCA Cricket Show",
@@ -484,7 +484,7 @@ window.RDCA_DATA = {
       "title": "Premier Division — Ringwood v Croydon",
       "comp": "Premier Division",
       "date": "Sat 14 Feb",
-      "thumb": "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&q=70&auto=format&fit=crop",
+      "thumb": "/photos/rdca-wide-1.webp",
       "url": "#",
       "mock": true
     },
@@ -492,7 +492,7 @@ window.RDCA_DATA = {
       "title": "Division 1 — Kilsyth v Lilydale",
       "comp": "Division 1",
       "date": "Sat 14 Feb",
-      "thumb": "https://images.unsplash.com/photo-1595210382051-4d2c31fcc2f4?w=600&q=70&auto=format&fit=crop",
+      "thumb": "/photos/rdca-wide-2.webp",
       "url": "#",
       "mock": true
     },
@@ -500,7 +500,7 @@ window.RDCA_DATA = {
       "title": "Women's — Grand Final",
       "comp": "Women's",
       "date": "Sun 1 Feb",
-      "thumb": "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&q=70&auto=format&fit=crop",
+      "thumb": "/photos/rdca-seniors-3.webp",
       "url": "#",
       "mock": true
     },
@@ -508,7 +508,7 @@ window.RDCA_DATA = {
       "title": "Premier Division — Semi Final",
       "comp": "Finals",
       "date": "Sat 7 Feb",
-      "thumb": "https://images.unsplash.com/photo-1512719994953-eabf50895df7?w=600&q=70&auto=format&fit=crop",
+      "thumb": "/photos/rdca-club-2.webp",
       "url": "#",
       "mock": true
     },
@@ -516,7 +516,7 @@ window.RDCA_DATA = {
       "title": "Juniors — U16 Grand Final",
       "comp": "Juniors",
       "date": "Sun 8 Feb",
-      "thumb": "https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&q=70&auto=format&fit=crop",
+      "thumb": "/photos/rdca-seniors-4.webp",
       "url": "#",
       "mock": true
     },
@@ -524,7 +524,7 @@ window.RDCA_DATA = {
       "title": "Veterans — Round 12",
       "comp": "Veterans",
       "date": "Sat 31 Jan",
-      "thumb": "https://images.unsplash.com/photo-1593766827228-8737b4534aa6?w=600&q=70&auto=format&fit=crop",
+      "thumb": "/photos/rdca-club-3.webp",
       "url": "#",
       "mock": true
     }
@@ -3620,7 +3620,7 @@ window.RDCA_DATA = {
       "author": "RDCA Media",
       "readMins": 3,
       "meta": "Premier Division · Round 13",
-      "image": "https://images.unsplash.com/photo-1593766827228-8737b4534aa6?w=1200&q=78&auto=format&fit=crop",
+      "image": "/photos/rdca-seniors-1.webp",
       "body": "<p>Ringwood CC held their nerve in a tense run chase at Ringwood Reserve, overhauling Croydon&rsquo;s 223 with two wickets to spare thanks to an unbeaten 89 from opener Jake Smith.</p><p>Chasing 224, Ringwood lost early wickets before Smith and a composed middle order rebuilt the innings. With 37 needed off the final eight overs, Smith accelerated, finding the boundary at key moments to settle any nerves in the rooms.</p><p>Croydon&rsquo;s bowlers fought hard, with Jones the pick of the attack, but the home side&rsquo;s experience told in the closing overs. The result tightens the Premier Division ladder heading into the final rounds.</p><p><em>Full scorecards and ladders are available on PlayHQ via the Competition Hub.</em></p>",
       "sample": true
     },
@@ -3632,7 +3632,7 @@ window.RDCA_DATA = {
       "author": "RDCA",
       "readMins": 3,
       "meta": "Association",
-      "image": "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1200&q=78&auto=format&fit=crop",
+      "image": "/photos/rdca-womens-1.webp",
       "body": "<p>Player registrations for the 2026-27 RDCA season are now open across all grades and age groups &mdash; Seniors, Juniors, Women&rsquo;s and Veterans.</p><p>New and returning players should register through their local club. Clubs will confirm training nights, fees and grading closer to the season start.</p><p>Not sure which club is closest? Browse the full Club Directory to find your nearest RDCA club, its home ground and contacts.</p>",
       "sample": true
     },
@@ -3644,7 +3644,7 @@ window.RDCA_DATA = {
       "author": "RDCA Media",
       "readMins": 3,
       "meta": "Representative",
-      "image": "https://images.unsplash.com/photo-1599982946086-eb42d9e14eb8?w=1200&q=78&auto=format&fit=crop",
+      "image": "/photos/rdca-t20-1.webp",
       "body": "<p>Four RDCA juniors have been selected in the U17 state squad following strong representative carnival campaigns, a terrific reward for the Association&rsquo;s rep pathway.</p><p>The quartet came through RDCA junior rep teams, balancing club commitments with the demands of representative cricket across the season.</p><p>RDCA congratulates the players, their clubs and the coaches and volunteers who support the junior pathway.</p>",
       "sample": true
     },
@@ -3656,7 +3656,7 @@ window.RDCA_DATA = {
       "author": "RDCA Media",
       "readMins": 3,
       "meta": "Clubs",
-      "image": "https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=1200&q=78&auto=format&fit=crop",
+      "image": "/photos/rdca-club-1.webp",
       "body": "<p>Croydon CC has completed a major redevelopment of its home ground, including upgraded turf wickets, nets and pavilion facilities for players and supporters.</p><p>The works, supported by council and club volunteers, position the club to host more matches and grow participation across senior, junior and women&rsquo;s cricket.</p><p>The club thanked its members, sponsors and the wider RDCA community for their support throughout the project.</p>",
       "sample": true
     }
@@ -36992,7 +36992,7 @@ window.RDCA_DATA = {
       "title": "Club Secretary Forum",
       "venue": "RDCA Offices, Ringwood",
       "address": "Ringwood, Victoria",
-      "image": "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=1200&q=80&auto=format&fit=crop",
+      "image": "/photos/rdca-vets-1.webp",
       "summary": "A working session for club secretaries covering finals procedures, registrations and end-of-season administration.",
       "details": [
         "This forum walks club secretaries through the back half of the season: finals eligibility and paperwork, PlayHQ administration, transfers, and key reporting dates. It is a good chance to raise questions directly with the Board and Operations team.",
@@ -37010,7 +37010,7 @@ window.RDCA_DATA = {
       "title": "RDCA Premier Division Finals",
       "venue": "Ringwood Reserve",
       "address": "Ringwood, Victoria",
-      "image": "https://images.unsplash.com/photo-1512719994953-eabf50895df7?w=1200&q=80&auto=format&fit=crop",
+      "image": "/photos/rdca-seniors-2.webp",
       "summary": "The blue-riband fixture of the RDCA season — the Premier Division Grand Final at Ringwood Reserve.",
       "details": [
         "The top two Premier Division sides meet across the two-day Grand Final for the Association's premier senior title. Entry is free and all cricket supporters are welcome — canteen and bar facilities operate across both days.",
