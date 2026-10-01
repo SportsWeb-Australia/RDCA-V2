@@ -6,7 +6,9 @@ Static, dependency-free website for the **RDCA (Ringwood & District Cricket Asso
 - **Live:** https://rdca-sportsweb-version2.vercel.app/ — Vercel project `rdca-sportsweb-version2` (`prj_h1CJmsIFg3Bsm1NVNQfu1VdEs6Gb`), team `sports-web-australia` (`team_WVI7n9g3cxLVECmGY4cEBAVF`). Auto-deploys on push to `main`.
 - An older `rdca-sportsweb` project/repo is the previous version — ignore it.
 - **Owner:** Carson (Click Sports Media, Melbourne). Prefers honest feedback, consolidated deliverables, and reviews via screenshots of the live deploy.
-- **Current service-worker cache at HEAD:** `rdca-v33` (see `sw.js`). The unapplied SitePulse patch bumps it to `rdca-v34`.
+- **Current service-worker cache at HEAD:** `rdca-v63` (see `sw.js`). Bump on every HTML/CSS/JS change.
+- **Target hosting:** migrating to **Cloudflare Pages on the real `rdca.com`** (indexable at cutover). Canonicals/sitemap already point at `rdca.com`; `_redirects` + `_headers` are the Cloudflare equivalents of `vercel.json` (kept until Vercel is retired). See `docs/cloudflare-cutover-checklist.md` — **rdca.com has live email; the DNS cutover must preserve MX/SPF/DKIM/DMARC.**
+- **PlayHQ readiness:** `rdca-sw1.js` reads normalised fixtures/ladder from SportsWeb One (dark; only on localhost/`?sw1=1`). A Cloudflare Worker (holds the key) feeds `fx_fixtures`+`ladder`. See `docs/playhq-integration.md`. No scoreboard yet (Carson's design).
 
 ## ⚠️ The git repo is the only source of truth
 
@@ -23,7 +25,7 @@ Commit and push — Vercel builds and deploys automatically. There is no compile
 - `index.html` — homepage (self-contained).
 - `_shared.css` — design tokens: `--bg:#f0f2f5 --navy:#0d1f3c --navy3:#1e3d6b --red:#cc2222 --muted:#5a6880 --r:14px`.
 - `_pages.css` — component styles for all non-home pages (keep `{`/`}` balanced).
-- `rdca-render.js` — 22 render fns: `clubs, sponsors, documents, committees, news, newsFeatured, newsArchive, honours, lifeMembers, honoursHub, sectionAbout, matchCentre, repCricket, sectionConduct, board, premiers, umpires, playhqCompetitions, playhqBoard, teamSelections, sectionLinks, events`.
+- `rdca-render.js` — 34 render fns incl. `clubs, sponsors, documents, committees, news, newsFeatured, newsArchive, archivedPosts, honours, lifeMembers, boardHistory, hallOfFame, yvca, honoursHub, awards, averages, lowerGradePremiers, premiers, repSelection, radioShow, eventsCalendar, umpireVideos, sectionAbout, matchCentre, repCricket, sectionConduct, board, umpires, playhqCompetitions, playhqBoard, teamSelections, sectionLinks, events`. (`awards/averages/lowerGradePremiers/radioShow/repSelection` were accidentally dropped by the honours-import commit `922a8ad` and restored at `d448fe1` — see git log.)
 - `rdca-components.js` — shared chrome injector (masthead + mobile menu, ticker, ad-banner, sponsor-carousel, footer).
 - `site-data.js` — all content in `window.RDCA_DATA` (38 clubs, teamSelections, news, articles, events, players, sections, committees, honours, social, umpires).
 - `pwa.js` — PWA install + match-day alerts + injected back-to-top button.
@@ -47,19 +49,15 @@ Commit and push — Vercel builds and deploys automatically. There is no compile
 - **FOV photo strip** uses `.fov-gallery` / `.fov-nav` / `.fov-scroll` / `.fov-track` with prev/next arrow buttons — not a plain overflow-scroll strip.
 - The ad **"Advertisement" flag** is a pill positioned against `.ad-banner-wrap` (which is `position:relative`), sitting outside `.ad-banner`.
 
-### SitePulse feedback widget — NOT CURRENTLY APPLIED
+### SitePulse feedback widget — APPLIED on all 51 pages
 
-**State at HEAD:** the homepage still loads a **self-hosted** `/sitepulse-widget.js` with
-`data-website-id="16682aef-…"`. That ID belongs to **`ringwoodeagles.com.au`** in a dead prototype
-Supabase project — it is the wrong site and the wrong system. No other page carries any SitePulse tag.
+**State at HEAD:** the correct external widget is live on **every** page (the old self-hosted
+`/sitepulse-widget.js` with the wrong `ringwoodeagles.com.au` id is gone). Feedback lands in
+`public.sitepulse_feedback` on the SportsWeb One Supabase (`uzibfawcwoapfbigpzum`). The D12
+club-name issue is resolved: club `973aaf1c-…` is now named "Ringwood & District Cricket
+Association". Still `data-website-status="draft"` — flip to `"live"` at go-live.
 
-A prepared change that replaces it with the correct external widget on all 41 pages exists but is
-**deliberately unapplied**, preserved as a patch:
-
-- `audit/rdca-migration-gap-audit/preserved/sitepulse-changes.patch`
-- `audit/rdca-migration-gap-audit/SITEPULSE-PATCH-NOTE.md`
-
-The intended tag (once applied) is:
+The tag in use is:
 
 ```html
 <script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
