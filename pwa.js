@@ -29,6 +29,18 @@
   function isIOS() {
     return /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
   }
+  // Only phones and tablets should ever see the install prompt — never desktops.
+  function isMobileOrTablet() {
+    var ua = navigator.userAgent || "";
+    if (/Android|iPhone|iPad|iPod|Windows Phone|webOS|BlackBerry|Opera Mini|IEMobile|Mobile|Tablet|Silk|Kindle|PlayBook/i.test(ua)) return true;
+    // iPadOS 13+ reports a desktop Safari UA; detect it by touch points.
+    if ((navigator.platform === "MacIntel" || /Macintosh/.test(ua)) && navigator.maxTouchPoints > 1) return true;
+    // Fallback: a touch-first device (coarse pointer that can't hover) = phone/tablet.
+    try {
+      return window.matchMedia("(pointer: coarse)").matches &&
+             window.matchMedia("(hover: none)").matches;
+    } catch (e) { return false; }
+  }
 
   function injectStyles() {
     if (document.getElementById("rdca-pwa-style")) return;
@@ -115,6 +127,8 @@
   window.addEventListener("beforeinstallprompt", function (e) {
     e.preventDefault();
     deferred = e;
+    // Desktop Chrome/Edge also fire this — only surface the card on phones/tablets.
+    if (!isMobileOrTablet()) return;
     setTimeout(function () { if (deferred) showInstall(); }, 1400);
   });
 
