@@ -340,6 +340,144 @@
         '<div class="tw"><table class="honours-table aw-table"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>');
     },
 
+    repSelection: function (sel) {
+      var d = D().repSelection || {};
+      set(sel,
+        '<article class="plain-page">' +
+          (d.updated ? '<p class="pp-date"><i class="ti ti-calendar"></i> Updated ' + esc(d.updated) + '</p>' : '') +
+          '<div class="pp-body">' + (d.body || '<p>No content yet.</p>') + '</div>' +
+        '</article>');
+    },
+
+    // ---- RDCA Cricket Show on Radio Eastern 98.1 ----
+    radioShow: function (sel) {
+      var r = D().radioShow;
+      if (!r) { set(sel, ""); return; }
+      var cards = (r.ways || []).map(function (w) {
+        var inner =
+          '<div class="rs-ic"><i class="ti ' + esc(w.icon || "ti-radio") + '"></i></div>' +
+          '<div class="rs-tx"><h4>' + esc(w.label) + flag(w) + '</h4><p>' + esc(w.detail || "") + '</p></div>' +
+          (w.url ? '<span class="rs-go"><i class="ti ti-arrow-right"></i></span>' : '');
+        return w.url
+          ? '<a class="rs-card" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + inner + '</a>'
+          : '<div class="rs-card rs-static">' + inner + '</div>';
+      }).join("");
+      set(sel,
+        '<div class="rs-wrap"><div class="rs-hd">' +
+          '<div class="rs-badge"><i class="ti ti-broadcast"></i> ' + esc(r.station || "") + '</div>' +
+          '<h3>' + esc(r.title || "") + '</h3>' +
+          '<p>' + esc(r.blurb || "") + '</p>' +
+        '</div><div class="rs-grid">' + cards + '</div>' +
+        (r.note ? '<p class="rs-note"><i class="ti ti-info-circle"></i> ' + esc(r.note) + '</p>' : '') +
+        '</div>');
+    },
+
+    // ---- Averages: premier grades + lower grades ----
+    averages: function (sel) {
+      var h = D().honours || {};
+      var pa = h.premierAverages, lg = h.lowerGradeAverages;
+      var tabs = [], panes = [], n = 0;
+      function tab(id, label, count, html) {
+        tabs.push('<button class="hof-tab' + (n === 0 ? ' active' : '') + '" data-hof="' + id + '">' + esc(label) + ' <em>' + count + '</em></button>');
+        panes.push('<div class="hof-pane' + (n === 0 ? ' active' : '') + '" id="' + id + '">' + html + '</div>');
+        n++;
+      }
+      if (pa && pa.seasons && pa.seasons.length) {
+        var gs = pa.grades || [];
+        var head = '<tr><th>Season</th>' + gs.map(function (g) { return '<th>' + esc(g) + '</th>'; }).join("") + '</tr>';
+        var body = pa.seasons.slice().reverse().map(function (r) {
+          var by = {}; (r.winners || []).forEach(function (w) { by[w.grade] = w.winner; });
+          return '<tr><td class="aw-s">' + esc(r.season) + '</td>' + gs.map(function (g) {
+            return '<td>' + (by[g] ? esc(by[g]) : '<span class="aw-n">&mdash;</span>') + '</td>';
+          }).join("") + '</tr>';
+        }).join("");
+        tab("av-premier", "Premier Grades", pa.seasons.length,
+          '<div class="tw"><table class="honours-table aw-table"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>');
+      }
+      (lg && lg.sheets ? lg.sheets : []).forEach(function (sh, si) {
+        var cnt = 0, inner = "";
+        (sh.blocks || []).forEach(function (b) {
+          cnt += (b.entries || []).length;
+          inner += '<div class="av-blk"><h4>' + esc(b.grade) + ' &middot; <span>' + esc(b.discipline) + '</span></h4>' +
+            '<div class="tw"><table class="honours-table aw-table"><thead><tr><th style="width:96px">Season</th><th>Player</th><th>Club</th><th style="width:92px">Average</th></tr></thead><tbody>' +
+            (b.entries || []).slice().reverse().map(function (e) {
+              return '<tr><td class="aw-s">' + esc(e.season) + '</td><td>' + esc(e.name) + '</td><td>' + esc(e.club) + '</td><td>' + esc(e.average) + '</td></tr>';
+            }).join("") + '</tbody></table></div></div>';
+        });
+        if (cnt) tab("av-lg-" + si, sh.sheet, cnt, inner);
+      });
+      if (!n) { set(sel, '<p class="muted">No averages recorded yet.</p>'); return; }
+      set(sel, '<div class="hof-tabs">' + tabs.join("") + '</div>' + panes.join(""));
+    },
+
+    // ---- Season awards: tabbed categories from RDCA's awards workbook ----
+    awards: function (sel) {
+      var h = D().honours || {}, aw = h.awards || {};
+      var ORDER = [
+        ["bestAndFairest","Best & Fairest"], ["allRounder","All Rounder"],
+        ["clubChampionship","Club Championship"], ["bestAdministered","Best Administered Club"],
+        ["umpireOfYear","Umpire of the Year"], ["spiritOfCricket","Spirit of Cricket"],
+        ["bestUnder18","Best Under 18"], ["juniorBestPlayer","Junior Best Player"],
+        ["juniorVolunteer","Junior Volunteer"]
+      ];
+      function gridTable(o) {
+        var gs = o.grades || [], meds = o.medals || [];
+        var head = '<tr><th>Season</th>' + gs.map(function (g, i) {
+          return '<th>' + esc(g) + (meds[i] ? '<span class="aw-med">' + esc(meds[i]) + '</span>' : '') + '</th>';
+        }).join("") + '</tr>';
+        var body = (o.seasons || []).slice().reverse().map(function (r) {
+          var by = {}; (r.winners || []).forEach(function (w) { by[w.grade] = w.winner || w.club; });
+          return '<tr><td class="aw-s">' + esc(r.season) + '</td>' + gs.map(function (g) {
+            return '<td>' + (by[g] ? esc(by[g]) : '<span class="aw-n">&mdash;</span>') + '</td>';
+          }).join("") + '</tr>';
+        }).join("");
+        return '<div class="tw"><table class="honours-table aw-table"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>';
+      }
+      function listTable(o) {
+        var body = (o.items || []).slice().reverse().map(function (r) {
+          return '<tr><td class="aw-s">' + esc(r.season) + '</td><td>' + esc(r.winner) + '</td></tr>';
+        }).join("");
+        return '<div class="tw"><table class="honours-table aw-table"><thead><tr><th style="width:110px">Season</th><th>Winner</th></tr></thead><tbody>' + body + '</tbody></table></div>';
+      }
+      var tabs = [], panes = [];
+      ORDER.forEach(function (pair, i) {
+        var o = aw[pair[0]]; if (!o) return;
+        var n = (o.seasons || o.items || []).length;
+        var id = "aw-" + pair[0];
+        tabs.push('<button class="hof-tab' + (tabs.length === 0 ? ' active' : '') + '" data-hof="' + id + '">' + esc(pair[1]) + ' <em>' + n + '</em></button>');
+        panes.push('<div class="hof-pane' + (panes.length === 0 ? ' active' : '') + '" id="' + id + '">' +
+          (o.note ? '<p class="block-sub aw-note">' + esc(o.note) + '</p>' : '') +
+          (o.seasons ? gridTable(o) : listTable(o)) + '</div>');
+      });
+      set(sel, '<div class="hof-tabs">' + tabs.join("") + '</div>' + panes.join(""));
+    },
+
+    // ---- Lower-grade senior premiers ----
+    lowerGradePremiers: function (sel) {
+      var lg = (D().honours || {}).lowerGradePremiers;
+      if (!lg || !lg.blocks) { set(sel, ""); return; }
+      var tabs = [], panes = [];
+      lg.blocks.forEach(function (b, i) {
+        var d = b.data || {}, gs = d.grades || [], id = "lg-" + i;
+        var head = '<tr><th>Season</th>' + gs.map(function (g) {
+          var sh = (d.shields || {});
+          var lbl = "";
+          Object.keys(sh).forEach(function (k) { if (d.grades[Object.keys(sh).indexOf(k)] === g) lbl = sh[k]; });
+          return '<th>' + esc(g) + (lbl ? '<span class="aw-med">' + esc(lbl) + '</span>' : '') + '</th>';
+        }).join("") + '</tr>';
+        var body = (d.seasons || []).slice().reverse().map(function (r) {
+          var by = {}; (r.winners || []).forEach(function (w) { by[w.grade] = w.club; });
+          return '<tr><td class="aw-s">' + esc(r.season) + '</td>' + gs.map(function (g) {
+            return '<td>' + (by[g] ? esc(by[g]) : '<span class="aw-n">&mdash;</span>') + '</td>';
+          }).join("") + '</tr>';
+        }).join("");
+        tabs.push('<button class="hof-tab' + (i === 0 ? ' active' : '') + '" data-hof="' + id + '">' + esc(b.name) + ' <em>' + (d.seasons || []).length + '</em></button>');
+        panes.push('<div class="hof-pane' + (i === 0 ? ' active' : '') + '" id="' + id + '"><div class="tw">' +
+          '<table class="honours-table aw-table"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div></div>');
+      });
+      set(sel, '<div class="hof-tabs">' + tabs.join("") + '</div>' + panes.join(""));
+    },
+
     // ---- Hall of Fame: Legends + Members tabs, click a name for the write-up ----
     hallOfFame: function (sel) {
       var hof = (D().honours && D().honours.hallOfFame) || { legends: [], members: [] };
@@ -596,7 +734,16 @@
     premiers: function (sel) {
       var h = D().honours || {}, db = h.db || {};
       var labels = db.gradeLabels || {};
-      var list = (db.premiers && db.premiers.length) ? db.premiers : (h.premiers || []);
+      // Merge the two layers: db.premiers is the SQL import (1919/20 -> 2020/21,
+      // grade codes); h.premiers is the workbook layer that carries the recent
+      // seasons (2021/22 -> current). db wins the overlap (richer historical
+      // grades); h fills the recent seasons db lacks. Sorted newest-first.
+      var byS = {};
+      (db.premiers || []).forEach(function (r) { if (r && r.season) byS[r.season] = r; });
+      (h.premiers || []).forEach(function (r) { if (r && r.season && !byS[r.season]) byS[r.season] = r; });
+      var list = Object.keys(byS).map(function (k) { return byS[k]; });
+      function _yr(s) { var m = /^(\d{4})/.exec(s || ""); return m ? +m[1] : 0; }
+      list.sort(function (a, b) { return _yr(b.season) - _yr(a.season); });
       if (!list.length) { set(sel, '<p class="muted">No premiership records yet.</p>'); return; }
       var rows = list.map(function (r, i) {
         var id = "pr-" + i;

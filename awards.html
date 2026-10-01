@@ -23,11 +23,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <link rel="stylesheet" href="/_shared.css">
 <link rel="stylesheet" href="/_pages.css">
-<script src="/rdca-components.js">
-RDCA.render.awards("#awards-mount");
-RDCA.render.averages("#averages-mount");
-RDCA.render.lowerGradePremiers("#lgp-mount");
-</script>
+<script src="/rdca-components.js"></script>
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#0d1f3c">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -119,7 +115,12 @@ RDCA.render.lowerGradePremiers("#lgp-mount");
 
 <script src="/site-data.js"></script>
 <script src="/rdca-render.js"></script>
-<script>RDCA.render.honoursHub("#honours-hub-mount");</script>
+<script>
+  RDCA.render.awards("#awards-mount");
+  RDCA.render.averages("#averages-mount");
+  RDCA.render.lowerGradePremiers("#lgp-mount");
+  RDCA.render.honoursHub("#honours-hub-mount");
+</script>
 <script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
         data-club-id="973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60"
         data-source="onboarding"
