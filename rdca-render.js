@@ -666,7 +666,19 @@
         if (!href) return '<span class="rep-act rep-act-off"><i class="ti ' + icon + '"></i> ' + label + '</span>';
         var blank = item && item.blank;
         var ext = /^https?:/.test(href);
-        var hr = blank ? ('/placeholder.html?title=' + encodeURIComponent(label) + '&status=tbs') : esc(href);
+        // When a line-up isn't picked yet (blank), go to the in-site "not yet
+        // selected" page. Honour a placeholder URL already set in the data (it
+        // carries the team name as the title); otherwise build one. Use the
+        // team name from item.repName when present so the page names the team,
+        // not the action ("U12 Boys Rep Team — not yet selected", not "Line-up").
+        var hr;
+        if (blank) {
+          hr = /\/placeholder\.html\?/.test(href)
+            ? esc(href)
+            : ('/placeholder.html?title=' + encodeURIComponent((item && item.repName) || label) + '&status=tbs');
+        } else {
+          hr = esc(href);
+        }
         var attrs = (ext && !blank) ? ' target="_blank" rel="noopener"' : '';
         return '<a class="rep-act" href="' + hr + '"' + attrs + '><i class="ti ' + icon + '"></i> ' + label + flag(item) + '</a>';
       }
