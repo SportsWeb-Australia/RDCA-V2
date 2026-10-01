@@ -5,14 +5,18 @@ public API key by email (there is no self-serve key in the org admin console).
 See `docs/playhq-integration.md` for how the key is used once issued.
 
 ## What RDCA is actually building (differs from BHRDCA)
-BHRDCA's integration was computed **batting/bowling leaderboards**. RDCA is **not**
-doing that. RDCA's PlayHQ-driven surfaces are:
+RDCA's PlayHQ-driven surfaces are:
 - **Live score ticker** across the site — grade · teams · live score/overs · run-chase line.
 - **Live Match Centre** (`match-centre.html`) — the centrepiece: per-game cards showing
   live state (score, overs, current partnership, last wicket, run chase, CRR, last-6
   balls, status Live/Tea/Stumps/Result) across all grades, with a grade filter, each
   tapping through to the official PlayHQ match centre.
 - **Fixtures, results and ladders** per grade (`competition.html`) and the section pages.
+- **Leaderboards** (leading run-scorers / wicket-takers by grade) — wanted, but **not**
+  via BHRDCA's heavy season-long aggregation (pulling every game summary and summing it
+  ourselves). Preference is to read leaders directly if PlayHQ exposes a player-stats
+  endpoint; otherwise a lighter treatment (e.g. recent standouts) rather than a full
+  aggregation pipeline.
 
 So RDCA leans on **in-play / ball-by-ball data** more than BHRDCA did — the ticker and
 Match Centre are designed around it. The public key covers fixtures / results / ladders
@@ -46,12 +50,13 @@ Integration" (webhook) tier** — which for RDCA is a central ask, not an extra.
 > - **Tenant:** Cricket Australia (`x-phq-tenant: ca`)
 > - **Org page:** `https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association`
 > - **My role / connection:** [role] of the RDCA, requesting on the association's behalf.
-> - **Purpose:** a new RDCA website with (1) a **live score ticker**, (2) a **live Match Centre**, and (3) **fixtures, results and ladders** by grade. (We are *not* building computed player leaderboards.)
+> - **Purpose:** a new RDCA website with (1) a **live score ticker**, (2) a **live Match Centre**, (3) **fixtures, results and ladders** by grade, and (4) **leaderboards** (leading run-scorers / wicket-takers) — see the note on leaderboards below.
 > - **Platform / tech setup (from our developer):** custom-coded (hand-written HTML/CSS/JavaScript — not Wix, Squarespace or WordPress), hosted on **Cloudflare** in production (Vercel for staging). All PlayHQ calls are made **server-side from a Cloudflare Worker** that holds the API key as an encrypted secret and caches results — the key is never exposed in the browser.
 > - **What we'd display:**
 >   - a **live score ticker** across the site — grade, the two teams, current score/overs and the run-chase line for games in progress;
 >   - a **live Match Centre** page — one card per game showing live state (score, overs, current partnership, last wicket, run required / run chase, current run rate, recent balls, and status such as Live / Tea / Stumps / Result), across all grades, each linking out to the official PlayHQ match centre;
->   - **fixtures, results and ladders** per grade (Senior, Junior Boys, Junior Girls, Women's, Veterans/Masters and the Community Big Bash T20).
+>   - **fixtures, results and ladders** per grade (Senior, Junior Boys, Junior Girls, Women's, Veterans/Masters and the Community Big Bash T20);
+>   - **leaderboards** — leading run-scorers and wicket-takers by grade. We'd like these, but we'd prefer **not** to aggregate them ourselves by pulling and summing every game summary across the season. Is there a **player-statistics / leaderboard endpoint for cricket** we can read directly? (We understand from earlier guidance that the pre-aggregated player-stats endpoint may be non-cricket only — if so, we'll keep leaderboards light rather than run a full aggregation pipeline.)
 > - **Endpoints (public):** discovery via `/v1/organisations/{id}/seasons` → `/v1/seasons/{id}/grades` → `/v2/grades/{id}/games`; `/v2/grades/{id}/ladder` for ladders; `/v2/games/{id}/summary` for completed-game results — all with `x-api-key` and `x-phq-tenant: ca`.
 > - **Update frequency:** fixtures, results and ladders refreshed server-side on a schedule (~10–15 min during match windows, less often otherwise), cached so visitor traffic doesn't generate extra calls. For the ticker and Match Centre we'd update more frequently while games are in progress — which brings us to the main question:
 >
