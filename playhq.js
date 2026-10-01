@@ -37,13 +37,25 @@ window.RDCA_PLAYHQ = {
      the live integration will need so the static site is already shaped for it.
      PlayHQ has a public API (api.playhq.com) that requires an x-api-key and a
      x-phq-tenant header (tenant: "ca" for Cricket Australia).
-     ========================================================================== */
+
+     ARCHITECTURE DECISION (matches BHRDCA, proven):
+     The PlayHQ x-api-key must NEVER sit in the browser. The live integration is
+     three layers:
+       1. A SportsWeb One Cloudflare Worker (server-side, holds the secret) pulls
+          api.playhq.com, normalises, and WRITES facts into SW1 (Supabase) tables
+          fx_fixtures + ladder for this club.
+       2. rdca-sw1.js reads those published rows with a publishable key (RLS makes
+          it read-only public), with a hard 2.5s timeout and graceful null.
+       3. The page renders live tables when rows exist, else falls back to the
+          link-out below. rdca-sw1.js is loaded DARK (localhost / ?sw1=1) until
+          go-live — see rdca-sw1.js and docs/playhq-integration.md.
+     The `api` block below documents the Worker's own config (it is NOT read by
+     the browser). */
   api: {
-    enabled: false,                          // flip to true once keys are wired
+    enabled: false,                          // the WORKER flips this; browser never calls PlayHQ directly
     baseUrl: "https://api.playhq.com/v1",
     tenant: "ca",                            // Cricket Australia tenant
-    // SECRET — never commit a real key to the repo. Inject at build/deploy time
-    // (Vercel env var PLAYHQ_API_KEY) or proxy through SportsWeb One. See dev note.
+    // SECRET — lives only in the Cloudflare Worker's env, never in this repo.
     apiKeyEnv: "PLAYHQ_API_KEY",
 
     orgId: null,                             // RDCA PlayHQ org UUID — TODO confirm
@@ -51,10 +63,19 @@ window.RDCA_PLAYHQ = {
     gradeIds:  {},                           // gradeId -> friendly grade name
     clubIds:   {},                           // clubId  -> club key (see site-data.clubs)
 
-    cacheTtlMinutes: 15,                     // cache PlayHQ responses; don't hammer
+    cacheTtlMinutes: 15,                     // Worker caches PlayHQ responses; don't hammer
     requestTimeoutMs: 8000,
 
-    // Graceful degradation — what the UI shows when the API is off/slow/down.
+    // Where the browser actually reads normalised facts from (see rdca-sw1.js).
+    sw1: {
+      project: "uzibfawcwoapfbigpzum",       // SportsWeb One (production) Supabase
+      clubId: "973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60",
+      tables: { fixtures: "fx_fixtures", ladder: "ladder" },
+      reader: "window.rdcaSW1",              // rdca-sw1.js — dark until everywhere:true there
+      status: "draft"                        // flip to "live" at go-live
+    },
+
+    // Graceful degradation — what the UI shows when the feed is off/slow/down.
     fallback: {
       mode: "link",                          // "link" = show PlayHQ button instead of live table
       message: "Live ladders & results are on PlayHQ.",

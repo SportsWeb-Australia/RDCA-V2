@@ -280,6 +280,22 @@
     if (pane) pane.classList.add("active");
   };
 
+  // SportsWeb One "ready for PlayHQ" reader — loaded DARK. It only self-acts on
+  // localhost or with ?sw1=1 (see rdca-sw1.js), so we only bother fetching the
+  // script in those same cases. Production visitors never download it until the
+  // integration is switched on there. Zero effect on what the public sees.
+  (function loadSW1() {
+    try {
+      var on = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) ||
+               new URLSearchParams(location.search).get("sw1") === "1" ||
+               (function () { try { return sessionStorage.getItem("sw1") === "1"; } catch (e) { return false; } })();
+      if (!on || document.querySelector('script[src="/rdca-sw1.js"]')) return;
+      var sc = document.createElement("script");
+      sc.src = "/rdca-sw1.js"; sc.defer = true;
+      document.head.appendChild(sc);
+    } catch (e) { /* never break the page */ }
+  })();
+
   window.RDCA = window.RDCA || {};
   window.RDCA.mount = mount;
   window.RDCA.LOGO = LOGO;
