@@ -56,6 +56,7 @@
   <a href="/junior-girls.html" class="mob-link"><i class="ti ti-friends"></i> Junior Girls</a>
   <a href="/veterans.html" class="mob-link"><i class="ti ti-medal"></i> Veterans</a>
   <a href="/community-big-bash.html" class="mob-link"><i class="ti ti-flame"></i> Community Big Bash</a>
+  <a href="/rep-cricket.html" class="mob-link"><i class="ti ti-shield-half-filled"></i> Rep Cricket</a>
   <div class="mob-group">Club &amp; Community</div>
   <a href="/clubs.html" class="mob-link"><img src="/rdca-logo.png" class="mob-link-logo" alt=""> Clubs</a>
   <a href="/news.html" class="mob-link"><i class="ti ti-news"></i> News</a>
@@ -92,6 +93,7 @@
           <a href="/junior-girls.html">Junior Girls</a>
           <a href="/veterans.html">Veterans</a>
           <a href="/community-big-bash.html">Community Big Bash</a>
+          <a href="/rep-cricket.html">Rep Cricket</a>
         </div>
       </div>
       <a class="nav-link" href="/clubs.html"><img src="/rdca-logo.png" class="nav-link-logo" alt="">Clubs</a>
