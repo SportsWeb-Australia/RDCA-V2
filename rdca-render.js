@@ -866,6 +866,70 @@
       set(sel, html);
     },
 
+    // ---- Live PlayHQ hub: real ladders / results / fixtures from data/playhq.json.
+    //      Shows last season until data.cutover, then the current season. On any
+    //      failure it leaves the mount's existing fallback content untouched. ----
+    playhqHub: function (sel) {
+      var mount = (typeof sel === "string") ? document.querySelector(sel) : sel;
+      if (!mount || typeof fetch !== "function") return;
+      fetch("/data/playhq.json", { cache: "no-cache" })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          if (!data || !Array.isArray(data.comps) || !data.comps.length) return;
+          var useCurrent = Date.now() >= Date.parse(data.cutover);
+          var phase = useCurrent ? "current" : "last";
+          function seasonOf(c) { return c[phase] || c.last || c.current || { grades: [] }; }
+          function n(x) { return x == null ? "&ndash;" : String(x); }
+          function pc(x) { return x == null ? "&ndash;" : (Math.round(x * 1000) / 1000); }
+          var ci = 0, gi = 0;
+          function grades() { var s = seasonOf(data.comps[ci]); return (s && s.grades) || []; }
+          function render() {
+            var comp = data.comps[ci], season = seasonOf(comp), gs = grades();
+            if (gi >= gs.length) gi = 0;
+            var g = gs[gi] || { ladder: [], results: [], fixtures: [] };
+            var tabs = data.comps.map(function (c, i) {
+              return '<button class="phq-comp' + (i === ci ? ' active' : '') + '" data-i="' + i + '">' + esc(c.key) + '</button>';
+            }).join("");
+            var opts = gs.map(function (x, i) {
+              return '<option value="' + i + '"' + (i === gi ? ' selected' : '') + '>' + esc(x.grade) + '</option>';
+            }).join("");
+            var note = useCurrent ? esc(season.season)
+              : esc(season.season) + ' <span class="phq-last">last season &middot; final ladders &amp; results</span>';
+            var lad = g.ladder.length
+              ? '<table class="phq-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>%</th></tr></thead><tbody>' +
+                g.ladder.map(function (r) {
+                  return '<tr><td>' + r.pos + '</td><td>' + esc(r.team) + '</td><td>' + n(r.p) + '</td><td>' + n(r.w) + '</td><td>' + n(r.l) + '</td><td><b>' + n(r.pts) + '</b></td><td>' + pc(r.pct) + '</td></tr>';
+                }).join("") + '</tbody></table>'
+              : '<p class="muted">Ladder populates once the season is under way.</p>';
+            function rows(list, isRes) {
+              return list.length ? list.slice(0, 8).map(function (r) {
+                return '<div class="phq-row"><span class="phq-dt">' + esc((r.date || "").slice(0, 10)) + '</span>' +
+                  '<span class="phq-mt">' + esc(r.home) + ' v ' + esc(r.away) + '</span>' +
+                  '<span class="phq-rs">' + (isRes ? (r.winner ? esc(r.winner) + ' won' : '') : esc(r.round)) + '</span></div>';
+              }).join("") : '<p class="muted">' + (isRes ? 'No results yet.' : 'No upcoming fixtures.') + '</p>';
+            }
+            mount.innerHTML =
+              '<div class="phq-hd"><div class="phq-tabs">' + tabs + '</div>' +
+                '<label class="phq-grade-wrap"><span>Grade</span><select class="phq-grade mc-grade-select">' + opts + '</select></label></div>' +
+              '<div class="phq-season"><i class="ti ti-calendar-event"></i> ' + note + '</div>' +
+              '<div class="phq-grid">' +
+                '<div class="phq-col phq-ladder"><h4 class="phq-h"><i class="ti ti-list-numbers"></i> Ladder</h4>' + lad + '</div>' +
+                '<div class="phq-col"><h4 class="phq-h"><i class="ti ti-chart-bar"></i> Recent Results</h4>' + rows(g.results, true) + '</div>' +
+                '<div class="phq-col"><h4 class="phq-h"><i class="ti ti-calendar-event"></i> Upcoming Fixtures</h4>' + rows(g.fixtures, false) + '</div>' +
+              '</div>';
+          }
+          render();
+          mount.addEventListener("click", function (e) {
+            var b = e.target.closest(".phq-comp"); if (!b) return;
+            ci = +b.getAttribute("data-i"); gi = 0; render();
+          });
+          mount.addEventListener("change", function (e) {
+            if (e.target.classList.contains("phq-grade")) { gi = +e.target.value; render(); }
+          });
+        })
+        .catch(function () { /* keep fallback content */ });
+    },
+
     // ---- Team selections: featured latest + all grouped by division ----
     teamSelections: function (sel) {
       var list = (D().teamSelections || []).slice();

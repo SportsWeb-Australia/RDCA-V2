@@ -80,6 +80,28 @@
 .mc-filter label{font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
 .mc-grade-select{font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--border);border-radius:9px;padding:8px 32px 8px 12px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235a6880' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 10px center}
 .mc-grade-select:focus{outline:2px solid var(--navy3);outline-offset:1px}
+/* PlayHQ live hub (ladders / results / fixtures) */
+.phq-hd{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.phq-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.phq-comp{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:7px 14px;cursor:pointer;transition:all .15s}
+.phq-comp:hover{color:var(--navy)}
+.phq-comp.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.phq-grade-wrap{display:flex;align-items:center;gap:8px}
+.phq-grade-wrap span{font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+.phq-season{font-size:13px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.phq-last{color:var(--red);font-weight:700;font-size:12px}
+.phq-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px}
+.phq-col{min-width:0}
+.phq-h{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.4px;color:var(--navy);margin:0 0 10px;display:flex;align-items:center;gap:7px}
+.phq-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.phq-table th{text-align:left;font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);padding:6px 6px;border-bottom:1px solid var(--border)}
+.phq-table td{padding:7px 6px;border-bottom:1px solid var(--border)}
+.phq-table tbody tr:hover{background:var(--bg)}
+.phq-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12.5px}
+.phq-dt{color:var(--muted);font-size:11px;white-space:nowrap;flex:0 0 66px}
+.phq-mt{flex:1;min-width:0;font-weight:600;color:var(--navy)}
+.phq-rs{color:var(--muted);font-size:11px;text-align:right;white-space:nowrap}
+@media(max-width:860px){.phq-grid{grid-template-columns:1fr;gap:22px}}
 .rep-name{font-weight:700;font-size:15px;color:var(--navy);display:flex;align-items:center;gap:6px}
 .rep-cat{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
 .rep-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}

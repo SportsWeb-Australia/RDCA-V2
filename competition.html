@@ -52,9 +52,12 @@
 <main id="main" tabindex="-1">
 <div class="page-wrap">
 
-  <div class="hub-note">
-    <i class="ti ti-info-circle"></i>
-    <span>Live fixtures, results and ladders are split into the three boards below. Once the PlayHQ data feed is connected each board will render live tables inline; until then every card opens the official PlayHQ page for that grade (and, where available, the direct team page).</span>
+  <div class="section-block">
+    <div class="block-hed"><i class="ti ti-table hub-hed-ic"></i> Ladders, Results &amp; Fixtures</div>
+    <div class="block-sub">Live from PlayHQ. Pick a competition and grade. Full match detail opens on PlayHQ via the boards below.</div>
+    <div id="playhq-hub">
+      <p class="muted"><i class="ti ti-loader"></i> Loading the latest ladders, results and fixtures&hellip; if they don't appear, the official boards are below.</p>
+    </div>
   </div>
 
   <div class="section-block" id="fixtures">
@@ -103,6 +106,7 @@
 <script src="/site-data.js"></script>
 <script src="/rdca-render.js"></script>
 <script>
+  RDCA.render.playhqHub("#playhq-hub");
   RDCA.render.playhqBoard("#mount-fixtures", "fixtures");
   RDCA.render.playhqBoard("#mount-results",  "results");
   RDCA.render.playhqBoard("#mount-ladders",  "ladders");
