@@ -872,8 +872,13 @@
     playhqHub: function (sel) {
       var mount = (typeof sel === "string") ? document.querySelector(sel) : sel;
       if (!mount || typeof fetch !== "function") return;
-      fetch("/data/playhq.json", { cache: "no-cache" })
-        .then(function (r) { return r.ok ? r.json() : null; })
+      // Prefer the live rdca-stats Worker (window.RDCA_PLAYHQ_API); fall back to the
+      // committed static data/playhq.json if the Worker is absent or unreachable.
+      var API = (typeof window !== "undefined" && window.RDCA_PLAYHQ_API) || null;
+      function getStatic() { return fetch("/data/playhq.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }); }
+      (API
+        ? fetch(API, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw 0; return r.json(); }).catch(getStatic)
+        : getStatic())
         .then(function (data) {
           if (!data || !Array.isArray(data.comps) || !data.comps.length) return;
           var useCurrent = Date.now() >= Date.parse(data.cutover);

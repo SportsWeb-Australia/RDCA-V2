@@ -106,6 +106,10 @@
 <script src="/site-data.js"></script>
 <script src="/rdca-render.js"></script>
 <script>
+  // Live PlayHQ data from the rdca-stats Worker (same pattern as BHRDCA). Update
+  // this if the Worker deploys to a different workers.dev subdomain. Falls back to
+  // the committed data/playhq.json if the Worker is absent/unreachable.
+  window.RDCA_PLAYHQ_API = "https://rdca-stats.carson-cfd.workers.dev/playhq";
   RDCA.render.playhqHub("#playhq-hub");
   RDCA.render.playhqBoard("#mount-fixtures", "fixtures");
   RDCA.render.playhqBoard("#mount-results",  "results");

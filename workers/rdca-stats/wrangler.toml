@@ -1,0 +1,26 @@
+name = "rdca-stats"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# PlayHQ stats worker for RDCA — same pattern as BHRDCA's bhrdca-stats worker, but
+# it serves ladders / results / fixtures (not aggregated leaderboards). Pulls the
+# PlayHQ public API hourly, caches to KV, and serves JSON the site reads at
+# /playhq. The site switches last -> current season on its own at SEASON_CUTOVER.
+
+[vars]
+PHQ_HOST = "https://api.playhq.com"
+PHQ_TENANT = "ca"
+ORG_ID = "710bdac9-b1a4-4da6-8132-68b528d1a2dd"
+SEASON_CUTOVER = "2026-10-09T00:00:00+11:00"   # AEDT; last -> current season switch
+
+# KV: create once, then paste the id here:
+#   wrangler kv namespace create STATS
+[[kv_namespaces]]
+binding = "STATS"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+[triggers]
+crons = ["0 * * * *"]   # hourly
+
+# The API key is a SECRET, never in this file or the repo:
+#   wrangler secret put PLAYHQ_API_KEY
