@@ -888,48 +888,125 @@
           function pc(x) { return x == null ? "&ndash;" : (Math.round(x * 1000) / 1000); }
           var ci = 0, gi = 0;
           function grades() { var s = seasonOf(data.comps[ci]); return (s && s.grades) || []; }
+
+          // ---- club-crest resolver: match a PlayHQ team name to a club logo ----
+          // PlayHQ names look like "North Ringwood 1XI" / "St Andrews 1XI"; the club
+          // name is the leading portion, so pop trailing tokens until a club matches.
+          var CLUBS = (D().clubs) || [];
+          function slug(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
+          var CREST = {};
+          CLUBS.forEach(function (c) {
+            if (!c || !c.logo) return;
+            CREST[slug(c.key)] = c.logo;
+            CREST[slug(String(c.name || "").replace(/cc\s*$/i, ""))] = c.logo;
+          });
+          function crestFor(team) {
+            var toks = String(team || "").split(/\s+/).filter(Boolean);
+            while (toks.length) { var k = slug(toks.join("")); if (CREST[k]) return CREST[k]; toks.pop(); }
+            return null;
+          }
+          function monogram(team) {
+            var w = String(team || "").replace(/\b\d*x\.?i+\b/ig, "").trim().split(/\s+/).filter(Boolean);
+            return ((w[0] || "").charAt(0) + ((w[1] || "").charAt(0) || "")).toUpperCase() || "?";
+          }
+          function crest(team) {
+            var l = crestFor(team);
+            return l ? '<span class="phb-crest"><img src="' + esc(l) + '" alt="" loading="lazy"></span>'
+                     : '<span class="phb-crest phb-mono">' + esc(monogram(team)) + '</span>';
+          }
+          // Recent form (newest-first list -> last 5, rendered oldest-left)
+          function formChips(team, results) {
+            var seq = [];
+            for (var i = 0; i < results.length && seq.length < 5; i++) {
+              var r = results[i];
+              if (r.home !== team && r.away !== team) continue;
+              seq.push(!r.winner ? "D" : (r.winner === team ? "W" : "L"));
+            }
+            if (!seq.length) return '<span class="phb-form phb-form-none">&ndash;</span>';
+            return '<span class="phb-form">' + seq.reverse().map(function (o) {
+              return '<i class="phb-fp phb-fp-' + o + '">' + o + '</i>';
+            }).join("") + '</span>';
+          }
+          var MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+          function dchip(iso) {
+            var d = iso ? new Date(iso) : null;
+            if (!d || isNaN(d)) return '<div class="phb-fx-dt"><span class="phb-fx-d">&ndash;</span></div>';
+            return '<div class="phb-fx-dt"><span class="phb-fx-d">' + d.getDate() + '</span><span class="phb-fx-m">' + MON[d.getMonth()] + '</span></div>';
+          }
+
           function render() {
             var comp = data.comps[ci], season = seasonOf(comp), gs = grades();
             if (gi >= gs.length) gi = 0;
             var g = gs[gi] || { ladder: [], results: [], fixtures: [] };
             var tabs = data.comps.map(function (c, i) {
-              return '<button class="phq-comp' + (i === ci ? ' active' : '') + '" data-i="' + i + '">' + esc(c.key) + '</button>';
+              return '<button class="phb-comp' + (i === ci ? ' active' : '') + '" data-i="' + i + '">' + esc(c.key) + '</button>';
             }).join("");
             var opts = gs.map(function (x, i) {
               return '<option value="' + i + '"' + (i === gi ? ' selected' : '') + '>' + esc(x.grade) + '</option>';
             }).join("");
-            var note = useCurrent ? esc(season.season)
-              : esc(season.season) + ' <span class="phq-last">last season &middot; final ladders &amp; results</span>';
+            var note = useCurrent
+              ? '<span class="phb-live"><i class="phb-dot"></i> Live</span> ' + esc(season.season)
+              : esc(season.season) + ' <span class="phb-last">last season &middot; final ladders &amp; results</span>';
+
             var lad = g.ladder.length
-              ? '<table class="phq-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>%</th></tr></thead><tbody>' +
+              ? '<table class="phb-lt"><thead><tr><th class="phb-c-pos">#</th><th class="phb-c-team">Team</th><th>P</th><th>W</th><th>L</th><th class="phb-c-form">Form</th><th>Pts</th><th>%</th></tr></thead><tbody>' +
                 g.ladder.map(function (r) {
-                  return '<tr><td>' + r.pos + '</td><td>' + esc(r.team) + '</td><td>' + n(r.p) + '</td><td>' + n(r.w) + '</td><td>' + n(r.l) + '</td><td><b>' + n(r.pts) + '</b></td><td>' + pc(r.pct) + '</td></tr>';
+                  return '<tr' + (r.pos === 1 ? ' class="phb-lead"' : '') + '>' +
+                    '<td class="phb-c-pos"><span class="phb-pos">' + r.pos + '</span></td>' +
+                    '<td class="phb-c-team"><span class="phb-tm">' + crest(r.team) + '<span class="phb-tn">' + esc(r.team) + '</span></span></td>' +
+                    '<td>' + n(r.p) + '</td><td>' + n(r.w) + '</td><td>' + n(r.l) + '</td>' +
+                    '<td class="phb-c-form">' + formChips(r.team, g.results || []) + '</td>' +
+                    '<td><b class="phb-pts">' + n(r.pts) + '</b></td><td class="phb-pct">' + pc(r.pct) + '</td></tr>';
                 }).join("") + '</tbody></table>'
-              : '<p class="muted">Ladder populates once the season is under way.</p>';
-            function rows(list, isRes) {
-              return list.length ? list.slice(0, 8).map(function (r) {
-                return '<div class="phq-row"><span class="phq-dt">' + esc((r.date || "").slice(0, 10)) + '</span>' +
-                  '<span class="phq-mt">' + esc(r.home) + ' v ' + esc(r.away) + '</span>' +
-                  '<span class="phq-rs">' + (isRes ? (r.winner ? esc(r.winner) + ' won' : '') : esc(r.round)) + '</span></div>';
-              }).join("") : '<p class="muted">' + (isRes ? 'No results yet.' : 'No upcoming fixtures.') + '</p>';
-            }
+              : '<p class="phb-empty"><i class="ti ti-clock-hour-4"></i> Ladder populates once the season is under way.</p>';
+
+            var res = g.results.length
+              ? g.results.slice(0, 6).map(function (r) {
+                  function side(name, isWin, dim) {
+                    return '<div class="phb-side' + (isWin ? ' win' : '') + (dim ? ' dim' : '') + '">' + crest(name) +
+                      '<span class="phb-sn">' + esc(name) + '</span>' + (isWin ? '<span class="phb-won">WON</span>' : '') + '</div>';
+                  }
+                  var hw = r.winner === r.home, aw = r.winner === r.away, decided = !!r.winner;
+                  return '<div class="phb-res">' +
+                    '<div class="phb-res-top"><span class="phb-rnd">' + esc(r.round || "") + '</span><span class="phb-date">' + esc((r.date || "").slice(0, 10)) + '</span></div>' +
+                    side(r.home, hw, decided && !hw) + side(r.away, aw, decided && !aw) +
+                    (decided ? '' : '<div class="phb-res-tie">Tie / no result</div>') +
+                    '</div>';
+                }).join("")
+              : '<p class="phb-empty"><i class="ti ti-ball-baseball"></i> No results yet.</p>';
+
+            var fix = g.fixtures.length
+              ? g.fixtures.slice(0, 8).map(function (r) {
+                  return '<div class="phb-fx">' + dchip(r.date) +
+                    '<div class="phb-fx-main"><div class="phb-fx-teams">' +
+                      crest(r.home) + '<span class="phb-fx-tn">' + esc(r.home) + '</span>' +
+                      '<span class="phb-v">v</span>' +
+                      crest(r.away) + '<span class="phb-fx-tn">' + esc(r.away) + '</span></div>' +
+                    '<div class="phb-fx-meta">' + esc(r.round || "") + '</div></div></div>';
+                }).join("")
+              : '<p class="phb-empty"><i class="ti ti-calendar-off"></i> No upcoming fixtures.</p>';
+
             mount.innerHTML =
-              '<div class="phq-hd"><div class="phq-tabs">' + tabs + '</div>' +
-                '<label class="phq-grade-wrap"><span>Grade</span><select class="phq-grade mc-grade-select">' + opts + '</select></label></div>' +
-              '<div class="phq-season"><i class="ti ti-calendar-event"></i> ' + note + '</div>' +
-              '<div class="phq-grid">' +
-                '<div class="phq-col phq-ladder"><h4 class="phq-h"><i class="ti ti-list-numbers"></i> Ladder</h4>' + lad + '</div>' +
-                '<div class="phq-col"><h4 class="phq-h"><i class="ti ti-chart-bar"></i> Recent Results</h4>' + rows(g.results, true) + '</div>' +
-                '<div class="phq-col"><h4 class="phq-h"><i class="ti ti-calendar-event"></i> Upcoming Fixtures</h4>' + rows(g.fixtures, false) + '</div>' +
+              '<div class="phb">' +
+                '<div class="phb-bar"><div class="phb-tabs">' + tabs + '</div>' +
+                  '<label class="phb-grade-wrap"><span>Grade</span><select class="phb-grade mc-grade-select">' + opts + '</select></label></div>' +
+                '<div class="phb-season">' + note + '</div>' +
+                '<div class="phb-grid">' +
+                  '<div class="phb-col phb-ladder"><div class="phb-ch"><i class="ti ti-list-numbers"></i> Ladder</div>' + lad + '</div>' +
+                  '<div class="phb-rail">' +
+                    '<div class="phb-col"><div class="phb-ch"><i class="ti ti-chart-bar"></i> Recent Results</div>' + res + '</div>' +
+                    '<div class="phb-col"><div class="phb-ch"><i class="ti ti-calendar-event"></i> Upcoming Fixtures</div>' + fix + '</div>' +
+                  '</div>' +
+                '</div>' +
               '</div>';
           }
           render();
           mount.addEventListener("click", function (e) {
-            var b = e.target.closest(".phq-comp"); if (!b) return;
+            var b = e.target.closest(".phb-comp"); if (!b) return;
             ci = +b.getAttribute("data-i"); gi = 0; render();
           });
           mount.addEventListener("change", function (e) {
-            if (e.target.classList.contains("phq-grade")) { gi = +e.target.value; render(); }
+            if (e.target.classList.contains("phb-grade")) { gi = +e.target.value; render(); }
           });
         })
         .catch(function () { /* keep fallback content */ });

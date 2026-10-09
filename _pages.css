@@ -80,28 +80,79 @@
 .mc-filter label{font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
 .mc-grade-select{font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--border);border-radius:9px;padding:8px 32px 8px 12px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235a6880' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 10px center}
 .mc-grade-select:focus{outline:2px solid var(--navy3);outline-offset:1px}
-/* PlayHQ live hub (ladders / results / fixtures) */
-.phq-hd{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
-.phq-tabs{display:flex;gap:6px;flex-wrap:wrap}
-.phq-comp{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:7px 14px;cursor:pointer;transition:all .15s}
-.phq-comp:hover{color:var(--navy)}
-.phq-comp.active{background:var(--navy);color:#fff;border-color:var(--navy)}
-.phq-grade-wrap{display:flex;align-items:center;gap:8px}
-.phq-grade-wrap span{font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
-.phq-season{font-size:13px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-.phq-last{color:var(--red);font-weight:700;font-size:12px}
-.phq-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px}
-.phq-col{min-width:0}
-.phq-h{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.4px;color:var(--navy);margin:0 0 10px;display:flex;align-items:center;gap:7px}
-.phq-table{width:100%;border-collapse:collapse;font-size:12.5px}
-.phq-table th{text-align:left;font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);padding:6px 6px;border-bottom:1px solid var(--border)}
-.phq-table td{padding:7px 6px;border-bottom:1px solid var(--border)}
-.phq-table tbody tr:hover{background:var(--bg)}
-.phq-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12.5px}
-.phq-dt{color:var(--muted);font-size:11px;white-space:nowrap;flex:0 0 66px}
-.phq-mt{flex:1;min-width:0;font-weight:600;color:var(--navy)}
-.phq-rs{color:var(--muted);font-size:11px;text-align:right;white-space:nowrap}
-@media(max-width:860px){.phq-grid{grid-template-columns:1fr;gap:22px}}
+/* PlayHQ live hub — broadcast look (ladders / results / fixtures) */
+.phb{background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.phb-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 18px;background:linear-gradient(120deg,var(--navy) 0%,var(--navy3) 100%)}
+.phb-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.phb-comp{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,.72);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 16px;cursor:pointer;transition:all .15s}
+.phb-comp:hover{color:#fff;background:rgba(255,255,255,.16)}
+.phb-comp.active{background:#fff;color:var(--navy);border-color:#fff}
+.phb-grade-wrap{display:flex;align-items:center;gap:8px}
+.phb-grade-wrap span{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.phb-grade{background:rgba(255,255,255,.95);border-color:transparent}
+.phb-season{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:11px 18px;border-bottom:1px solid var(--border);background:var(--bg)}
+.phb-live{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--red)}
+.phb-dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(204,34,34,.5);animation:phbpulse 1.8s infinite}
+@keyframes phbpulse{0%{box-shadow:0 0 0 0 rgba(204,34,34,.5)}70%{box-shadow:0 0 0 6px rgba(204,34,34,0)}100%{box-shadow:0 0 0 0 rgba(204,34,34,0)}}
+.phb-last{color:var(--red);font-weight:700;font-size:12px}
+.phb-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:0}
+.phb-ladder{padding:18px;border-right:1px solid var(--border);min-width:0}
+.phb-rail{display:flex;flex-direction:column;min-width:0}
+.phb-rail .phb-col{padding:18px}
+.phb-rail .phb-col+.phb-col{border-top:1px solid var(--border)}
+.phb-ch{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.5px;color:var(--navy);margin:0 0 12px;display:flex;align-items:center;gap:7px}
+.phb-ch i{color:var(--red);font-size:17px}
+.phb-empty{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);background:var(--bg);border:1px dashed var(--border);border-radius:10px;padding:14px}
+.phb-empty i{color:var(--muted);font-size:16px}
+/* crest chip (shared by ladder / results / fixtures) */
+.phb-crest{width:26px;height:26px;border-radius:7px;background:#fff;border:1px solid var(--border);display:inline-flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.phb-crest img{width:22px;height:22px;object-fit:contain;display:block}
+.phb-mono{font-size:10px;font-weight:800;color:var(--navy3);background:#eef2f8}
+/* ladder table */
+.phb-lt{width:100%;border-collapse:collapse;font-size:12.5px}
+.phb-lt th{text-align:center;font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);padding:0 6px 8px;border-bottom:2px solid var(--border);font-weight:700}
+.phb-lt td{padding:8px 6px;border-bottom:1px solid var(--border);text-align:center;color:var(--navy)}
+.phb-lt tbody tr:hover{background:var(--bg)}
+.phb-c-pos{width:34px}
+.phb-c-team{text-align:left!important}
+.phb-c-form{width:96px}
+.phb-pos{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:7px;background:#eef2f8;color:var(--navy);font-weight:800;font-size:11px}
+.phb-lead .phb-pos{background:var(--red);color:#fff}
+.phb-lead td{background:rgba(204,34,34,.04)}
+.phb-tm{display:flex;align-items:center;gap:9px;min-width:0}
+.phb-tn{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phb-pts{color:var(--red);font-size:14px}
+.phb-pct{color:var(--muted)}
+.phb-form{display:inline-flex;gap:3px;justify-content:center}
+.phb-form-none{color:var(--muted)}
+.phb-fp{width:16px;height:16px;border-radius:4px;font-style:normal;font-size:9px;font-weight:800;color:#fff;display:inline-flex;align-items:center;justify-content:center}
+.phb-fp-W{background:#16a34a}.phb-fp-L{background:var(--red)}.phb-fp-D{background:#94a3b8}
+/* results cards */
+.phb-res{border:1px solid var(--border);border-radius:11px;padding:10px 12px;margin-bottom:10px;background:#fff}
+.phb-res:last-child{margin-bottom:0}
+.phb-res-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+.phb-rnd{font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--navy);background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:2px 7px}
+.phb-date{font-size:11px;color:var(--muted)}
+.phb-side{display:flex;align-items:center;gap:9px;padding:3px 0;font-size:13px;font-weight:600;color:var(--navy)}
+.phb-side.dim{opacity:.5}
+.phb-side.win .phb-sn{color:var(--navy)}
+.phb-sn{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phb-won{font-size:9px;font-weight:800;letter-spacing:.5px;color:#fff;background:#16a34a;border-radius:4px;padding:2px 6px;flex-shrink:0}
+.phb-res-tie{font-size:11px;color:var(--muted);margin-top:4px}
+/* fixtures rows */
+.phb-fx{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)}
+.phb-fx:last-child{border-bottom:0}
+.phb-fx-dt{flex:0 0 42px;width:42px;height:42px;border-radius:10px;background:linear-gradient(145deg,var(--navy),var(--navy3));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.phb-fx-d{font-family:'Bebas Neue',sans-serif;font-size:19px}
+.phb-fx-m{font-size:8px;text-transform:uppercase;letter-spacing:.5px;color:rgba(255,255,255,.65)}
+.phb-fx-main{flex:1;min-width:0}
+.phb-fx-teams{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--navy)}
+.phb-fx-tn{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38%}
+.phb-v{color:var(--muted);font-size:11px;font-weight:700;flex-shrink:0}
+.phb-fx-meta{font-size:11px;color:var(--muted);margin-top:3px}
+@media(max-width:980px){.phb-grid{grid-template-columns:1fr}.phb-ladder{border-right:0;border-bottom:1px solid var(--border)}}
+@media(max-width:1150px) and (min-width:981px){.phb-c-form{display:none}}
+@media(max-width:560px){.phb-c-form{display:none}.phb-bar{padding:12px}.phb-ladder,.phb-rail .phb-col{padding:14px}}
 .rep-name{font-weight:700;font-size:15px;color:var(--navy);display:flex;align-items:center;gap:6px}
 .rep-cat{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
 .rep-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
