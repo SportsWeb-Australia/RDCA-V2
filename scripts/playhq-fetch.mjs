@@ -16,7 +16,12 @@
 import fs from "fs";
 
 const KEY = process.env.PLAYHQ_API_KEY;
-if (!KEY) { console.error("PLAYHQ_API_KEY not set"); process.exit(1); }
+if (!KEY) {
+  // Skip cleanly (exit 0) so the scheduled Action doesn't fail/email when the
+  // PLAYHQ_API_KEY repo secret hasn't been added yet. Add the secret to enable.
+  console.error("PLAYHQ_API_KEY not set — skipping refresh (add the repo secret to enable it).");
+  process.exit(0);
+}
 
 const HOST = "https://api.playhq.com";
 const ORG = "710bdac9-b1a4-4da6-8132-68b528d1a2dd";
