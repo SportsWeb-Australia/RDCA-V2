@@ -3261,20 +3261,6 @@ window.RDCA_DATA = {
       "real": true
     },
     {
-      "name": "SEDA College",
-      "tier": "Education Partner",
-      "url": "https://seda.vic.edu.au",
-      "logo": "https://res.cloudinary.com/dozdbhjhs/image/upload/v1780760760/seda-vic-logo_cxgyvs.svg",
-      "grad": [
-        "#081828",
-        "#0d2a4a"
-      ],
-      "logoMode": "invert",
-      "cta": "Learn More",
-      "blurb": "Sport & Education Development Australia — combining VCE studies with elite sporting pathways for the next generation of cricketers.",
-      "real": true
-    },
-    {
       "name": "Grant Professionals",
       "tier": "Proud Sponsor",
       "url": "https://www.grantprofessionals.com.au/",
