@@ -46,10 +46,10 @@
 
 <header class="page-hero">
   <div class="page-hero-inner">
-    <div class="crumb"><a href="/">Home</a> <i class="ti ti-chevron-right"></i> <a href="/competition">Competitions</a> <i class="ti ti-chevron-right"></i> Community Big Bash</div>
-    <div class="eyebrow">Competitions</div>
-    <h1>Community Big Bash</h1>
-    <p class="page-sub">The RDCA's fast, social Twenty20 competition &mdash; a short-format, community-first version of the game built for fun, families and getting more people onto the field.</p>
+    <div class="crumb"><a href="/">Home</a> <i class="ti ti-chevron-right"></i> <a href="/competition">Competitions</a> <i class="ti ti-chevron-right"></i> T20 Big Bash</div>
+    <div class="eyebrow">Twenty20</div>
+    <h1>RDCA T20 Big Bash '26</h1>
+    <p class="page-sub">The RDCA's fast, social Twenty20 competition &mdash; live ladder, fixtures and results, plus the competition's leading run-scorers, wicket-takers and fielders.</p>
   </div>
 </header>
 
@@ -78,14 +78,18 @@
   </div>
 
   <div class="section-block">
-    <div class="bb-cta">
-      <span class="bb-flame" style="background:#fff;padding:8px"><img src="/community-bbt20-logo.png" alt="Community BBT20" style="width:100%;height:100%;object-fit:contain"></span>
-      <div class="bb-cta-tx">
-        <div class="bb-cta-eyebrow">Fixtures · Results · Registration</div>
-        <div class="bb-cta-hed">Everything Big Bash lives on the RDCA T20 site</div>
-        <div class="bb-cta-sub">Jump across to view the draw, follow scores and register your team or yourself for the next Community Big Bash.</div>
-      </div>
-      <a class="btn btn-red btn-lg" style="flex-shrink:0" href="#" target="_blank" rel="noopener" data-t20-link><i class="ti ti-external-link"></i> Visit the RDCA T20 site</a>
+    <div class="block-hed"><i class="ti ti-table hub-hed-ic"></i> Ladder, Results &amp; Fixtures</div>
+    <div class="block-sub">Live from PlayHQ. Pick the <strong>RDCA T20 Big Bash '26</strong> grade in the selector below.</div>
+    <div id="bb-hub"><p class="muted"><i class="ti ti-loader"></i> Loading the T20 Big Bash ladder, results and fixtures&hellip;</p></div>
+  </div>
+
+  <div class="section-block">
+    <div class="block-hed"><i class="ti ti-trophy hub-hed-ic"></i> Competition Leaders</div>
+    <div class="block-sub">Leading run-scorers, wicket-takers and fielding dismissals (catches, stumpings and run-outs) across the T20 Big Bash &mdash; live from PlayHQ once matches are played.</div>
+    <div class="phb-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+      <div class="phb-col"><div class="phb-ch"><i class="ti ti-trending-up"></i> Top Run Scorers</div><p class="phb-empty"><i class="ti ti-ball-baseball"></i> Published once the season is under way.</p></div>
+      <div class="phb-col"><div class="phb-ch"><i class="ti ti-wind"></i> Leading Wicket Takers</div><p class="phb-empty"><i class="ti ti-ball-baseball"></i> Published once the season is under way.</p></div>
+      <div class="phb-col"><div class="phb-ch"><i class="ti ti-hand-stop"></i> Dismissals &mdash; Catches / Stumpings / Run-outs</div><p class="phb-empty"><i class="ti ti-ball-baseball"></i> Published once the season is under way.</p></div>
     </div>
   </div>
 
@@ -101,6 +105,13 @@
 </main>
 <div data-rdca="sponsor-carousel"></div>
 <div data-rdca="footer"></div>
+<script src="/playhq.js"></script>
+<script src="/site-data.js"></script>
+<script src="/rdca-render.js"></script>
+<script>
+  window.RDCA_PLAYHQ_API = "https://rdca-stats.carson-cfd.workers.dev/playhq";
+  RDCA.render.playhqHub("#bb-hub");
+</script>
 <script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
         data-club-id="973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60"
         data-source="onboarding"
