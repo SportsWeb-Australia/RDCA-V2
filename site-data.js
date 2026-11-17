@@ -1881,7 +1881,7 @@ window.RDCA_DATA = {
       "icon": "ti-medal",
       "blurb": "Veterans cricket for older players who want to keep enjoying the game.",
       "playhqKey": "veterans",
-      "aboutText": "<p>RDCA Veterans cricket is an Over-40s Big Bash &mdash; a relaxed Twenty20 format for players who want to keep enjoying the game in their later cricketing years. Teams nominate each season, and players of all backgrounds are welcome.</p><p style='margin-top:10px'><em>The Veterans&rsquo; motto: &ldquo;Strive to do your best, never give up and treat people with respect.&rdquo;</em></p><p style='margin-top:10px'>To get involved, speak to your club or call Peter Chamings on <a href='tel:+61419693097'>0419 693 097</a>. Forms: <a href='/docs/Team-Nomination-Form.docx' target='_blank' rel='noopener'>Team Nomination (2026)</a> &middot; <a href='/docs/Big-Bash-Over-40s-T20-Rules-2026.docx' target='_blank' rel='noopener'>Big Bash T20 Rules (2026)</a>.</p>",
+      "aboutText": "<p>RDCA Veterans cricket is an Over-40s Big Bash &mdash; a relaxed Twenty20 format for players who want to keep enjoying the game in their later cricketing years. Teams nominate each season, and players of all backgrounds are welcome.</p><p style='margin-top:10px'><em>The Veterans&rsquo; motto: &ldquo;Strive to do your best, never give up and treat people with respect.&rdquo;</em></p><p style='margin-top:10px'>To get involved, speak to your club or call Peter Chamings on <a href='tel:+61419693097'>0419 693 097</a>. Forms: <a href='/docs/Team-Nomination-Form.pdf' target='_blank' rel='noopener'>Team Nomination (2026)</a> &middot; <a href='/docs/Big-Bash-Over-40s-T20-Rules-2026.pdf' target='_blank' rel='noopener'>Big Bash T20 Rules (2026)</a>.</p>",
       "conduct": {
         "summary": "<p>Veterans cricket is played in great spirit, true to the section&rsquo;s motto. The Code of Conduct sets out the behaviour expected of all participants &mdash; respect for opponents and officials, fair play, and no abuse, intimidation or discrimination.</p>",
         "url": "/documents"
@@ -2478,7 +2478,7 @@ window.RDCA_DATA = {
     {
       "title": "RDCA Annual Report 2024/25",
       "cat": "Annual Reports",
-      "url": "/docs/RDCA-Annual-Report-2024-25.docx",
+      "url": "/docs/RDCA-Annual-Report-2024-25.pdf",
       "type": "docx",
       "icon": "ti-report",
       "real": true
@@ -2545,7 +2545,7 @@ window.RDCA_DATA = {
       "title": "Big Bash (Over 40s T20) Rules 2026",
       "cat": "Veterans",
       "sec": "veteran",
-      "url": "/docs/Big-Bash-Over-40s-T20-Rules-2026.docx",
+      "url": "/docs/Big-Bash-Over-40s-T20-Rules-2026.pdf",
       "type": "doc",
       "icon": "ti-file-text",
       "real": true
@@ -2609,7 +2609,7 @@ window.RDCA_DATA = {
     {
       "title": "Team Nomination Form",
       "cat": "Veterans",
-      "url": "/docs/Team-Nomination-Form.docx",
+      "url": "/docs/Team-Nomination-Form.pdf",
       "type": "doc",
       "icon": "ti-file-text",
       "real": true
@@ -2625,7 +2625,7 @@ window.RDCA_DATA = {
     {
       "title": "Club Questionaire",
       "cat": "Veterans",
-      "url": "/docs/Club-Questionaire.doc",
+      "url": "/docs/Club-Questionaire.pdf",
       "type": "doc",
       "icon": "ti-file-text",
       "real": true
@@ -2633,8 +2633,8 @@ window.RDCA_DATA = {
     {
       "title": "Cricket Ball Order Form 2024/25",
       "cat": "Veterans",
-      "url": "/docs/Cricket-Ball-Order-Form-2024-25.docx",
-      "type": "doc",
+      "url": "/docs/Cricket-Ball-Order-Form-2024-25.pdf",
+      "type": "pdf",
       "icon": "ti-file-text",
       "real": true
     },
@@ -2725,7 +2725,7 @@ window.RDCA_DATA = {
     {
       "title": "Cricket Ball Order Form 2025/26",
       "cat": "Women's",
-      "url": "/docs/Cricket-Ball-Order-Form-2025-26.docx",
+      "url": "/docs/Cricket-Ball-Order-Form-2025-26.pdf",
       "type": "doc",
       "icon": "ti-file-text",
       "real": true
@@ -36383,7 +36383,7 @@ window.RDCA_DATA = {
         "season": "2014/15",
         "name": "Greg Mitchell",
         "assoc": "YVCA",
-        "doc": "/docs/Greg-Mitchell-2014-15.docx",
+        "doc": "/docs/Greg-Mitchell-2014-15.pdf",
         "real": true
       },
       {
