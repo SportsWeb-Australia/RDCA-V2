@@ -41,18 +41,16 @@
 <header class="page-hero">
   <div class="page-hero-inner wide">
     <div class="crumb"><a href="/">Home</a> <i class="ti ti-chevron-right"></i> Match Centre</div>
-    <div class="eyebrow">Live &middot; Today</div>
-    <h1>Live Match Centre</h1>
-    <p class="page-sub">Every RDCA game in one place — live scores, partnerships, last wickets and run chases across all grades. Tap any match for the full PlayHQ Match Centre.</p>
+    <div class="eyebrow">Fixtures &middot; Results &middot; Ladders</div>
+    <h1>Match Centre</h1>
+    <p class="page-sub">Every RDCA grade in one place — live from PlayHQ. Pick a competition and grade for the ladder, recent results and upcoming fixtures across Seniors, Juniors, Women's and the T20 Big Bash.</p>
   </div>
 </header>
 
 <div class="page-wrap wide">
-  <div class="hub-note">
-    <i class="ti ti-info-circle"></i>
-    <span id="mc-note"></span>
+  <div id="mc-mount">
+    <p class="muted"><i class="ti ti-loader"></i> Loading the latest ladders, results and fixtures&hellip;</p>
   </div>
-  <div class="mc-divisions" id="mc-mount"></div>
 </div>
 
 <div data-rdca="ad-banner"></div>
@@ -64,9 +62,9 @@
 <script src="/site-data.js"></script>
 <script src="/rdca-render.js"></script>
 <script>
-  document.getElementById("mc-note").textContent =
-    (window.RDCA_DATA && window.RDCA_DATA.matchCentreNote) || "";
-  RDCA.render.matchCentre("#mc-mount");
+  // Live PlayHQ data from the rdca-stats Worker (falls back to /data/playhq.json).
+  window.RDCA_PLAYHQ_API = "https://rdca-stats.carson-cfd.workers.dev/playhq";
+  RDCA.render.playhqHub("#mc-mount");
 </script>
 <script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
         data-club-id="973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60"
