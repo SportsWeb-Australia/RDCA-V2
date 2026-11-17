@@ -1028,6 +1028,44 @@
         .catch(function () { /* keep fallback content */ });
     },
 
+    // ---- T20 Big Bash player leaderboards (runs / wickets / dismissals) ----
+    bigBashLeaders: function (sel) {
+      var mount = (typeof sel === "string") ? document.querySelector(sel) : sel;
+      if (!mount || typeof fetch !== "function") return;
+      var API = (typeof window !== "undefined" && window.RDCA_PLAYHQ_API) || null;
+      function getStatic() { return fetch("/data/playhq.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }); }
+      var clubs = (D().clubs) || [];
+      function slug(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
+      var CREST = {};
+      clubs.forEach(function (c) { if (!c || !c.logo) return; CREST[slug(c.key)] = c.logo; CREST[slug(String(c.name || "").replace(/cc\s*$/i, ""))] = c.logo; });
+      function crestFor(team) { var t = String(team || "").split(/\s+/).filter(Boolean); while (t.length) { var k = slug(t.join("")); if (CREST[k]) return CREST[k]; t.pop(); } return null; }
+      function mono(team) { var w = String(team || "").replace(/\b(t20|mens|senior|men|cc)\b/ig, "").trim().split(/\s+/).filter(Boolean); return ((w[0] || "").charAt(0) + ((w[1] || "").charAt(0) || "")).toUpperCase() || "?"; }
+      function crest(team) { var l = crestFor(team); return l ? '<span class="phb-crest"><img src="' + esc(l) + '" alt="" loading="lazy"></span>' : '<span class="phb-crest phb-mono">' + esc(mono(team)) + '</span>'; }
+      function rows(list, valFn, subFn) {
+        return (list && list.length) ? list.map(function (p, i) {
+          return '<div class="bbl-row"><span class="bbl-rk">' + (i + 1) + '</span>' + crest(p.team) +
+            '<div class="bbl-id"><div class="bbl-nm">' + esc(p.name) + '</div><div class="bbl-tm">' + esc(p.team) + '</div></div>' +
+            '<div class="bbl-val"><b>' + valFn(p) + '</b><span>' + subFn(p) + '</span></div></div>';
+        }).join("") : '<p class="phb-empty"><i class="ti ti-ball-baseball"></i> Published once matches are played.</p>';
+      }
+      (API
+        ? fetch(API, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw 0; return r.json(); }).catch(getStatic)
+        : getStatic())
+        .then(function (data) {
+          var bb = data && data.bigBash; if (!bb) return;
+          mount.innerHTML =
+            '<div class="bbl-grid">' +
+              '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-trending-up"></i> Top Run Scorers</div>' +
+                rows(bb.runs, function (p) { return p.runs; }, function (p) { return p.balls + " balls"; }) + '</div>' +
+              '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-wind"></i> Leading Wicket Takers</div>' +
+                rows(bb.wickets, function (p) { return p.wickets; }, function (p) { return p.overs + " ov"; }) + '</div>' +
+              '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-hand-stop"></i> Dismissals</div>' +
+                rows(bb.dismissals, function (p) { return p.total; }, function (p) { return p.catches + 'c &middot; ' + p.stumpings + 'st &middot; ' + p.runouts + 'ro'; }) + '</div>' +
+            '</div>';
+        })
+        .catch(function () { /* keep placeholder */ });
+    },
+
     // ---- Team selections: featured latest + all grouped by division ----
     teamSelections: function (sel) {
       var list = (D().teamSelections || []).slice();

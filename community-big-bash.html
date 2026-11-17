@@ -85,12 +85,8 @@
 
   <div class="section-block">
     <div class="block-hed"><i class="ti ti-trophy hub-hed-ic"></i> Competition Leaders</div>
-    <div class="block-sub">Leading run-scorers, wicket-takers and fielding dismissals (catches, stumpings and run-outs) across the T20 Big Bash &mdash; live from PlayHQ once matches are played.</div>
-    <div class="phb-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-      <div class="phb-col"><div class="phb-ch"><i class="ti ti-trending-up"></i> Top Run Scorers</div><p class="phb-empty"><i class="ti ti-ball-baseball"></i> Published once the season is under way.</p></div>
-      <div class="phb-col"><div class="phb-ch"><i class="ti ti-wind"></i> Leading Wicket Takers</div><p class="phb-empty"><i class="ti ti-ball-baseball"></i> Published once the season is under way.</p></div>
-      <div class="phb-col"><div class="phb-ch"><i class="ti ti-hand-stop"></i> Dismissals &mdash; Catches / Stumpings / Run-outs</div><p class="phb-empty"><i class="ti ti-ball-baseball"></i> Published once the season is under way.</p></div>
-    </div>
+    <div class="block-sub">Leading run-scorers, wicket-takers and fielding dismissals (catches, stumpings and run-outs) across the T20 Big Bash &mdash; live from PlayHQ.</div>
+    <div id="bb-leaders"><p class="muted"><i class="ti ti-loader"></i> Loading competition leaders&hellip;</p></div>
   </div>
 
   <div class="section-block cs-block">
@@ -111,6 +107,7 @@
 <script>
   window.RDCA_PLAYHQ_API = "https://rdca-stats.carson-cfd.workers.dev/playhq";
   RDCA.render.playhqHub("#bb-hub");
+  RDCA.render.bigBashLeaders("#bb-leaders");
 </script>
 <script src="https://sportsweb-one-v1.vercel.app/sitepulse-widget.js"
         data-club-id="973aaf1c-dc2f-40f5-a17b-3f8c1e94ec60"
