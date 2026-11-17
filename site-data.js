@@ -37349,7 +37349,7 @@ window.RDCA_DATA = {
           ]
         },
         {
-          "name": "Lettered Grades (Shields)",
+          "name": "Lettered Grades",
           "items": [
             {
               "grade": "A Grade",
