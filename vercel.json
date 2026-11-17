@@ -67,7 +67,17 @@
     },
     {
       "source": "/girls-comp",
-      "destination": "/junior-girls",
+      "destination": "/juniors",
+      "permanent": true
+    },
+    {
+      "source": "/junior-boys",
+      "destination": "/juniors",
+      "permanent": true
+    },
+    {
+      "source": "/junior-girls",
+      "destination": "/juniors",
       "permanent": true
     },
     {
@@ -97,7 +107,7 @@
     },
     {
       "source": "/juniors-all-abilities-comp",
-      "destination": "/junior-boys",
+      "destination": "/juniors",
       "permanent": true
     },
     {

@@ -17,13 +17,15 @@
 /copy-of-rep-team-girls            /rep-selection             301
 /copy-of-rep-team-u12-boys         /rep-selection             301
 /copy-of-rep-team-u16-girls        /rep-selection             301
-/girls-comp                        /junior-girls              301
+/girls-comp                        /juniors                   301
+/junior-boys                       /juniors                   301
+/junior-girls                      /juniors                   301
 /honours-life-members              /honours                   301
 /info                              /documents                 301
 /junior-committee                  /committees                301
 /junior-rep-girls                  /rep-selection             301
 /junior-state-rep-players          /rep-cricket               301
-/juniors-all-abilities-comp        /junior-boys               301
+/juniors-all-abilities-comp        /juniors                   301
 /juniors-annual-reports            /documents                 301
 /juniors-code-of-conduct           /documents                 301
 /juniors-documents                 /documents                 301
