@@ -1007,6 +1007,38 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 function fxShow(g,el){document.querySelectorAll('.fx-pill').forEach(function(p){p.classList.remove('active');});el.classList.add('active');document.querySelectorAll('.fx-group').forEach(function(x){x.classList.remove('active');});var grp=document.getElementById('fx-'+g);if(grp)grp.classList.add('active');try{localStorage.setItem('rdcaFxDiv',g);}catch(e){}}
 document.addEventListener('DOMContentLoaded',function(){try{var g=localStorage.getItem('rdcaFxDiv');if(!g)return;var ps=document.querySelectorAll('.fx-pill');for(var k=0;k<ps.length;k++){if(ps[k].getAttribute('data-fx')===g){fxShow(g,ps[k]);break;}}}catch(e){}});
 function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(function(t){t.classList.remove('active');});el.classList.add('active');document.querySelectorAll('.comp-pane').forEach(function(p){p.classList.remove('active');});var pane=document.getElementById('cp-'+name);if(pane)pane.classList.add('active');}
+/* Competition Hub — live from the PlayHQ feed (Worker -> static fallback). Overwrites
+   the sample ladder/fixtures/results on success; leaves them if the feed is down. */
+(function(){
+  var LOGOS=["ainsliepark","bayswater","boronia","chirnsidepark","coldstream","croydon","croydonnorth","croydonranges","eastfield","eastringwood","healesville","heatherdale","heathwood","hoddlescreek","kilsyth","launchingplace","lilydale","lusatiapark","montrose","mooroolbark","mtevelyn","northringwood","norwood","powelltown","ringwood","seville","southcroydon","southwarrandyte","standrews","templeton","vermont","wandin","wantirna","wantirnasouth","warrandyte","warranwood","wongapark","wooriyallock","yarraglen","yarrajunction"];
+  var LSET={};LOGOS.forEach(function(s){LSET[s]=1;});
+  function slug(s){return String(s||"").toLowerCase().replace(/[^a-z0-9]/g,"");}
+  function crest(team){var t=String(team||"").split(/\s+/).filter(Boolean);while(t.length){var k=slug(t.join(""));if(LSET[k])return "/logos/"+k+".webp";t.pop();}return null;}
+  function mono(team){var w=String(team||"").replace(/\b\d*x\.?i+\b/ig,"").trim().split(/\s+/).filter(Boolean);return ((w[0]||"").charAt(0)+((w[1]||"").charAt(0)||"")).toUpperCase()||"?";}
+  function cc(team,s){var l=crest(team);return l?'<span style="width:'+s+'px;height:'+s+'px;border-radius:7px;background:#fff;border:1px solid var(--border);display:inline-flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0"><img src="'+l+'" style="width:'+(s-4)+'px;height:'+(s-4)+'px;object-fit:contain" alt=""></span>':'<span style="width:'+s+'px;height:'+s+'px;border-radius:7px;background:#eef2f8;color:var(--navy3,#1e3d6b);font-size:10px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">'+mono(team)+'</span>';}
+  function n(x){return x==null?"&ndash;":String(x);}
+  function st(){return fetch("/data/playhq.json",{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;});}
+  (fetch("https://rdca-stats.carson-cfd.workers.dev/playhq",{cache:"no-cache"}).then(function(r){if(!r.ok)throw 0;return r.json();}).catch(st)).then(function(data){
+    if(!data||!data.comps)return;
+    var useCur=Date.now()>=Date.parse(data.cutover);
+    function seasonOf(c){return (useCur?c.current:c.last)||c.last||c.current||{grades:[]};}
+    var sen=data.comps.filter(function(c){return /senior/i.test(c.key||c.name||"");})[0]||data.comps[0];
+    var g=((seasonOf(sen).grades)||[])[0]; if(!g)return;
+    function formFor(team){var seq=[],res=g.results||[];for(var i=0;i<res.length&&seq.length<5;i++){var r=res[i];if(r.home!==team&&r.away!==team)continue;seq.push(!r.winner?"D":(r.winner===team?"W":"L"));}return seq.reverse();}
+    var lad=document.getElementById("cp-ladder");
+    if(lad&&g.ladder&&g.ladder.length){
+      lad.innerHTML='<div class="ladder-wrap"><table class="lt"><thead><tr><th style="width:28px"></th><th style="width:34px"></th><th class="tl">Club</th><th>P</th><th>W</th><th>L</th><th>Form</th><th>Pts</th><th>%</th></tr></thead><tbody>'+
+        g.ladder.slice(0,8).map(function(r){
+          var form=formFor(r.team).map(function(o){return '<span class="fp fp'+o+'">'+o+'</span>';}).join("");
+          return '<tr'+(r.pos===1?' class="promo"':'')+'><td><div class="'+(r.pos===1?"lp-top":"lp-norm")+'">'+r.pos+'</div></td><td>'+cc(r.team,30)+'</td><td class="tl"><span style="font-weight:'+(r.pos<=2?700:500)+'">'+r.team+'</span></td><td>'+n(r.p)+'</td><td><b>'+n(r.w)+'</b></td><td class="dm">'+n(r.l)+'</td><td><div class="frow">'+form+'</div></td><td><span class="pts"'+(r.pos===1?' style="color:var(--red)"':'')+'>'+n(r.pts)+'</span></td><td class="dm">'+(r.pct==null?"&ndash;":r.pct)+'</td></tr>';
+        }).join("")+'</tbody></table></div>';
+    }
+    var fx=document.getElementById("cp-fixtures"),fl=(g.fixtures||[]).slice(0,5);
+    if(fx)fx.innerHTML=fl.length?fl.map(function(r){var d=r.date?new Date(r.date):null,ok=d&&!isNaN(d);return '<div class="fxr"><div class="fxd" style="width:46px;height:46px"><div style="font-family:\'Bebas Neue\',sans-serif;font-size:22px;color:#fff;line-height:1">'+(ok?d.getDate():"")+'</div><div style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase">'+(ok?["SUN","MON","TUE","WED","THU","FRI","SAT"][d.getDay()]:"")+'</div></div><div class="fxi"><div class="fxt">'+r.home+' vs '+r.away+'</div><div class="fxm"><i class="ti ti-trophy" style="font-size:10px"></i>'+g.grade+' &middot; '+(r.round||"")+'</div></div><a href="/competition" class="btn btn-navy btn-sm" style="flex-shrink:0">Details</a></div>';}).join(""):'<p class="muted" style="padding:14px">No upcoming fixtures.</p>';
+    var rs=document.getElementById("cp-results"),rl=(g.results||[]).slice(0,4);
+    if(rs)rs.innerHTML=rl.length?rl.map(function(r){return '<div class="rrow"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span class="badge badge-gray">'+(r.round||"")+'</span>'+(r.winner?'<span style="font-size:11px;font-weight:700;color:#16a34a">'+r.winner+' won</span>':'')+'</div><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:2px 0'+(r.winner&&r.winner!==r.home?';opacity:.55':'')+'">'+cc(r.home,24)+r.home+'</div><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:2px 0'+(r.winner&&r.winner!==r.away?';opacity:.55':'')+'">'+cc(r.away,24)+r.away+'</div></div>';}).join(""):'<p class="muted" style="padding:14px">No results yet.</p>';
+  }).catch(function(){});
+})();
 /* Live weather chip (Ringwood) — Open-Meteo, no key */
 (function(){try{var host=document.querySelector('.hero-badge-row');if(!host)return;
 function ic(c){if(c===0)return['ti-sun','Clear'];if(c<=3)return['ti-cloud','Partly cloudy'];if(c===45||c===48)return['ti-cloud-fog','Fog'];if(c>=51&&c<=67)return['ti-cloud-rain','Rain'];if(c>=71&&c<=77)return['ti-snowflake','Snow'];if(c>=80&&c<=82)return['ti-cloud-rain','Showers'];if(c>=95)return['ti-cloud-storm','Storms'];return['ti-cloud','Cloudy'];}
