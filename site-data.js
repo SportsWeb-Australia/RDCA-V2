@@ -37367,71 +37367,98 @@ window.RDCA_DATA = {
               "grade": "L Grade"
             }
           ]
+        },
+        {
+          "name": "T20",
+          "items": [
+            {
+              "grade": "RDCA T20 Big Bash '26"
+            }
+          ]
         }
       ]
     },
     "juniors": {
       "label": "RDCA Juniors",
-      "intro": "Age-group cricket across the region, from the entry-level Woolworths Cricket Blast through to Under-18s.",
+      "intro": "Age-group cricket across the region — Friday-night Under 12s and Mini Bash, Saturday Under 14 & Under 16, Wednesday T20 and the Sunday girls' competition.",
       "groups": [
         {
-          "name": "Age Groups",
+          "name": "Under 12 — Friday",
           "items": [
-            {
-              "grade": "Under 18"
-            },
-            {
-              "grade": "Under 16",
-              "shield": "Stage 3"
-            },
-            {
-              "grade": "Under 14",
-              "shield": "Stage 2 / Stage 3"
-            },
-            {
-              "grade": "Under 12",
-              "shield": "Stage 1 / Stage 2"
-            },
-            {
-              "grade": "Under 10",
-              "shield": "Stage 1"
-            }
+            { "grade": "U12 - 1", "shield": "Timothy Court Shield" },
+            { "grade": "U12 - 2", "shield": "Roy Baldwin Shield" },
+            { "grade": "U12 - 3", "shield": "Noel Jones" },
+            { "grade": "U12 - 4", "shield": "Noel Jones" },
+            { "grade": "U12 - 5", "shield": "Noel Jones" },
+            { "grade": "U12 - 6", "shield": "Noel Jones" },
+            { "grade": "U12 - 7", "shield": "Noel Jones" },
+            { "grade": "U12 - 8", "shield": "Noel Jones" },
+            { "grade": "U12 - 9", "shield": "Noel Jones" }
           ]
         },
         {
-          "name": "Entry-level",
+          "name": "Under 14 — Saturday",
           "items": [
-            {
-              "grade": "Woolworths Cricket Blast",
-              "shield": "Junior & Master Blasters"
-            }
+            { "grade": "U14 - 1", "shield": "Jeff Luscombe Shield" },
+            { "grade": "U14 - 2", "shield": "Alan L Reidy Shield" },
+            { "grade": "U14 - 3", "shield": "Saxon Sports" },
+            { "grade": "U14 - 4", "shield": "Saxon Sports" },
+            { "grade": "U14 - 5", "shield": "Saxon Sports" },
+            { "grade": "U14 - 6", "shield": "Saxon Sports" }
+          ]
+        },
+        {
+          "name": "Under 16 — Saturday",
+          "items": [
+            { "grade": "U16 - 1", "shield": "Bill Wilkins Shield" },
+            { "grade": "U16 - 2", "shield": "John Springett Shield" },
+            { "grade": "U16 - 3", "shield": "Saxon Sports" },
+            { "grade": "U16 - 4", "shield": "Saxon Sports" },
+            { "grade": "U16 - 5", "shield": "Saxon Sports" }
+          ]
+        },
+        {
+          "name": "Mini Bash — Under 10 (Friday)",
+          "items": [
+            { "grade": "Mini Bash - Knox", "shield": "Noel Jones" },
+            { "grade": "Mini Bash - Maroondah/Maningham-1", "shield": "Noel Jones" },
+            { "grade": "Mini Bash - Maroondah/Manningham-2", "shield": "Noel Jones" },
+            { "grade": "Mini Bash - Maroondah/Yarra Valley", "shield": "Noel Jones" },
+            { "grade": "Mini Bash - Yarra Valley -1", "shield": "Noel Jones" },
+            { "grade": "Mini Bash - Yarra Valley -2", "shield": "Noel Jones" }
+          ]
+        },
+        {
+          "name": "T20 — Wednesday",
+          "items": [
+            { "grade": "U14 T20" },
+            { "grade": "U18 T20" }
+          ]
+        },
+        {
+          "name": "Girls — Sunday",
+          "items": [
+            { "grade": "Girls Stage 1 - Spirit", "shield": "OTLR" },
+            { "grade": "Girls Stage 1 - Stars", "shield": "OTLR" },
+            { "grade": "Girls Stage 2 - Spirit", "shield": "OTLR" },
+            { "grade": "Girls Stage 2 - Stars", "shield": "OTLR" },
+            { "grade": "Girls Stage 3", "shield": "Mandy Dolman Shield" }
           ]
         }
       ]
     },
     "womens": {
-      "label": "RDCA Women's & Girls",
-      "intro": "Dedicated female competitions across district grades, played in the Women's East competition.",
+      "label": "RDCA Women's",
+      "intro": "The RDCA women's competition, played in the Women's East competition across A to E grades.",
       "groups": [
         {
-          "name": "Women's",
+          "name": "Women's East",
           "items": [
-            {
-              "grade": "Women's Open / Seniors",
-              "shield": "Women's East"
-            }
-          ]
-        },
-        {
-          "name": "Girls",
-          "items": [
-            {
-              "grade": "Girls Under 16"
-            },
-            {
-              "grade": "Girls Under 13",
-              "shield": "Stage 1 & 2"
-            }
+            { "grade": "Women's A Grade" },
+            { "grade": "Women's B Grade" },
+            { "grade": "Women's C Grade" },
+            { "grade": "Women's D Grade" },
+            { "grade": "Women's E Grade" }
           ]
         }
       ]
