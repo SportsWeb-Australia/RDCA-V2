@@ -93,6 +93,7 @@
           <a href="/rep-cricket">Rep Cricket</a>
         </div>
       </div>
+      <a class="nav-link" href="/juniors">Juniors</a>
       <a class="nav-link" href="/clubs"><img src="/rdca-logo.png" class="nav-link-logo" alt="">Clubs</a>
       <a class="nav-link" href="/news">News</a>
       <a class="nav-link" href="/honours">Honours</a>
