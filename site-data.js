@@ -1652,12 +1652,22 @@ window.RDCA_DATA = {
         "url": "/documents",
         "real": true
       },
+      "docList": [
+        { "title": "Senior Rules 2026-27", "url": "/docs/Senior-Rules-2026-27.pdf", "icon": "ti-file-text", "real": true },
+        { "title": "Code of Conduct", "url": "/docs/RDCA-Code-of-Conduct.pdf", "icon": "ti-clipboard-check", "real": true }
+      ],
       "codeOfConduct": {
         "label": "Senior Code of Conduct",
         "url": "/documents",
         "real": true
       },
       "links": [
+        {
+          "label": "All Documents, Policies & Forms",
+          "url": "/documents",
+          "internal": true,
+          "real": true
+        },
         {
           "label": "Suspended Players",
           "url": "/suspended-players",
@@ -1681,7 +1691,19 @@ window.RDCA_DATA = {
         "label": "Women's Documents",
         "url": "/documents",
         "real": true
-      }
+      },
+      "docList": [
+        { "title": "Women's East Rules 2025/26", "url": "/docs/Womens-East-Rules-2025-26.pdf", "icon": "ti-file-text", "real": true },
+        { "title": "Code of Conduct", "url": "/docs/Code-of-Conduct-Players-2025-26.pdf", "icon": "ti-clipboard-check", "real": true }
+      ],
+      "links": [
+        {
+          "label": "All Documents, Policies & Forms",
+          "url": "/documents",
+          "internal": true,
+          "real": true
+        }
+      ]
     },
     "juniors": {
       "title": "Juniors",
@@ -1827,12 +1849,22 @@ window.RDCA_DATA = {
         "url": "/documents",
         "real": true
       },
+      "docList": [
+        { "title": "Senior Rules 2026-27", "url": "/docs/Senior-Rules-2026-27.pdf", "icon": "ti-file-text", "real": true },
+        { "title": "Code of Conduct", "url": "/docs/RDCA-Code-of-Conduct.pdf", "icon": "ti-clipboard-check", "real": true }
+      ],
       "codeOfConduct": {
         "label": "Senior Code of Conduct",
         "url": "/documents",
         "real": true
       },
       "links": [
+        {
+          "label": "All Documents, Policies & Forms",
+          "url": "/documents",
+          "internal": true,
+          "real": true
+        },
         {
           "label": "Suspended Players",
           "url": "/suspended-players",
