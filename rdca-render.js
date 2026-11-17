@@ -100,14 +100,28 @@
                  '<div class="doc-mt">' + (doc.type === "pdf" ? "Download (PDF)" : "View") + '</div></div>' +
                  '<i class="ti ' + act + '"></i></a>';
       }
-      function slug(g){ return (g || "other").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
-      var order = [], groups = {};
-      docs.forEach(function (dc) { var c = dc.cat || "Documents"; if (!groups[c]) { groups[c] = []; order.push(c); } groups[c].push(dc); });
-      var tabs = '', panes = '';
-      order.forEach(function (g, idx) {
-        var sl = slug(g), act = idx === 0 ? ' active' : '';
-        tabs += '<button class="folder-tab' + act + '" type="button" data-fld="' + sl + '">' + esc(g) + '<span class="ft-n">' + groups[g].length + '</span></button>';
-        panes += '<div class="folder-pane' + act + '" id="fld-' + sl + '"><div class="doc-list">' + groups[g].map(row).join("") + '</div></div>';
+      // Grade sections + a General ("Association / All Grades") section for docs
+      // that apply to everyone. A document's section comes from its `sec` field
+      // (junior|senior|womens|veteran|general); anything untagged falls into
+      // General. Deduped by URL so shared docs appear once.
+      var SECTIONS = [
+        { key: "junior",  label: "Juniors" },
+        { key: "senior",  label: "Seniors" },
+        { key: "womens",  label: "Women's" },
+        { key: "veteran", label: "Veterans" },
+        { key: "general", label: "Association / All Grades" }
+      ];
+      var seen = {}, bySec = { junior: [], senior: [], womens: [], veteran: [], general: [] };
+      docs.forEach(function (dc) {
+        var u = dc.url || dc.title; if (seen[u]) return; seen[u] = 1;
+        (bySec[dc.sec] || bySec.general).push(dc);
+      });
+      var tabs = '', panes = '', firstActive = true;
+      SECTIONS.forEach(function (s) {
+        var list = bySec[s.key] || []; if (!list.length) return;
+        var act = firstActive ? ' active' : ''; firstActive = false;
+        tabs += '<button class="folder-tab' + act + '" type="button" data-fld="' + s.key + '">' + esc(s.label) + '<span class="ft-n">' + list.length + '</span></button>';
+        panes += '<div class="folder-pane' + act + '" id="fld-' + s.key + '"><div class="doc-list">' + list.map(row).join("") + '</div></div>';
       });
       var searchBar = '<div class="doc-search"><i class="ti ti-search"></i>'
         + '<input type="search" id="doc-q" placeholder="Search documents\u2026" aria-label="Search documents">'

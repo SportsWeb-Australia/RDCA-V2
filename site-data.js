@@ -2431,6 +2431,33 @@ window.RDCA_DATA = {
   },
   "documents": [
     {
+      "title": "Junior Code of Conduct",
+      "cat": "Juniors",
+      "sec": "junior",
+      "url": "/docs/RDCA-Code-of-Conduct.pdf",
+      "type": "pdf",
+      "icon": "ti-clipboard-check",
+      "real": true
+    },
+    {
+      "title": "Junior By-Laws & Playing Conditions",
+      "cat": "Juniors",
+      "sec": "junior",
+      "url": "/docs/RDCA-Junior-Documents-README.pdf",
+      "type": "pdf",
+      "icon": "ti-file-text",
+      "needsReview": true
+    },
+    {
+      "title": "Registration Form",
+      "cat": "Forms & Rules",
+      "sec": "general",
+      "url": "/docs/Registration-Form.pdf",
+      "type": "pdf",
+      "icon": "ti-file-text",
+      "real": true
+    },
+    {
       "title": "RDCA Annual Report 2024/25",
       "cat": "Annual Reports",
       "url": "/docs/RDCA-Annual-Report-2024-25.docx",
@@ -2465,6 +2492,7 @@ window.RDCA_DATA = {
     {
       "title": "Senior Rules 2026-27",
       "cat": "Seniors",
+      "sec": "senior",
       "url": "/docs/Senior-Rules-2026-27.pdf",
       "type": "pdf",
       "icon": "ti-file-text",
@@ -2489,6 +2517,7 @@ window.RDCA_DATA = {
     {
       "title": "Veterans Rules",
       "cat": "Veterans",
+      "sec": "veteran",
       "url": "/docs/Veterans-Rules.pdf",
       "type": "pdf",
       "icon": "ti-file-text",
@@ -2497,6 +2526,7 @@ window.RDCA_DATA = {
     {
       "title": "Big Bash (Over 40s T20) Rules 2026",
       "cat": "Veterans",
+      "sec": "veteran",
       "url": "/docs/Big-Bash-Over-40s-T20-Rules-2026.docx",
       "type": "doc",
       "icon": "ti-file-text",
@@ -2609,6 +2639,7 @@ window.RDCA_DATA = {
     {
       "title": "Women's East Rules 2025/26",
       "cat": "Women's",
+      "sec": "womens",
       "url": "/docs/Womens-East-Rules-2025-26.pdf",
       "type": "pdf",
       "icon": "ti-file-text",
@@ -2617,6 +2648,7 @@ window.RDCA_DATA = {
     {
       "title": "Discipline & Protests Framework 2025/26",
       "cat": "Women's",
+      "sec": "womens",
       "url": "/docs/Discipline-Protests-Framework-2025-26.pdf",
       "type": "pdf",
       "icon": "ti-file-text",
@@ -2625,6 +2657,7 @@ window.RDCA_DATA = {
     {
       "title": "Code of Conduct — Captains 2025/26",
       "cat": "Women's",
+      "sec": "womens",
       "url": "/docs/Code-of-Conduct-Captains-2025-26.pdf",
       "type": "pdf",
       "icon": "ti-file-text",
@@ -2633,6 +2666,7 @@ window.RDCA_DATA = {
     {
       "title": "Code of Conduct — Players 2025/26",
       "cat": "Women's",
+      "sec": "womens",
       "url": "/docs/Code-of-Conduct-Players-2025-26.pdf",
       "type": "pdf",
       "icon": "ti-file-text",
