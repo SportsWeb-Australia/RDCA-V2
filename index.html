@@ -87,6 +87,9 @@ img{display:block;max-width:100%}
 .ticker-pill{background:var(--red);padding:5px 18px;font-size:11px;font-weight:700;color:#fff;letter-spacing:.6px;text-transform:uppercase;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:6px;border-radius:0 20px 20px 0;margin-right:8px}
 .ticker-scroll{flex:1;overflow:hidden;white-space:nowrap}
 .ticker-track{display:inline-flex;animation:scrtick 100s linear infinite}
+.wx-chip{display:inline-flex;align-items:center;gap:5px;padding:3px 11px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);font-size:12px;font-weight:600;color:#fff;white-space:nowrap}
+.wx-chip i{font-size:14px;color:#ffd84d}
+.wx-chip .wx-loc{opacity:.65}
 .ticker-track:hover{animation-play-state:paused}
 @keyframes scrtick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .tk-it{display:inline-flex;align-items:center;gap:9px;padding:0 26px;border-right:1px solid rgba(255,255,255,.09);font-family:'Space Grotesk',sans-serif;font-size:12.5px;color:rgba(255,255,255,.72);white-space:nowrap}
@@ -1002,6 +1005,10 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 function fxShow(g,el){document.querySelectorAll('.fx-pill').forEach(function(p){p.classList.remove('active');});el.classList.add('active');document.querySelectorAll('.fx-group').forEach(function(x){x.classList.remove('active');});var grp=document.getElementById('fx-'+g);if(grp)grp.classList.add('active');try{localStorage.setItem('rdcaFxDiv',g);}catch(e){}}
 document.addEventListener('DOMContentLoaded',function(){try{var g=localStorage.getItem('rdcaFxDiv');if(!g)return;var ps=document.querySelectorAll('.fx-pill');for(var k=0;k<ps.length;k++){if(ps[k].getAttribute('data-fx')===g){fxShow(g,ps[k]);break;}}}catch(e){}});
 function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(function(t){t.classList.remove('active');});el.classList.add('active');document.querySelectorAll('.comp-pane').forEach(function(p){p.classList.remove('active');});var pane=document.getElementById('cp-'+name);if(pane)pane.classList.add('active');}
+/* Live weather chip (Ringwood) — Open-Meteo, no key */
+(function(){try{var host=document.querySelector('.hero-badge-row');if(!host)return;
+function ic(c){if(c===0)return['ti-sun','Clear'];if(c<=3)return['ti-cloud','Partly cloudy'];if(c===45||c===48)return['ti-cloud-fog','Fog'];if(c>=51&&c<=67)return['ti-cloud-rain','Rain'];if(c>=71&&c<=77)return['ti-snowflake','Snow'];if(c>=80&&c<=82)return['ti-cloud-rain','Showers'];if(c>=95)return['ti-cloud-storm','Storms'];return['ti-cloud','Cloudy'];}
+fetch('https://api.open-meteo.com/v1/forecast?latitude=-37.8153&longitude=145.2311&current=temperature_2m,weather_code&timezone=Australia%2FMelbourne').then(function(r){return r.ok?r.json():null;}).then(function(d){if(!d||!d.current)return;var t=Math.round(d.current.temperature_2m),w=ic(d.current.weather_code);var s=document.createElement('span');s.className='wx-chip';s.title=w[1]+' · Ringwood';s.innerHTML='<i class="ti '+w[0]+'"></i> '+t+'° <span class="wx-loc">Ringwood</span>';host.appendChild(s);}).catch(function(){});}catch(e){}})();
 (function(){
   var track=document.getElementById('sc-track');
   if(!track)return;

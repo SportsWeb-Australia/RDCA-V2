@@ -74,6 +74,10 @@ img{display:block;max-width:100%}
 .ticker-track{display:inline-flex;animation:scrtick 100s linear infinite}
 .ticker-track:hover{animation-play-state:paused}
 @keyframes scrtick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+/* Live weather chip (Ringwood) in the hero eyebrow */
+.wx-chip{display:inline-flex;align-items:center;gap:5px;margin-left:10px;padding:2px 10px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);font-size:11px;font-weight:600;letter-spacing:.2px;text-transform:none;color:#fff;vertical-align:middle;white-space:nowrap}
+.wx-chip i{font-size:13px;color:#ffd84d}
+.wx-chip .wx-loc{opacity:.65}
 /* Live-scores ticker — classes are deliberately namespaced (tk-*) so they never
    collide with the Tabler icon-font's global `.ti` rule (which uses !important
    and was previously swallowing the ticker text). Font: Space Grotesk. */

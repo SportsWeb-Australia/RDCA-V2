@@ -300,10 +300,40 @@
     } catch (e) { /* never break the page */ }
   })();
 
+  // ---- Live weather chip (Ringwood) injected into the hero eyebrow ----
+  // Open-Meteo, no API key. Fails silently; never blocks the page.
+  function wxIcon(c){
+    if (c === 0) return ["ti-sun","Clear"];
+    if (c <= 3) return ["ti-cloud","Partly cloudy"];
+    if (c === 45 || c === 48) return ["ti-cloud-fog","Fog"];
+    if (c >= 51 && c <= 67) return ["ti-cloud-rain","Rain"];
+    if (c >= 71 && c <= 77) return ["ti-snowflake","Snow"];
+    if (c >= 80 && c <= 82) return ["ti-cloud-rain","Showers"];
+    if (c >= 95) return ["ti-cloud-storm","Storms"];
+    return ["ti-cloud","Cloudy"];
+  }
+  function initWeather(){
+    try {
+      var host = document.querySelector(".page-hero .eyebrow") || document.querySelector(".page-hero-inner .eyebrow");
+      if (!host || host.querySelector(".wx-chip")) return;
+      fetch("https://api.open-meteo.com/v1/forecast?latitude=-37.8153&longitude=145.2311&current=temperature_2m,weather_code&timezone=Australia%2FMelbourne")
+        .then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(d){
+          if (!d || !d.current || host.querySelector(".wx-chip")) return;
+          var t = Math.round(d.current.temperature_2m), ic = wxIcon(d.current.weather_code);
+          var chip = document.createElement("span");
+          chip.className = "wx-chip"; chip.title = ic[1] + " · Ringwood";
+          chip.innerHTML = '<i class="ti ' + ic[0] + '"></i> ' + t + '° <span class="wx-loc">Ringwood</span>';
+          host.appendChild(chip);
+        }).catch(function(){});
+    } catch(e){}
+  }
+
   window.RDCA = window.RDCA || {};
   window.RDCA.mount = mount;
   window.RDCA.LOGO = LOGO;
 
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
-  else mount();
+  function boot(){ mount(); initWeather(); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
 })();
