@@ -18,6 +18,7 @@
   <url><loc>https://rdca.com/honour-board</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://rdca.com/honours</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://rdca.com/juniors</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rdca.com/cricket-blast</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://rdca.com/match-centre</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://rdca.com/news</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://rdca.com/notices</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
