@@ -17,7 +17,7 @@ SEASON_CUTOVER = "2026-10-09T00:00:00+11:00"   # AEDT; last -> current season sw
 #   wrangler kv namespace create STATS
 [[kv_namespaces]]
 binding = "STATS"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "3a2d2122647244928dbb3ea812bb6678"
 
 [triggers]
 crons = ["0 * * * *"]   # hourly

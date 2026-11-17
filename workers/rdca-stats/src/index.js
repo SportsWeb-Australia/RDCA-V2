@@ -88,17 +88,17 @@ async function gradeBlock(phq, gradeId) {
 async function seasonBlock(env, phq, season) {
   const immutable = /completed/i.test(season.status || "");
   const ck = `block:${season.id}`;
-  if (immutable) { const hit = await env.STATS.get(ck, "json"); if (hit) return hit; }
+  if (immutable) { const hit = await env.STATS.get(ck, "json"); if (hit && hit.grades && hit.grades.length) return hit; }
   const grades = await (async () => {
     const gk = `grades:${season.id}`;
-    const h = await env.STATS.get(gk, "json"); if (h) return h;
+    const h = await env.STATS.get(gk, "json"); if (h && h.length) return h;
     const g = await phq.getAll(`/v1/seasons/${season.id}/grades`, (j) => j.data);
-    await env.STATS.put(gk, JSON.stringify(g), { expirationTtl: LIST_TTL }); return g;
+    if (g.length) await env.STATS.put(gk, JSON.stringify(g), { expirationTtl: LIST_TTL }); return g;
   })();
   const out = [];
   for (const g of grades) out.push({ grade: g.name, ...(await gradeBlock(phq, g.id)) });
   const block = { season: season.name, grades: out };
-  if (immutable) await env.STATS.put(ck, JSON.stringify(block)); // immutable: no TTL
+  if (immutable && block.grades.length) await env.STATS.put(ck, JSON.stringify(block)); // immutable: no TTL
   return block;
 }
 
@@ -106,11 +106,9 @@ async function build(env) {
   const budget = { left: SUBREQUEST_BUDGET_PER_RUN };
   const phq = makeClient(env, budget);
   const cutover = env.SEASON_CUTOVER || "2026-10-09T00:00:00+11:00";
-  let seasons = await env.STATS.get("seasons:all", "json");
-  if (!seasons) {
-    seasons = await phq.getAll(`/v1/organisations/${env.ORG_ID}/seasons`, (j) => j.data);
-    await env.STATS.put("seasons:all", JSON.stringify(seasons), { expirationTtl: LIST_TTL });
-  }
+  // Seasons list is one cheap call — fetch it fresh every run so a stale/empty
+  // KV edge cache can never poison the whole board.
+  const seasons = await phq.getAll(`/v1/organisations/${env.ORG_ID}/seasons`, (j) => j.data);
   const byComp = {};
   for (const s of seasons) {
     const cn = (s.competition && (s.competition.name || s.competition)) || "";
