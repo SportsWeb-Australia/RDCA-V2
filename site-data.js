@@ -350,6 +350,27 @@ window.RDCA_DATA = {
         "email": "marketing@rdca.com",
         "photo": "/images/committee/jo-fairy.webp",
         "real": true
+      },
+      {
+        "role": "Women's Representative / Liaison",
+        "name": "Natasha Jorgensson",
+        "real": true
+      },
+      {
+        "role": "Juniors Representative",
+        "name": "Gavin Kellar",
+        "photo": "/images/committee/gavin-kellar.webp",
+        "real": true
+      },
+      {
+        "role": "General Committee Member",
+        "name": "Steven Howard",
+        "real": true
+      },
+      {
+        "role": "Administration & Competitions Administrator",
+        "name": "Julie Mackinnon",
+        "real": true
       }
     ]
   },
@@ -2899,10 +2920,14 @@ window.RDCA_DATA = {
         "real": true,
         "members": [
           {
-            "role": "Chair",
-            "name": "Linda Bailey",
-            "email": "lindabb101@gmail.com",
-            "photo": "/images/committee/linda-bailey.webp"
+            "role": "Acting Chair",
+            "name": "Timothy Court",
+            "email": "womens@rdca.com",
+            "photo": "/images/committee/timothy-court.webp"
+          },
+          {
+            "role": "Acting Chair & Rules Coordinator",
+            "name": "Natasha Jorgensson"
           },
           {
             "role": "Secretary",
@@ -2912,33 +2937,42 @@ window.RDCA_DATA = {
             "photo": "/images/committee/pamela-vodopier.webp"
           },
           {
-            "role": "Secretary",
-            "name": "Timothy Court",
-            "email": "womens@rdca.com"
+            "role": "Senior Acting Chair",
+            "name": "Wayne Hartley",
+            "phone": "0411 403 149",
+            "email": "hartleyfam@bigpond.com"
           },
           {
-            "role": "BOM Rep",
-            "name": "Pat Meehan",
-            "phone": "9758 4037",
-            "email": "pcmeehan@bigpond.net.au"
+            "role": "Junior Representative",
+            "name": "Sherry Howland"
           },
           {
-            "role": "Communications Coordinator",
-            "name": "Briony Polkinghorne"
+            "role": "Umpire Coordinator",
+            "name": "Tanya Kelly"
           },
           {
-            "role": "Rules",
-            "name": "Dee Callanan",
-            "phone": "0427 330 733",
-            "email": "dee.callanan@yahoo.com"
+            "role": "PlayHQ Contact",
+            "name": "Belinda Tory"
           },
           {
-            "role": "FTGDCA Rep",
-            "name": "Belinda Cunningham"
+            "role": "Rep Coordinator",
+            "name": "David Sykes"
           },
           {
-            "role": "Junior Liaison",
-            "name": "Jas Harrison"
+            "role": "Media Coordinator",
+            "name": "Ella Howland"
+          },
+          {
+            "role": "General Member",
+            "name": "Lisa Hilton"
+          },
+          {
+            "role": "General Member",
+            "name": "Kelly Dohle"
+          },
+          {
+            "role": "Committee Member",
+            "name": "Julie Mackinnon"
           }
         ]
       },
