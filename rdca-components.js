@@ -65,16 +65,12 @@
   <div class="mob-group">RDCA</div>
   <a href="/board" class="mob-link"><i class="ti ti-users"></i> The Board</a>
   <a href="/committees" class="mob-link"><i class="ti ti-address-book"></i> Committees &amp; Contacts</a>
-  <a href="/rep-selection" class="mob-link"><i class="ti ti-clipboard-text"></i> Selection Policy</a>
   <a href="/events" class="mob-link"><i class="ti ti-calendar"></i> Events</a>
   <a href="/documents" class="mob-link"><i class="ti ti-folder"></i> Documents &amp; Forms</a>
   <a href="/sponsors" class="mob-link"><i class="ti ti-heart-handshake"></i> Sponsors &amp; Partners</a>
   <a href="https://www.cricketvictoria.com.au/safeguarding/child-safeguarding/" target="_blank" rel="noopener" class="mob-link"><i class="ti ti-shield-check"></i> Child Safety</a>
-  <a href="/communications" class="mob-link"><i class="ti ti-broadcast"></i> Communications</a>
   <a href="/contact" class="mob-link"><i class="ti ti-mail"></i> Contact</a>
-  <div style="margin-top:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:10px">
-    <a class="btn btn-outline-white" style="width:100%;justify-content:center" href="https://store.rdca.com" target="_blank" rel="noopener"><i class="ti ti-shopping-cart"></i> Visit the Store</a>
-  </div>
+  
 </div>`,
     "header-nav": `<nav class="nav-wrap">
   <div class="nav-inner">
@@ -109,16 +105,12 @@
         <div class="nav-drop">
           <a href="/board">The Board</a>
           <a href="/committees">Committees &amp; Contacts</a>
-          <a href="/rep-selection">Selection Policy</a>
           <a href="/events">Events</a>
           <a href="/sponsors">Sponsors &amp; Partners</a>
           <a href="https://www.cricketvictoria.com.au/safeguarding/child-safeguarding/" target="_blank" rel="noopener">Child Safety</a>
-          <a href="/suspended-players">Suspended Players</a>
-          <a href="/communications">Communications</a>
           <a href="/contact">Contact</a>
         </div>
       </div>
-      <a class="nav-link" href="https://store.rdca.com" target="_blank" rel="noopener"><i class="ti ti-shopping-cart"></i> Store</a>
     </div>
     <div class="nav-actions">
       <button class="nav-icon-btn" data-rdca-alerts type="button" data-tip="Match-day alerts" aria-label="Match-day alerts"><i class="ti ti-bell" style="font-size:18px"></i></button>
@@ -173,11 +165,11 @@
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">Club &amp; Community</div>
-      <a class="f-link" href="/clubs">Clubs</a><a class="f-link" href="/news">News</a><a class="f-link" href="/honours">Honours</a><a class="f-link" href="/photos">Photos</a><a class="f-link" href="/video">Live Video</a><a class="f-link" href="/social">Social Media</a><a class="f-link" href="/sponsors">Sponsors &amp; Partners</a><a class="f-link" href="https://store.rdca.com" target="_blank" rel="noopener">Store</a>
+      <a class="f-link" href="/clubs">Clubs</a><a class="f-link" href="/news">News</a><a class="f-link" href="/honours">Honours</a><a class="f-link" href="/photos">Photos</a><a class="f-link" href="/video">Live Video</a><a class="f-link" href="/social">Social Media</a><a class="f-link" href="/sponsors">Sponsors &amp; Partners</a>
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">RDCA</div>
-      <a class="f-link" href="/">Home</a><a class="f-link" href="/board">The Board</a><a class="f-link" href="/committees">Committees &amp; Contacts</a><a class="f-link" href="/umpires">Umpires</a><a class="f-link" href="/communications">Communications</a><a class="f-link" href="/events">Events</a><a class="f-link" href="/documents">Documents &amp; Forms</a><a class="f-link" href="https://www.cricketvictoria.com.au/safeguarding/child-safeguarding/" target="_blank" rel="noopener">Child Safety</a><a class="f-link" href="/privacy-policy">Privacy Policy</a><a class="f-link" href="/social-media-policy">Social Media Policy</a><a class="f-link" href="/good-sports-policy">Good Sports Policy</a><a class="f-link" href="/contact">Contact</a>
+      <a class="f-link" href="/">Home</a><a class="f-link" href="/board">The Board</a><a class="f-link" href="/committees">Committees &amp; Contacts</a><a class="f-link" href="/umpires">Umpires</a><a class="f-link" href="/events">Events</a><a class="f-link" href="/documents">Documents &amp; Forms</a><a class="f-link" href="https://www.cricketvictoria.com.au/safeguarding/child-safeguarding/" target="_blank" rel="noopener">Child Safety</a><a class="f-link" href="/privacy-policy">Privacy Policy</a><a class="f-link" href="/social-media-policy">Social Media Policy</a><a class="f-link" href="/good-sports-policy">Good Sports Policy</a><a class="f-link" href="/contact">Contact</a>
     </div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.04);padding:14px 20px">

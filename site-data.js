@@ -1667,11 +1667,6 @@ window.RDCA_DATA = {
           "url": "/documents",
           "internal": true,
           "real": true
-        },
-        {
-          "label": "Suspended Players",
-          "url": "/suspended-players",
-          "real": true
         }
       ]
     },
@@ -1863,11 +1858,6 @@ window.RDCA_DATA = {
           "label": "All Documents, Policies & Forms",
           "url": "/documents",
           "internal": true,
-          "real": true
-        },
-        {
-          "label": "Suspended Players",
-          "url": "/suspended-players",
           "real": true
         }
       ]
@@ -2745,30 +2735,6 @@ window.RDCA_DATA = {
       "real": true
     },
     {
-      "title": "Children & Young People Policy",
-      "cat": "Women's",
-      "url": "https://resources.playcommunity.pulselive.com/playcommunity/document/2024/11/27/9ddd3384-e1e0-4488-9d3a-dc25eaeefa71/Australian-Cricket-s-Policy-for-Safeguarding-Children-Young-People.pdf",
-      "type": "pdf",
-      "icon": "ti-shield-check",
-      "real": true
-    },
-    {
-      "title": "Looking After Our Kids",
-      "cat": "Women's",
-      "url": "https://resources.playcommunity.pulselive.com/playcommunity/document/2024/11/27/7587ce1b-83d1-4c80-aa92-8d085ec1faf0/Australian-Cricket-s-Looking-After-Our-Kids-Code-of-Behaviour.pdf",
-      "type": "pdf",
-      "icon": "ti-shield-check",
-      "real": true
-    },
-    {
-      "title": "Action Plan — Commitment Statement",
-      "cat": "Women's",
-      "url": "https://resources.playcommunity.pulselive.com/playcommunity/document/2024/11/27/850b4058-29f6-4d85-a3d8-b44202221d7c/Australian-Cricket-s-Statement-of-Commitment-for-Safeguarding-Children-and-Young-People.pdf",
-      "type": "pdf",
-      "icon": "ti-shield-check",
-      "real": true
-    },
-    {
       "title": "Ball Ordering Instructions",
       "cat": "Women's",
       "url": "/docs/Ball-Ordering-Instructions.pdf",
@@ -2793,42 +2759,11 @@ window.RDCA_DATA = {
       "real": true
     },
     {
-      "title": "Safeguarding Children & Young People Policy",
+      "title": "Child Safety — Cricket Victoria",
       "cat": "Child Safety",
-      "url": "https://resources.playcommunity.pulselive.com/playcommunity/document/2024/11/27/9ddd3384-e1e0-4488-9d3a-dc25eaeefa71/Australian-Cricket-s-Policy-for-Safeguarding-Children-Young-People.pdf",
-      "type": "pdf",
-      "icon": "ti-shield-check",
-      "real": true
-    },
-    {
-      "title": "'Looking After Our Kids' Code of Behaviour",
-      "cat": "Child Safety",
-      "url": "https://resources.playcommunity.pulselive.com/playcommunity/document/2024/11/27/7587ce1b-83d1-4c80-aa92-8d085ec1faf0/Australian-Cricket-s-Looking-After-Our-Kids-Code-of-Behaviour.pdf",
-      "type": "pdf",
-      "icon": "ti-shield-check",
-      "real": true
-    },
-    {
-      "title": "Commitment to Safeguarding Children & Young People",
-      "cat": "Child Safety",
-      "url": "https://resources.playcommunity.pulselive.com/playcommunity/document/2024/11/27/850b4058-29f6-4d85-a3d8-b44202221d7c/Australian-Cricket-s-Statement-of-Commitment-for-Safeguarding-Children-and-Young-People.pdf",
-      "type": "pdf",
-      "icon": "ti-shield-check",
-      "real": true
-    },
-    {
-      "title": "Cricket Victoria Member Protection Policy 2024",
-      "cat": "Child Safety",
-      "url": "https://www.cricketvictoria.com.au/wp-content/uploads/2024/11/2024-Member-Protection-Policy.pdf",
-      "type": "pdf",
-      "icon": "ti-shield-check",
-      "real": true
-    },
-    {
-      "title": "Member Protection Policy By-Law",
-      "cat": "Child Safety",
-      "url": "https://www.cricketvictoria.com.au/wp-content/uploads/2021/12/Member-Protection-Policy-ByLaw-07-12-2021.pdf",
-      "type": "pdf",
+      "sec": "general",
+      "url": "https://www.cricketvictoria.com.au/safeguarding/child-safeguarding/",
+      "type": "link",
       "icon": "ti-shield-check",
       "real": true
     }
@@ -3065,8 +3000,17 @@ window.RDCA_DATA = {
       {
         "name": "Veterans Committee",
         "real": true,
-        "note": "RDCA Veterans cricket is administered by the Senior Committee — see the Veterans Secretary, Peter Chamings, above.",
-        "members": []
+        "note": "RDCA Veterans cricket is administered by the Senior Committee.",
+        "members": [
+          {
+            "role": "Veterans Secretary",
+            "name": "Peter Chamings",
+            "phone": "0419 693 097",
+            "email": "peter.chamings@gmail.com",
+            "photo": "/images/committee/peter-chamings.webp",
+            "real": true
+          }
+        ]
       }
     ]
   },

@@ -6,6 +6,21 @@
       "permanent": false
     },
     {
+      "source": "/rep-selection",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/communications",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/suspended-players",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/about-veterans",
       "destination": "/veterans",
       "permanent": true
