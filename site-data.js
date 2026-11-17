@@ -2944,7 +2944,7 @@ window.RDCA_DATA = {
           },
           {
             "role": "Junior Representative",
-            "name": "Sherry Howland"
+            "name": "Cherie Howland"
           },
           {
             "role": "Umpire Coordinator",
