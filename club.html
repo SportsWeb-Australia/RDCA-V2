@@ -134,6 +134,7 @@
         '<div class="block-hed" style="margin-top:24px">Get in touch</div>'+
         '<div class="panel">'+
           fact("ti-world","Website", c.site ? '<a href="'+esc(c.site)+'" target="_blank" rel="noopener">'+esc(c.site.replace(/^https?:\/\//,""))+'</a>' : ptbc) +
+          fact("ti-ball-baseball","PlayHQ", '<a href="https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association" target="_blank" rel="noopener">Current contacts &amp; ground &rarr;</a>') +
           (c.email ? fact("ti-mail","Email", '<a href="mailto:'+esc(c.email)+'">'+esc(c.email)+'</a>') : "") +
           fact("ti-phone","Club Rooms", c.phone ? '<a href="tel:'+esc(c.phone.replace(/\s/g,""))+'">'+esc(c.phone)+'</a>' : ptbc) +
           (c.seniors ? fact("ti-user","Seniors Contact", esc(c.seniors.name)+' &middot; <a href="tel:'+esc(c.seniors.phone.replace(/\s/g,""))+'">'+esc(c.seniors.phone)+'</a>') : "") +
@@ -150,7 +151,7 @@
           'src="https://maps.google.com/maps?q=' + mapq + '&z=13&output=embed" title="Map of ' + esc(suburb) + '"></iframe>'+
         (hasGround
           ? '<div class="block-sub" style="margin-top:10px"><i class="ti ti-map-pin"></i> ' + esc(c.ground) + '</div>'
-          : '<div class="block-sub" style="margin-top:10px">Map shows the <strong>' + esc(suburb) + '</strong> area &mdash; exact ground address still to be supplied by the club.</div>')+
+          : '<div class="block-sub" style="margin-top:10px">Map shows the <strong>' + esc(suburb) + '</strong> area &mdash; the exact ground address is listed on <a href="https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association" target="_blank" rel="noopener">PlayHQ</a>.</div>')+
       '</div>'+
     '</div></div>'+
     '<div class="section-block"><a class="btn btn-navy" href="/clubs"><i class="ti ti-arrow-left"></i> Back to Club Directory</a></div>';
