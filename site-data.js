@@ -2897,6 +2897,11 @@ window.RDCA_DATA = {
             "note": "For all association website enquiries.",
             "real": true,
             "phone": "0456 749 946"
+          },
+          {
+            "role": "Umpires' Representative",
+            "name": "Duncan Cant",
+            "real": true
           }
         ]
       },
