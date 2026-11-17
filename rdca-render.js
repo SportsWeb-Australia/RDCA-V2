@@ -169,13 +169,15 @@
         "Women's":"ti-cricket", "Seniors":"ti-trophy", "Veterans":"ti-medal"
       };
       var html = (D().news || []).map(function (n) {
+        var ext = /^https?:/i.test(n.url || "");
         var href = n.slug ? ("/article?slug=" + encodeURIComponent(n.slug)) : esc(n.url);
+        var attrs = ext ? ' target="_blank" rel="noopener"' : '';
         var lead = n.image
           ? '<div class="tile-ic news-thumb"><img src="' + esc(n.image) + '" alt="' + esc(n.title) + '" loading="lazy"></div>'
           : '<div class="tile-ic"><i class="ti ' + (catIcon[n.cat] || "ti-news") + '"></i></div>';
-        return '<a class="tile" href="' + href + '">' +
+        return '<a class="tile" href="' + href + '"' + attrs + '>' +
                  lead +
-                 '<div><div class="tile-tt">' + esc(n.title) + flag(n) + '</div>' +
+                 '<div><div class="tile-tt">' + esc(n.title) + (ext ? ' <i class="ti ti-brand-facebook" style="font-size:12px;color:#1877f2;vertical-align:-1px"></i>' : '') + flag(n) + '</div>' +
                  '<div class="tile-tx">' + esc(n.cat) + ' &middot; ' + esc(n.date) + '<br>' + esc(n.excerpt) + '</div></div></a>';
       }).join("");
       set(sel, html);

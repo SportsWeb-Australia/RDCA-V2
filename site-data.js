@@ -3411,33 +3411,20 @@ window.RDCA_DATA = {
   ],
   "news": [
     {
-      "title": "Season 2026-27 registrations now open",
-      "date": "2026-09-01",
+      "title": "Let's Change the Game for Mental Health",
+      "date": "2026-11-17",
       "cat": "Association",
-      "excerpt": "Player registrations for the new season are open across all grades and age groups.",
-      "url": "#",
-      "image": null,
-      "slug": "season-registrations-2026-27",
-      "sample": true
+      "excerpt": "RDCA clubs get behind a mental health round — read the post to see how your club can take part.",
+      "url": "https://www.facebook.com/ringwooddca/posts/pfbid0Avs3wxYBX5eTpnyVP9bHqwde1ChCHcHarf1GYJbuvMyrWViRq8MtgVfiKpP2g4chl",
+      "image": null
     },
     {
-      "title": "Representative squads announced",
-      "date": "2026-08-20",
-      "cat": "Representative",
-      "excerpt": "Junior representative squads have been named ahead of the carnival season.",
-      "url": "#",
-      "image": null,
-      "slug": "four-rdca-juniors-u17-squad",
-      "sample": true
-    },
-    {
-      "title": "Umpire accreditation course dates",
-      "date": "2026-08-10",
-      "cat": "Umpires",
-      "excerpt": "Upcoming Level 1 and Level 2 umpire accreditation sessions across the east.",
-      "url": "#",
-      "image": null,
-      "sample": true
+      "title": "Around the Grounds — RDCA Women's Cricket",
+      "date": "2026-11-16",
+      "cat": "Women's",
+      "excerpt": "A great afternoon of women's cricket across the RDCA, with plenty of action around the competition.",
+      "url": "https://www.facebook.com/ringwooddca/posts/pfbid037PeyHTxEQnXgYXAz3PRDazCUGyFSUJZeUwkLqpXKe83yTSZYL4KbxMncSgbiVyDbl",
+      "image": null
     }
   ],
   "newsArchive": [
