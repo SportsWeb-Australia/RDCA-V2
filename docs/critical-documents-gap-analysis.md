@@ -20,7 +20,7 @@ Constitution 2025/26 · Code of Conduct · Business Continuity Plan · Match/Gam
 Cricket Ball Order Form · Big Bash/Veterans T20 Rules · Team Nomination Form · Incident Report Form · Club Questionnaire · Annual Report 2024-25.
 
 ## Missing — supply (✘)
-Mission Statement · 2026-27 Women's Rules (have 2025/26) · Complaints Policy · Remembrance Day · Meet & Greet · Women's T20 · Presentation Night · Member Protection Form · Concussion Policy (Cricket Australia link) · Working with Children Check (gov/CV link).
+Mission Statement · 2026-27 Women's Rules (have 2025/26) · Complaints Policy · Meet & Greet · Women's T20 · Presentation Night · Member Protection Form · Concussion Policy (Cricket Australia link).
 
 ## Decisions on record (Nov 2026)
 - Registration forms: **removed** from the site.
