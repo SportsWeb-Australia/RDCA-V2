@@ -1759,11 +1759,11 @@ window.RDCA_DATA = {
           "real": true
         },
         {
-          "title": "Junior By-Laws & Playing Conditions",
-          "cat": "Forms & Rules — RDCA to supply file",
-          "url": "/docs/RDCA-Junior-Documents-README.pdf",
+          "title": "Junior Rules 2026-27",
+          "cat": "Forms & Rules",
+          "url": "/docs/Junior-Rules-2026-27.pdf",
           "icon": "ti-file-text",
-          "needsReview": true
+          "real": true
         }
       ],
       "codeOfConduct": {
@@ -2455,15 +2455,6 @@ window.RDCA_DATA = {
       "real": true
     },
     {
-      "title": "Junior By-Laws & Playing Conditions",
-      "cat": "Juniors",
-      "sec": "junior",
-      "url": "/docs/RDCA-Junior-Documents-README.pdf",
-      "type": "pdf",
-      "icon": "ti-file-text",
-      "needsReview": true
-    },
-    {
       "title": "RDCA Annual Report 2024/25",
       "cat": "Annual Reports",
       "url": "/docs/RDCA-Annual-Report-2024-25.docx",
@@ -2635,9 +2626,9 @@ window.RDCA_DATA = {
       "real": true
     },
     {
-      "title": "RDCA Constitution 2021/22",
+      "title": "RDCA Constitution 2025/26",
       "cat": "Veterans",
-      "url": "/docs/RDCA-Constitution-2021-22.pdf",
+      "url": "/docs/RDCA-Constitution-2025-26.pdf",
       "type": "pdf",
       "icon": "ti-file-text",
       "real": true
@@ -2735,9 +2726,9 @@ window.RDCA_DATA = {
       "real": true
     },
     {
-      "title": "RDCA Constitution 2021/22",
+      "title": "RDCA Constitution 2025/26",
       "cat": "Women's",
-      "url": "/docs/RDCA-Constitution-2021-22.pdf",
+      "url": "/docs/RDCA-Constitution-2025-26.pdf",
       "type": "pdf",
       "icon": "ti-file-text",
       "real": true
@@ -2749,6 +2740,24 @@ window.RDCA_DATA = {
       "url": "https://www.cricketvictoria.com.au/safeguarding/child-safeguarding/",
       "type": "link",
       "icon": "ti-shield-check",
+      "real": true
+    },
+    {
+      "title": "Junior Rules 2026-27",
+      "cat": "Juniors",
+      "sec": "junior",
+      "url": "/docs/Junior-Rules-2026-27.pdf",
+      "type": "pdf",
+      "icon": "ti-file-text",
+      "real": true
+    },
+    {
+      "title": "Social Media Policy 2025/26",
+      "cat": "Policies",
+      "sec": "general",
+      "url": "/docs/Social-Media-Policy-2025-26.pdf",
+      "type": "pdf",
+      "icon": "ti-file-text",
       "real": true
     }
   ],
