@@ -102,6 +102,59 @@ async function seasonBlock(env, phq, season) {
   return block;
 }
 
+// ---- Big Bash player leaderboards (batting / bowling / fielding) ----
+// A FINAL game's scorecard is immutable, so cache each per-game extract forever.
+async function gameStats(env, phq, gid) {
+  const ck = `bbg:${gid}`;
+  const hit = await env.STATS.get(ck, "json"); if (hit) return hit;
+  const sum = (await phq.get(`/v2/games/${gid}/summary`)).data || {};
+  const names = {}, appTeam = {}, teams = {};
+  (sum.teams || []).forEach(t => { teams[t.id] = t.name; });
+  (sum.appearances || []).forEach(a => { names[a.id] = ((a.firstName || "") + " " + (a.lastName || "")).trim(); appTeam[a.id] = a.teamId; });
+  const byId = {};
+  (sum.periods || []).forEach(p => (p.teams || []).forEach(t => (t.appearances || []).forEach(ap => {
+    const name = names[ap.id]; if (!name) return;
+    const st = {}; (ap.statistics || []).forEach(s => { st[s.type] = s.value; });
+    const r = byId[ap.id] || (byId[ap.id] = { name, team: teams[appTeam[ap.id]] || "", runs: 0, balls: 0, wickets: 0, overs: 0, catches: 0, stumpings: 0, runouts: 0 });
+    r.runs += st.TOTAL_RUNS || 0; r.balls += st.BALLS_FACED || 0;
+    r.wickets += st.WICKETS || 0; r.overs += st.OVERS || 0;
+    r.catches += st.TOTAL_CATCHES || 0; r.stumpings += st.STUMPINGS || 0; r.runouts += st.TOTAL_RUN_OUTS || 0;
+  })));
+  const arr = Object.keys(byId).map(k => byId[k]);
+  await env.STATS.put(ck, JSON.stringify(arr)); // FINAL game -> immutable, no TTL
+  return arr;
+}
+
+async function bigBashLeaders(env, phq, seniorsSeasons) {
+  const list = seniorsSeasons || [];
+  const season = list.find(s => s.status === "ACTIVE") ||
+    list.filter(s => s.status === "COMPLETED").sort((a, b) => String(b.name).localeCompare(String(a.name)))[0];
+  if (!season) return null;
+  const grades = await phq.getAll(`/v1/seasons/${season.id}/grades`, (j) => j.data);
+  const bb = grades.find(g => /big bash/i.test(g.name || ""));
+  if (!bb) return null;
+  const gamesResp = await phq.get(`/v2/grades/${bb.id}/games`);
+  const finals = [];
+  (gamesResp.rounds || []).forEach(rd => (rd.games || []).forEach(g => { if (g.status === "FINAL") finals.push(g.id); }));
+  const agg = {};
+  for (const gid of finals) {
+    const stats = await gameStats(env, phq, gid);
+    stats.forEach(p => {
+      const key = p.name + "|" + p.team;
+      const a = agg[key] || (agg[key] = { name: p.name, team: p.team, runs: 0, balls: 0, wickets: 0, overs: 0, catches: 0, stumpings: 0, runouts: 0 });
+      a.runs += p.runs; a.balls += p.balls; a.wickets += p.wickets; a.overs += p.overs;
+      a.catches += p.catches; a.stumpings += p.stumpings; a.runouts += p.runouts;
+    });
+  }
+  const all = Object.keys(agg).map(k => agg[k]);
+  return {
+    season: season.name, grade: bb.name, games: finals.length,
+    runs: all.filter(p => p.runs > 0).sort((a, b) => b.runs - a.runs || a.balls - b.balls).slice(0, 10).map(p => ({ name: p.name, team: p.team, runs: p.runs, balls: p.balls })),
+    wickets: all.filter(p => p.wickets > 0).sort((a, b) => b.wickets - a.wickets || a.overs - b.overs).slice(0, 10).map(p => ({ name: p.name, team: p.team, wickets: p.wickets, overs: p.overs })),
+    dismissals: all.map(p => ({ name: p.name, team: p.team, catches: p.catches, stumpings: p.stumpings, runouts: p.runouts, total: p.catches + p.stumpings + p.runouts })).filter(p => p.total > 0).sort((a, b) => b.total - a.total).slice(0, 10)
+  };
+}
+
 async function build(env) {
   const budget = { left: SUBREQUEST_BUDGET_PER_RUN };
   const phq = makeClient(env, budget);
@@ -126,7 +179,10 @@ async function build(env) {
     } catch (e) { if (!phq.get.isBudgetError(e)) throw e; } // out of budget: keep what we built, resume next run
     comps.push(block);
   }
-  const board = { generatedAt: new Date().toISOString(), cutover, source: "PlayHQ public API (rdca-stats worker)", comps };
+  let bigBash = null;
+  try { bigBash = await bigBashLeaders(env, phq, byComp["RDCA Seniors Cricket"]); }
+  catch (e) { if (!phq.get.isBudgetError(e)) bigBash = null; } // never fail the board over leaders
+  const board = { generatedAt: new Date().toISOString(), cutover, source: "PlayHQ public API (rdca-stats worker)", comps, bigBash };
   await env.STATS.put("playhq:board", JSON.stringify(board));
   return board;
 }
