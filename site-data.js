@@ -1724,13 +1724,6 @@ window.RDCA_DATA = {
           "icon": "ti-clipboard-check"
         },
         {
-          "title": "Registration Form",
-          "cat": "Forms & Rules",
-          "url": "/docs/Registration-Form.pdf",
-          "icon": "ti-file-text",
-          "real": true
-        },
-        {
           "title": "Clearances & Transfers Guide",
           "cat": "Forms & Rules",
           "url": "/docs/Clearances-Transfers-Guide.pdf",
@@ -2469,15 +2462,6 @@ window.RDCA_DATA = {
       "type": "pdf",
       "icon": "ti-file-text",
       "needsReview": true
-    },
-    {
-      "title": "Registration Form",
-      "cat": "Forms & Rules",
-      "sec": "general",
-      "url": "/docs/Registration-Form.pdf",
-      "type": "pdf",
-      "icon": "ti-file-text",
-      "real": true
     },
     {
       "title": "RDCA Annual Report 2024/25",
@@ -37215,7 +37199,7 @@ window.RDCA_DATA = {
         "kind": "promo",
         "badge": "Season 2026/27",
         "icon": "ti-user-plus",
-        "title": "Register to play with an RDCA club",
+        "title": "Play with an RDCA club",
         "text": "Senior, junior, women's and veterans cricket across 36 clubs in Melbourne's outer east and the Yarra Valley.",
         "cta": "Find a club",
         "href": "/clubs",

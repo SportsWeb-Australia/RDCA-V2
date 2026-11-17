@@ -5,6 +5,7 @@
 # Keep this in sync with vercel.json until the Vercel deployment is retired.
 
 # Rep Cricket temporarily archived (reinstate later) — 302 so it can return
+/register                          /                          302
 /rep-cricket                       /                          302
 /rep-selection                     /                          302
 /communications                    /                          302

@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/register",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/rep-cricket",
       "destination": "/",
       "permanent": false
