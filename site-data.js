@@ -37382,12 +37382,7 @@ window.RDCA_DATA = {
             {
               "grade": "H Grade",
               "shield": "Graeme Seymour Shield"
-            }
-          ]
-        },
-        {
-          "name": "Lower Saturday Grades",
-          "items": [
+            },
             {
               "grade": "I Grade"
             },
