@@ -54,7 +54,6 @@
   <a href="/juniors" class="mob-link"><i class="ti ti-friends"></i> Juniors</a>
   <a href="/veterans" class="mob-link"><i class="ti ti-medal"></i> Veterans</a>
   <a href="/community-big-bash" class="mob-link"><i class="ti ti-flame"></i> T20 Big Bash</a>
-  <a href="/rep-cricket" class="mob-link"><i class="ti ti-shield-half-filled"></i> Rep Cricket</a>
   <div class="mob-group">Club &amp; Community</div>
   <a href="/clubs" class="mob-link"><img src="/rdca-logo.png" class="mob-link-logo" alt=""> Clubs</a>
   <a href="/news" class="mob-link"><i class="ti ti-news"></i> News</a>
@@ -90,7 +89,6 @@
           <a href="/juniors">Juniors</a>
           <a href="/veterans">Veterans</a>
           <a href="/community-big-bash">T20 Big Bash</a>
-          <a href="/rep-cricket">Rep Cricket</a>
         </div>
       </div>
       <a class="nav-link" href="/juniors">Juniors</a>

@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/rep-cricket",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/about-veterans",
       "destination": "/veterans",
       "permanent": true
@@ -102,7 +107,7 @@
     },
     {
       "source": "/junior-state-rep-players",
-      "destination": "/rep-cricket",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -232,7 +237,7 @@
     },
     {
       "source": "/rep-cricket-seniors",
-      "destination": "/rep-cricket",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -262,7 +267,7 @@
     },
     {
       "source": "/seniors-inter-association",
-      "destination": "/rep-cricket",
+      "destination": "/",
       "permanent": true
     },
     {

@@ -4,6 +4,8 @@
 # source==destination entries are intentionally omitted to avoid redirect loops.
 # Keep this in sync with vercel.json until the Vercel deployment is retired.
 
+# Rep Cricket temporarily archived (reinstate later) — 302 so it can return
+/rep-cricket                       /                          302
 /about-veterans                    /veterans                  301
 /appointments                      /umpire-appointments       301
 /blog                              /news                      301
@@ -24,7 +26,7 @@
 /info                              /documents                 301
 /junior-committee                  /committees                301
 /junior-rep-girls                  /rep-selection             301
-/junior-state-rep-players          /rep-cricket               301
+/junior-state-rep-players          /               301
 /juniors-all-abilities-comp        /juniors                   301
 /juniors-annual-reports            /documents                 301
 /juniors-code-of-conduct           /documents                 301
@@ -50,13 +52,13 @@
 /premiers                          /honours                   301
 /rdca-clubs                        /clubs                     301
 /records                           /honours                   301
-/rep-cricket-seniors               /rep-cricket               301
+/rep-cricket-seniors               /               301
 /senior-committee                  /committees                301
 /seniors-all-abilities-comp        /senior-men                301
 /seniors-annual-reports            /documents                 301
 /seniors-code-of-conduct           /documents                 301
 /seniors-documents                 /documents                 301
-/seniors-inter-association         /rep-cricket               301
+/seniors-inter-association         /               301
 /seniors-under-21s                 /senior-men                301
 /seniors-womens-comp               /senior-women              301
 /sponsorship                       /sponsors                  301
