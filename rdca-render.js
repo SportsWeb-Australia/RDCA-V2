@@ -888,6 +888,9 @@
     playhqHub: function (sel) {
       var mount = (typeof sel === "string") ? document.querySelector(sel) : sel;
       if (!mount || typeof fetch !== "function") return;
+      var wantLeaders = !!(mount.getAttribute && mount.getAttribute("data-leaders"));
+      var LEAD_API = "https://rdca-stats.carson-cfd.workers.dev/leaders";
+      var leadReq = 0;
       // Prefer the live rdca-stats Worker (window.RDCA_PLAYHQ_API); fall back to the
       // committed static data/playhq.json if the Worker is absent or unreachable.
       var API = (typeof window !== "undefined" && window.RDCA_PLAYHQ_API) || null;
@@ -949,6 +952,34 @@
             if (!d || isNaN(d)) return '<div class="phb-fx-dt"><span class="phb-fx-d">&ndash;</span></div>';
             return '<div class="phb-fx-dt"><span class="phb-fx-d">' + d.getDate() + '</span><span class="phb-fx-m">' + MON[d.getMonth()] + '</span></div>';
           }
+          function ldrRows(list, valFn, subFn) {
+            return (list && list.length) ? list.map(function (p, i) {
+              return '<div class="bbl-row"><span class="bbl-rk">' + (i + 1) + '</span>' + crest(p.team) +
+                '<div class="bbl-id"><div class="bbl-nm">' + esc(p.name) + '</div><div class="bbl-tm">' + esc(p.team) + '</div></div>' +
+                '<div class="bbl-val"><b>' + valFn(p) + '</b><span>' + subFn(p) + '</span></div></div>';
+            }).join("") : '<p class="phb-empty">&mdash;</p>';
+          }
+          // Search across all comps' grades by grade name or club, then switch to it.
+          function searchGrades(q) {
+            q = String(q || "").trim().toLowerCase(); if (!q) return null;
+            for (var c = 0; c < data.comps.length; c++) {
+              var gl = (seasonOf(data.comps[c]).grades) || [];
+              for (var gx = 0; gx < gl.length; gx++) {
+                if (String(gl[gx].grade || "").toLowerCase().indexOf(q) >= 0) return { c: c, g: gx };
+              }
+            }
+            for (var c2 = 0; c2 < data.comps.length; c2++) {
+              var gl2 = (seasonOf(data.comps[c2]).grades) || [];
+              for (var gy = 0; gy < gl2.length; gy++) {
+                var teams = (gl2[gy].ladder || []).concat(gl2[gy].results || []);
+                for (var t = 0; t < teams.length; t++) {
+                  var nm = (teams[t].team || teams[t].home || "") + " " + (teams[t].away || "");
+                  if (nm.toLowerCase().indexOf(q) >= 0) return { c: c2, g: gy };
+                }
+              }
+            }
+            return null;
+          }
 
           function render() {
             var comp = data.comps[ci], season = seasonOf(comp), gs = grades();
@@ -1007,7 +1038,10 @@
             mount.innerHTML =
               '<div class="phb">' +
                 '<div class="phb-bar"><div class="phb-tabs">' + tabs + '</div>' +
-                  '<label class="phb-grade-wrap"><span>Grade</span><select class="phb-grade mc-grade-select">' + opts + '</select></label></div>' +
+                  '<div class="phb-bar-r">' +
+                    (wantLeaders ? '<input class="phb-search" type="search" placeholder="Search grade or club…" aria-label="Search grade or club">' : '') +
+                    '<label class="phb-grade-wrap"><span>Grade</span><select class="phb-grade mc-grade-select">' + opts + '</select></label>' +
+                  '</div></div>' +
                 '<div class="phb-season">' + note + '</div>' +
                 '<div class="phb-grid">' +
                   '<div class="phb-col phb-ladder"><div class="phb-ch"><i class="ti ti-list-numbers"></i> Ladder</div>' + lad + '</div>' +
@@ -1016,7 +1050,27 @@
                     '<div class="phb-col"><div class="phb-ch"><i class="ti ti-calendar-event"></i> Upcoming Fixtures</div>' + fix + '</div>' +
                   '</div>' +
                 '</div>' +
+                (wantLeaders ? '<div class="phb-perf"><div class="phb-ch phb-perf-hd"><i class="ti ti-trophy"></i> Top Performers <span class="phb-perf-g">' + esc(g.grade) + '</span></div><div id="phb-ldr"><p class="phb-empty"><i class="ti ti-loader"></i> Loading player stats…</p></div></div>' : '') +
               '</div>';
+            if (wantLeaders && g.id) {
+              var req = ++leadReq;
+              fetch(LEAD_API + "?grade=" + encodeURIComponent(g.id), { cache: "no-cache" })
+                .then(function (r) { return r.ok ? r.json() : null; })
+                .then(function (j) {
+                  if (req !== leadReq) return;
+                  var el = mount.querySelector("#phb-ldr"); if (!el) return;
+                  if (!j || j.error || (!(j.runs && j.runs.length) && !(j.wickets && j.wickets.length))) {
+                    el.innerHTML = '<p class="phb-empty"><i class="ti ti-ball-baseball"></i> Player stats appear once matches are scored.</p>'; return;
+                  }
+                  el.innerHTML =
+                    '<div class="bbl-grid">' +
+                      '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-trending-up"></i> Top Run Scorers</div>' + ldrRows(j.runs, function (p) { return p.runs; }, function (p) { return (p.inns || 0) + ' inns &middot; ' + (p.balls || 0) + ' balls'; }) + '</div>' +
+                      '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-wind"></i> Leading Wicket Takers</div>' + ldrRows(j.wickets, function (p) { return p.wickets; }, function (p) { return (p.overs || 0) + ' ov'; }) + '</div>' +
+                      '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-hand-stop"></i> Dismissals</div>' + ldrRows(j.dismissals, function (p) { return p.total; }, function (p) { return p.catches + 'c &middot; ' + p.stumpings + 'st &middot; ' + p.runouts + 'ro'; }) + '</div>' +
+                    '</div>' +
+                    '<div class="phb-key"><b>Dismissals key:</b> <span class="phb-key-i">c</span> caught &middot; <span class="phb-key-i">st</span> stumped &middot; <span class="phb-key-i">ro</span> run out</div>';
+                }).catch(function () { });
+            }
           }
           render();
           mount.addEventListener("click", function (e) {
@@ -1025,6 +1079,21 @@
           });
           mount.addEventListener("change", function (e) {
             if (e.target.classList.contains("phb-grade")) { gi = +e.target.value; render(); }
+          });
+          var searchTimer = null;
+          mount.addEventListener("input", function (e) {
+            if (!e.target.classList.contains("phb-search")) return;
+            var val = e.target.value;
+            if (searchTimer) clearTimeout(searchTimer);
+            searchTimer = setTimeout(function () {
+              if (String(val).trim().length < 2) return;
+              var hit = searchGrades(val);
+              if (hit && (hit.c !== ci || hit.g !== gi)) {
+                ci = hit.c; gi = hit.g; render();
+                var inp = mount.querySelector(".phb-search");
+                if (inp) { inp.value = val; inp.focus(); }
+              }
+            }, 350);
           });
         })
         .catch(function () { /* keep fallback content */ });
