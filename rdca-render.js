@@ -144,7 +144,7 @@
           return '<div class="board-card">' + av +
                    '<div class="board-name">' + esc(m.name) + flag(m) + '</div>' +
                    '<div class="board-role">' + esc(m.role || "") + '</div>' +
-                   (m.org ? '<div class="board-org">' + esc(m.org) + '</div>' : '') +
+                   (m.org ? '<div class="board-org">' + (m.orgUrl ? '<a href="' + esc(m.orgUrl) + '" target="_blank" rel="noopener">' + esc(m.org) + '</a>' : esc(m.org)) + '</div>' : '') +
                    (c2 ? '<div class="board-contact">' + c2 + '</div>' : '') +
                    (m.note ? '<div class="board-note">' + esc(m.note) + '</div>' : '') +
                  '</div>';
