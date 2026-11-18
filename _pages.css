@@ -144,8 +144,9 @@ a.cg-item:hover .cg-ext{color:#e8b84b}
 .phb-fp{width:16px;height:16px;border-radius:4px;font-style:normal;font-size:9px;font-weight:800;color:#fff;display:inline-flex;align-items:center;justify-content:center}
 .phb-fp-W{background:#16a34a}.phb-fp-L{background:var(--red)}.phb-fp-D{background:#94a3b8}
 /* results cards */
-.phb-res{border:1px solid var(--border);border-radius:11px;padding:10px 12px;margin-bottom:10px;background:#fff}
+.phb-res{display:block;text-decoration:none;color:inherit;cursor:pointer;border:1px solid var(--border);border-radius:11px;padding:10px 12px;margin-bottom:10px;background:#fff}
 .phb-res:last-child{margin-bottom:0}
+.phb-res-ext{font-size:10px;opacity:.5;margin-left:4px;vertical-align:middle}
 .phb-res-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
 .phb-rnd{font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--navy);background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:2px 7px}
 .phb-date{font-size:11px;color:var(--muted)}

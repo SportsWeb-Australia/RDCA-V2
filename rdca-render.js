@@ -898,6 +898,9 @@
       if (!mount || typeof fetch !== "function") return;
       var wantLeaders = !!(mount.getAttribute && mount.getAttribute("data-leaders"));
       var LEAD_API = "https://rdca-stats.carson-cfd.workers.dev/leaders";
+      var PHQ_ORG = (typeof window !== "undefined" && window.RDCA_PLAYHQ && window.RDCA_PLAYHQ.orgUrl) || "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association";
+      // Each result links to PlayHQ for the full scorecard (per-game URL when the feed carries a game id, else the org page).
+      function phqResultUrl(r) { return (r && r.id) ? ("https://www.playhq.com/cricket-australia/games/" + r.id) : PHQ_ORG; }
       var leadReq = 0;
       // Prefer the live rdca-stats Worker (window.RDCA_PLAYHQ_API); fall back to the
       // committed static data/playhq.json if the Worker is absent or unreachable.
@@ -1042,11 +1045,11 @@
                       (isWin ? '<span class="phb-won">WON</span>' : '') + '</div>';
                   }
                   var hw = r.winner === r.home, aw = r.winner === r.away, decided = !!r.winner;
-                  return '<div class="phb-res">' +
-                    '<div class="phb-res-top"><span class="phb-rnd">' + esc(r.round || "") + '</span><span class="phb-date">' + esc((r.date || "").slice(0, 10)) + '</span></div>' +
+                  return '<a class="phb-res" href="' + phqResultUrl(r) + '" target="_blank" rel="noopener" title="View this match on PlayHQ">' +
+                    '<div class="phb-res-top"><span class="phb-rnd">' + esc(r.round || "") + '</span><span class="phb-date">' + esc((r.date || "").slice(0, 10)) + ' <i class="ti ti-external-link phb-res-ext"></i></span></div>' +
                     side(r.home, hw, decided && !hw, r.homeScore) + side(r.away, aw, decided && !aw, r.awayScore) +
                     (decided ? '' : '<div class="phb-res-tie">Tie / no result</div>') +
-                    '</div>';
+                    '</a>';
                 }).join("")
               : '<p class="phb-empty"><i class="ti ti-cricket"></i> No results yet.</p>';
 
