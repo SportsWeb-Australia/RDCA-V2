@@ -1003,16 +1003,20 @@
               ? '<span class="phb-live"><i class="phb-dot"></i> Live</span> ' + esc(season.season)
               : esc(season.season) + ' <span class="phb-last">last season &middot; final ladders &amp; results</span>';
 
+            var maxPct = 0; g.ladder.forEach(function (r) { var v = parseFloat(r.pct); if (!isNaN(v) && v > maxPct) maxPct = v; });
             var lad = g.ladder.length
-              ? '<table class="phb-lt"><thead><tr><th class="phb-c-pos">#</th><th class="phb-c-team">Team</th><th>P</th><th>W</th><th>L</th><th class="phb-c-form">Form</th><th>Pts</th><th>%</th></tr></thead><tbody>' +
+              ? '<div class="phb-ltw"><table class="phb-lt"><thead><tr><th class="phb-c-pos">#</th><th class="phb-c-team">Team</th><th class="phb-c-form">Form</th><th>P</th><th>W</th><th>L</th><th class="phb-c-pct">%</th><th class="phb-c-pts">Pts</th></tr></thead><tbody>' +
                 g.ladder.map(function (r) {
-                  return '<tr' + (r.pos === 1 ? ' class="phb-lead"' : '') + '>' +
+                  var pv = parseFloat(r.pct); var fill = (!isNaN(pv) && maxPct > 0) ? Math.max(5, Math.round(pv / maxPct * 100)) : 0;
+                  return '<tr' + (r.pos === 1 ? ' class="phb-lead"' : (r.pos <= 2 ? ' class="phb-top"' : '')) + '>' +
                     '<td class="phb-c-pos"><span class="phb-pos">' + r.pos + '</span></td>' +
                     '<td class="phb-c-team"><span class="phb-tm">' + crest(r.team) + '<span class="phb-tn">' + esc(r.team) + '</span></span></td>' +
-                    '<td>' + n(r.p) + '</td><td>' + n(r.w) + '</td><td>' + n(r.l) + '</td>' +
                     '<td class="phb-c-form">' + formChips(r.team, g.results || []) + '</td>' +
-                    '<td><b class="phb-pts">' + n(r.pts) + '</b></td><td class="phb-pct">' + pc(r.pct) + '</td></tr>';
-                }).join("") + '</tbody></table>'
+                    '<td>' + n(r.p) + '</td><td>' + n(r.w) + '</td><td>' + n(r.l) + '</td>' +
+                    '<td class="phb-c-pct"><span class="phb-pctv">' + pc(r.pct) + '</span><span class="phb-meter"><i style="width:' + fill + '%"></i></span></td>' +
+                    '<td class="phb-c-pts"><b class="phb-pts">' + n(r.pts) + '</b></td></tr>';
+                }).join("") + '</tbody></table>' +
+                '<div class="phb-ladder-legend"><span><i class="phb-fp phb-fp-W">W</i> <i class="phb-fp phb-fp-L">L</i> last five, newest right</span><span>Top team leads &middot; % separates teams on equal points</span></div></div>'
               : '<p class="phb-empty"><i class="ti ti-clock-hour-4"></i> Ladder populates once the season is under way.</p>';
 
             var res = g.results.length
@@ -1030,7 +1034,7 @@
                     (decided ? '' : '<div class="phb-res-tie">Tie / no result</div>') +
                     '</div>';
                 }).join("")
-              : '<p class="phb-empty"><i class="ti ti-ball-baseball"></i> No results yet.</p>';
+              : '<p class="phb-empty"><i class="ti ti-cricket"></i> No results yet.</p>';
 
             var fix = g.fixtures.length
               ? g.fixtures.slice(0, 8).map(function (r) {
@@ -1051,12 +1055,10 @@
                     '<label class="phb-grade-wrap"><span>Grade</span><select class="phb-grade mc-grade-select">' + opts + '</select></label>' +
                   '</div></div>' +
                 '<div class="phb-season">' + note + '</div>' +
-                '<div class="phb-grid">' +
-                  '<div class="phb-col phb-ladder"><div class="phb-ch"><i class="ti ti-list-numbers"></i> Ladder</div>' + lad + '</div>' +
-                  '<div class="phb-rail">' +
-                    '<div class="phb-col"><div class="phb-ch"><i class="ti ti-chart-bar"></i> Recent Results</div>' + res + '</div>' +
-                    '<div class="phb-col"><div class="phb-ch"><i class="ti ti-calendar-event"></i> Upcoming Fixtures</div>' + fix + '</div>' +
-                  '</div>' +
+                '<div class="phb-col phb-ladder"><div class="phb-ch"><i class="ti ti-list-numbers"></i> Ladder</div>' + lad + '</div>' +
+                '<div class="phb-grid2">' +
+                  '<div class="phb-col"><div class="phb-ch"><i class="ti ti-chart-bar"></i> Recent Results</div>' + res + '</div>' +
+                  '<div class="phb-col"><div class="phb-ch"><i class="ti ti-calendar-event"></i> Upcoming Fixtures</div>' + fix + '</div>' +
                 '</div>' +
                 (wantLeaders ? '<div class="phb-perf"><div class="phb-ch phb-perf-hd"><i class="ti ti-trophy"></i> Top Performers <span class="phb-perf-g">' + esc(g.grade) + '</span></div><div id="phb-ldr"><p class="phb-empty"><i class="ti ti-loader"></i> Loading player stats…</p></div></div>' : '') +
               '</div>';
@@ -1068,7 +1070,7 @@
                   if (req !== leadReq) return;
                   var el = mount.querySelector("#phb-ldr"); if (!el) return;
                   if (!j || j.error || (!(j.runs && j.runs.length) && !(j.wickets && j.wickets.length))) {
-                    el.innerHTML = '<p class="phb-empty"><i class="ti ti-ball-baseball"></i> Player stats appear once matches are scored.</p>'; return;
+                    el.innerHTML = '<p class="phb-empty"><i class="ti ti-cricket"></i> Player stats appear once matches are scored.</p>'; return;
                   }
                   el.innerHTML =
                     '<div class="bbl-grid">' +
@@ -1125,7 +1127,7 @@
           return '<div class="bbl-row"><span class="bbl-rk' + (i < 3 ? ' m' + (i + 1) : '') + '">' + (i + 1) + '</span>' + crest(p.team) +
             '<div class="bbl-id"><div class="bbl-nm">' + esc(p.name) + '</div><div class="bbl-tm">' + esc(p.team) + '</div></div>' +
             '<div class="bbl-val"><b>' + valFn(p) + '</b><span>' + subFn(p) + '</span></div></div>';
-        }).join("") : '<p class="phb-empty"><i class="ti ti-ball-baseball"></i> Published once matches are played.</p>';
+        }).join("") : '<p class="phb-empty"><i class="ti ti-cricket"></i> Published once matches are played.</p>';
       }
       (API
         ? fetch(API, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw 0; return r.json(); }).catch(getStatic)
