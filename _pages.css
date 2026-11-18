@@ -1065,3 +1065,16 @@ body[data-page="honours"] .honours-table tbody tr:hover{background:rgba(204,34,3
 .phb-col > .phb-ch::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:4px;border-radius:2px;background:var(--red)}
 .phb-res{border-left:3px solid var(--navy3);transition:border-color .14s}
 .phb-res:hover{border-left-color:var(--red)}
+
+
+/* T20 Big Bash page: broadcast / flame treatment (RDCA BBT20 branding) */
+body[data-page="community-big-bash"] .page-hero{background:linear-gradient(130deg,#0a1020 0%,#1a0e22 55%,#2a0f14 100%);position:relative;overflow:hidden}
+body[data-page="community-big-bash"] .page-hero::before{content:"";position:absolute;top:-45%;right:-8%;width:520px;height:520px;background:radial-gradient(circle,rgba(255,122,47,.26),transparent 68%);pointer-events:none;z-index:0}
+body[data-page="community-big-bash"] .page-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,#ff7a2f,#e6371f);z-index:1}
+body[data-page="community-big-bash"] .page-hero-inner{position:relative;z-index:1}
+body[data-page="community-big-bash"] .page-hero .eyebrow{color:#ff9a5a}
+body[data-page="community-big-bash"] .page-hero h1{font-size:clamp(34px,6vw,58px);line-height:.98}
+body[data-page="community-big-bash"] .block-hed{position:relative;padding-left:15px}
+body[data-page="community-big-bash"] .block-hed::before{content:"";position:absolute;left:0;top:3px;bottom:3px;width:5px;border-radius:3px;background:linear-gradient(180deg,#ff7a2f,#e6371f)}
+body[data-page="community-big-bash"] .hub-hed-ic{color:#ff7a2f !important}
+body[data-page="community-big-bash"] .sec-about-eyebrow{color:#e6371f}
