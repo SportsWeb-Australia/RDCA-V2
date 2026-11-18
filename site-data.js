@@ -37296,7 +37296,7 @@ window.RDCA_DATA = {
   "competitions": {
     "seniors": {
       "label": "RDCA Seniors",
-      "intro": "The senior competition runs across Premier Shield tiers, lettered grades and lower Saturday grades. Fixtures, results and ladders for every grade are on PlayHQ.",
+      "intro": "The senior competition runs across Premier Shield tiers and lettered grades. Fixtures, results and ladders for every grade are on PlayHQ.",
       "groups": [
         {
           "name": "Premier Tiers",
