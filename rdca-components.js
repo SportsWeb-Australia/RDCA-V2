@@ -94,7 +94,13 @@
       </div>
       <a class="nav-link" href="/juniors">Juniors</a>
       <a class="nav-link" href="/match-centre">Match Centre</a>
-      <a class="nav-link" href="/umpires">Umpires</a>
+      <div class="nav-item">
+        <a class="nav-link nav-drop-toggle" href="/umpires">Umpires <i class="ti ti-chevron-down" style="font-size:12px"></i></a>
+        <div class="nav-drop">
+          <a href="/become-an-umpire">Become an Umpire</a>
+          <a href="/umpire-appointments">Appointments</a>
+        </div>
+      </div>
       <a class="nav-link" href="/clubs"><img src="/rdca-logo.png" class="nav-link-logo" alt="">Clubs</a>
       <a class="nav-link" href="/news">News</a>
       <a class="nav-link" href="/honours">Honours</a>
