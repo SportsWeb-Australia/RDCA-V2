@@ -928,6 +928,20 @@
             data.comps = data.comps.filter(function (c) { return (seasonOf(c).grades || []).length; });
             if (!data.comps.length) { mount.innerHTML = '<p class="phb-empty"><i class="ti ti-cricket"></i> Big Bash ladder, results and fixtures appear here once the competition is under way.</p>'; return; }
           }
+          // Natural grade order for every dropdown: Premier 1.1…2.5, A–L, T20, juniors, women's.
+          function gradeKey(name){
+            var s = String(name || "").toLowerCase(), m;
+            if (m = /premier\s*(\d+)\.(\d+)/.exec(s)) return [0, +m[1], +m[2], 0];
+            if (m = /women'?s?\s*([a-z])\b/.exec(s)) return [1, 0, 0, m[1].charCodeAt(0)];
+            if (m = /^\s*([a-z])\s*grade\b/.exec(s)) return [2, 0, 0, m[1].charCodeAt(0)];
+            if (/t20|big bash/.test(s)) return [3, 0, 0, 0];
+            if (m = /u(\d+)\D*?(\d+)?/.exec(s)) return [4, -(+m[1]), (m[2] ? +m[2] : 999), 0];
+            if (m = /girls\s*stage\s*(\d+)/.exec(s)) return [5, +m[1], 0, 0];
+            if (/mini\s*bash/.test(s)) return [6, 0, 0, 0];
+            return [7, 0, 0, 0];
+          }
+          function gradeCmp(a, b){ var ka = gradeKey(a.grade), kb = gradeKey(b.grade), i; for (i = 0; i < 4; i++){ if (ka[i] !== kb[i]) return ka[i] - kb[i]; } return String(a.grade || "").localeCompare(String(b.grade || "")); }
+          data.comps.forEach(function (c){ ["last", "current"].forEach(function (ph){ if (c[ph] && Array.isArray(c[ph].grades)) c[ph].grades.sort(gradeCmp); }); });
           function n(x) { return x == null ? "&ndash;" : String(x); }
           function pc(x) { return x == null ? "&ndash;" : (Math.round(x * 1000) / 1000); }
           var ci = 0, gi = 0;

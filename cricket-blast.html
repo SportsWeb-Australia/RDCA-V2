@@ -40,6 +40,12 @@
   .cb-btn{background:#FAEC25;color:#0A524D;border:none}
   .cb-mark{width:64px;height:64px;border-radius:16px;background:#FAEC25;display:flex;align-items:center;justify-content:center;font-size:34px;color:#0C6660;flex-shrink:0;box-shadow:0 8px 22px rgba(12,102,96,.3)}
   .cb-feat .tile-ic{background:linear-gradient(135deg,#0C6660,#0a524d)}
+  .cb-hero-logo{position:absolute;top:50%;right:6%;transform:translateY(-50%);width:172px;height:172px;object-fit:contain;filter:drop-shadow(0 12px 30px rgba(0,0,0,.4));z-index:1;pointer-events:none}
+  @media(max-width:900px){.cb-hero-logo{width:108px;right:4%;top:24px;transform:none}}
+  @media(max-width:560px){.cb-hero-logo{width:80px;right:14px;top:16px}}
+  .cb-gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .cb-shot{height:300px;background-size:cover;background-position:center;border-radius:16px;box-shadow:0 12px 30px rgba(13,31,60,.18)}
+  @media(max-width:620px){.cb-gallery{grid-template-columns:1fr}.cb-shot{height:220px}}
 </style>
 </head>
 <body data-page="cricket-blast">
@@ -47,6 +53,7 @@
 <div data-rdca="masthead"></div>
 
 <header class="page-hero cb-hero">
+  <img src="/brand/cricket-blast-logo.png" alt="Woolworths Cricket Blast" class="cb-hero-logo">
   <div class="page-hero-inner">
     <div class="crumb"><a href="/">Home</a> <i class="ti ti-chevron-right"></i> <a href="/juniors">Juniors</a> <i class="ti ti-chevron-right"></i> Cricket Blast</div>
     <div class="eyebrow" style="color:#FAEC25">Juniors &middot; Entry Level</div>
@@ -73,7 +80,7 @@
   <div class="section-block">
     <div class="block-hed">Why kids love it</div>
     <div class="tile-grid cb-feat">
-      <div class="tile"><div class="tile-ic"><i class="ti ti-ball-baseball"></i></div><div><div class="tile-tt">Skills through play</div><div class="tile-tx">Batting, bowling and fielding learned through fun, modified games.</div></div></div>
+      <div class="tile"><div class="tile-ic"><i class="ti ti-cricket"></i></div><div><div class="tile-tt">Skills through play</div><div class="tile-tx">Batting, bowling and fielding learned through fun, modified games.</div></div></div>
       <div class="tile"><div class="tile-ic"><i class="ti ti-mood-kid"></i></div><div><div class="tile-tt">Kids 10 &amp; under</div><div class="tile-tx">Age-appropriate, safe and inclusive &mdash; everyone gets involved.</div></div></div>
       <div class="tile"><div class="tile-ic"><i class="ti ti-ball-tennis"></i></div><div><div class="tile-tt">Gear provided</div><div class="tile-tx">We take care of the equipment, and every player gets a Cricket Blast Pack.</div></div></div>
       <div class="tile"><div class="tile-ic"><i class="ti ti-users-group"></i></div><div><div class="tile-tt">Parents can jump in</div><div class="tile-tx">Designed for families &mdash; no cricket experience needed to help out.</div></div></div>
@@ -81,8 +88,16 @@
   </div>
 
   <div class="section-block">
+    <div class="block-hed">Cricket Blast in action</div>
+    <div class="cb-gallery">
+      <div class="cb-shot" style="background-image:url('/photos/blast-1.jpg')" role="img" aria-label="Kids playing Woolworths Cricket Blast"></div>
+      <div class="cb-shot" style="background-image:url('/photos/blast-2.jpg')" role="img" aria-label="Young cricketers at a Cricket Blast session"></div>
+    </div>
+  </div>
+
+  <div class="section-block">
     <div class="cb-cta">
-      <span class="cb-mark"><i class="ti ti-ball-baseball"></i></span>
+      <span class="cb-mark"><i class="ti ti-cricket"></i></span>
       <div class="cb-cta-tx">
         <div class="cb-cta-eyebrow">Registration &middot; Program Finder</div>
         <div class="cb-cta-hed">Ready to bat, bowl and have a ball?</div>
