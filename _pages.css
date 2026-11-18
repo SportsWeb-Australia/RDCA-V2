@@ -855,9 +855,9 @@ background:var(--card);color:var(--muted)}
 font-size:11px;font-weight:800;letter-spacing:.9px;text-transform:uppercase;padding:5px 11px;border-radius:20px}
 .rs-hd h3{margin:11px 0 6px;font-size:23px;color:#fff}
 .rs-hd p{margin:0;font-size:14px;color:rgba(255,255,255,.82);max-width:660px}
-.rs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:11px}
-.rs-card{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.09);
-border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:14px 15px;text-decoration:none;
+.rs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;max-width:1060px;margin:0 auto}
+.rs-card{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.09);
+border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:20px 18px;text-decoration:none;
 color:#fff;transition:.16s}
 .rs-card:not(.rs-static):hover{background:#fff;color:var(--navy);border-color:#fff;transform:translateY(-2px)}
 .rs-card:not(.rs-static):hover .rs-ic{background:var(--red);color:#fff}
@@ -1025,3 +1025,20 @@ opacity:.85;margin-top:6px;transition:.18s}
 .gc:hover .gc-go{opacity:1;gap:11px;color:#ff9a9a}
 @media(max-width:640px){.gal-title{font-size:30px}.gal-hd{align-items:flex-start}
 .gc-big{gap:16px;padding:16px}.gc-big .gc-thumb{width:112px;height:112px}.gc-big .gc-season{font-size:36px}}
+
+
+/* ---- Honours: broadcast / hall-of-fame treatment (scoped to data-page=honours) ---- */
+body[data-page="honours"] .page-hero{background:linear-gradient(135deg,#0a1830,#142b50)}
+body[data-page="honours"] .page-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,#e8b84b,#cc2222)}
+body[data-page="honours"] .block-hed{position:relative;padding-left:16px;font-size:30px}
+body[data-page="honours"] .block-hed::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:5px;border-radius:3px;background:linear-gradient(180deg,#e8b84b,#cc2222)}
+body[data-page="honours"] .tile{background:linear-gradient(140deg,#0d1f3c,#1e3d6b);border:1px solid rgba(255,255,255,.12);color:#fff;position:relative;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
+body[data-page="honours"] .tile::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#e8b84b,#cc2222)}
+body[data-page="honours"] .tile:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(10,24,48,.35)}
+body[data-page="honours"] .tile-ic{background:linear-gradient(135deg,#e8b84b,#c8902a);color:#0d1f3c}
+body[data-page="honours"] .tile-tt{color:#fff}
+body[data-page="honours"] .tile-tt i{color:rgba(255,255,255,.55)!important}
+body[data-page="honours"] .tile [style*="--muted"]{color:rgba(255,255,255,.6)!important}
+body[data-page="honours"] .honours-table thead th{background:#0d1f3c;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:.6px;font-size:14px;border-color:#0d1f3c}
+body[data-page="honours"] .honours-table tbody tr:nth-child(even){background:rgba(13,31,60,.04)}
+body[data-page="honours"] .honours-table tbody tr:hover{background:rgba(204,34,34,.06)}
