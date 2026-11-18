@@ -211,6 +211,25 @@ table.lt th.tl,table.lt td.tl{text-align:left}
 .prk{font-size:11px;color:var(--muted);font-weight:700;width:16px;flex-shrink:0}
 .pav{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;overflow:hidden;background:#fff;border:1px solid var(--border)}
 .pav img{width:26px;height:26px;object-fit:contain;display:block}
+/* PERFORMERS — broadcast panels */
+.pbl{background:linear-gradient(160deg,#0d1f3c,#16305a);border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;position:relative;box-shadow:0 14px 34px rgba(8,16,30,.18)}
+.pbl::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#e8b84b,#cc2222)}
+.pbl-hd{display:flex;align-items:center;gap:8px;padding:13px 16px 11px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.5px;color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.pbl-hd-ic{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;background:rgba(255,255,255,.08)}
+.pbl-row{display:flex;align-items:center;gap:11px;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.055)}
+.pbl-row:last-child{border-bottom:none}
+.pbl-rk{flex:0 0 22px;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:13px;color:rgba(255,255,255,.7);background:rgba(255,255,255,.08)}
+.pbl-rk.m1{background:linear-gradient(135deg,#f7d774,#d4a017);color:#2a1e00}
+.pbl-rk.m2{background:linear-gradient(135deg,#e2e8f0,#aab4c2);color:#1c2430}
+.pbl-rk.m3{background:linear-gradient(135deg,#e6a876,#b4702f);color:#2a1403}
+.pbl-nm{flex:1;min-width:0}
+.pbl-n{font-size:12.5px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pbl-t{font-size:10px;color:rgba(255,255,255,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.pbl-val{text-align:right;flex-shrink:0}
+.pbl-big{font-family:'Bebas Neue',sans-serif;font-size:22px;line-height:1;color:#fff}
+.pbl-big.red{color:#ff6b6b}
+.pbl-sub{font-size:9.5px;color:rgba(255,255,255,.5);margin-top:1px}
+.pbl-empty{padding:14px 16px;font-size:12px;color:rgba(255,255,255,.55)}
 /* REP/UMP */
 .rep-section{border-radius:var(--r);overflow:hidden;position:relative;min-height:280px}
 .rep-photo{position:absolute;inset:0;background-size:cover;background-position:center 25%;background-image:url('/photos/rdca-club-1.webp')}
@@ -923,11 +942,8 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
   <div class="sw1-tag">One login. One connected record for your club. Trusted by clubs and associations since 2015.</div>
 
   <div class="sw1-ctas">
-    <a class="btn btn-red" style="width:100%;justify-content:center" href="https://sportsweb.com.au" target="_blank" rel="noopener">Explore SportsWeb 360&deg;</a>
-    <a class="btn btn-outline-white" style="width:100%;justify-content:center" href="https://sportsweb.com.au/how-it-works" target="_blank" rel="noopener">See How It Works</a>
+    <a class="btn btn-red" style="width:100%;justify-content:center" href="https://sportsweb.com.au" target="_blank" rel="noopener">Learn More <i class="ti ti-arrow-right" style="font-size:15px"></i></a>
   </div>
-
-  <div class="sw1-trust"><i class="ti ti-map-pin"></i> Built in Australia by an Australian company for Australian sport.</div>
 </div>
 </div>
 <!-- /SW1 -->
@@ -1202,21 +1218,22 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
       var _pl=data.premierLeaders;
       var _pr=document.getElementById("perf-runs"), _pw=document.getElementById("perf-wkts");
       function _pnm(t){return String(t||"").replace(/\s+\d*xi+$/i,"").trim();}
-      function _prow(i,p,big,color,sub){
-        return '<div class="prow"><span class="prk">'+(i+1)+'</span>'+cc(p.team,32)
-          +'<div style="flex:1;min-width:0;overflow:hidden"><div style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+p.name+'</div><div style="font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+_pnm(p.team)+'</div></div>'
-          +'<div style="text-align:right;flex-shrink:0"><div style="font-family:\'Bebas Neue\',sans-serif;font-size:20px;line-height:1;color:'+color+'">'+big+'</div><div style="font-size:10px;color:var(--muted)">'+sub+'</div></div></div>';
+      function _prow(i,p,big,red,sub){
+        var m=i<3?' m'+(i+1):'';
+        return '<div class="pbl-row"><span class="pbl-rk'+m+'">'+(i+1)+'</span>'+cc(p.team,30)
+          +'<div class="pbl-nm"><div class="pbl-n">'+p.name+'</div><div class="pbl-t">'+_pnm(p.team)+'</div></div>'
+          +'<div class="pbl-val"><div class="pbl-big'+(red?' red':'')+'">'+big+'</div><div class="pbl-sub">'+sub+'</div></div></div>';
       }
       if(_pr){
         if(_pl&&_pl.runs&&_pl.runs.length){
-          _pr.innerHTML='<div style="font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:7px"><i class="ti ti-trending-up" style="font-size:17px;color:#16a34a"></i> Leading Run Scorers</div>'
-            +_pl.runs.map(function(p,i){return _prow(i,p,p.runs,'#16a34a',p.inns+(p.inns===1?' inn':' inns'));}).join("");
-        } else { _pr.innerHTML='<p class="muted" style="font-size:12px;padding:6px 0">No batting stats yet.</p>'; }
+          _pr.innerHTML='<div class="pbl"><div class="pbl-hd"><span class="pbl-hd-ic"><i class="ti ti-trending-up"></i></span> Leading Run Scorers</div>'
+            +_pl.runs.map(function(p,i){return _prow(i,p,p.runs,false,p.inns+(p.inns===1?' inn':' inns'));}).join("")+'</div>';
+        } else { _pr.innerHTML='<div class="pbl"><div class="pbl-hd"><span class="pbl-hd-ic"><i class="ti ti-trending-up"></i></span> Leading Run Scorers</div><div class="pbl-empty">No batting stats yet.</div></div>'; }
       }
       if(_pw){
         if(_pl&&_pl.wickets&&_pl.wickets.length){
-          _pw.innerHTML='<div style="font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:7px"><i class="ti ti-cricket" style="font-size:17px;color:var(--red)"></i> Leading Wicket Takers</div>'
-            +_pl.wickets.map(function(p,i){return _prow(i,p,p.wickets,'var(--red)',p.overs+' ov');}).join("");
+          _pw.innerHTML='<div class="pbl"><div class="pbl-hd"><span class="pbl-hd-ic"><i class="ti ti-cricket"></i></span> Leading Wicket Takers</div>'
+            +_pl.wickets.map(function(p,i){return _prow(i,p,p.wickets,true,p.overs+' ov');}).join("")+'</div>';
         } else { _pw.innerHTML=''; }
       }
     }catch(e){}
