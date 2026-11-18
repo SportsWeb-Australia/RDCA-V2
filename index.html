@@ -205,6 +205,39 @@ table.lt th.tl,table.lt td.tl{text-align:left}
 .fxm{font-size:11px;color:var(--muted);margin-top:2px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
 .fx-sel{width:100%;margin-bottom:10px;background:#fff;color:var(--navy);border:1px solid var(--border);border-radius:9px;font-size:12.5px;font-weight:600;padding:8px 10px;cursor:pointer}
 .rrow{padding:11px 0;border-bottom:1px solid var(--border)}.rrow:last-child{border-bottom:none}
+/* COMP HUB — dark broadcast */
+#comp-hub{background:linear-gradient(160deg,#0d1f3c,#16294a);border:1px solid rgba(255,255,255,.1);box-shadow:0 16px 40px rgba(13,31,60,.24);position:relative;overflow:hidden;color:#fff}
+#comp-hub::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#e8b84b,#cc2222);z-index:2}
+#comp-hub .sec-hdr{padding:18px 20px 0;margin:0}
+#comp-hub .s-hed{color:#fff}
+#comp-hub .eyebrow{color:#ff9a9a}
+#comp-hub select{background:rgba(255,255,255,.08)!important;color:#fff!important;border:1px solid rgba(255,255,255,.16)!important}
+#comp-hub select option{color:#0d1f3c}
+#comp-hub .comp-tabs{margin:14px 0 0;padding:0 20px;border-bottom:1px solid rgba(255,255,255,.1)}
+#comp-hub .comp-tab{color:rgba(255,255,255,.55)}
+#comp-hub .comp-tab.active{color:#fff;border-color:#e8b84b}
+#comp-hub .comp-pane{padding:14px 20px 4px}
+#comp-hub table.lt th{color:rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.12)}
+#comp-hub table.lt td{color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.07)}
+#comp-hub table.lt tr.promo{background:rgba(232,184,75,.08)}
+#comp-hub table.lt tr.promo td:first-child{box-shadow:inset 3px 0 0 #e8b84b}
+#comp-hub .tl span{color:#fff}
+#comp-hub .lp-norm{background:rgba(255,255,255,.1);color:rgba(255,255,255,.7)}
+#comp-hub .pts{color:#fff}
+#comp-hub tr.promo .pts{color:#f4d06a!important}
+#comp-hub .dm{color:rgba(255,255,255,.5)}
+#comp-hub .fpW{background:#16a34a;color:#fff}
+#comp-hub .fpL{background:var(--red);color:#fff}
+#comp-hub .fxr{border-bottom:1px solid rgba(255,255,255,.08)}
+#comp-hub .fxd{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
+#comp-hub .fxt{color:#fff}
+#comp-hub .fxm{color:rgba(255,255,255,.55)}
+#comp-hub .rrow{border-bottom:1px solid rgba(255,255,255,.08)}
+#comp-hub .badge-gray{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8)}
+#comp-hub .btn-navy{background:rgba(255,255,255,.1)!important;color:#fff!important;border:1px solid rgba(255,255,255,.16)!important}
+#comp-hub .btn-navy:hover{background:rgba(255,255,255,.18)!important}
+#comp-hub .divider{border-top:1px solid rgba(255,255,255,.1);margin:0}
+#comp-hub > a[href="/competition"]{color:#fff!important;padding:14px 20px}
 /* PERFORMERS */
 .perf-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .prow{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border)}.prow:last-child{border-bottom:none}
@@ -655,7 +688,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 </section>
 
 <!-- APP BUTTONS -->
-<div class="app-section"><div class="app-inner"><div class="app-grid"><a href="/competition#fixtures" class="ab"><div class="ai"><i class="ti ti-calendar-event"></i></div><span class="al">Fixtures</span></a><a href="/competition#results" class="ab"><div class="ai"><i class="ti ti-chart-bar"></i></div><span class="al">Results</span></a><a href="/competition#ladders" class="ab"><div class="ai"><i class="ti ti-list-numbers"></i></div><span class="al">Ladders</span></a><a href="/clubs" class="ab"><div class="ai" style="padding:6px"><img src="https://res.cloudinary.com/dozdbhjhs/image/upload/v1780757750/rdca_logo-_Transparent_grugfj.png" style="width:100%;height:100%;object-fit:contain" alt="Clubs"></div><span class="al">Clubs</span></a><a href="/clubs" class="ab"><div class="ai"><i class="ti ti-map-pin"></i></div><span class="al">Grounds</span></a><a href="/news" class="ab"><div class="ai"><i class="ti ti-news"></i></div><span class="al">News</span></a><a href="/umpires" class="ab"><div class="ai"><i class="ti ti-gavel"></i></div><span class="al">Umpires</span></a><a href="/sponsors" class="ab"><div class="ai"><i class="ti ti-rosette"></i></div><span class="al">Sponsors</span></a><a href="/events" class="ab"><div class="ai"><i class="ti ti-calendar"></i></div><span class="al">Events</span></a><a href="/contact" class="ab"><div class="ai"><i class="ti ti-mail"></i></div><span class="al">Contact</span></a></div></div></div>
+<div class="app-section"><div class="app-inner"><div class="app-grid"><a href="/competition#fixtures" class="ab"><div class="ai"><i class="ti ti-calendar-event"></i></div><span class="al">Fixtures</span></a><a href="/competition#results" class="ab"><div class="ai"><i class="ti ti-chart-bar"></i></div><span class="al">Results</span></a><a href="/competition#ladders" class="ab"><div class="ai"><i class="ti ti-list-numbers"></i></div><span class="al">Ladders</span></a><a href="/community-big-bash" class="ab"><div class="ai" style="padding:5px;background:#0d1f3c"><img src="/community-bbt20-logo.png" style="width:100%;height:100%;object-fit:contain" alt="T20 Big Bash"></div><span class="al">T20 Big Bash</span></a><a href="/clubs" class="ab"><div class="ai" style="padding:6px"><img src="https://res.cloudinary.com/dozdbhjhs/image/upload/v1780757750/rdca_logo-_Transparent_grugfj.png" style="width:100%;height:100%;object-fit:contain" alt="Clubs"></div><span class="al">Clubs</span></a><a href="/clubs" class="ab"><div class="ai"><i class="ti ti-map-pin"></i></div><span class="al">Grounds</span></a><a href="/news" class="ab"><div class="ai"><i class="ti ti-news"></i></div><span class="al">News</span></a><a href="/umpires" class="ab"><div class="ai"><i class="ti ti-gavel"></i></div><span class="al">Umpires</span></a><a href="/sponsors" class="ab"><div class="ai"><i class="ti ti-rosette"></i></div><span class="al">Sponsors</span></a><a href="/events" class="ab"><div class="ai"><i class="ti ti-calendar"></i></div><span class="al">Events</span></a><a href="/contact" class="ab"><div class="ai"><i class="ti ti-mail"></i></div><span class="al">Contact</span></a></div></div></div>
 
 <!-- ROTATING PROMO / SPONSOR BANNER -->
 <div class="pb-wrap">
@@ -737,7 +770,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 </div>
 
 <!-- COMPETITION HUB -->
-<div class="card" style="padding:20px">
+<div class="card" id="comp-hub" style="padding:0">
   <div class="sec-hdr">
     <div><div class="eyebrow">2026/27 Season</div><div class="s-hed">Competition Hub</div></div>
     <select style="font-family:'DM Sans',sans-serif;font-size:12px;padding:6px 12px;border-radius:7px;border:1px solid var(--border);background:var(--bg);color:var(--text);cursor:pointer">

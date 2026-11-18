@@ -786,7 +786,7 @@ body[data-page="umpires"] .page-wrap .section-block{max-width:1180px;margin-left
 .news-feat{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.35fr);background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);text-decoration:none;transition:transform .15s,box-shadow .15s}
 .news-feat:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(13,31,60,.16)}
 .news-feat-media{position:relative;min-height:230px;background:linear-gradient(135deg,var(--navy),var(--navy3))}
-.news-feat-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.news-feat-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 12%}
 .news-feat-media.is-ic{display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);font-size:64px}
 .news-feat-body{padding:26px 28px;display:flex;flex-direction:column;justify-content:center}
 .news-feat-tag{align-self:flex-start;display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--red);background:rgba(204,34,34,.1);border:1px solid rgba(204,34,34,.22);padding:4px 10px;border-radius:20px;margin-bottom:12px}
@@ -1052,9 +1052,15 @@ body[data-page="honours"] .tile-ic{background:linear-gradient(135deg,#e8b84b,#c8
 body[data-page="honours"] .tile-tt{color:#fff}
 body[data-page="honours"] .tile-tt i{color:rgba(255,255,255,.55)!important}
 body[data-page="honours"] .tile [style*="--muted"]{color:rgba(255,255,255,.6)!important}
-body[data-page="honours"] .honours-table thead th{background:#0d1f3c;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:.6px;font-size:14px;border-color:#0d1f3c}
-body[data-page="honours"] .honours-table tbody tr:nth-child(even){background:rgba(13,31,60,.04)}
-body[data-page="honours"] .honours-table tbody tr:hover{background:rgba(204,34,34,.06)}
+body[data-page="honours"] .honours-table{background:linear-gradient(160deg,#0d1f3c,#16294a);border:1px solid rgba(255,255,255,.1);box-shadow:0 14px 36px rgba(13,31,60,.22)}
+body[data-page="honours"] .honours-table thead th{background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);font-family:'Bebas Neue',sans-serif;letter-spacing:.6px;font-size:14px;border-bottom:1px solid rgba(255,255,255,.14)}
+body[data-page="honours"] .honours-table td{color:rgba(255,255,255,.85);border-top:1px solid rgba(255,255,255,.07)}
+body[data-page="honours"] .honours-table tbody tr:nth-child(even) td{background:rgba(255,255,255,.03)}
+body[data-page="honours"] .honours-table tbody tr:hover td{background:rgba(255,255,255,.07)}
+body[data-page="honours"] .honours-table td a{color:#9fc0ff}
+body[data-page="honours"] .honours-table td a:hover{color:#fff}
+body[data-page="honours"] .honours-table .hof-y,body[data-page="honours"] .honours-table td.hof-y{color:rgba(255,255,255,.55)}
+body[data-page="honours"] .honours-table .aw-med{color:rgba(255,255,255,.6)}
 
 
 /* Match Centre broadcast polish (ladder header + panel header accents) */
@@ -1093,7 +1099,7 @@ body[data-page="community-big-bash"] .page-hero::after{z-index:3}
 #news-mount{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
 .news-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease}
 .news-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(13,31,60,.15)}
-.news-card-img{height:180px;background-size:cover;background-position:center 20%;flex-shrink:0}
+.news-card-img{height:180px;background-size:cover;background-position:center 12%;flex-shrink:0}
 .news-card-ph{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;font-size:36px}
 .news-card-bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:7px;flex:1}
 .news-card-cat{font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:5px;flex-wrap:wrap}
