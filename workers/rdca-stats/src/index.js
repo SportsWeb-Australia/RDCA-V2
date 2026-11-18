@@ -155,6 +155,38 @@ async function bigBashLeaders(env, phq, seniorsSeasons) {
   };
 }
 
+// Batting/bowling leaders for one grade (e.g. Premier 1.1 — 1st grade) in the
+// active season. Reuses the immutable per-game scorecard cache, so steady-state
+// is cheap (only new FINAL games are fetched).
+async function gradeLeaders(env, phq, seniorsSeasons, re) {
+  const list = seniorsSeasons || [];
+  const season = list.find(s => s.status === "ACTIVE") ||
+    list.filter(s => s.status === "COMPLETED").sort((a, b) => String(b.name).localeCompare(String(a.name)))[0];
+  if (!season) return null;
+  const grades = await phq.getAll(`/v1/seasons/${season.id}/grades`, (j) => j.data);
+  const gr = grades.find(g => re.test(g.name || ""));
+  if (!gr) return null;
+  const gamesResp = await phq.get(`/v2/grades/${gr.id}/games`);
+  const finals = [];
+  (gamesResp.rounds || []).forEach(rd => (rd.games || []).forEach(g => { if (g.status === "FINAL") finals.push(g.id); }));
+  const agg = {};
+  for (const gid of finals) {
+    const stats = await gameStats(env, phq, gid);
+    stats.forEach(p => {
+      const key = p.name + "|" + p.team;
+      const a = agg[key] || (agg[key] = { name: p.name, team: p.team, runs: 0, balls: 0, inns: 0, wickets: 0, overs: 0 });
+      a.runs += p.runs; a.balls += p.balls; a.wickets += p.wickets; a.overs += p.overs;
+      if (p.balls > 0 || p.runs > 0) a.inns += 1;
+    });
+  }
+  const all = Object.keys(agg).map(k => agg[k]);
+  return {
+    season: season.name, grade: gr.name, games: finals.length,
+    runs: all.filter(p => p.runs > 0).sort((a, b) => b.runs - a.runs || a.balls - b.balls).slice(0, 5).map(p => ({ name: p.name, team: p.team, runs: p.runs, inns: p.inns })),
+    wickets: all.filter(p => p.wickets > 0).sort((a, b) => b.wickets - a.wickets || a.overs - b.overs).slice(0, 5).map(p => ({ name: p.name, team: p.team, wickets: p.wickets, overs: p.overs }))
+  };
+}
+
 async function build(env) {
   const budget = { left: SUBREQUEST_BUDGET_PER_RUN };
   const phq = makeClient(env, budget);
@@ -182,7 +214,10 @@ async function build(env) {
   let bigBash = null;
   try { bigBash = await bigBashLeaders(env, phq, byComp["RDCA Seniors Cricket"]); }
   catch (e) { if (!phq.get.isBudgetError(e)) bigBash = null; } // never fail the board over leaders
-  const board = { generatedAt: new Date().toISOString(), cutover, source: "PlayHQ public API (rdca-stats worker)", comps, bigBash };
+  let premierLeaders = null;
+  try { premierLeaders = await gradeLeaders(env, phq, byComp["RDCA Seniors Cricket"], /premier 1\.1|pat meehan/i); }
+  catch (e) { if (!phq.get.isBudgetError(e)) premierLeaders = null; } // never fail the board over leaders
+  const board = { generatedAt: new Date().toISOString(), cutover, source: "PlayHQ public API (rdca-stats worker)", comps, bigBash, premierLeaders };
   await env.STATS.put("playhq:board", JSON.stringify(board));
   return board;
 }
