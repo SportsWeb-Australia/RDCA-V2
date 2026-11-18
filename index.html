@@ -289,6 +289,11 @@ a.ump-card:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,
 .sw1-logo{position:relative;z-index:1;font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.4px;color:#fff;margin-bottom:8px}
 .sw1-logo span{color:var(--red)}
 .sw1-copy{position:relative;z-index:1;font-size:11.5px;color:rgba(255,255,255,.66);line-height:1.5;margin-bottom:12px}
+.sw1-logo{display:flex;align-items:center;gap:9px}
+.sw1-logo-img{height:25px;width:auto;display:block}
+.sw1-360{font-family:'Bebas Neue',sans-serif;font-size:23px;color:#fff;letter-spacing:.5px;line-height:1}
+.sw1-copy p{margin:0 0 11px}
+.sw1-copy p:last-child{margin-bottom:0}
 .sw1-hed{position:relative;z-index:1;font-family:'Bebas Neue',sans-serif;font-size:22px;line-height:1.02;letter-spacing:.3px;color:#fff;margin-bottom:8px}
 .sw1-hed span{color:var(--red)}
 .sw1-eofy{position:relative;z-index:2;display:flex;align-items:center;gap:7px;margin:6px -18px 14px;padding:7px 16px;background:linear-gradient(90deg,#caa23a,#e0b84e);color:#1c1405;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;text-decoration:none}
@@ -297,7 +302,7 @@ a.ump-card:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,
 .sw1-eofy:hover{filter:brightness(1.06)}
 .sw1-wrap{position:relative;margin-top:24px}
 .sw1-visual{position:relative;display:flex;align-items:flex-end;justify-content:center;margin:18px 0 20px;z-index:1}
-.sw1-wheel{width:188px;height:188px;max-width:60%;filter:drop-shadow(0 10px 26px rgba(0,0,0,.45))}
+.sw1-wheel{width:190px;height:auto;max-width:56%;filter:drop-shadow(0 10px 26px rgba(0,0,0,.45))}
 .sw1-skip{width:96px;height:auto;margin-left:-16px;margin-bottom:-4px;filter:drop-shadow(0 10px 22px rgba(0,0,0,.5))}
 @media(max-width:360px){.sw1-skip{width:78px}.sw1-wheel{width:158px}}
 .sw1-adbadge{position:absolute;top:0;right:16px;transform:translateY(-50%);z-index:5;display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:30px;background:linear-gradient(135deg,#0d1f3c,#142c52);border:1px solid rgba(255,255,255,.16);box-shadow:0 6px 16px rgba(6,12,24,.5);text-decoration:none;white-space:nowrap;transition:transform .15s,box-shadow .15s}
@@ -808,7 +813,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
   <div class="nl-inner">
     <div style="flex:1;min-width:200px">
       <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:4px">Stay Connected</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:.3px;margin-bottom:4px">RDCA Weekly Update</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:.3px;margin-bottom:4px">Subscribe to the RDCA Newsletter</div>
       <div style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.5">Get the latest scores, news and announcements every week during the season.</div>
     </div>
     <div style="display:flex;gap:8px;min-width:280px;flex-wrap:wrap">
@@ -895,15 +900,14 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 <div class="sw1-wrap">
 <a class="sw1-adbadge" href="/contact"><span class="sw1-ad-lbl"><i class="ti ti-speakerphone"></i> Advertise With Us</span><span class="sw1-ad-cta">Get in touch <i class="ti ti-arrow-right" style="font-size:12px"></i></span></a>
 <div class="sw1-promo">
-  <a class="sw1-eofy" href="https://sportsweb.com.au/eofy" target="_blank" rel="noopener"><i class="ti ti-star-filled"></i> EOFY Club Upgrade Special <span class="sw1-eofy-cta">View EOFY Offer <i class="ti ti-chevron-right" style="font-size:11px"></i></span></a>
   <div class="sw1-eyebrow">Powered by</div>
-  <div class="sw1-logo">Sports<span>Web</span> 360&deg;</div>
-  <div class="sw1-hed">One Operating System. Every Club Function.</div>
+  <div class="sw1-logo"><img class="sw1-logo-img" src="/brand/sportsweb-white.svg" alt="SportsWeb Australia"><span class="sw1-360">360&deg;</span></div>
+  <div class="sw1-hed">One Platform. Every Club Function.</div>
   <div class="sw1-visual">
     <img class="sw1-wheel" src="/brand/sportsweb360-wheel.svg" alt="The SportsWeb 360 wheel — eight connected club functions" loading="lazy">
     <img class="sw1-skip" src="/brand/skip.webp" alt="Skip, the SportsWeb AI assistant" loading="lazy">
   </div>
-  <div class="sw1-copy">Every club function in one connected system &mdash; with <strong>Skip and his AI team doing the heavy lifting</strong>, preparing updates, admin, reminders and reporting so your volunteers don&rsquo;t have to. One login, one connected record, the complete eight-area Club&nbsp;360&deg; wheel.</div>
+  <div class="sw1-copy"><p>From a professionally designed club website to a complete club management platform, SportsWeb&nbsp;360&deg; brings everything together in one connected system. Powered by <strong>Skip</strong>, your friendly AI assistant, and his team of specialist AI agents, SportsWeb takes the hard work out of running your club &mdash; creating content, updating your website and social media, managing communications, streamlining administration, and helping with reminders and reporting.</p><p>With one login, eight connected areas of club operations and AI doing the heavy lifting, your volunteers can spend less time on admin and more time doing what matters &mdash; running a great club.</p></div>
 
   <div class="sw1-clusters">
     <div class="sw1-cl"><div class="sw1-cl-ic"><i class="ti ti-device-desktop"></i></div><div class="sw1-cl-bd"><div class="sw1-cl-tt"><i class="ti ti-check"></i> Websites, Graphics &amp; Socials</div><div class="sw1-cl-tx">One-click publishing to your website and social accounts.</div></div></div>
