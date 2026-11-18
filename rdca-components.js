@@ -54,7 +54,7 @@
   <a href="/juniors" class="mob-link"><i class="ti ti-friends"></i> Juniors</a>
   <a href="/match-centre" class="mob-link"><i class="ti ti-scoreboard"></i> Match Centre</a>
   <a href="/umpires" class="mob-link"><i class="ti ti-whistle"></i> Umpires</a>
-  <a href="/cricket-blast" class="mob-link"><i class="ti ti-ball-baseball"></i> Cricket Blast</a>
+  <a href="/cricket-blast" class="mob-link"><i class="ti ti-cricket"></i> Cricket Blast</a>
   <a href="/veterans" class="mob-link"><i class="ti ti-medal"></i> Veterans</a>
   <a href="/community-big-bash" class="mob-link"><i class="ti ti-flame"></i> T20 Big Bash</a>
   <div class="mob-group">Club &amp; Community</div>

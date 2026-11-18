@@ -1074,6 +1074,19 @@ body[data-page="honours"] .hof-name.pending:hover{color:#fff}
 body[data-page="honours"] .hof-bio-in{background:linear-gradient(180deg,rgba(255,255,255,.06),transparent);color:rgba(255,255,255,.82)}
 body[data-page="honours"] .hof-bio-in h4{color:#fff}
 body[data-page="honours"] .hof-bio-in .hof-yr{color:rgba(255,255,255,.6)}
+/* Premiers roll — dark-theme chips (club names were navy-on-dark = invisible) */
+body[data-page="honours"] .pr-chip{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
+body[data-page="honours"] .pr-chip b{color:#ffd37a}
+body[data-page="honours"] .pr-row{border-bottom-color:rgba(255,255,255,.12)}
+body[data-page="honours"] .pr-row span{color:rgba(255,255,255,.6)}
+body[data-page="honours"] .pr-row b{color:#fff}
+@media(max-width:560px){
+  body[data-page="honours"] .hof-table th:first-child,
+  body[data-page="honours"] .hof-table td:first-child{width:74px}
+  body[data-page="honours"] .pr-chip{display:block;white-space:normal;margin:4px 0}
+  body[data-page="honours"] .pr-more{display:inline-block;margin:5px 0 2px}
+  body[data-page="honours"] .pr-full{grid-template-columns:1fr}
+}
 
 
 /* Match Centre broadcast polish (ladder header + panel header accents) */
