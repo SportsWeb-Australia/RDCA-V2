@@ -978,14 +978,16 @@
 
             var res = g.results.length
               ? g.results.slice(0, 6).map(function (r) {
-                  function side(name, isWin, dim) {
+                  function side(name, isWin, dim, score) {
                     return '<div class="phb-side' + (isWin ? ' win' : '') + (dim ? ' dim' : '') + '">' + crest(name) +
-                      '<span class="phb-sn">' + esc(name) + '</span>' + (isWin ? '<span class="phb-won">WON</span>' : '') + '</div>';
+                      '<span class="phb-sn">' + esc(name) + '</span>' +
+                      (score ? '<span class="phb-sc">' + esc(score) + '</span>' : '') +
+                      (isWin ? '<span class="phb-won">WON</span>' : '') + '</div>';
                   }
                   var hw = r.winner === r.home, aw = r.winner === r.away, decided = !!r.winner;
                   return '<div class="phb-res">' +
                     '<div class="phb-res-top"><span class="phb-rnd">' + esc(r.round || "") + '</span><span class="phb-date">' + esc((r.date || "").slice(0, 10)) + '</span></div>' +
-                    side(r.home, hw, decided && !hw) + side(r.away, aw, decided && !aw) +
+                    side(r.home, hw, decided && !hw, r.homeScore) + side(r.away, aw, decided && !aw, r.awayScore) +
                     (decided ? '' : '<div class="phb-res-tie">Tie / no result</div>') +
                     '</div>';
                 }).join("")

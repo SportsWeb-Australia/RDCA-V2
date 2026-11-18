@@ -137,6 +137,8 @@
 .phb-side.dim{opacity:.5}
 .phb-side.win .phb-sn{color:var(--navy)}
 .phb-sn{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phb-sc{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:13px;color:var(--navy);flex-shrink:0}
+.phb-side.dim .phb-sc{color:var(--muted)}
 .phb-won{font-size:9px;font-weight:800;letter-spacing:.5px;color:#fff;background:#16a34a;border-radius:4px;padding:2px 6px;flex-shrink:0}
 .phb-res-tie{font-size:11px;color:var(--muted);margin-top:4px}
 /* fixtures rows */
