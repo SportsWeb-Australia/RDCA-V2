@@ -141,6 +141,9 @@ img{display:block;max-width:100%}
 .hmc-balls{display:flex;align-items:center;gap:5px;margin:8px 0 14px}
 .hmc-ball{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;background:rgba(255,255,255,.09);color:rgba(255,255,255,.7)}
 .hmc-ball.four{background:rgba(22,163,74,.25);color:#86efac}.hmc-ball.six{background:rgba(204,34,34,.3);color:#fca5a5}
+.hmc-sel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:11px;font-weight:600;padding:5px 8px;max-width:160px;cursor:pointer}
+.hmc-sel option{color:#0d1f3c}
+.hmc-wtag{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.5px;color:#4ade80;align-self:center;flex-shrink:0}
 /* APP BUTTONS */
 .app-section{background:var(--navy);border-top:1px solid rgba(255,255,255,.06)}
 .app-inner{max-width:1480px;margin:0 auto;padding:0 20px}
@@ -402,7 +405,7 @@ a.ump-card:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,
 .pb-slide{position:absolute;inset:0;display:flex;align-items:center;gap:20px;flex-wrap:wrap;
 padding:20px 22px;background:linear-gradient(120deg,var(--g1),var(--g2));border-left:4px solid #ee2b2b;
 opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .5s ease,transform .5s ease,visibility .5s}
-.pb-slide.on{opacity:1;visibility:visible;transform:none;position:relative}
+.pb-slide.on{opacity:1;visibility:visible;transform:none;position:relative;z-index:1}
 .pb-badge{position:absolute;top:10px;right:14px;font-size:9px;font-weight:800;letter-spacing:1px;
 text-transform:uppercase;color:rgba(255,255,255,.72);background:rgba(255,255,255,.12);
 border:1px solid rgba(255,255,255,.2);padding:3px 9px;border-radius:20px}
@@ -547,8 +550,8 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 <!-- TICKER -->
 <div class="ticker-bar">
   <div class="ticker-inner">
-    <div class="ticker-pill"><span class="live-dot"></span> Live Scores</div>
-    <div class="ticker-scroll"><div class="ticker-track"><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">Ringwood CC <b class="tk-sc">4/187</b><span class="tk-ov">42.2 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Croydon CC <b class="tk-sc">223</b></span><span class="tk-nt">Ringwood need 37 runs off 48 balls</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">North Ringwood CC <b class="tk-sc">3/96</b><span class="tk-ov">28.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Lilydale CC <b class="tk-sc">142</b></span><span class="tk-nt">North Ringwood need 47 to win</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">Wonga Park CC <b class="tk-sc">2/201</b><span class="tk-ov">38.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Warranwood CC <b class="tk-sc">264</b></span><span class="tk-nt">Wonga Park trail by 63, 12 overs left</span></div><div class="tk-it"><span class="tk-gr">Division 1</span><span class="tk-stat">Tea</span><span class="tk-tm">Montrose CC <b class="tk-sc">1/40</b><span class="tk-ov">12.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Kilsyth CC <b class="tk-sc">156</b></span><span class="tk-nt">Montrose need 117 to win</span></div><div class="tk-it"><span class="tk-gr">Division 1</span><span class="tk-live">Live</span><span class="tk-tm">Coldstream CC <b class="tk-sc">3/178</b><span class="tk-ov">36.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Mt Evelyn CC <b class="tk-sc">211</b></span><span class="tk-nt">Coldstream need 34 runs off 24 balls</span></div><div class="tk-it"><span class="tk-gr">Division 2</span><span class="tk-stat">Stumps</span><span class="tk-tm">South Croydon CC <b class="tk-sc">8/243</b><span class="tk-ov">80.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Mooroolbark CC <b class="tk-sc">4/131</b><span class="tk-ov">45.0 ov</span></span><span class="tk-nt">Mooroolbark trail by 112 — Day 1 of 2</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">Ringwood CC <b class="tk-sc">4/187</b><span class="tk-ov">42.2 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Croydon CC <b class="tk-sc">223</b></span><span class="tk-nt">Ringwood need 37 runs off 48 balls</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">North Ringwood CC <b class="tk-sc">3/96</b><span class="tk-ov">28.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Lilydale CC <b class="tk-sc">142</b></span><span class="tk-nt">North Ringwood need 47 to win</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">Wonga Park CC <b class="tk-sc">2/201</b><span class="tk-ov">38.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Warranwood CC <b class="tk-sc">264</b></span><span class="tk-nt">Wonga Park trail by 63, 12 overs left</span></div><div class="tk-it"><span class="tk-gr">Division 1</span><span class="tk-stat">Tea</span><span class="tk-tm">Montrose CC <b class="tk-sc">1/40</b><span class="tk-ov">12.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Kilsyth CC <b class="tk-sc">156</b></span><span class="tk-nt">Montrose need 117 to win</span></div><div class="tk-it"><span class="tk-gr">Division 1</span><span class="tk-live">Live</span><span class="tk-tm">Coldstream CC <b class="tk-sc">3/178</b><span class="tk-ov">36.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Mt Evelyn CC <b class="tk-sc">211</b></span><span class="tk-nt">Coldstream need 34 runs off 24 balls</span></div><div class="tk-it"><span class="tk-gr">Division 2</span><span class="tk-stat">Stumps</span><span class="tk-tm">South Croydon CC <b class="tk-sc">8/243</b><span class="tk-ov">80.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Mooroolbark CC <b class="tk-sc">4/131</b><span class="tk-ov">45.0 ov</span></span><span class="tk-nt">Mooroolbark trail by 112 — Day 1 of 2</span></div></div></div></div>
+    <div class="ticker-pill">Results</div>
+    <div class="ticker-scroll"><div class="ticker-track" id="tk-track"><div class="tk-it"><span class="tk-gr">Premier 1.1</span><span class="tk-nt">Loading latest results&hellip;</span></div></div></div>
   </div>
 </div>
 
@@ -582,32 +585,13 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
           <img src="https://res.cloudinary.com/dozdbhjhs/image/upload/v1780771648/Untitled-design---2025-01-09T100835635-m5oigune_nluqhv.png" alt="BBT20" style="width:120px;height:120px;object-fit:contain;filter:drop-shadow(0 6px 20px rgba(0,0,0,.6))">
         </a>
       </div>
-      <div class="hmc">
+      <div class="hmc" id="hmc">
         <div class="hmc-hdr">
-          <span class="badge badge-red" style="background:var(--red)"><span class="live-dot"></span> Live Now</span>
-          <span class="hmc-comp">Premier Division &middot; Round 14 &middot; Ringwood Reserve</span>
+          <span class="badge badge-red" style="background:var(--red)">Latest Result</span>
+          <select id="hmc-club" class="hmc-sel" aria-label="Choose your club"><option value="">Latest result</option></select>
         </div>
-        <div class="hmc-team">
-          <div class="hmc-tid"><div class="hmc-logo" style="background:#16a34a">RCC</div><div><div class="hmc-name">Ringwood CC</div><div class="hmc-sub">Batting</div></div></div>
-          <div><div class="hmc-score">4 / 187</div><div class="hmc-overs">42.2 ov</div></div>
-        </div>
-        <div class="hmc-team">
-          <div class="hmc-tid"><div class="hmc-logo" style="background:#cc2222">CCC</div><div><div class="hmc-name" style="color:rgba(255,255,255,.5)">Croydon CC</div><div class="hmc-sub">Bowled 223</div></div></div>
-          <div class="hmc-score dim">223</div>
-        </div>
-        <div class="hmc-grid">
-          <div class="hmc-cell"><div class="hmc-lbl">Partnership</div><div class="hmc-val">J. Smith 68*</div><div class="hmc-val2">T. Brown 34* &middot; 72 runs</div></div>
-          <div class="hmc-cell"><div class="hmc-lbl">Required</div><div class="hmc-val" style="color:#fca5a5">37 off 48</div><div class="hmc-val2">RRR: 4.63</div></div>
-          <div class="hmc-cell"><div class="hmc-lbl">Best Bowler</div><div class="hmc-val">M. Jones</div><div class="hmc-val2">2/34 (9 ov)</div></div>
-          <div class="hmc-cell"><div class="hmc-lbl">Last Wicket</div><div class="hmc-val">P. Davis b Jones</div><div class="hmc-val2">31 &middot; Over 38.4</div></div>
-        </div>
-        <div style="font-size:9px;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Last 6 deliveries</div>
-        <div class="hmc-balls">
-          <div class="hmc-ball">1</div><div class="hmc-ball four">4</div><div class="hmc-ball six">6</div>
-          <div class="hmc-ball">0</div><div class="hmc-ball">1</div><div class="hmc-ball">2</div>
-          <div style="flex:1"></div><span style="font-size:10px;color:rgba(255,255,255,.25)">CRR 4.41</span>
-        </div>
-        <a class="btn btn-outline-white" style="width:100%;justify-content:center;font-size:13px" href="/match-centre"><i class="ti ti-external-link" style="font-size:14px"></i> Full Match Centre</a>
+        <div id="hmc-body"><div class="hmc-comp" style="padding:16px 0">Loading latest results&hellip;</div></div>
+        <a class="btn btn-outline-white" style="width:100%;justify-content:center;font-size:13px;margin-top:4px" href="/match-centre"><i class="ti ti-external-link" style="font-size:14px"></i> Full Match Centre</a>
       </div>
     </div>
   </div>
@@ -1037,6 +1021,45 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
     if(fx)fx.innerHTML=fl.length?fl.map(function(r){var d=r.date?new Date(r.date):null,ok=d&&!isNaN(d);return '<div class="fxr"><div class="fxd" style="width:46px;height:46px"><div style="font-family:\'Bebas Neue\',sans-serif;font-size:22px;color:#fff;line-height:1">'+(ok?d.getDate():"")+'</div><div style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase">'+(ok?["SUN","MON","TUE","WED","THU","FRI","SAT"][d.getDay()]:"")+'</div></div><div class="fxi"><div class="fxt">'+r.home+' vs '+r.away+'</div><div class="fxm"><i class="ti ti-trophy" style="font-size:10px"></i>'+g.grade+' &middot; '+(r.round||"")+'</div></div><a href="/competition" class="btn btn-navy btn-sm" style="flex-shrink:0">Details</a></div>';}).join(""):'<p class="muted" style="padding:14px">No upcoming fixtures.</p>';
     var rs=document.getElementById("cp-results"),rl=(g.results||[]).slice(0,4);
     if(rs)rs.innerHTML=rl.length?rl.map(function(r){return '<div class="rrow"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span class="badge badge-gray">'+(r.round||"")+'</span>'+(r.winner?'<span style="font-size:11px;font-weight:700;color:#16a34a">'+r.winner+' won</span>':'')+'</div><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:2px 0'+(r.winner&&r.winner!==r.home?';opacity:.55':'')+'">'+cc(r.home,24)+r.home+'</div><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:2px 0'+(r.winner&&r.winner!==r.away?';opacity:.55':'')+'">'+cc(r.away,24)+r.away+'</div></div>';}).join(""):'<p class="muted" style="padding:14px">No results yet.</p>';
+
+    // --- Latest-results ticker + hero "Latest Result" card (1st grade: Premier 1.1) ---
+    try{
+    var _allG=(seasonOf(sen).grades)||[];
+    var prem=_allG.filter(function(x){return /premier\s*1\.1|pat meehan/i.test(x.grade||x.name||"");})[0]||g;
+    var pres=(prem.results||[]);
+    var pgname=String(prem.grade||"Premier 1.1").replace(/\s*-.*$/,"");
+    function _nm(t){return String(t||"").replace(/\s+\d*xi+$/i,"").trim();}
+    function _date(d){try{return new Date(d).toLocaleDateString("en-AU",{day:"numeric",month:"short"});}catch(e){return"";}}
+    // Ticker
+    var tk=document.getElementById("tk-track");
+    if(tk){
+      var items=pres.slice(0,10).map(function(r){
+        var txt = r.winner ? (_nm(r.winner)+' <span class="tk-vs">def.</span> '+_nm(r.winner===r.home?r.away:r.home))
+                           : (_nm(r.home)+' <span class="tk-vs">v</span> '+_nm(r.away));
+        return '<div class="tk-it"><span class="tk-gr">'+pgname+'</span><span class="tk-tm">'+txt+'</span>'+(r.round?'<span class="tk-nt">'+r.round+'</span>':'')+'</div>';
+      }).join("");
+      tk.innerHTML = items ? (items+items) : '<div class="tk-it"><span class="tk-nt">Results will appear here once the season is underway.</span></div>';
+    }
+    // Hero card
+    var _sel=document.getElementById("hmc-club"), _body=document.getElementById("hmc-body");
+    if(_body){
+      var teams=(prem.ladder||[]).map(function(r){return r.team;});
+      function latestFor(club){for(var i=0;i<pres.length;i++){if(pres[i].home===club||pres[i].away===club)return pres[i];}return null;}
+      function side(team,win){var isW=win&&win===team;return '<div class="hmc-team"><div class="hmc-tid">'+cc(team,36)+'<div><div class="hmc-name"'+(win&&!isW?' style="color:rgba(255,255,255,.5)"':'')+'>'+_nm(team)+'</div><div class="hmc-sub">'+(isW?'Won':(win?'Lost':'—'))+'</div></div></div>'+(isW?'<span class="hmc-wtag">def.</span>':'')+'</div>';}
+      function render(club){
+        var r=club?latestFor(club):pres[0];
+        if(!r){_body.innerHTML='<div class="hmc-comp" style="padding:16px 0">No results yet this season.</div>';return;}
+        _body.innerHTML='<div class="hmc-comp" style="margin-bottom:4px">'+pgname+' · '+(r.round||"")+(r.date?' · '+_date(r.date):'')+'</div>'+side(r.home,r.winner)+side(r.away,r.winner);
+      }
+      if(_sel&&teams.length){
+        var saved=null;try{saved=localStorage.getItem("rdca_my_club");}catch(e){}
+        _sel.innerHTML='<option value="">Latest result</option>'+teams.map(function(t){return '<option value="'+t.replace(/"/g,"&quot;")+'"'+(t===saved?' selected':'')+'>'+_nm(t)+'</option>';}).join("");
+        _sel.addEventListener("change",function(){try{localStorage.setItem("rdca_my_club",_sel.value);}catch(e){}render(_sel.value);});
+        render(saved&&teams.indexOf(saved)>=0?saved:"");
+      } else { render(""); }
+    }
+    }catch(e){}
+
   }).catch(function(){});
 })();
 /* Live weather chip (Ringwood) — Open-Meteo, no key */
