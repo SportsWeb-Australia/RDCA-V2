@@ -376,9 +376,15 @@ a.cg-item:hover .cg-ext{color:#e8b84b}
 @media(max-width:560px){.tl{margin-top:10px}.tl-item{margin-bottom:26px}.tl-card{padding:6px 14px;margin-top:10px}.tl-win{padding:13px 0}.tl-season{font-size:24px}}
 
 /* native prose blocks (section about / code of conduct) */
-.prose{color:var(--text);font-size:14px;line-height:1.65;max-width:760px}
-.prose p{margin:0 0 14px}
+.prose{color:var(--text);font-size:14px;line-height:1.72;max-width:760px}
+.prose p{margin:0 0 15px}
 .prose p:last-child{margin-bottom:0}
+.prose h2,.prose h3,.prose h4{line-height:1.25;margin:28px 0 11px}
+.prose h2:first-child,.prose h3:first-child,.prose h4:first-child{margin-top:0}
+.prose ul,.prose ol{margin:0 0 15px;padding-left:22px}
+.prose li{margin:0 0 8px;line-height:1.6}
+.prose li:last-child{margin-bottom:0}
+.prose > :last-child{margin-bottom:0}
 .prose a{color:var(--red);font-weight:600;text-decoration:none}
 .prose a:hover{text-decoration:underline}
 .prose em{color:var(--navy);font-style:italic}
