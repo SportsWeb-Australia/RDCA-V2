@@ -810,7 +810,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 
 <!-- UPCOMING -->
 <div class="card" style="padding:16px">
-  <div class="eyebrow">This Weekend</div>
+  <div class="eyebrow">Coming Up</div>
   <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.3px;margin-bottom:12px;line-height:1">Upcoming Fixtures</div>
   <select id="fx-grade-sel" class="fx-sel" aria-label="Choose a grade"></select>
   <div id="fx-list"><p class="muted" style="font-size:12px;padding:8px 0">Loading fixtures&hellip;</p></div>
@@ -820,25 +820,26 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 
 <!-- PLAYER SPOTLIGHT -->
 <div class="card" id="player-spotlight" style="overflow:hidden">
-  <div style="height:90px;background-image:url('/photos/rdca-womens-1.webp');background-size:cover;background-position:center 30%;position:relative">
+  <div id="spot-head" style="height:90px;background:linear-gradient(135deg,var(--navy),var(--navy3));position:relative;display:flex;align-items:center;justify-content:center">
+    <img id="spot-logo" alt="" style="height:52px;width:52px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,.45));display:none">
     <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,31,60,.15),rgba(13,31,60,.88))"></div>
     <div style="position:absolute;bottom:10px;left:14px;z-index:1"><div class="eyebrow" style="color:rgba(255,255,255,.45)">Feature</div><div style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:#fff">Player Spotlight</div></div>
   </div>
   <div style="padding:14px">
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
-      <div class="spot-av">JS</div>
-      <div><div style="font-weight:700;font-size:14px">Jake Smith</div><div style="font-size:11px;color:var(--muted)">Ringwood CC &middot; Opening Batsman</div><span class="badge badge-red" style="margin-top:3px;font-size:9px">Season Top Scorer</span></div>
+      <div class="spot-av" id="spot-av">&mdash;</div>
+      <div><div style="font-weight:700;font-size:14px" id="spot-name">&mdash;</div><div style="font-size:11px;color:var(--muted)" id="spot-meta">&mdash;</div><span class="badge badge-red" style="margin-top:3px;font-size:9px">Season Top Scorer</span></div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0">
-      <div style="background:var(--bg);border-radius:9px;padding:9px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--navy);line-height:1">687</div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px">Runs</div></div>
-      <div style="background:var(--bg);border-radius:9px;padding:9px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--navy);line-height:1">57.3</div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px">Avg</div></div>
-      <div style="background:var(--bg);border-radius:9px;padding:9px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--navy);line-height:1">2</div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px">100s</div></div>
+      <div style="background:var(--bg);border-radius:9px;padding:9px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--navy);line-height:1" id="spot-runs">&mdash;</div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px">Runs</div></div>
+      <div style="background:var(--bg);border-radius:9px;padding:9px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--navy);line-height:1" id="spot-inns">&mdash;</div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px">Innings</div></div>
+      <div style="background:var(--bg);border-radius:9px;padding:9px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--navy);line-height:1" id="spot-avg">&mdash;</div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px">Average</div></div>
     </div>
     <div style="margin-bottom:10px">
       <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px"><span>Season progress</span><span style="font-weight:700;color:var(--text)">Rd 14 of 18</span></div>
       <div style="height:5px;border-radius:3px;background:var(--bg2);overflow:hidden"><div style="height:100%;width:78%;background:var(--red);border-radius:3px"></div></div>
     </div>
-    <a class="btn btn-navy btn-sm" style="width:100%;justify-content:center" href="/player?player=jake-smith">View Full Profile</a>
+    <a class="btn btn-navy btn-sm" style="width:100%;justify-content:center" href="/match-centre">Full Match Centre</a>
   </div>
 </div>
 
@@ -1136,6 +1137,22 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
           _pw.innerHTML='<div style="font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:7px"><i class="ti ti-ball-baseball" style="font-size:17px;color:var(--red)"></i> Leading Wicket Takers</div>'
             +_pl.wickets.map(function(p,i){return _prow(i,p,p.wickets,'var(--red)',p.overs+' ov');}).join("");
         } else { _pw.innerHTML=''; }
+      }
+    }catch(e){}
+
+
+    // --- Player Spotlight: real season top run-scorer (Premier 1.1) ---
+    try{
+      var _sp=(data.premierLeaders&&data.premierLeaders.runs)||[];
+      var _top=_sp[0];
+      if(_top){
+        var _in=_top.inns||0, _avg=_in?(_top.runs/_in).toFixed(1):_top.runs;
+        var _ini=String(_top.name||"").split(/\s+/).map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase();
+        function _set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+        _set("spot-name",_top.name); _set("spot-meta",_nm(_top.team)+" · Premier 1.1");
+        _set("spot-runs",_top.runs); _set("spot-inns",_in); _set("spot-avg",_avg); _set("spot-av",_ini);
+        var _lg=document.getElementById("spot-logo"), _cr=crest(_top.team);
+        if(_lg&&_cr){_lg.src=_cr;_lg.style.display="block";}
       }
     }catch(e){}
 
