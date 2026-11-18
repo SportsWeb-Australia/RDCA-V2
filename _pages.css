@@ -165,17 +165,26 @@
 @media(max-width:1150px) and (min-width:981px){.phb-c-form{display:none}}
 @media(max-width:560px){.phb-c-form{display:none}.phb-bar{padding:12px}.phb-ladder,.phb-rail .phb-col{padding:14px}}
 /* T20 Big Bash leaderboards */
-.bbl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.bbl-col{background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 18px}
-.bbl-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+/* Broadcast-style leaderboards (T20, Match Centre, homepage) */
+.bbl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:18px}
+.bbl-col{background:linear-gradient(155deg,#0d1f3c,#182f52);border:1px solid rgba(255,255,255,.1);border-radius:16px;box-shadow:0 12px 32px rgba(13,31,60,.2);padding:0 0 6px;overflow:hidden;position:relative}
+.bbl-col::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#e8b84b,#cc2222);z-index:1}
+.bbl-col .phb-ch{color:#fff;margin:0;padding:15px 18px 11px;border-bottom:1px solid rgba(255,255,255,.08);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.5px;display:flex;align-items:center;gap:8px;text-transform:none}
+.bbl-col .phb-ch i{color:#e8b84b}
+.bbl-row{display:flex;align-items:center;gap:11px;padding:9px 18px;border-bottom:1px solid rgba(255,255,255,.06)}
 .bbl-row:last-child{border-bottom:0}
-.bbl-rk{width:16px;font-size:12px;font-weight:700;color:var(--muted);flex-shrink:0;text-align:center}
+.bbl-rk{width:23px;height:23px;border-radius:7px;font-size:11px;font-weight:800;color:rgba(255,255,255,.6);flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08)}
+.bbl-rk.m1{background:linear-gradient(135deg,#f4d06a,#d4a12a);color:#2a1e00}
+.bbl-rk.m2{background:linear-gradient(135deg,#e2e7ec,#aab3bd);color:#1a2230}
+.bbl-rk.m3{background:linear-gradient(135deg,#e2a877,#b9793f);color:#2a1400}
+.bbl-crest,.bbl-row .phb-crest{flex-shrink:0}
 .bbl-id{flex:1;min-width:0}
-.bbl-nm{font-size:13px;font-weight:600;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bbl-tm{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bbl-val{text-align:right;flex-shrink:0;min-width:52px}
-.bbl-val b{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--red);line-height:1;display:block;letter-spacing:.3px}
-.bbl-val span{font-size:10px;color:var(--muted)}
+.bbl-nm{font-size:13.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bbl-tm{font-size:10.5px;color:rgba(255,255,255,.52);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bbl-val{text-align:right;flex-shrink:0;min-width:56px}
+.bbl-val b{font-family:'Bebas Neue',sans-serif;font-size:24px;color:#fff;line-height:1;display:block;letter-spacing:.4px}
+.bbl-row:first-of-type .bbl-val b{color:#f4d06a}
+.bbl-val span{font-size:10px;color:rgba(255,255,255,.46)}
 .rep-name{font-weight:700;font-size:15px;color:var(--navy);display:flex;align-items:center;gap:6px}
 .rep-cat{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
 .rep-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}

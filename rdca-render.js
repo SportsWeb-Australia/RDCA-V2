@@ -954,7 +954,7 @@
           }
           function ldrRows(list, valFn, subFn) {
             return (list && list.length) ? list.map(function (p, i) {
-              return '<div class="bbl-row"><span class="bbl-rk">' + (i + 1) + '</span>' + crest(p.team) +
+              return '<div class="bbl-row"><span class="bbl-rk' + (i < 3 ? ' m' + (i + 1) : '') + '">' + (i + 1) + '</span>' + crest(p.team) +
                 '<div class="bbl-id"><div class="bbl-nm">' + esc(p.name) + '</div><div class="bbl-tm">' + esc(p.team) + '</div></div>' +
                 '<div class="bbl-val"><b>' + valFn(p) + '</b><span>' + subFn(p) + '</span></div></div>';
             }).join("") : '<p class="phb-empty">&mdash;</p>';
@@ -1114,7 +1114,7 @@
       function crest(team) { var l = crestFor(team); return l ? '<span class="phb-crest"><img src="' + esc(l) + '" alt="" loading="lazy"></span>' : '<span class="phb-crest phb-mono">' + esc(mono(team)) + '</span>'; }
       function rows(list, valFn, subFn) {
         return (list && list.length) ? list.map(function (p, i) {
-          return '<div class="bbl-row"><span class="bbl-rk">' + (i + 1) + '</span>' + crest(p.team) +
+          return '<div class="bbl-row"><span class="bbl-rk' + (i < 3 ? ' m' + (i + 1) : '') + '">' + (i + 1) + '</span>' + crest(p.team) +
             '<div class="bbl-id"><div class="bbl-nm">' + esc(p.name) + '</div><div class="bbl-tm">' + esc(p.team) + '</div></div>' +
             '<div class="bbl-val"><b>' + valFn(p) + '</b><span>' + subFn(p) + '</span></div></div>';
         }).join("") : '<p class="phb-empty"><i class="ti ti-ball-baseball"></i> Published once matches are played.</p>';
