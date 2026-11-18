@@ -433,7 +433,7 @@ window.RDCA_DATA = {
   ],
   "photoStrip": [
     "/photos/rdca-seniors-1.webp",
-    "/photos/rdca-womens-1.webp",
+    "/photos/rdca-club-1.webp",
     "/photos/rdca-t20-1.webp",
     "/photos/rdca-seniors-2.webp",
     "/photos/rdca-club-1.webp",

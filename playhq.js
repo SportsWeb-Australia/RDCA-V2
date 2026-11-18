@@ -22,13 +22,13 @@ window.RDCA_PLAYHQ = {
   /* Per-section competition links (link-out for now).
      key matches the section pages (juniors/seniors/veterans/womens). */
   competitions: {
-    seniors:  { label: "RDCA Seniors",  season: "Summer 2023–24", needsReview: true,
+    seniors:  { label: "RDCA Seniors",  season: "Summer 2026/27", needsReview: true,
                 url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/rdca-seniors-cricket-summer-202324/ba69a757" },
-    juniors:  { label: "RDCA Juniors",  season: "Summer 2023–24", needsReview: true,
+    juniors:  { label: "RDCA Juniors",  season: "Summer 2026/27", needsReview: true,
                 url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/rdca-juniors-summer-202324/28066211" },
-    womens:   { label: "RDCA Women's (East)", season: "Summer 2023–24", needsReview: true,
+    womens:   { label: "RDCA Women's (East)", season: "Summer 2026/27", needsReview: true,
                 url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/rdca-womens-east-summer-202324/2e56af2f" },
-    veterans: { label: "RDCA Veterans", season: "Summer 2023–24", needsReview: true,
+    veterans: { label: "RDCA Veterans", season: "Summer 2026/27", needsReview: true,
                 url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/710bdac9" }
   },
 
