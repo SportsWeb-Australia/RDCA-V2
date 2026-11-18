@@ -32,6 +32,7 @@
     "topbar": `<a class="skip-link" href="#main">Skip to main content</a><div class="topbar">
   <div style="display:flex;align-items:center;gap:18px">
     <div class="tb-item"><i class="ti ti-map-pin"></i> Ringwood, Victoria</div>
+    <span class="tb-item" id="tb-weather" style="display:inline-flex;align-items:center"></span>
     <div class="tb-item"><i class="ti ti-mail"></i> admin@rdca.com.au</div>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
@@ -318,7 +319,7 @@
   }
   function initWeather(){
     try {
-      var host = document.querySelector(".page-hero .eyebrow") || document.querySelector(".page-hero-inner .eyebrow");
+      var host = document.getElementById("tb-weather");
       if (!host || host.querySelector(".wx-chip")) return;
       fetch("https://api.open-meteo.com/v1/forecast?latitude=-37.8153&longitude=145.2311&current=temperature_2m,weather_code&timezone=Australia%2FMelbourne")
         .then(function(r){ return r.ok ? r.json() : null; })

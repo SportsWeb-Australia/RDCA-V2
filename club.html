@@ -123,13 +123,12 @@
         '<div class="block-hed">Club Information</div>'+
         '<div class="panel">'+
           fact("ti-trophy","Division", esc(c.grade)) +
-          fact("ti-map-pin-2","Home Ground", esc(ground) + (hasGround ? "" : " " + pmock)) +
+          fact("ti-map-pin-2","Home Ground", esc(ground) + (c.suburb ? ", " + esc(c.suburb) + " VIC" : "") + (hasGround ? "" : " " + pmock)) +
           (c.established ? fact("ti-flag","Established", esc(c.established)) : "") +
           (c.melways ? fact("ti-map-2","Melways Ref", esc(c.melways)) : "") +
           (c.suburb ? fact("ti-building-community","Suburb", esc(c.suburb)) : "") +
           (c.postal  ? fact("ti-mailbox","Postal", esc(c.postal)) : "") +
           fact("ti-map","Region","Melbourne\'s outer east &amp; Yarra Valley") +
-          fact("ti-calendar","Established", ptbc) +
         '</div>'+
         '<div class="block-hed" style="margin-top:24px">Get in touch</div>'+
         '<div class="panel">'+

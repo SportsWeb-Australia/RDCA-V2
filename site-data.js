@@ -3396,52 +3396,26 @@ window.RDCA_DATA = {
   ],
   "articles": [
     {
-      "slug": "ringwood-edge-croydon-thriller",
-      "title": "Ringwood edge Croydon in thriller as Smith steers chase with unbeaten 89",
-      "cat": "Match Report",
-      "date": "2026-02-14",
+      "slug": "womens-around-the-grounds",
+      "title": "Around the Grounds — RDCA Women’s Cricket",
+      "cat": "Women’s Cricket",
+      "date": "2026-11-18",
       "author": "RDCA Media",
-      "readMins": 3,
-      "meta": "Premier Division · Round 13",
-      "image": "/photos/rdca-seniors-1.webp",
-      "body": "<p>Ringwood CC held their nerve in a tense run chase at Ringwood Reserve, overhauling Croydon&rsquo;s 223 with two wickets to spare thanks to an unbeaten 89 from opener Jake Smith.</p><p>Chasing 224, Ringwood lost early wickets before Smith and a composed middle order rebuilt the innings. With 37 needed off the final eight overs, Smith accelerated, finding the boundary at key moments to settle any nerves in the rooms.</p><p>Croydon&rsquo;s bowlers fought hard, with Jones the pick of the attack, but the home side&rsquo;s experience told in the closing overs. The result tightens the Premier Division ladder heading into the final rounds.</p><p><em>Full scorecards and ladders are available on PlayHQ via the Competition Hub.</em></p>",
-      "sample": true
+      "meta": "From the RDCA Facebook",
+      "image": "/photos/fb-womens-aroundgrounds.jpg",
+      "real": true,
+      "body": "<p class='lead'>RDCA women’s cricket is going from strength to strength across the association. Here’s a look around the grounds from the latest round of women’s fixtures, straight from the RDCA Facebook page.</p><div style='display:flex;justify-content:center;margin:22px 0'><iframe src='https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fringwooddca%2Fposts%2Fpfbid037PeyHTxEQnXgYXAz3PRDazCUGyFSUJZeUwkLqpXKe83yTSZYL4KbxMncSgbiVyDbl&amp;show_text=true&amp;width=500' width='500' height='660' style='border:none;overflow:hidden;max-width:100%;width:100%' scrolling='no' frameborder='0' allowfullscreen='true' allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'></iframe></div><p style='margin-top:18px'><a class='btn btn-navy' href='https://www.facebook.com/ringwooddca/posts/pfbid037PeyHTxEQnXgYXAz3PRDazCUGyFSUJZeUwkLqpXKe83yTSZYL4KbxMncSgbiVyDbl' target='_blank' rel='noopener'><i class='ti ti-brand-facebook'></i> View the original post on Facebook</a></p>"
     },
     {
-      "slug": "season-registrations-2026-27",
-      "title": "Season 2026-27 registrations now open",
-      "cat": "Announcement",
-      "date": "2026-09-01",
+      "slug": "mental-health-round",
+      "title": "Let’s Change the Game for Mental Health",
+      "cat": "Community",
+      "date": "2026-11-18",
       "author": "RDCA",
-      "readMins": 3,
-      "meta": "Association",
-      "image": "/photos/rdca-womens-1.webp",
-      "body": "<p>Player registrations for the 2026-27 RDCA season are now open across all grades and age groups &mdash; Seniors, Juniors, Women&rsquo;s and Veterans.</p><p>New and returning players should register through their local club. Clubs will confirm training nights, fees and grading closer to the season start.</p><p>Not sure which club is closest? Browse the full Club Directory to find your nearest RDCA club, its home ground and contacts.</p>",
-      "sample": true
-    },
-    {
-      "slug": "four-rdca-juniors-u17-squad",
-      "title": "Four RDCA juniors named in U17 state squad",
-      "cat": "Junior Pathway",
-      "date": "2026-08-26",
-      "author": "RDCA Media",
-      "readMins": 3,
-      "meta": "Representative",
-      "image": "/photos/rdca-t20-1.webp",
-      "body": "<p>Four RDCA juniors have been selected in the U17 state squad following strong representative carnival campaigns, a terrific reward for the Association&rsquo;s rep pathway.</p><p>The quartet came through RDCA junior rep teams, balancing club commitments with the demands of representative cricket across the season.</p><p>RDCA congratulates the players, their clubs and the coaches and volunteers who support the junior pathway.</p>",
-      "sample": true
-    },
-    {
-      "slug": "croydon-cc-ground-redevelopment",
-      "title": "Croydon CC complete major ground redevelopment",
-      "cat": "Club News",
-      "date": "2026-08-07",
-      "author": "RDCA Media",
-      "readMins": 3,
-      "meta": "Clubs",
-      "image": "/photos/rdca-club-1.webp",
-      "body": "<p>Croydon CC has completed a major redevelopment of its home ground, including upgraded turf wickets, nets and pavilion facilities for players and supporters.</p><p>The works, supported by council and club volunteers, position the club to host more matches and grow participation across senior, junior and women&rsquo;s cricket.</p><p>The club thanked its members, sponsors and the wider RDCA community for their support throughout the project.</p>",
-      "sample": true
+      "meta": "OTLR Mate 2 Mate Round · January 2027",
+      "image": "/photos/fb-mental-health-round.jpg",
+      "real": true,
+      "body": "<p class='lead'>The Ringwood &amp; District Cricket Association is proud to support the OTLR Mate 2 Mate Mental Health Round in January 2027, bringing our cricket community together to raise awareness and support for mental health.</p><div style='display:flex;justify-content:center;margin:22px 0'><iframe src='https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fringwooddca%2Fposts%2Fpfbid0Avs3wxYBX5eTpnyVP9bHqwde1ChCHcHarf1GYJbuvMyrWViRq8MtgVfiKpP2g4chl&amp;show_text=true&amp;width=500' width='500' height='660' style='border:none;overflow:hidden;max-width:100%;width:100%' scrolling='no' frameborder='0' allowfullscreen='true' allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'></iframe></div><p style='margin-top:18px'><a class='btn btn-navy' href='https://www.facebook.com/ringwooddca/posts/pfbid0Avs3wxYBX5eTpnyVP9bHqwde1ChCHcHarf1GYJbuvMyrWViRq8MtgVfiKpP2g4chl' target='_blank' rel='noopener'><i class='ti ti-brand-facebook'></i> View the original post on Facebook</a></p>"
     }
   ],
   "news": [

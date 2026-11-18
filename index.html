@@ -455,6 +455,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 <div class="topbar">
   <div style="display:flex;align-items:center;gap:18px">
     <div class="tb-item"><i class="ti ti-map-pin"></i> Ringwood, Victoria</div>
+    <span class="tb-item" id="tb-weather" style="display:inline-flex;align-items:center"></span>
     <div class="tb-item"><i class="ti ti-mail"></i> admin@rdca.com.au</div>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
@@ -670,14 +671,14 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
     <div><div class="eyebrow">Latest Updates</div><div class="s-hed">News &amp; Articles</div></div>
     <a class="view-all" href="/news">All News <i class="ti ti-arrow-right"></i></a>
   </div>
-  <a class="news-hero" href="https://www.facebook.com/ringwooddca/posts/pfbid037PeyHTxEQnXgYXAz3PRDazCUGyFSUJZeUwkLqpXKe83yTSZYL4KbxMncSgbiVyDbl" target="_blank" rel="noopener" style="display:block;text-decoration:none"><div class="nh-img" style="background-image:url('/photos/fb-womens-aroundgrounds.jpg')"></div><div class="nh-overlay"></div>
+  <a class="news-hero" href="/article?slug=womens-around-the-grounds" style="display:block;text-decoration:none"><div class="nh-img" style="background-image:url('/photos/fb-womens-aroundgrounds.jpg');background-position:center 18%"></div><div class="nh-overlay"></div>
     <div class="nh-body">
       <div style="margin-bottom:8px"><span class="badge badge-red">Women&#x27;s Cricket</span></div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#fff;line-height:1.05;margin-bottom:6px">Around the Grounds &mdash; RDCA Women&#x27;s Cricket</div>
       <div style="font-size:11px;color:rgba(255,255,255,.5)">RDCA Women&#x27;s &middot; via Facebook <i class="ti ti-brand-facebook" style="font-size:11px"></i></div>
     </div>
   </a>
-  <div class="news-grid"><a class="nc" href="https://www.facebook.com/ringwooddca/posts/pfbid0Avs3wxYBX5eTpnyVP9bHqwde1ChCHcHarf1GYJbuvMyrWViRq8MtgVfiKpP2g4chl" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div class="nct" style="background-image:url('/photos/fb-mental-health-round.jpg');background-position:center 18%"></div><div class="ncb"><div style="margin-bottom:6px;display:flex;align-items:center;justify-content:space-between"><span class="badge badge-green">Community</span><span style="font-size:10px;color:var(--muted)"><i class="ti ti-brand-facebook"></i> Facebook</span></div><div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:5px">Let&#x27;s Change the Game for Mental Health</div><div style="font-size:11px;color:var(--muted)">OTLR Mate 2 Mate Round &middot; Jan 2027</div></div></a><a class="nc" href="https://www.facebook.com/ringwooddca" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div class="nct" style="background:linear-gradient(135deg,#1877f2,#0d5bbd);display:flex;align-items:center;justify-content:center"><i class="ti ti-brand-facebook" style="font-size:42px;color:#fff"></i></div><div class="ncb"><div style="margin-bottom:6px"><span class="badge badge-navy">Facebook</span></div><div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:5px">Live results &amp; updates every round</div><div style="font-size:11px;color:var(--muted)">Follow @ringwooddca</div></div></a><a class="nc" href="/news" style="text-decoration:none;color:inherit"><div class="nct" style="background:linear-gradient(135deg,var(--navy),var(--navy3));display:flex;align-items:center;justify-content:center"><i class="ti ti-news" style="font-size:42px;color:#fff"></i></div><div class="ncb"><div style="margin-bottom:6px"><span class="badge badge-red">Newsroom</span></div><div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:5px">More news &amp; the full RDCA feed</div><div style="font-size:11px;color:var(--muted)">Visit the newsroom</div></div></a></div>
+  <div class="news-grid"><a class="nc" href="/article?slug=mental-health-round" style="text-decoration:none;color:inherit"><div class="nct" style="background-image:url('/photos/fb-mental-health-round.jpg');background-position:center top"></div><div class="ncb"><div style="margin-bottom:6px;display:flex;align-items:center;justify-content:space-between"><span class="badge badge-green">Community</span><span style="font-size:10px;color:var(--muted)"><i class="ti ti-brand-facebook"></i> Facebook</span></div><div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:5px">Let&#x27;s Change the Game for Mental Health</div><div style="font-size:11px;color:var(--muted)">OTLR Mate 2 Mate Round &middot; Jan 2027</div></div></a><a class="nc" href="https://www.facebook.com/ringwooddca" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div class="nct" style="background:linear-gradient(135deg,#1877f2,#0d5bbd);display:flex;align-items:center;justify-content:center"><i class="ti ti-brand-facebook" style="font-size:42px;color:#fff"></i></div><div class="ncb"><div style="margin-bottom:6px"><span class="badge badge-navy">Facebook</span></div><div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:5px">Live results &amp; updates every round</div><div style="font-size:11px;color:var(--muted)">Follow @ringwooddca</div></div></a><a class="nc" href="/news" style="text-decoration:none;color:inherit"><div class="nct" style="background:linear-gradient(135deg,var(--navy),var(--navy3));display:flex;align-items:center;justify-content:center"><i class="ti ti-news" style="font-size:42px;color:#fff"></i></div><div class="ncb"><div style="margin-bottom:6px"><span class="badge badge-red">Newsroom</span></div><div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:5px">More news &amp; the full RDCA feed</div><div style="font-size:11px;color:var(--muted)">Visit the newsroom</div></div></a></div>
 </div>
 
 <!-- COMPETITION HUB -->
@@ -1036,8 +1037,14 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
     var tk=document.getElementById("tk-track");
     if(tk){
       var items=pres.slice(0,10).map(function(r){
-        var txt = r.winner ? (_nm(r.winner)+' <span class="tk-vs">def.</span> '+_nm(r.winner===r.home?r.away:r.home))
-                           : (_nm(r.home)+' <span class="tk-vs">v</span> '+_nm(r.away));
+        var txt;
+        if(r.winner){
+          var _wn=r.winner, _ln=(r.winner===r.home?r.away:r.home);
+          var _ws=(r.winner===r.home?r.homeScore:r.awayScore), _ls=(r.winner===r.home?r.awayScore:r.homeScore);
+          txt=_nm(_wn)+(_ws?' <b class="tk-sc">'+_ws+'</b>':'')+' <span class="tk-vs">def.</span> '+_nm(_ln)+(_ls?' <b class="tk-sc">'+_ls+'</b>':'');
+        } else {
+          txt=_nm(r.home)+(r.homeScore?' <b class="tk-sc">'+r.homeScore+'</b>':'')+' <span class="tk-vs">v</span> '+_nm(r.away)+(r.awayScore?' <b class="tk-sc">'+r.awayScore+'</b>':'');
+        }
         return '<div class="tk-it"><span class="tk-gr">'+pgname+'</span><span class="tk-tm">'+txt+'</span>'+(r.round?'<span class="tk-nt">'+r.round+'</span>':'')+'</div>';
       }).join("");
       tk.innerHTML = items ? (items+items) : '<div class="tk-it"><span class="tk-nt">Results will appear here once the season is underway.</span></div>';
@@ -1135,7 +1142,7 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
   }).catch(function(){});
 })();
 /* Live weather chip (Ringwood) — Open-Meteo, no key */
-(function(){try{var host=document.querySelector('.hero-badge-row');if(!host)return;
+(function(){try{var host=document.getElementById('tb-weather');if(!host)return;
 function ic(c){if(c===0)return['ti-sun','Clear'];if(c<=3)return['ti-cloud','Partly cloudy'];if(c===45||c===48)return['ti-cloud-fog','Fog'];if(c>=51&&c<=67)return['ti-cloud-rain','Rain'];if(c>=71&&c<=77)return['ti-snowflake','Snow'];if(c>=80&&c<=82)return['ti-cloud-rain','Showers'];if(c>=95)return['ti-cloud-storm','Storms'];return['ti-cloud','Cloudy'];}
 fetch('https://api.open-meteo.com/v1/forecast?latitude=-37.8153&longitude=145.2311&current=temperature_2m,weather_code&timezone=Australia%2FMelbourne').then(function(r){return r.ok?r.json():null;}).then(function(d){if(!d||!d.current)return;var t=Math.round(d.current.temperature_2m),w=ic(d.current.weather_code);var s=document.createElement('span');s.className='wx-chip';s.title=w[1]+' · Ringwood';s.innerHTML='<i class="ti '+w[0]+'"></i> '+t+'° <span class="wx-loc">Ringwood</span>';host.appendChild(s);}).catch(function(){});}catch(e){}})();
 (function(){
