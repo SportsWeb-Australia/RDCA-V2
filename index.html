@@ -275,7 +275,9 @@ table.lt th.tl,table.lt td.tl{text-align:left}
 .tl2-panel{position:relative;overflow:hidden;background:linear-gradient(155deg,#3a4048 0%,#2b2f36 58%,#1d2025 100%);border-radius:16px;padding:22px 22px 18px;color:#fff;box-shadow:0 10px 34px rgba(13,31,60,.22);transition:transform .2s,box-shadow .2s}
 .tl2-panel:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(13,31,60,.34)}
 .tl2-panel:hover .tl2-crest{opacity:.3}
-.tl2-panel::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#9aa1a8,#c6cbd0)}
+.tl2-panel::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--tlu-accent,#9aa1a8),#c6cbd0)}
+.tl2-grid,.tl2-name,.tl2-crest img{transition:opacity .4s ease}
+.tl2-panel.swap .tl2-grid,.tl2-panel.swap .tl2-name,.tl2-panel.swap .tl2-crest img{opacity:0}
 .tl2-crest{position:absolute;right:-20px;top:8px;width:235px;height:235px;opacity:.2;pointer-events:none;z-index:0;transition:opacity .2s}
 .tl2-crest img{width:100%;height:100%;object-fit:contain}
 .tl2-kicker{display:inline-flex;align-items:center;gap:6px;font-size:9.5px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;color:#ff8a8a;background:rgba(204,34,34,.16);border:1px solid rgba(204,34,34,.32);padding:4px 10px;border-radius:20px;margin-bottom:13px;position:relative;z-index:1}
@@ -772,7 +774,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 <!-- COMPETITION HUB -->
 <div class="card" id="comp-hub" style="padding:0">
   <div class="sec-hdr">
-    <div><div class="eyebrow">2026/27 Season</div><div class="s-hed">Competition Hub</div></div>
+    <div><div class="eyebrow">2026/27 Season</div><div class="s-hed">Ladders</div></div>
     <select style="font-family:'DM Sans',sans-serif;font-size:12px;padding:6px 12px;border-radius:7px;border:1px solid var(--border);background:var(--bg);color:var(--text);cursor:pointer">
       <option>Premier Division</option><option>Division 1</option><option>Division 2</option>
     </select>
@@ -803,23 +805,66 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 
 <!-- LINEUP -->
 <div class="card" style="padding:0;background:transparent;border:none;box-shadow:none">
-  <div class="tl2-panel">
-    <div class="tl2-crest"><img src="/logos/ringwood.webp" alt=""></div>
+  <div class="tl2-panel" id="tlu">
+    <div class="tl2-crest"><img id="tlu-crest" src="/logos/northringwood.webp" alt=""></div>
     <span class="tl2-kicker"><i class="ti ti-clipboard-list" style="font-size:12px"></i> Team Line-Up</span>
     <div class="tl2-hd">
       <div>
-        <div class="tl2-name">Ringwood CC &mdash; 1st XI</div>
-        <div class="tl2-meta">Premier Division &middot; Round 15 &middot; Sat 14 Dec &middot; Ringwood Reserve</div>
+        <div class="tl2-name" id="tlu-name">North Ringwood &mdash; 1st XI</div>
+        <div class="tl2-meta" id="tlu-meta">Premier 1.1 &middot; Round 7 &middot; Sat 28 Nov</div>
       </div>
       <span class="tl2-status"><i class="ti ti-check" style="font-size:12px"></i> Announced</span>
     </div>
-    <div class="tl2-grid"><div class="tl2-row"><span class="tl2-no">1</span><span class="tl2-nm">A. Robinson</span><span class="tl2-tag vc">VC</span></div><div class="tl2-row"><span class="tl2-no">2</span><span class="tl2-nm">J. Smith</span><span class="tl2-tag c">C</span></div><div class="tl2-row"><span class="tl2-no">3</span><span class="tl2-nm">T. Brown</span></div><div class="tl2-row"><span class="tl2-no">4</span><span class="tl2-nm">C. Williams</span></div><div class="tl2-row"><span class="tl2-no">5</span><span class="tl2-nm">D. Clarke</span></div><div class="tl2-row"><span class="tl2-no">6</span><span class="tl2-nm">R. Evans</span><span class="tl2-tag wk">WK</span></div><div class="tl2-row"><span class="tl2-no">7</span><span class="tl2-nm">P. Davis</span></div><div class="tl2-row"><span class="tl2-no">8</span><span class="tl2-nm">S. Kumar</span></div><div class="tl2-row"><span class="tl2-no">9</span><span class="tl2-nm">M. Jones</span></div><div class="tl2-row"><span class="tl2-no">10</span><span class="tl2-nm">B. Taylor</span></div><div class="tl2-row"><span class="tl2-no">11</span><span class="tl2-nm">G. Morris</span></div><div class="tl2-row"><span class="tl2-no">12</span><span class="tl2-nm">H. Patel</span><span class="tl2-tag tw">12th</span></div></div>
+    <div class="tl2-grid" id="tlu-grid"></div>
     <div class="tl2-foot">
-      <span style="font-size:11px;color:rgba(255,255,255,.4)">Latest selection</span>
+      <span style="font-size:11px;color:rgba(255,255,255,.4)" id="tlu-foot">Latest selection &middot; rotating</span>
       <a class="tl2-link" href="/team-selections">All team selections <i class="ti ti-arrow-right"></i></a>
     </div>
   </div>
 </div>
+<script>
+(function(){
+  var PANEL=document.getElementById("tlu"); if(!PANEL) return;
+  var elName=document.getElementById("tlu-name"),elMeta=document.getElementById("tlu-meta"),
+      elGrid=document.getElementById("tlu-grid"),elCrest=document.getElementById("tlu-crest");
+  // Rotating demo line-ups (mock — real data arrives via the SportsWeb One integration)
+  var TLU=[
+    {club:"North Ringwood",xi:"1st XI",logo:"/logos/northringwood.webp",accent:"#c0392b",meta:"Premier 1.1 &middot; Round 7 &middot; Sat 28 Nov &middot; Jubilee Park",
+     p:[["A. Robinson","vc"],["J. Smith","c"],["T. Brown"],["C. Williams"],["D. Clarke"],["R. Evans","wk"],["P. Davis"],["S. Kumar"],["M. Jones"],["B. Taylor"],["G. Morris"],["H. Patel","tw"]]},
+    {club:"Montrose",xi:"1st XI",logo:"/logos/montrose.webp",accent:"#1f6f4a",meta:"Premier 1.1 &middot; Round 7 &middot; Sat 28 Nov &middot; Montrose Recreation Reserve",
+     p:[["L. Hayes","c"],["N. Foster","vc"],["O. Reid"],["W. Scott"],["F. Nguyen","wk"],["J. Murphy"],["K. Edwards"],["A. Walsh"],["D. Turner"],["S. Ali"],["R. Bennett"],["C. Ford","tw"]]},
+    {club:"Mooroolbark",xi:"1st XI",logo:"/logos/mooroolbark.webp",accent:"#8e44ad",meta:"Premier 1.1 &middot; Round 7 &middot; Sat 28 Nov &middot; Esther Park",
+     p:[["B. Lawson","c"],["T. Mitchell"],["J. Pereira","vc"],["M. Costa","wk"],["H. Singh"],["A. Dixon"],["L. Grant"],["P. Novak"],["R. Shah"],["D. Moore"],["E. Hunt"],["S. Park","tw"]]},
+    {club:"Ainslie Park",xi:"1st XI",logo:"/logos/ainsliepark.webp",accent:"#2e7d32",meta:"Premier 1.1 &middot; Round 7 &middot; Sat 28 Nov &middot; Ainslie Park Reserve",
+     p:[["C. Fraser","vc"],["M. Holland","c"],["J. Ward"],["T. Beck","wk"],["N. Rossi"],["D. Fleming"],["A. Boyd"],["R. Chan"],["L. Pike"],["S. Dutta"],["G. Ellis"],["K. Vaughan","tw"]]},
+    {club:"Ringwood",xi:"1st XI",logo:"/logos/ringwood.webp",accent:"#9aa1a8",meta:"Premier 1.1 &middot; Round 7 &middot; Sat 28 Nov &middot; Ringwood Reserve",
+     p:[["A. Robinson","vc"],["J. Smith","c"],["T. Brown"],["C. Williams"],["D. Clarke"],["R. Evans","wk"],["P. Davis"],["S. Kumar"],["M. Jones"],["B. Taylor"],["G. Morris"],["H. Patel","tw"]]}
+  ];
+  var TAGL={c:"C",vc:"VC",wk:"WK",tw:"12th"};
+  function rows(team){
+    return team.p.map(function(pl,i){
+      var tag=pl[1]?'<span class="tl2-tag '+pl[1]+'">'+TAGL[pl[1]]+'</span>':'';
+      return '<div class="tl2-row"><span class="tl2-no">'+(i+1)+'</span><span class="tl2-nm">'+pl[0]+'</span>'+tag+'</div>';
+    }).join("");
+  }
+  function paint(t){
+    PANEL.style.setProperty("--tlu-accent",t.accent);
+    elCrest.src=t.logo;
+    elName.innerHTML=t.club+" &mdash; "+t.xi;
+    elMeta.innerHTML=t.meta;
+    elGrid.innerHTML=rows(t);
+  }
+  var i=0; paint(TLU[0]);
+  var paused=false;
+  PANEL.addEventListener("mouseenter",function(){paused=true;});
+  PANEL.addEventListener("mouseleave",function(){paused=false;});
+  setInterval(function(){
+    if(paused) return;
+    PANEL.classList.add("swap");
+    setTimeout(function(){ i=(i+1)%TLU.length; paint(TLU[i]); PANEL.classList.remove("swap"); },400);
+  },5000);
+})();
+</script>
 
 <!-- UMPIRES -->
 <div class="ump-banner">
