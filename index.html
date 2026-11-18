@@ -110,7 +110,7 @@ img{display:block;max-width:100%}
 .hero-photo{position:absolute;inset:0;background-size:cover;background-position:center 30%;background-image:url('https://res.cloudinary.com/dozdbhjhs/image/upload/q_auto/f_auto/v1780756094/RDCA_Hero_bucegz.png')}
 .hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(8,16,30,.96) 0%,rgba(13,31,60,.88) 45%,rgba(13,31,60,.55) 100%)}
 .hero-grid{max-width:1480px;margin:0 auto;padding:80px 20px 56px;display:grid;grid-template-columns:1fr 440px;gap:48px;align-items:stretch;position:relative;z-index:1;width:100%}
-.hmc-pair{display:grid;grid-template-columns:1fr;gap:14px;align-self:start}
+.hmc-pair{display:grid;grid-template-columns:1fr;gap:14px;margin-top:auto}
 @media(min-width:1300px){.hero-grid{grid-template-columns:1fr 720px}.hmc-pair{grid-template-columns:1fr 1fr}}
 .hero-left{display:flex;flex-direction:column}
 .hero-hed{font-family:'Bebas Neue',sans-serif;font-size:68px;line-height:.9;color:#fff;letter-spacing:.5px;margin-bottom:16px}
@@ -605,7 +605,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
       <div class="hmc-pair">
       <div class="hmc" id="hmc">
         <div class="hmc-hdr">
-          <span class="badge badge-red" id="hmc-label" style="background:var(--red)">Latest Result</span>
+          <span class="badge badge-red" id="hmc-label" style="background:var(--red)">Top Performers</span>
           <select id="hmc-grade" class="hmc-sel" aria-label="Choose a grade"><option value="">Loading…</option></select>
         </div>
         <div id="hmc-body" style="height:188px;display:flex;flex-direction:column;justify-content:center"><div class="hmc-comp" style="padding:16px 0">Loading latest results&hellip;</div></div>
@@ -1101,17 +1101,20 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
           '<div style="text-align:right"><div class="hmc-score" style="font-size:30px">'+big+'</div><div class="hmc-sub" style="text-align:right">'+sub+'</div></div></div>';
       }
       function panels(){
-        var out=[{k:"result",label:"Latest Result"}];
+        var out=[];
         if(curLead&&curLead.runs&&curLead.runs.length)out.push({k:"runs",label:"Top Run Scorer"});
         if(curLead&&curLead.wickets&&curLead.wickets.length)out.push({k:"wkts",label:"Leading Wicket Taker"});
+        if(curLead&&curLead.dismissals&&curLead.dismissals.length)out.push({k:"dis",label:"Most Dismissals"});
+        if(!out.length)out.push({k:"none",label:"Top Performers"});
         return out;
       }
       function draw(){
         if(!curIt)return;var ps=panels();if(panel>=ps.length)panel=0;var p=ps[panel];
         if(_label)_label.textContent=p.label;
-        if(p.k==="result")_body.innerHTML=resultPanel();
-        else if(p.k==="runs"){var x=curLead.runs[0];_body.innerHTML=statPanel(x,x.runs,(x.inns||0)+' inns · '+(x.balls||0)+' balls');}
-        else {var y=curLead.wickets[0];_body.innerHTML=statPanel(y,y.wickets+' <span style="font-size:14px">wkts</span>',(y.overs||0)+' overs');}
+        if(p.k==="runs"){var x=curLead.runs[0];_body.innerHTML=statPanel(x,x.runs,(x.inns||0)+' inns · '+(x.balls||0)+' balls');}
+        else if(p.k==="wkts"){var y=curLead.wickets[0];_body.innerHTML=statPanel(y,y.wickets+' <span style="font-size:14px">wkts</span>',(y.overs||0)+' overs');}
+        else if(p.k==="dis"){var z=curLead.dismissals[0];_body.innerHTML=statPanel(z,z.total+' <span style="font-size:14px">dis</span>',z.catches+'c · '+z.stumpings+'st · '+z.runouts+'ro');}
+        else {_body.innerHTML='<div class="hmc-comp" style="padding:16px 0">Player stats appear once '+curIt.gname+' matches are scored.</div>';}
         if(_dots)_dots.innerHTML=ps.map(function(_,i){return '<button class="hmc-dot'+(i===panel?' on':'')+'" data-i="'+i+'" aria-label="View '+ps[i].label+'"></button>';}).join("");
       }
       function startRot(){if(timer)clearInterval(timer);timer=setInterval(function(){var ps=panels();if(ps.length<2)return;panel=(panel+1)%ps.length;draw();},5000);}
