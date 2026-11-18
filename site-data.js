@@ -443,6 +443,14 @@ window.RDCA_DATA = {
     "/photos/rdca-seniors-4.webp",
     "/photos/rdca-club-3.webp"
   ],
+  "sectionPhotos": {
+    "seniorMen":   ["/photos/rdca-seniors-1.webp", "/photos/rdca-seniors-2.webp", "/photos/rdca-seniors-3.webp"],
+    "seniors":     ["/photos/rdca-seniors-1.webp", "/photos/rdca-seniors-2.webp", "/photos/rdca-seniors-3.webp"],
+    "seniorWomen": ["/photos/rdca-womens-1.webp", "/photos/rdca-club-1.webp", "/photos/fb-womens-aroundgrounds.jpg"],
+    "womens":      ["/photos/rdca-womens-1.webp", "/photos/rdca-club-1.webp", "/photos/fb-womens-aroundgrounds.jpg"],
+    "veterans":    ["/photos/rdca-vets-1.webp", "/photos/rdca-seniors-4.webp", "/photos/rdca-seniors-2.webp"],
+    "juniors":     ["/photos/blast-1.jpg", "/photos/blast-2.jpg", "/photos/rdca-t20-1.webp"]
+  },
   "radioShow": {
     "title": "The RDCA Cricket Show",
     "station": "Radio Eastern 98.1 FM",

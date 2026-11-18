@@ -111,7 +111,7 @@
     (function(){
       var box = document.getElementById("sec-photos");
       var wrap = document.getElementById("sec-pl-wrap");
-      var ph = ((window.RDCA_DATA && window.RDCA_DATA.photoStrip) || []).slice(0,3);
+      var ph = ((window.RDCA_DATA && ((window.RDCA_DATA.sectionPhotos||{})[SECTION] || window.RDCA_DATA.photoStrip)) || []).slice(0,3);
       if (box && ph.length) {
         box.innerHTML = ph.map(function(u){ return '<img src="'+u+'" alt="" loading="lazy">'; }).join("");
         if (wrap) wrap.classList.add("has-photos");
