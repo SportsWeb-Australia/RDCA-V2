@@ -911,6 +911,20 @@
           var useCurrent = Date.now() >= Date.parse(data.cutover);
           var phase = useCurrent ? "current" : "last";
           function seasonOf(c) { return c[phase] || c.last || c.current || { grades: [] }; }
+          // Optional: restrict this hub to only grades whose name contains data-grades
+          // (e.g. the T20 page passes data-grades="Big Bash" so it shows ONLY the Big Bash grade).
+          var onlyGrade = (mount.getAttribute && mount.getAttribute("data-grades")) || null;
+          if (onlyGrade) {
+            var og = onlyGrade.toLowerCase();
+            data.comps.forEach(function (c) {
+              ["last", "current"].forEach(function (ph) {
+                if (c[ph] && Array.isArray(c[ph].grades))
+                  c[ph].grades = c[ph].grades.filter(function (gr) { return String(gr.grade || "").toLowerCase().indexOf(og) >= 0; });
+              });
+            });
+            data.comps = data.comps.filter(function (c) { return (seasonOf(c).grades || []).length; });
+            if (!data.comps.length) { mount.innerHTML = '<p class="phb-empty"><i class="ti ti-cricket"></i> Big Bash ladder, results and fixtures appear here once the competition is under way.</p>'; return; }
+          }
           function n(x) { return x == null ? "&ndash;" : String(x); }
           function pc(x) { return x == null ? "&ndash;" : (Math.round(x * 1000) / 1000); }
           var ci = 0, gi = 0;
@@ -1049,10 +1063,12 @@
 
             mount.innerHTML =
               '<div class="phb">' +
-                '<div class="phb-bar"><div class="phb-tabs">' + tabs + '</div>' +
+                '<div class="phb-bar">' + (data.comps.length > 1 ? '<div class="phb-tabs">' + tabs + '</div>' : '') +
                   '<div class="phb-bar-r">' +
                     (wantLeaders ? '<input class="phb-search" type="search" placeholder="Search grade or club…" aria-label="Search grade or club">' : '') +
-                    '<label class="phb-grade-wrap"><span>Grade</span><select class="phb-grade mc-grade-select">' + opts + '</select></label>' +
+                    (gs.length > 1
+                      ? '<label class="phb-grade-wrap"><span>Grade</span><select class="phb-grade mc-grade-select">' + opts + '</select></label>'
+                      : '<span class="phb-grade-single">' + esc(g.grade || season.season || '') + '</span>') +
                   '</div></div>' +
                 '<div class="phb-season">' + note + '</div>' +
                 '<div class="phb-col phb-ladder"><div class="phb-ch"><i class="ti ti-list-numbers"></i> Ladder</div>' + lad + '</div>' +
