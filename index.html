@@ -123,7 +123,7 @@ img{display:block;max-width:100%}
 .hero-stat-val{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;line-height:1}
 .hero-stat-lbl{font-size:10px;color:#fff;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-top:2px}
 .hero-right{display:flex;flex-direction:column}
-.hmc{background:rgba(8,16,30,.9);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;position:relative;overflow:hidden;backdrop-filter:blur(16px);flex:1}
+.hmc{background:rgba(8,16,30,.9);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;position:relative;overflow:hidden;backdrop-filter:blur(16px);align-self:start}
 .hmc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),#254d87,var(--red))}
 .hmc-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .hmc-comp{font-size:11px;color:rgba(255,255,255,.32)}
@@ -589,7 +589,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
       <div class="hmc" id="hmc">
         <div class="hmc-hdr">
           <span class="badge badge-red" style="background:var(--red)">Latest Result</span>
-          <select id="hmc-club" class="hmc-sel" aria-label="Choose your club"><option value="">Latest result</option></select>
+          <select id="hmc-grade" class="hmc-sel" aria-label="Choose a grade"><option value="">Loading…</option></select>
         </div>
         <div id="hmc-body"><div class="hmc-comp" style="padding:16px 0">Loading latest results&hellip;</div></div>
         <a class="btn btn-outline-white" style="width:100%;justify-content:center;font-size:13px;margin-top:4px" href="/match-centre"><i class="ti ti-external-link" style="font-size:14px"></i> Full Match Centre</a>
@@ -1042,23 +1042,43 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
       }).join("");
       tk.innerHTML = items ? (items+items) : '<div class="tk-it"><span class="tk-nt">Results will appear here once the season is underway.</span></div>';
     }
-    // Hero card
-    var _sel=document.getElementById("hmc-club"), _body=document.getElementById("hmc-body");
+    // Hero card — latest result for any grade (all genders), scores + saved default
+    var _sel=document.getElementById("hmc-grade"), _body=document.getElementById("hmc-body");
     if(_body){
-      var teams=(prem.ladder||[]).map(function(r){return r.team;});
-      function latestFor(club){for(var i=0;i<pres.length;i++){if(pres[i].home===club||pres[i].away===club)return pres[i];}return null;}
-      function side(team,win){var isW=win&&win===team;return '<div class="hmc-team"><div class="hmc-tid">'+cc(team,36)+'<div><div class="hmc-name"'+(win&&!isW?' style="color:rgba(255,255,255,.5)"':'')+'>'+_nm(team)+'</div><div class="hmc-sub">'+(isW?'Won':(win?'Lost':'—'))+'</div></div></div>'+(isW?'<span class="hmc-wtag">def.</span>':'')+'</div>';}
-      function render(club){
-        var r=club?latestFor(club):pres[0];
-        if(!r){_body.innerHTML='<div class="hmc-comp" style="padding:16px 0">No results yet this season.</div>';return;}
-        _body.innerHTML='<div class="hmc-comp" style="margin-bottom:4px">'+pgname+' · '+(r.round||"")+(r.date?' · '+_date(r.date):'')+'</div>'+side(r.home,r.winner)+side(r.away,r.winner);
+      function _gl(name){return /senior/i.test(name)?"Seniors":(/junior/i.test(name)?"Juniors":(/women/i.test(name)?"Women’s":String(name).replace(/^RDCA\s+/,"")));}
+      function _gn(x){return String(x.grade||x.name||"").replace(/\s*[-(].*$/,"").trim();}
+      var GRADES=[], byKey={};
+      (data.comps||[]).forEach(function(c,ci){
+        ((seasonOf(c).grades)||[]).forEach(function(gr,gi){
+          if(!(gr.results&&gr.results.length))return;
+          var it={key:ci+":"+gi, comp:_gl(c.name), gname:_gn(gr), grade:gr};
+          GRADES.push(it); byKey[it.key]=it;
+        });
+      });
+      function side(team,win,score){var isW=win&&win===team;
+        return '<div class="hmc-team"><div class="hmc-tid">'+cc(team,36)+'<div><div class="hmc-name"'+(win&&!isW?' style="color:rgba(255,255,255,.5)"':'')+'>'+_nm(team)+'</div><div class="hmc-sub">'+(isW?'Won':(win?'Lost':'Result'))+'</div></div></div><div class="hmc-score'+(isW?'':' dim')+'" style="font-size:22px">'+(score||'')+'</div></div>';}
+      function render(key){
+        var it=byKey[key]||GRADES[0];
+        if(!it){_body.innerHTML='<div class="hmc-comp" style="padding:16px 0">No results yet this season.</div>';return;}
+        var r=(it.grade.results||[])[0];
+        if(!r){_body.innerHTML='<div class="hmc-comp" style="padding:16px 0">No results yet in '+it.gname+'.</div>';return;}
+        _body.innerHTML='<div class="hmc-comp" style="margin-bottom:6px">'+it.comp+' · '+it.gname+' · '+(r.round||"")+(r.date?' · '+_date(r.date):'')+'</div>'+side(r.home,r.winner,r.homeScore)+side(r.away,r.winner,r.awayScore);
       }
-      if(_sel&&teams.length){
-        var saved=null;try{saved=localStorage.getItem("rdca_my_club");}catch(e){}
-        _sel.innerHTML='<option value="">Latest result</option>'+teams.map(function(t){return '<option value="'+t.replace(/"/g,"&quot;")+'"'+(t===saved?' selected':'')+'>'+_nm(t)+'</option>';}).join("");
-        _sel.addEventListener("change",function(){try{localStorage.setItem("rdca_my_club",_sel.value);}catch(e){}render(_sel.value);});
-        render(saved&&teams.indexOf(saved)>=0?saved:"");
-      } else { render(""); }
+      if(_sel&&GRADES.length){
+        var groups={},order=["Seniors","Juniors","Women’s"];
+        GRADES.forEach(function(it){(groups[it.comp]=groups[it.comp]||[]).push(it);});
+        var ghtml="";order.concat(Object.keys(groups).filter(function(k){return order.indexOf(k)<0;})).forEach(function(gl){
+          if(!groups[gl])return;
+          ghtml+='<optgroup label="'+gl+'">'+groups[gl].map(function(it){return '<option value="'+it.key+'">'+it.gname+'</option>';}).join("")+'</optgroup>';
+        });
+        _sel.innerHTML=ghtml;
+        var saved=null;try{saved=localStorage.getItem("rdca_hmc_grade");}catch(e){}
+        var premIt=GRADES.filter(function(it){return /premier\s*1\.1/i.test(it.gname);})[0];
+        var def=(saved&&byKey[saved])?saved:((premIt||GRADES[0]).key);
+        _sel.value=def;
+        _sel.addEventListener("change",function(){try{localStorage.setItem("rdca_hmc_grade",_sel.value);}catch(e){}render(_sel.value);});
+        render(def);
+      } else { render((GRADES[0]||{}).key); }
     }
     }catch(e){}
 

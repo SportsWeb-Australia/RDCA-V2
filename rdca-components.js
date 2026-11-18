@@ -52,6 +52,7 @@
   <a href="/senior-men" class="mob-link"><i class="ti ti-trophy"></i> Senior Men</a>
   <a href="/senior-women" class="mob-link"><i class="ti ti-cricket"></i> Senior Women</a>
   <a href="/juniors" class="mob-link"><i class="ti ti-friends"></i> Juniors</a>
+  <a href="/match-centre" class="mob-link"><i class="ti ti-scoreboard"></i> Match Centre</a>
   <a href="/cricket-blast" class="mob-link"><i class="ti ti-ball-baseball"></i> Cricket Blast</a>
   <a href="/veterans" class="mob-link"><i class="ti ti-medal"></i> Veterans</a>
   <a href="/community-big-bash" class="mob-link"><i class="ti ti-flame"></i> T20 Big Bash</a>
@@ -90,6 +91,7 @@
         </div>
       </div>
       <a class="nav-link" href="/juniors">Juniors</a>
+      <a class="nav-link" href="/match-centre">Match Centre</a>
       <a class="nav-link" href="/clubs"><img src="/rdca-logo.png" class="nav-link-logo" alt="">Clubs</a>
       <a class="nav-link" href="/news">News</a>
       <a class="nav-link" href="/honours">Honours</a>

@@ -58,6 +58,20 @@ function ladderRows(lj) {
     d: v(r.values, "ties"), pts: v(r.values, "competitionPoints"), pct: v(r.values, "quotient")
   })).filter(r => r.team);
 }
+// Build a scoreline for one team from the game's innings periods (no extra API
+// call — periods are already in the games payload). e.g. "137" (all out) or
+// "4/152"; two innings joined with " & ".
+function teamScoreline(periods, teamId) {
+  const parts = [];
+  (periods || []).forEach(p => (p.teams || []).forEach(t => {
+    if (t.id !== teamId || t.discipline !== "BATTING" || !t.outcome) return;
+    const m = {}; (t.outcome.statistics || []).forEach(s => { m[s.type] = s.value; });
+    if (m.TOTAL_SCORE == null) return;
+    const allOut = t.outcome.status === "ALL_OUT" || m.TOTAL_OUTS === 10;
+    parts.push(allOut ? String(m.TOTAL_SCORE) : ((m.TOTAL_OUTS == null ? 0 : m.TOTAL_OUTS) + "/" + m.TOTAL_SCORE));
+  }));
+  return parts.join(" & ");
+}
 function splitGames(gj) {
   const names = {}; (gj.teams || []).forEach(t => { names[t.id] = t.name; });
   const won = (o) => /^WON/.test(o || "");
@@ -68,7 +82,12 @@ function splitGames(gj) {
     const row = { round: rd.abbreviatedName || rd.name || "",
       date: (g.schedule && g.schedule[0] && g.schedule[0].dateTime) || null,
       home: names[home.id] || "", away: names[away.id] || "" };
-    if (g.status === "FINAL") { row.winner = won(home.outcome) ? row.home : (won(away.outcome) ? row.away : ""); results.push(row); }
+    if (g.status === "FINAL") {
+      row.winner = won(home.outcome) ? row.home : (won(away.outcome) ? row.away : "");
+      row.homeScore = teamScoreline(g.periods, home.id);
+      row.awayScore = teamScoreline(g.periods, away.id);
+      results.push(row);
+    }
     else if (g.status === "UPCOMING") fixtures.push(row);
   }));
   results.sort((a, b) => String(b.date).localeCompare(String(a.date)));
