@@ -568,25 +568,53 @@
       var showLabel = which === "all";
       var PH = (typeof window !== "undefined" && window.RDCA_PLAYHQ) || {};
       var phComps = PH.competitions || {};
-      var html = keys.map(function (k) {
-        var comp = C[k]; if (!comp) return "";
-        var phUrl = (phComps[k] && phComps[k].url) || PH.orgUrl || "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association";
-        var groups = (comp.groups || []).map(function (g) {
-          var chips = (g.items || []).map(function (it) {
-            return '<a class="cg-item" href="' + esc(phUrl) + '" target="_blank" rel="noopener" title="View ' + esc(it.grade) + ' on PlayHQ">' +
-                   '<span class="cg-grade">' + esc(it.grade) + '</span>' +
-                   (it.shield ? '<span class="cg-shield">' + esc(it.shield) + '</span>' : '') +
-                   '<i class="ti ti-external-link cg-ext"></i></a>';
+      var ORG = "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association";
+      // PlayHQ resolves a grade by its short id alone, so /org/.../s/g/<gradeShort> deep-links straight to the grade.
+      function norm(s){ return String(s || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
+      function buildIdx(board){
+        var idx = [];
+        if (!board || !Array.isArray(board.comps)) return idx;
+        var useCurrent = board.cutover ? (Date.now() >= Date.parse(board.cutover)) : true;
+        board.comps.forEach(function (c){
+          var season = (useCurrent ? c.current : c.last) || c.last || c.current || { grades: [] };
+          (season.grades || []).forEach(function (g){ if (g.id) idx.push({ name: norm(g.grade || g.name), id: g.id }); });
+        });
+        return idx;
+      }
+      function gradeUrl(it, idx){
+        var wShield = norm(it.shield || ""), wGrade = norm(it.grade || ""), hit = null;
+        if (wShield) hit = idx.filter(function (x){ return x.name.indexOf(wShield) >= 0; })[0];
+        if (!hit && wGrade) hit = idx.filter(function (x){ return x.name.indexOf(wGrade) >= 0; })[0];
+        return hit ? (ORG + "/s/g/" + String(hit.id).slice(0, 8)) : null;
+      }
+      function render(idx){
+        var html = keys.map(function (k) {
+          var comp = C[k]; if (!comp) return "";
+          var seasonUrl = (phComps[k] && phComps[k].url) || PH.orgUrl || ORG;
+          var groups = (comp.groups || []).map(function (g) {
+            var chips = (g.items || []).map(function (it) {
+              var url = gradeUrl(it, idx) || seasonUrl;
+              return '<a class="cg-item" href="' + esc(url) + '" target="_blank" rel="noopener" title="View ' + esc(it.grade) + ' on PlayHQ">' +
+                     '<span class="cg-grade">' + esc(it.grade) + '</span>' +
+                     (it.shield ? '<span class="cg-shield">' + esc(it.shield) + '</span>' : '') +
+                     '<i class="ti ti-external-link cg-ext"></i></a>';
+            }).join("");
+            return '<div class="cg-group"><h4 class="cg-group-hd">' + esc(g.name) + '</h4>' +
+                   '<div class="cg-grid">' + chips + '</div></div>';
           }).join("");
-          return '<div class="cg-group"><h4 class="cg-group-hd">' + esc(g.name) + '</h4>' +
-                 '<div class="cg-grid">' + chips + '</div></div>';
+          return '<div class="cg-block">' +
+            (showLabel ? '<div class="block-hed">' + esc(comp.label) + '</div>' : '') +
+            (comp.intro ? '<p class="block-sub cg-intro">' + esc(comp.intro) + '</p>' : '') +
+            groups + '</div>';
         }).join("");
-        return '<div class="cg-block">' +
-          (showLabel ? '<div class="block-hed">' + esc(comp.label) + '</div>' : '') +
-          (comp.intro ? '<p class="block-sub cg-intro">' + esc(comp.intro) + '</p>' : '') +
-          groups + '</div>';
-      }).join("");
-      set(sel, html || "");
+        set(sel, html || "");
+      }
+      render([]); // immediate render (season-page fallback), upgraded to per-grade deep links once the board loads
+      if (typeof fetch === "function") {
+        var API = (typeof window !== "undefined" && window.RDCA_PLAYHQ_API) || "https://rdca-stats.carson-cfd.workers.dev/playhq";
+        fetch(API, { cache: "no-cache" }).then(function (r){ return r.ok ? r.json() : null; })
+          .then(function (b){ var idx = buildIdx(b); if (idx.length) render(idx); }).catch(function (){});
+      }
     },
 
     sectionAbout: function (sectionKey, sel) {
