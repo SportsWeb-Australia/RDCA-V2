@@ -127,7 +127,7 @@ img{display:block;max-width:100%}
 .hero-right{display:flex;flex-direction:column}
 .hmc{background:rgba(8,16,30,.9);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;position:relative;overflow:hidden;backdrop-filter:blur(16px);align-self:start}
 .hmc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),#254d87,var(--red))}
-.hmc-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.hmc-hdr{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px;min-height:40px}
 .hmc-comp{font-size:11px;color:rgba(255,255,255,.32)}
 .hmc-team{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
 .hmc-team+.hmc-team{border-top:1px solid rgba(255,255,255,.07)}
@@ -296,6 +296,10 @@ a.ump-card:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,
 .sw1-eofy .sw1-eofy-cta{margin-left:auto;display:inline-flex;align-items:center;gap:3px;font-size:9.5px;white-space:nowrap}
 .sw1-eofy:hover{filter:brightness(1.06)}
 .sw1-wrap{position:relative;margin-top:24px}
+.sw1-visual{position:relative;display:flex;align-items:flex-end;justify-content:center;margin:18px 0 20px;z-index:1}
+.sw1-wheel{width:188px;height:188px;max-width:60%;filter:drop-shadow(0 10px 26px rgba(0,0,0,.45))}
+.sw1-skip{width:96px;height:auto;margin-left:-16px;margin-bottom:-4px;filter:drop-shadow(0 10px 22px rgba(0,0,0,.5))}
+@media(max-width:360px){.sw1-skip{width:78px}.sw1-wheel{width:158px}}
 .sw1-adbadge{position:absolute;top:0;right:16px;transform:translateY(-50%);z-index:5;display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:30px;background:linear-gradient(135deg,#0d1f3c,#142c52);border:1px solid rgba(255,255,255,.16);box-shadow:0 6px 16px rgba(6,12,24,.5);text-decoration:none;white-space:nowrap;transition:transform .15s,box-shadow .15s}
 .sw1-adbadge:hover{transform:translateY(-50%) translateY(-2px);box-shadow:0 11px 24px rgba(6,12,24,.6)}
 .sw1-adbadge .sw1-ad-lbl{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#fff}
@@ -895,6 +899,10 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
   <div class="sw1-eyebrow">Powered by</div>
   <div class="sw1-logo">Sports<span>Web</span> 360&deg;</div>
   <div class="sw1-hed">One Operating System. Every Club Function.</div>
+  <div class="sw1-visual">
+    <img class="sw1-wheel" src="/brand/sportsweb360-wheel.svg" alt="The SportsWeb 360 wheel — eight connected club functions" loading="lazy">
+    <img class="sw1-skip" src="/brand/skip.webp" alt="Skip, the SportsWeb AI assistant" loading="lazy">
+  </div>
   <div class="sw1-copy">Every club function in one connected system &mdash; with <strong>Skip and his AI team doing the heavy lifting</strong>, preparing updates, admin, reminders and reporting so your volunteers don&rsquo;t have to. One login, one connected record, the complete eight-area Club&nbsp;360&deg; wheel.</div>
 
   <div class="sw1-clusters">

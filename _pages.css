@@ -699,7 +699,7 @@ body[data-page="umpires"] .page-wrap .section-block{max-width:1180px;margin-left
 /* ==========================================================================
    ARTICLE PAGE
    ========================================================================== */
-.article-hero-img{width:100%;aspect-ratio:16/7;max-height:440px;background-size:cover;background-position:center;border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:22px}
+.article-hero-img{width:100%;aspect-ratio:16/7;max-height:440px;background-size:cover;background-position:center 20%;border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:22px}
 .article-hero-ph{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy),var(--navy3))}
 .article-hero-ph .ti{font-size:56px;color:rgba(255,255,255,.45)}
 .article-back{margin-top:40px;padding-top:26px;border-top:1px solid var(--border)}
