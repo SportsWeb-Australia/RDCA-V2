@@ -96,8 +96,11 @@
       <div class="nav-item">
         <a class="nav-link nav-drop-toggle" href="/umpires">Umpires <i class="ti ti-chevron-down" style="font-size:12px"></i></a>
         <div class="nav-drop">
+          <a href="/umpires">Umpiring Overview</a>
           <a href="/become-an-umpire">Become an Umpire</a>
           <a href="/umpire-appointments">Appointments</a>
+          <a href="/umpire-training">Training</a>
+          <a href="/umpire-documents">Documents</a>
         </div>
       </div>
       <a class="nav-link" href="/clubs"><img src="/rdca-logo.png" class="nav-link-logo" alt="">Clubs</a>

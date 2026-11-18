@@ -110,6 +110,8 @@ img{display:block;max-width:100%}
 .hero-photo{position:absolute;inset:0;background-size:cover;background-position:center 30%;background-image:url('https://res.cloudinary.com/dozdbhjhs/image/upload/q_auto/f_auto/v1780756094/RDCA_Hero_bucegz.png')}
 .hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(8,16,30,.96) 0%,rgba(13,31,60,.88) 45%,rgba(13,31,60,.55) 100%)}
 .hero-grid{max-width:1480px;margin:0 auto;padding:80px 20px 56px;display:grid;grid-template-columns:1fr 440px;gap:48px;align-items:stretch;position:relative;z-index:1;width:100%}
+.hmc-pair{display:grid;grid-template-columns:1fr;gap:14px;align-self:start}
+@media(min-width:1300px){.hero-grid{grid-template-columns:1fr 720px}.hmc-pair{grid-template-columns:1fr 1fr}}
 .hero-left{display:flex;flex-direction:column}
 .hero-hed{font-family:'Bebas Neue',sans-serif;font-size:68px;line-height:.9;color:#fff;letter-spacing:.5px;margin-bottom:16px}
 .hero-hed .accent{color:var(--red)}.hero-hed .ghost{-webkit-text-stroke:1.5px rgba(255,255,255,.35);color:transparent}
@@ -520,6 +522,17 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
         </div>
       </div>
       <a class="nav-link" href="/juniors">Juniors</a>
+      <a class="nav-link" href="/match-centre">Match Centre</a>
+      <div class="nav-item">
+        <a class="nav-link nav-drop-toggle" href="/umpires">Umpires <i class="ti ti-chevron-down" style="font-size:12px"></i></a>
+        <div class="nav-drop">
+          <a href="/umpires">Umpiring Overview</a>
+          <a href="/become-an-umpire">Become an Umpire</a>
+          <a href="/umpire-appointments">Appointments</a>
+          <a href="/umpire-training">Training</a>
+          <a href="/umpire-documents">Documents</a>
+        </div>
+      </div>
       <a class="nav-link" href="/clubs"><img src="/rdca-logo.png" class="nav-link-logo" alt="">Clubs</a>
       <a class="nav-link" href="/news">News</a>
       <a class="nav-link" href="/honours">Honours</a>
@@ -589,6 +602,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
           <img src="https://res.cloudinary.com/dozdbhjhs/image/upload/v1780771648/Untitled-design---2025-01-09T100835635-m5oigune_nluqhv.png" alt="BBT20" style="width:120px;height:120px;object-fit:contain;filter:drop-shadow(0 6px 20px rgba(0,0,0,.6))">
         </a>
       </div>
+      <div class="hmc-pair">
       <div class="hmc" id="hmc">
         <div class="hmc-hdr">
           <span class="badge badge-red" id="hmc-label" style="background:var(--red)">Latest Result</span>
@@ -597,6 +611,16 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
         <div id="hmc-body" style="height:188px;display:flex;flex-direction:column;justify-content:center"><div class="hmc-comp" style="padding:16px 0">Loading latest results&hellip;</div></div>
         <div id="hmc-dots" class="hmc-dots"></div>
         <a class="btn btn-outline-white" style="width:100%;justify-content:center;font-size:13px;margin-top:4px" href="/match-centre"><i class="ti ti-external-link" style="font-size:14px"></i> Full Match Centre</a>
+      </div>
+      <div class="hmc" id="hmc2">
+        <div class="hmc-hdr">
+          <span class="badge badge-red" style="background:var(--red)">Latest Results</span>
+          <span id="hmc2-grade" class="hmc-comp" style="font-size:11px;max-width:150px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>
+        </div>
+        <div id="hmc2-body" style="height:188px;display:flex;flex-direction:column;justify-content:center"><div class="hmc-comp" style="padding:16px 0">Loading results&hellip;</div></div>
+        <div id="hmc2-dots" class="hmc-dots"></div>
+        <a class="btn btn-outline-white" style="width:100%;justify-content:center;font-size:13px;margin-top:4px" href="/match-centre"><i class="ti ti-external-link" style="font-size:14px"></i> Full Match Centre</a>
+      </div>
       </div>
     </div>
   </div>
@@ -871,7 +895,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
   <div class="sw1-eyebrow">Powered by</div>
   <div class="sw1-logo">Sports<span>Web</span> 360&deg;</div>
   <div class="sw1-hed">One Operating System. Every Club Function.</div>
-  <div class="sw1-copy">Bring your whole club together in one connected system &mdash; one login and one connected record for every committee role. The complete eight-area Club&nbsp;360&deg; wheel, from your website to finance, governance and planning.</div>
+  <div class="sw1-copy">Every club function in one connected system &mdash; with <strong>Skip and his AI team doing the heavy lifting</strong>, preparing updates, admin, reminders and reporting so your volunteers don&rsquo;t have to. One login, one connected record, the complete eight-area Club&nbsp;360&deg; wheel.</div>
 
   <div class="sw1-clusters">
     <div class="sw1-cl"><div class="sw1-cl-ic"><i class="ti ti-device-desktop"></i></div><div class="sw1-cl-bd"><div class="sw1-cl-tt"><i class="ti ti-check"></i> Websites, Graphics &amp; Socials</div><div class="sw1-cl-tx">One-click publishing to your website and social accounts.</div></div></div>
@@ -889,12 +913,6 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
   <div class="sw1-ctas">
     <a class="btn btn-red" style="width:100%;justify-content:center" href="https://sportsweb.com.au" target="_blank" rel="noopener">Explore SportsWeb 360&deg;</a>
     <a class="btn btn-outline-white" style="width:100%;justify-content:center" href="https://sportsweb.com.au/how-it-works" target="_blank" rel="noopener">See How It Works</a>
-  </div>
-
-  <div class="sw1-links">
-    <a href="https://sportsweb.com.au/savings-calculator" target="_blank" rel="noopener"><i class="ti ti-calculator"></i> See Our Savings Calculator</a>
-    <span class="sw1-sep">&middot;</span>
-    <a href="https://sportsweb.com.au/revenue-generator" target="_blank" rel="noopener"><i class="ti ti-trending-up"></i> View Revenue Generator</a>
   </div>
 
   <div class="sw1-trust"><i class="ti ti-map-pin"></i> Built in Australia by an Australian company for Australian sport.</div>
@@ -1069,6 +1087,7 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
       });
       var LEAD_API="https://rdca-stats.carson-cfd.workers.dev/leaders";
       var curIt=null,curLead=null,panel=0,timer=null,leadReq=0;
+      var _body2=document.getElementById("hmc2-body"),_dots2=document.getElementById("hmc2-dots"),_g2=document.getElementById("hmc2-grade"),panel2=0,timer2=null;
       function side(team,win,score){var isW=win&&win===team;
         return '<div class="hmc-team"><div class="hmc-tid">'+cc(team,36)+'<div><div class="hmc-name"'+(win&&!isW?' style="color:rgba(255,255,255,.5)"':'')+'>'+_nm(team)+'</div><div class="hmc-sub">'+(isW?'Won':(win?'Lost':'Result'))+'</div></div></div><div class="hmc-score'+(isW?'':' dim')+'" style="font-size:22px">'+(score||'')+'</div></div>';}
       function resultPanel(){
@@ -1096,8 +1115,18 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
         if(_dots)_dots.innerHTML=ps.map(function(_,i){return '<button class="hmc-dot'+(i===panel?' on':'')+'" data-i="'+i+'" aria-label="View '+ps[i].label+'"></button>';}).join("");
       }
       function startRot(){if(timer)clearInterval(timer);timer=setInterval(function(){var ps=panels();if(ps.length<2)return;panel=(panel+1)%ps.length;draw();},5000);}
+      function results2(){return (curIt&&curIt.grade.results)?curIt.grade.results.slice(0,6):[];}
+      function draw2(){
+        if(!_body2||!curIt)return;
+        var rs=results2(); if(_g2)_g2.textContent=curIt.comp+" · "+curIt.gname;
+        if(!rs.length){_body2.innerHTML='<div class="hmc-comp" style="padding:16px 0">No results yet in '+curIt.gname+'.</div>';if(_dots2)_dots2.innerHTML='';return;}
+        if(panel2>=rs.length)panel2=0; var r=rs[panel2];
+        _body2.innerHTML='<div class="hmc-comp" style="margin-bottom:8px">'+(r.round||"")+(r.date?" · "+_date(r.date):"")+'</div>'+side(r.home,r.winner,r.homeScore)+side(r.away,r.winner,r.awayScore);
+        if(_dots2)_dots2.innerHTML=rs.map(function(_,i){return '<button class="hmc-dot'+(i===panel2?' on':'')+'" data-i="'+i+'" aria-label="Result '+(i+1)+'"></button>';}).join("");
+      }
+      function startRot2(){if(timer2)clearInterval(timer2);timer2=setInterval(function(){var rs=results2();if(rs.length<2)return;panel2=(panel2+1)%rs.length;draw2();},4000);}
       function selectGrade(key){
-        curIt=byKey[key]||GRADES[0];curLead=null;panel=0;draw();
+        curIt=byKey[key]||GRADES[0];curLead=null;panel=0;draw();panel2=0;draw2();startRot2();
         var id=curIt.grade.id;if(!id)return;var req=++leadReq;
         fetch(LEAD_API+"?grade="+encodeURIComponent(id),{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}).then(function(j){
           if(req!==leadReq)return;if(j&&!j.error)curLead=j;draw();
@@ -1118,9 +1147,12 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
         _sel.addEventListener("change",function(){try{localStorage.setItem("rdca_hmc_grade",_sel.value);}catch(e){}selectGrade(_sel.value);startRot();});
         selectGrade(def);startRot();
         if(_dots)_dots.addEventListener("click",function(e){var d=e.target.closest(".hmc-dot");if(d){panel=+d.getAttribute("data-i");draw();startRot();}});
+        if(_dots2)_dots2.addEventListener("click",function(e){var d=e.target.closest(".hmc-dot");if(d){panel2=+d.getAttribute("data-i");draw2();startRot2();}});
         var _card=document.getElementById("hmc");
         if(_card){_card.addEventListener("mouseenter",function(){if(timer)clearInterval(timer);});_card.addEventListener("mouseleave",startRot);}
-      } else if(GRADES.length){curIt=GRADES[0];draw();}
+        var _card2=document.getElementById("hmc2");
+        if(_card2){_card2.addEventListener("mouseenter",function(){if(timer2)clearInterval(timer2);});_card2.addEventListener("mouseleave",startRot2);}
+      } else if(GRADES.length){curIt=GRADES[0];draw();draw2();}
     }
     }catch(e){}
 
