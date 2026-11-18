@@ -144,6 +144,9 @@ img{display:block;max-width:100%}
 .hmc-sel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:11px;font-weight:600;padding:5px 8px;max-width:160px;cursor:pointer}
 .hmc-sel option{color:#0d1f3c}
 .hmc-wtag{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.5px;color:#4ade80;align-self:center;flex-shrink:0}
+.hmc-dots{display:flex;gap:6px;justify-content:center;align-items:center;margin:14px 0 8px}
+.hmc-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:all .25s;border:0;padding:0}
+.hmc-dot.on{background:var(--red);width:20px;border-radius:10px}
 /* APP BUTTONS */
 .app-section{background:var(--navy);border-top:1px solid rgba(255,255,255,.06)}
 .app-inner{max-width:1480px;margin:0 auto;padding:0 20px}
@@ -589,10 +592,11 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
       </div>
       <div class="hmc" id="hmc">
         <div class="hmc-hdr">
-          <span class="badge badge-red" style="background:var(--red)">Latest Result</span>
+          <span class="badge badge-red" id="hmc-label" style="background:var(--red)">Latest Result</span>
           <select id="hmc-grade" class="hmc-sel" aria-label="Choose a grade"><option value="">Loading…</option></select>
         </div>
-        <div id="hmc-body"><div class="hmc-comp" style="padding:16px 0">Loading latest results&hellip;</div></div>
+        <div id="hmc-body" style="min-height:150px"><div class="hmc-comp" style="padding:16px 0">Loading latest results&hellip;</div></div>
+        <div id="hmc-dots" class="hmc-dots"></div>
         <a class="btn btn-outline-white" style="width:100%;justify-content:center;font-size:13px;margin-top:4px" href="/match-centre"><i class="ti ti-external-link" style="font-size:14px"></i> Full Match Centre</a>
       </div>
     </div>
@@ -1050,8 +1054,9 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
       }).join("");
       tk.innerHTML = items ? (items+items) : '<div class="tk-it"><span class="tk-nt">Results will appear here once the season is underway.</span></div>';
     }
-    // Hero card — latest result for any grade (all genders), scores + saved default
-    var _sel=document.getElementById("hmc-grade"), _body=document.getElementById("hmc-body");
+    // Hero card — rotating: Latest Result / Top Run Scorer / Leading Wicket Taker, per grade
+    var _sel=document.getElementById("hmc-grade"), _body=document.getElementById("hmc-body"),
+        _label=document.getElementById("hmc-label"), _dots=document.getElementById("hmc-dots");
     if(_body){
       function _gl(name){return /senior/i.test(name)?"Seniors":(/junior/i.test(name)?"Juniors":(/women/i.test(name)?"Women’s":String(name).replace(/^RDCA\s+/,"")));}
       function _gn(x){return String(x.grade||x.name||"").replace(/\s*[-(].*$/,"").trim();}
@@ -1063,14 +1068,41 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
           GRADES.push(it); byKey[it.key]=it;
         });
       });
+      var LEAD_API="https://rdca-stats.carson-cfd.workers.dev/leaders";
+      var curIt=null,curLead=null,panel=0,timer=null,leadReq=0;
       function side(team,win,score){var isW=win&&win===team;
         return '<div class="hmc-team"><div class="hmc-tid">'+cc(team,36)+'<div><div class="hmc-name"'+(win&&!isW?' style="color:rgba(255,255,255,.5)"':'')+'>'+_nm(team)+'</div><div class="hmc-sub">'+(isW?'Won':(win?'Lost':'Result'))+'</div></div></div><div class="hmc-score'+(isW?'':' dim')+'" style="font-size:22px">'+(score||'')+'</div></div>';}
-      function render(key){
-        var it=byKey[key]||GRADES[0];
-        if(!it){_body.innerHTML='<div class="hmc-comp" style="padding:16px 0">No results yet this season.</div>';return;}
-        var r=(it.grade.results||[])[0];
-        if(!r){_body.innerHTML='<div class="hmc-comp" style="padding:16px 0">No results yet in '+it.gname+'.</div>';return;}
-        _body.innerHTML='<div class="hmc-comp" style="margin-bottom:6px">'+it.comp+' · '+it.gname+' · '+(r.round||"")+(r.date?' · '+_date(r.date):'')+'</div>'+side(r.home,r.winner,r.homeScore)+side(r.away,r.winner,r.awayScore);
+      function resultPanel(){
+        var r=(curIt.grade.results||[])[0];
+        if(!r)return '<div class="hmc-comp" style="padding:16px 0">No results yet in '+curIt.gname+'.</div>';
+        return '<div class="hmc-comp" style="margin-bottom:8px">'+curIt.comp+' · '+curIt.gname+' · '+(r.round||"")+(r.date?' · '+_date(r.date):'')+'</div>'+side(r.home,r.winner,r.homeScore)+side(r.away,r.winner,r.awayScore);
+      }
+      function statPanel(p,big,sub){
+        return '<div class="hmc-comp" style="margin-bottom:12px">'+curIt.comp+' · '+curIt.gname+'</div>'+
+          '<div class="hmc-team" style="padding:14px 0"><div class="hmc-tid">'+cc(p.team,44)+'<div><div class="hmc-name" style="font-size:16px">'+p.name+'</div><div class="hmc-sub">'+_nm(p.team)+'</div></div></div>'+
+          '<div style="text-align:right"><div class="hmc-score" style="font-size:30px">'+big+'</div><div class="hmc-sub" style="text-align:right">'+sub+'</div></div></div>';
+      }
+      function panels(){
+        var out=[{k:"result",label:"Latest Result"}];
+        if(curLead&&curLead.runs&&curLead.runs.length)out.push({k:"runs",label:"Top Run Scorer"});
+        if(curLead&&curLead.wickets&&curLead.wickets.length)out.push({k:"wkts",label:"Leading Wicket Taker"});
+        return out;
+      }
+      function draw(){
+        if(!curIt)return;var ps=panels();if(panel>=ps.length)panel=0;var p=ps[panel];
+        if(_label)_label.textContent=p.label;
+        if(p.k==="result")_body.innerHTML=resultPanel();
+        else if(p.k==="runs"){var x=curLead.runs[0];_body.innerHTML=statPanel(x,x.runs,(x.inns||0)+' inns · '+(x.balls||0)+' balls');}
+        else {var y=curLead.wickets[0];_body.innerHTML=statPanel(y,y.wickets+' <span style="font-size:14px">wkts</span>',(y.overs||0)+' overs');}
+        if(_dots)_dots.innerHTML=ps.map(function(_,i){return '<button class="hmc-dot'+(i===panel?' on':'')+'" data-i="'+i+'" aria-label="View '+ps[i].label+'"></button>';}).join("");
+      }
+      function startRot(){if(timer)clearInterval(timer);timer=setInterval(function(){var ps=panels();if(ps.length<2)return;panel=(panel+1)%ps.length;draw();},5000);}
+      function selectGrade(key){
+        curIt=byKey[key]||GRADES[0];curLead=null;panel=0;draw();
+        var id=curIt.grade.id;if(!id)return;var req=++leadReq;
+        fetch(LEAD_API+"?grade="+encodeURIComponent(id),{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}).then(function(j){
+          if(req!==leadReq)return;if(j&&!j.error)curLead=j;draw();
+        }).catch(function(){});
       }
       if(_sel&&GRADES.length){
         var groups={},order=["Seniors","Juniors","Women’s"];
@@ -1084,9 +1116,12 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
         var premIt=GRADES.filter(function(it){return /premier\s*1\.1/i.test(it.gname);})[0];
         var def=(saved&&byKey[saved])?saved:((premIt||GRADES[0]).key);
         _sel.value=def;
-        _sel.addEventListener("change",function(){try{localStorage.setItem("rdca_hmc_grade",_sel.value);}catch(e){}render(_sel.value);});
-        render(def);
-      } else { render((GRADES[0]||{}).key); }
+        _sel.addEventListener("change",function(){try{localStorage.setItem("rdca_hmc_grade",_sel.value);}catch(e){}selectGrade(_sel.value);startRot();});
+        selectGrade(def);startRot();
+        if(_dots)_dots.addEventListener("click",function(e){var d=e.target.closest(".hmc-dot");if(d){panel=+d.getAttribute("data-i");draw();startRot();}});
+        var _card=document.getElementById("hmc");
+        if(_card){_card.addEventListener("mouseenter",function(){if(timer)clearInterval(timer);});_card.addEventListener("mouseleave",startRot);}
+      } else if(GRADES.length){curIt=GRADES[0];draw();}
     }
     }catch(e){}
 

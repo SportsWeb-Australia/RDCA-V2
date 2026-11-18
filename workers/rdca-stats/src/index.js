@@ -115,7 +115,7 @@ async function seasonBlock(env, phq, season) {
     if (g.length) await env.STATS.put(gk, JSON.stringify(g), { expirationTtl: LIST_TTL }); return g;
   })();
   const out = [];
-  for (const g of grades) out.push({ grade: g.name, ...(await gradeBlock(phq, g.id)) });
+  for (const g of grades) out.push({ grade: g.name, id: g.id, ...(await gradeBlock(phq, g.id)) });
   const block = { season: season.name, grades: out };
   if (immutable && block.grades.length) await env.STATS.put(ck, JSON.stringify(block)); // immutable: no TTL
   return block;
@@ -255,7 +255,40 @@ export default {
       const cached = await env.STATS.get("playhq:board", "json");
       return json(cached || { comps: [], meta: { empty: true } });
     }
-    return json({ error: "not_found", routes: ["/playhq", "/playhq?refresh=1", "/health"] }, 404);
+    if (url.pathname === "/leaders") {
+      const gid = url.searchParams.get("grade");
+      if (!gid) return json({ error: "grade required" }, 400);
+      const ck = `lead:${gid}`;
+      const hit = await env.STATS.get(ck, "json"); if (hit) return json(hit);
+      const phq = makeClient(env, { left: SUBREQUEST_BUDGET_PER_RUN });
+      let out;
+      try {
+        const gamesResp = await phq.get(`/v2/grades/${gid}/games`);
+        const finals = [];
+        (gamesResp.rounds || []).forEach(rd => (rd.games || []).forEach(g => { if (g.status === "FINAL") finals.push(g.id); }));
+        const agg = {};
+        for (const id of finals) {
+          const stats = await gameStats(env, phq, id);
+          stats.forEach(p => {
+            const key = p.name + "|" + p.team;
+            const a = agg[key] || (agg[key] = { name: p.name, team: p.team, runs: 0, balls: 0, inns: 0, wickets: 0, overs: 0, catches: 0, stumpings: 0, runouts: 0 });
+            a.runs += p.runs; a.balls += p.balls; a.wickets += p.wickets; a.overs += p.overs;
+            a.catches += p.catches; a.stumpings += p.stumpings; a.runouts += p.runouts;
+            if (p.balls > 0 || p.runs > 0) a.inns += 1;
+          });
+        }
+        const all = Object.keys(agg).map(k => agg[k]);
+        out = {
+          games: finals.length,
+          runs: all.filter(p => p.runs > 0).sort((a, b) => b.runs - a.runs || a.balls - b.balls).slice(0, 10).map(p => ({ name: p.name, team: p.team, runs: p.runs, balls: p.balls, inns: p.inns })),
+          wickets: all.filter(p => p.wickets > 0).sort((a, b) => b.wickets - a.wickets || a.overs - b.overs).slice(0, 10).map(p => ({ name: p.name, team: p.team, wickets: p.wickets, overs: p.overs })),
+          dismissals: all.map(p => ({ name: p.name, team: p.team, catches: p.catches, stumpings: p.stumpings, runouts: p.runouts, total: p.catches + p.stumpings + p.runouts })).filter(p => p.total > 0).sort((a, b) => b.total - a.total).slice(0, 10)
+        };
+      } catch (e) { return json({ error: String(e.message || e) }, 200); }
+      await env.STATS.put(ck, JSON.stringify(out), { expirationTtl: 3600 });
+      return json(out);
+    }
+    return json({ error: "not_found", routes: ["/playhq", "/playhq?refresh=1", "/leaders?grade=ID", "/health"] }, 404);
   },
   async scheduled(_e, env, ctx) { ctx.waitUntil(build(env)); }
 };
