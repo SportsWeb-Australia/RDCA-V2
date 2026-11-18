@@ -99,7 +99,9 @@ a.cg-item:hover .cg-ext{color:#e8b84b}
 .phb-perf{margin-top:18px;border-top:1px solid var(--border);padding-top:18px}
 .phb-perf-hd{display:flex;align-items:center;gap:8px;margin-bottom:14px}
 .phb-perf-g{font-family:'DM Sans',sans-serif;font-weight:600;font-size:12px;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:3px 11px;text-transform:none;letter-spacing:0}
-.phb-key{margin-top:14px;font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.phb-key{margin-top:14px;font-size:11.5px;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:7px 12px;flex-wrap:wrap;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 12px;text-align:center}
+.phb-key b{width:100%;color:var(--navy);font-size:11px;letter-spacing:.3px}
+@media(min-width:561px){.phb-key b{width:auto}}
 .phb-key-i{display:inline-block;font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--navy);background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:1px 6px;font-size:11px}
 .phb-grade-wrap span{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:rgba(255,255,255,.6)}
 .phb-grade-single{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.4px;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:6px 14px}
@@ -1168,7 +1170,26 @@ body[data-page="community-big-bash"] .page-hero::after{z-index:3}
 .phb-ladder-legend{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 18px;font-size:10.5px;color:rgba(255,255,255,.5);border-top:1px solid rgba(255,255,255,.08);align-items:center}
 .phb-ladder-legend .phb-fp{width:16px;height:16px;font-size:9px;vertical-align:middle}
 .phb-grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
-@media(max-width:720px){.phb-grid2{grid-template-columns:1fr}.phb-ltw{overflow-x:auto}.phb-lt{min-width:560px}}
+@media(max-width:720px){.phb-grid2{grid-template-columns:1fr}.phb-ltw{overflow-x:auto;max-width:100%}.phb-lt{min-width:520px}}
+/* Phones: ladder fits the screen (no side-bleed) — drop the min-width, hide FORM + % meter, truncate names */
+@media(max-width:560px){
+  .phb-ltw{overflow-x:hidden}
+  .phb-lt{min-width:0}
+  .phb-c-form{display:none}
+  .phb-c-pct{display:none}
+  .phb-meter{display:none}
+  .phb-lt th,.phb-lt td{padding-left:6px;padding-right:6px}
+  .phb-lt th:first-child,.phb-lt td:first-child{padding-left:12px}
+  .phb-lt th:last-child,.phb-lt td:last-child{padding-right:12px}
+  .phb-tm{min-width:0}
+  .phb-tn{min-width:0;max-width:42vw;overflow:hidden;text-overflow:ellipsis}
+  .phb-lt .phb-crest{width:27px;height:27px}
+  .phb-lt .phb-crest img{width:22px;height:22px}
+  .phb-pos{width:22px;height:22px;font-size:11px}
+  .phb-c-pos{width:34px}
+  .phb-pts{font-size:19px}
+  .phb-pctv{font-size:11px}
+}
 
 /* ===== Results + Fixtures panels — dark broadcast to match the ladder ===== */
 .phb-grid2 .phb-col{background:linear-gradient(160deg,#0d1f3c,#16294a);border:1px solid rgba(255,255,255,.1);border-radius:16px;box-shadow:0 14px 36px rgba(13,31,60,.22);overflow:hidden;position:relative;padding:0 0 8px}
