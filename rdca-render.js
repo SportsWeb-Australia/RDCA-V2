@@ -172,13 +172,16 @@
         var ext = /^https?:/i.test(n.url || "");
         var href = n.slug ? ("/article?slug=" + encodeURIComponent(n.slug)) : esc(n.url);
         var attrs = ext ? ' target="_blank" rel="noopener"' : '';
-        var lead = n.image
-          ? '<div class="tile-ic news-thumb"><img src="' + esc(n.image) + '" alt="' + esc(n.title) + '" loading="lazy"></div>'
-          : '<div class="tile-ic"><i class="ti ' + (catIcon[n.cat] || "ti-news") + '"></i></div>';
-        return '<a class="tile" href="' + href + '"' + attrs + '>' +
-                 lead +
-                 '<div><div class="tile-tt">' + esc(n.title) + (ext ? ' <i class="ti ti-brand-facebook" style="font-size:12px;color:#1877f2;vertical-align:-1px"></i>' : '') + flag(n) + '</div>' +
-                 '<div class="tile-tx">' + esc(n.cat) + ' &middot; ' + esc(n.date) + '<br>' + esc(n.excerpt) + '</div></div></a>';
+        var media = n.image
+          ? '<div class="news-card-img" style="background-image:url(\'' + esc(n.image) + '\')"></div>'
+          : '<div class="news-card-img news-card-ph"><i class="ti ' + (catIcon[n.cat] || "ti-news") + '"></i></div>';
+        return '<a class="news-card" href="' + href + '"' + attrs + '>' + media +
+                 '<div class="news-card-bd">' +
+                   '<span class="news-card-cat">' + esc(n.cat) + ' &middot; ' + esc(n.date) + (ext ? ' &middot; <i class="ti ti-brand-facebook"></i> Facebook' : '') + '</span>' +
+                   '<h3 class="news-card-tt">' + esc(n.title) + flag(n) + '</h3>' +
+                   '<p class="news-card-ex">' + esc(n.excerpt) + '</p>' +
+                   '<span class="news-card-link">Read more <i class="ti ti-arrow-right"></i></span>' +
+                 '</div></a>';
       }).join("");
       set(sel, html);
     },

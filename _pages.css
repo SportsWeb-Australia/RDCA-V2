@@ -1087,3 +1087,17 @@ body[data-page="community-big-bash"] .t20-hero-ov{position:absolute;inset:0;z-in
 body[data-page="community-big-bash"] .page-hero-inner{position:relative;z-index:2;width:100%}
 body[data-page="community-big-bash"] .page-hero::after{z-index:3}
 @media(prefers-reduced-motion:reduce){body[data-page="community-big-bash"] .t20-hero-vid{display:none}}
+
+
+/* Chadstone-style news cards (news page grid) */
+#news-mount{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.news-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease}
+.news-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(13,31,60,.15)}
+.news-card-img{height:180px;background-size:cover;background-position:center 20%;flex-shrink:0}
+.news-card-ph{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;font-size:36px}
+.news-card-bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:7px;flex:1}
+.news-card-cat{font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.news-card-tt{font-size:16px;font-weight:700;line-height:1.28;color:var(--navy);margin:0}
+.news-card-ex{font-size:13px;color:var(--muted);line-height:1.5;margin:0;flex:1}
+.news-card-link{font-size:13px;font-weight:700;color:var(--red);display:flex;align-items:center;gap:5px;margin-top:2px}
+.news-card:hover .news-card-link{gap:8px}
