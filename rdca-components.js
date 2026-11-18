@@ -136,8 +136,8 @@
 </nav>`,
     "ticker": `<div class="ticker-bar">
   <div class="ticker-inner">
-    <div class="ticker-pill"><span class="live-dot"></span> Live Scores</div>
-    <div class="ticker-scroll"><div class="ticker-track"><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">Ringwood CC <b class="tk-sc">4/187</b><span class="tk-ov">42.2 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Croydon CC <b class="tk-sc">223</b></span><span class="tk-nt">Ringwood need 37 runs off 48 balls</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">North Ringwood CC <b class="tk-sc">3/96</b><span class="tk-ov">28.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Lilydale CC <b class="tk-sc">142</b></span><span class="tk-nt">North Ringwood need 47 to win</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">Wonga Park CC <b class="tk-sc">2/201</b><span class="tk-ov">38.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Warranwood CC <b class="tk-sc">264</b></span><span class="tk-nt">Wonga Park trail by 63, 12 overs left</span></div><div class="tk-it"><span class="tk-gr">Division 1</span><span class="tk-stat">Tea</span><span class="tk-tm">Montrose CC <b class="tk-sc">1/40</b><span class="tk-ov">12.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Kilsyth CC <b class="tk-sc">156</b></span><span class="tk-nt">Montrose need 117 to win</span></div><div class="tk-it"><span class="tk-gr">Division 1</span><span class="tk-live">Live</span><span class="tk-tm">Coldstream CC <b class="tk-sc">3/178</b><span class="tk-ov">36.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Mt Evelyn CC <b class="tk-sc">211</b></span><span class="tk-nt">Coldstream need 34 runs off 24 balls</span></div><div class="tk-it"><span class="tk-gr">Division 2</span><span class="tk-stat">Stumps</span><span class="tk-tm">South Croydon CC <b class="tk-sc">8/243</b><span class="tk-ov">80.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Mooroolbark CC <b class="tk-sc">4/131</b><span class="tk-ov">45.0 ov</span></span><span class="tk-nt">Mooroolbark trail by 112 — Day 1 of 2</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">Ringwood CC <b class="tk-sc">4/187</b><span class="tk-ov">42.2 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Croydon CC <b class="tk-sc">223</b></span><span class="tk-nt">Ringwood need 37 runs off 48 balls</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">North Ringwood CC <b class="tk-sc">3/96</b><span class="tk-ov">28.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Lilydale CC <b class="tk-sc">142</b></span><span class="tk-nt">North Ringwood need 47 to win</span></div><div class="tk-it"><span class="tk-gr">Premier</span><span class="tk-live">Live</span><span class="tk-tm">Wonga Park CC <b class="tk-sc">2/201</b><span class="tk-ov">38.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Warranwood CC <b class="tk-sc">264</b></span><span class="tk-nt">Wonga Park trail by 63, 12 overs left</span></div><div class="tk-it"><span class="tk-gr">Division 1</span><span class="tk-stat">Tea</span><span class="tk-tm">Montrose CC <b class="tk-sc">1/40</b><span class="tk-ov">12.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Kilsyth CC <b class="tk-sc">156</b></span><span class="tk-nt">Montrose need 117 to win</span></div><div class="tk-it"><span class="tk-gr">Division 1</span><span class="tk-live">Live</span><span class="tk-tm">Coldstream CC <b class="tk-sc">3/178</b><span class="tk-ov">36.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Mt Evelyn CC <b class="tk-sc">211</b></span><span class="tk-nt">Coldstream need 34 runs off 24 balls</span></div><div class="tk-it"><span class="tk-gr">Division 2</span><span class="tk-stat">Stumps</span><span class="tk-tm">South Croydon CC <b class="tk-sc">8/243</b><span class="tk-ov">80.0 ov</span></span><span class="tk-vs">v</span><span class="tk-tm">Mooroolbark CC <b class="tk-sc">4/131</b><span class="tk-ov">45.0 ov</span></span><span class="tk-nt">Mooroolbark trail by 112 — Day 1 of 2</span></div></div></div></div>
+    <div class="ticker-pill">Results</div>
+    <div class="ticker-scroll"><div class="ticker-track" id="tk-track"><div class="tk-it"><span class="tk-gr">Premier 1.1</span><span class="tk-nt">Loading latest results&hellip;</span></div></div></div>
   </div>
 </div>`,
     "ad-banner": `<div class="ad-banner-wrap"><span class="ad-flag">Advertisement</span><div class="ad-banner">
@@ -344,11 +344,45 @@
     } catch(e){}
   }
 
+  // ---- Results ticker (same source + format as the homepage: Premier 1.1 results) ----
+  function initTicker(){
+    try{
+      var tk=document.getElementById("tk-track"); if(!tk) return;
+      var API=(window.RDCA_PLAYHQ_API)||"https://rdca-stats.carson-cfd.workers.dev/playhq";
+      function stat(){ return fetch("/data/playhq.json",{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}); }
+      (fetch(API,{cache:"no-cache"}).then(function(r){ if(!r.ok) throw 0; return r.json(); }).catch(stat))
+        .then(function(data){
+          if(!data||!data.comps) return;
+          var useCurrent = data.cutover ? (Date.now() >= Date.parse(data.cutover)) : true;
+          function seasonOf(c){ return (useCurrent?c.current:c.last)||c.last||c.current||{grades:[]}; }
+          var prem=null;
+          data.comps.forEach(function(c){ (seasonOf(c).grades||[]).forEach(function(gr){ if(!prem && /premier\s*1\.1|pat meehan/i.test(gr.grade||"")) prem=gr; }); });
+          if(!prem) data.comps.forEach(function(c){ (seasonOf(c).grades||[]).forEach(function(gr){ if(!prem && (gr.results||[]).length) prem=gr; }); });
+          if(!prem) return;
+          var pres=prem.results||[];
+          var pgname=String(prem.grade||"Premier 1.1").replace(/\s*-.*$/,"");
+          function _nm(t){ return String(t||"").replace(/\s+\d*xi+$/i,"").trim(); }
+          var items=pres.slice(0,10).map(function(r){
+            var txt;
+            if(r.winner){
+              var _wn=r.winner,_ln=(r.winner===r.home?r.away:r.home);
+              var _ws=(r.winner===r.home?r.homeScore:r.awayScore),_ls=(r.winner===r.home?r.awayScore:r.homeScore);
+              txt=_nm(_wn)+(_ws?' <b class="tk-sc">'+_ws+'</b>':'')+' <span class="tk-vs">def.</span> '+_nm(_ln)+(_ls?' <b class="tk-sc">'+_ls+'</b>':'');
+            } else {
+              txt=_nm(r.home)+(r.homeScore?' <b class="tk-sc">'+r.homeScore+'</b>':'')+' <span class="tk-vs">v</span> '+_nm(r.away)+(r.awayScore?' <b class="tk-sc">'+r.awayScore+'</b>':'');
+            }
+            return '<div class="tk-it"><span class="tk-gr">'+pgname+'</span><span class="tk-tm">'+txt+'</span>'+(r.round?'<span class="tk-nt">'+r.round+'</span>':'')+'</div>';
+          }).join("");
+          tk.innerHTML = items ? (items+items) : '<div class="tk-it"><span class="tk-nt">Results will appear here once the season is underway.</span></div>';
+        }).catch(function(){});
+    }catch(e){}
+  }
+
   window.RDCA = window.RDCA || {};
   window.RDCA.mount = mount;
   window.RDCA.LOGO = LOGO;
 
-  function boot(){ mount(); initWeather(); }
+  function boot(){ mount(); initWeather(); initTicker(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();

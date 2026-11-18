@@ -260,7 +260,12 @@ table.lt th.tl,table.lt td.tl{text-align:left}
   .perf-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-  .topbar{display:none}
+  /* Keep a slim top bar on mobile showing only the weather chip, top-right */
+  .topbar{display:flex;justify-content:flex-end;padding:4px 12px}
+  .topbar>div:first-child{display:none}
+  .topbar .t-soc{display:none}
+  .topbar #tb-weather{margin-right:0}
+  .topbar #tb-weather:empty{display:none}
   .nav-links{display:none}
   /* Hide the desktop Register button in nav on mobile */
   .nav-actions .btn{display:none}

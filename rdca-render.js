@@ -1161,7 +1161,8 @@
                 rows(bb.wickets, function (p) { return p.wickets; }, function (p) { return p.overs + " ov"; }) + '</div>' +
               '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-hand-stop"></i> Dismissals</div>' +
                 rows(bb.dismissals, function (p) { return p.total; }, function (p) { return p.catches + 'c &middot; ' + p.stumpings + 'st &middot; ' + p.runouts + 'ro'; }) + '</div>' +
-            '</div>';
+            '</div>' +
+            '<div class="phb-key"><b>Dismissals key:</b> <span class="phb-key-i">c</span> caught &middot; <span class="phb-key-i">st</span> stumped &middot; <span class="phb-key-i">ro</span> run out</div>';
         })
         .catch(function () { /* keep placeholder */ });
     },
