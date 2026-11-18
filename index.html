@@ -198,6 +198,7 @@ table.lt th.tl,table.lt td.tl{text-align:left}
 .fxi{flex:1;min-width:0}
 .fxt{font-size:13px;font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .fxm{font-size:11px;color:var(--muted);margin-top:2px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.fx-sel{width:100%;margin-bottom:10px;background:#fff;color:var(--navy);border:1px solid var(--border);border-radius:9px;font-size:12.5px;font-weight:600;padding:8px 10px;cursor:pointer}
 .rrow{padding:11px 0;border-bottom:1px solid var(--border)}.rrow:last-child{border-bottom:none}
 /* PERFORMERS */
 .perf-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -810,7 +811,8 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 <div class="card" style="padding:16px">
   <div class="eyebrow">This Weekend</div>
   <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.3px;margin-bottom:12px;line-height:1">Upcoming Fixtures</div>
-  <div class="fx-toggle"><button class="fx-pill active" data-fx="premier" onclick="fxShow('premier',this)">Premier</button><button class="fx-pill" data-fx="div1" onclick="fxShow('div1',this)">Div 1</button><button class="fx-pill" data-fx="div2" onclick="fxShow('div2',this)">Div 2</button></div><div class="fx-group active" id="fx-premier"><div class="fxr"><div class="fxd" style="width:38px;height:38px"><div style="font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;line-height:1">14</div><div style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase">SAT</div></div><div class="fxi"><div class="fxt">Ringwood CC vs Wonga Park CC</div><div class="fxm"><i class="ti ti-trophy" style="font-size:10px"></i>Premier Div &middot; Rd 15 &middot; <i class="ti ti-map-pin" style="font-size:10px"></i>Ringwood Reserve &middot; <i class="ti ti-clock" style="font-size:10px"></i>12:00 PM</div></div></div><div class="fxr"><div class="fxd" style="width:38px;height:38px"><div style="font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;line-height:1">14</div><div style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase">SAT</div></div><div class="fxi"><div class="fxt">Croydon CC vs Heathmont CC</div><div class="fxm"><i class="ti ti-trophy" style="font-size:10px"></i>Premier Div &middot; Rd 15 &middot; <i class="ti ti-map-pin" style="font-size:10px"></i>Dorset Reserve &middot; <i class="ti ti-clock" style="font-size:10px"></i>12:00 PM</div></div></div></div><div class="fx-group" id="fx-div1"><div class="fxr"><div class="fxd" style="width:38px;height:38px"><div style="font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;line-height:1">14</div><div style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase">SAT</div></div><div class="fxi"><div class="fxt">Kilsyth CC vs Lilydale CC</div><div class="fxm"><i class="ti ti-trophy" style="font-size:10px"></i>Division 1 &middot; Rd 15 &middot; <i class="ti ti-map-pin" style="font-size:10px"></i>Pinks Reserve &middot; <i class="ti ti-clock" style="font-size:10px"></i>12:00 PM</div></div></div><div class="fxr"><div class="fxd" style="width:38px;height:38px"><div style="font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;line-height:1">14</div><div style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase">SAT</div></div><div class="fxi"><div class="fxt">Warranwood CC vs Montrose CC</div><div class="fxm"><i class="ti ti-trophy" style="font-size:10px"></i>Division 1 &middot; Rd 15 &middot; <i class="ti ti-map-pin" style="font-size:10px"></i>Warranwood Reserve &middot; <i class="ti ti-clock" style="font-size:10px"></i>1:00 PM</div></div></div></div><div class="fx-group" id="fx-div2"><div class="fxr"><div class="fxd" style="width:38px;height:38px"><div style="font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;line-height:1">14</div><div style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase">SAT</div></div><div class="fxi"><div class="fxt">Coldstream CC vs Mt Evelyn CC</div><div class="fxm"><i class="ti ti-trophy" style="font-size:10px"></i>Division 2 &middot; Rd 15 &middot; <i class="ti ti-map-pin" style="font-size:10px"></i>Coldstream Reserve &middot; <i class="ti ti-clock" style="font-size:10px"></i>12:00 PM</div></div></div><div class="fxr"><div class="fxd" style="width:38px;height:38px"><div style="font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;line-height:1">14</div><div style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase">SAT</div></div><div class="fxi"><div class="fxt">Chirnside Park CC vs Mooroolbark CC</div><div class="fxm"><i class="ti ti-trophy" style="font-size:10px"></i>Division 2 &middot; Rd 15 &middot; <i class="ti ti-map-pin" style="font-size:10px"></i>Kimberley Reserve &middot; <i class="ti ti-clock" style="font-size:10px"></i>1:00 PM</div></div></div></div>
+  <select id="fx-grade-sel" class="fx-sel" aria-label="Choose a grade"></select>
+  <div id="fx-list"><p class="muted" style="font-size:12px;padding:8px 0">Loading fixtures&hellip;</p></div>
   <div class="divider"></div>
   <a href="/competition#fixtures" class="view-all">All fixtures <i class="ti ti-arrow-right"></i></a>
 </div>
@@ -1058,6 +1060,31 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
         render(saved&&teams.indexOf(saved)>=0?saved:"");
       } else { render(""); }
     }
+    }catch(e){}
+
+
+    // --- Upcoming Fixtures card (real, grade selectable) ---
+    try{
+      var _fsel=document.getElementById("fx-grade-sel"), _flist=document.getElementById("fx-list");
+      if(_fsel&&_flist){
+        function _fnm(t){return String(t||"").replace(/\s+\d*xi+$/i,"").trim();}
+        function _gn(x){return String(x.grade||x.name||"").replace(/\s*-.*$/,"");}
+        var _sg=((seasonOf(sen).grades)||[]).filter(function(x){return (x.fixtures||[]).length;});
+        if(_sg.length){
+          _fsel.innerHTML=_sg.map(function(x,i){return '<option value="'+i+'">'+_gn(x)+'</option>';}).join("");
+          function _rfx(idx){
+            var gr=_sg[idx]; if(!gr){_flist.innerHTML="";return;}
+            var up=(gr.fixtures||[]).slice(0,4);
+            _flist.innerHTML=up.length?up.map(function(r){
+              var d=r.date?new Date(r.date):null;
+              var chip=d?('<div class="fxd" style="width:44px;height:44px"><div style="font-family:\'Bebas Neue\',sans-serif;font-size:19px;color:#fff;line-height:1">'+d.getDate()+'</div><div style="font-size:9px;color:rgba(255,255,255,.55);text-transform:uppercase">'+d.toLocaleDateString("en-AU",{weekday:"short"})+'</div></div>'):'<div class="fxd" style="width:44px;height:44px"></div>';
+              return '<div class="fxr">'+chip+'<div class="fxi"><div class="fxt">'+_fnm(r.home)+' v '+_fnm(r.away)+'</div><div class="fxm"><i class="ti ti-trophy" style="font-size:10px"></i>'+_gn(gr)+(r.round?' · '+r.round:'')+(d?' · '+d.toLocaleDateString("en-AU",{day:"numeric",month:"short"}):'')+'</div></div></div>';
+            }).join(""):'<p class="muted" style="font-size:12px;padding:8px 0">No upcoming fixtures.</p>';
+          }
+          _fsel.addEventListener("change",function(){_rfx(+_fsel.value);});
+          _rfx(0);
+        }
+      }
     }catch(e){}
 
   }).catch(function(){});
