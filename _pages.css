@@ -1081,7 +1081,7 @@ body[data-page="community-big-bash"] .sec-about-eyebrow{color:#e6371f}
 
 
 /* T20 Big Bash page: video hero */
-body[data-page="community-big-bash"] .page-hero{aspect-ratio:16/7;max-height:62vh;min-height:300px;display:flex;align-items:flex-end;background:#070d18}
+body[data-page="community-big-bash"] .page-hero{height:clamp(300px,42vw,560px);width:100%;display:flex;align-items:flex-end;background:#070d18}
 body[data-page="community-big-bash"] .t20-hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;z-index:0;background:#070d18}
 body[data-page="community-big-bash"] .t20-hero-ov{display:none}
 body[data-page="community-big-bash"] .page-hero-inner{position:relative;z-index:2;width:100%}
@@ -1138,5 +1138,33 @@ body[data-page="community-big-bash"] .page-hero::after{z-index:3}
 .phb-ladder-legend .phb-fp{width:16px;height:16px;font-size:9px;vertical-align:middle}
 .phb-grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
 @media(max-width:720px){.phb-grid2{grid-template-columns:1fr}.phb-ltw{overflow-x:auto}.phb-lt{min-width:560px}}
+
+/* ===== Results + Fixtures panels — dark broadcast to match the ladder ===== */
+.phb-grid2 .phb-col{background:linear-gradient(160deg,#0d1f3c,#16294a);border:1px solid rgba(255,255,255,.1);border-radius:16px;box-shadow:0 14px 36px rgba(13,31,60,.22);overflow:hidden;position:relative;padding:0 0 8px}
+.phb-grid2 .phb-col::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#e8b84b,#cc2222);z-index:2}
+.phb-grid2 .phb-col > .phb-ch{color:#fff;margin:0;padding:15px 18px 12px;border-bottom:1px solid rgba(255,255,255,.1);font-size:16px}
+.phb-grid2 .phb-col > .phb-ch::before{display:none}
+.phb-grid2 .phb-col > .phb-ch i{color:#e8b84b}
+.phb-grid2 .phb-res{background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.07);border-left:3px solid transparent;border-radius:0;margin:0;padding:11px 18px;transition:background .14s,border-color .14s}
+.phb-grid2 .phb-res:last-child{border-bottom:0}
+.phb-grid2 .phb-res:hover{background:rgba(255,255,255,.04);border-left-color:#e8b84b}
+.phb-grid2 .phb-rnd{color:#fff;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.14)}
+.phb-grid2 .phb-date{color:rgba(255,255,255,.5)}
+.phb-grid2 .phb-side{color:#fff}
+.phb-grid2 .phb-side .phb-sn{color:#fff}
+.phb-grid2 .phb-sc{color:#fff}
+.phb-grid2 .phb-side.dim{opacity:.5}
+.phb-grid2 .phb-side.dim .phb-sc{color:rgba(255,255,255,.55)}
+.phb-grid2 .phb-res-tie{color:rgba(255,255,255,.5)}
+.phb-grid2 .phb-fx{padding:11px 18px;border-bottom:1px solid rgba(255,255,255,.07)}
+.phb-grid2 .phb-fx:last-child{border-bottom:0}
+.phb-grid2 .phb-fx-dt{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+.phb-grid2 .phb-fx-d{color:#fff}
+.phb-grid2 .phb-fx-m{color:rgba(255,255,255,.6)}
+.phb-grid2 .phb-fx-teams{color:#fff}
+.phb-grid2 .phb-v{color:rgba(255,255,255,.45)}
+.phb-grid2 .phb-fx-meta{color:rgba(255,255,255,.5)}
+.phb-grid2 .phb-empty{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.14);color:rgba(255,255,255,.6);margin:12px 18px}
+.phb-grid2 .phb-empty i{color:rgba(255,255,255,.6)}
 
 body[data-page="community-big-bash"] .page-hero-inner{text-shadow:0 2px 14px rgba(0,0,0,.7)}
