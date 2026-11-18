@@ -74,6 +74,10 @@
 .cg-item{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-left:3px solid var(--navy3);border-radius:10px;padding:9px 12px}
 .cg-grade{font-weight:700;color:var(--navy);font-size:13.5px;line-height:1.25}
 .cg-shield{font-size:11.5px;color:var(--muted);margin-top:2px}
+a.cg-item{position:relative;text-decoration:none;cursor:pointer;transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease}
+a.cg-item:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(13,31,60,.12);border-left-color:var(--red)}
+.cg-ext{position:absolute;top:10px;right:11px;font-size:13px;color:var(--border);transition:color .14s}
+a.cg-item:hover .cg-ext{color:var(--red)}
 /* Match Centre grade filter */
 .mc-filter{display:flex;align-items:center;gap:8px;margin:0 0 20px;flex-wrap:wrap}
 .mc-filter-ic{color:var(--muted);font-size:17px}
@@ -1051,3 +1055,13 @@ body[data-page="honours"] .tile [style*="--muted"]{color:rgba(255,255,255,.6)!im
 body[data-page="honours"] .honours-table thead th{background:#0d1f3c;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:.6px;font-size:14px;border-color:#0d1f3c}
 body[data-page="honours"] .honours-table tbody tr:nth-child(even){background:rgba(13,31,60,.04)}
 body[data-page="honours"] .honours-table tbody tr:hover{background:rgba(204,34,34,.06)}
+
+
+/* Match Centre broadcast polish (ladder header + panel header accents) */
+.phb-lt thead th{background:#0d1f3c;color:#fff;border-bottom-color:#0d1f3c;padding-top:10px;padding-bottom:10px}
+.phb-lt thead th:first-child{border-top-left-radius:8px;border-bottom-left-radius:8px}
+.phb-lt thead th:last-child{border-top-right-radius:8px;border-bottom-right-radius:8px}
+.phb-col > .phb-ch{position:relative;padding-left:14px}
+.phb-col > .phb-ch::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:4px;border-radius:2px;background:var(--red)}
+.phb-res{border-left:3px solid var(--navy3);transition:border-color .14s}
+.phb-res:hover{border-left-color:var(--red)}

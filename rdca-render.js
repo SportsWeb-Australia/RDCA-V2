@@ -563,12 +563,17 @@
                   seniorWomen: "womens", womens: "womens" };
       var keys = which === "all" ? ["seniors", "juniors", "womens"] : [MAP[which] || which];
       var showLabel = which === "all";
+      var PH = (typeof window !== "undefined" && window.RDCA_PLAYHQ) || {};
+      var phComps = PH.competitions || {};
       var html = keys.map(function (k) {
         var comp = C[k]; if (!comp) return "";
+        var phUrl = (phComps[k] && phComps[k].url) || PH.orgUrl || "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association";
         var groups = (comp.groups || []).map(function (g) {
           var chips = (g.items || []).map(function (it) {
-            return '<div class="cg-item"><span class="cg-grade">' + esc(it.grade) + '</span>' +
-                   (it.shield ? '<span class="cg-shield">' + esc(it.shield) + '</span>' : '') + '</div>';
+            return '<a class="cg-item" href="' + esc(phUrl) + '" target="_blank" rel="noopener" title="View ' + esc(it.grade) + ' on PlayHQ">' +
+                   '<span class="cg-grade">' + esc(it.grade) + '</span>' +
+                   (it.shield ? '<span class="cg-shield">' + esc(it.shield) + '</span>' : '') +
+                   '<i class="ti ti-external-link cg-ext"></i></a>';
           }).join("");
           return '<div class="cg-group"><h4 class="cg-group-hd">' + esc(g.name) + '</h4>' +
                  '<div class="cg-grid">' + chips + '</div></div>';
