@@ -1034,7 +1034,9 @@
                     '<td class="phb-c-pts"><b class="phb-pts">' + n(r.pts) + '</b></td></tr>';
                 }).join("") + '</tbody></table>' +
                 '<div class="phb-ladder-legend"><span><i class="phb-fp phb-fp-W">W</i> <i class="phb-fp phb-fp-L">L</i> last five, newest right</span><span>Top team leads &middot; % separates teams on equal points</span></div></div>'
-              : '<p class="phb-empty"><i class="ti ti-clock-hour-4"></i> Ladder populates once the season is under way.</p>';
+              : (((g.results && g.results.length) || (g.fixtures && g.fixtures.length))
+                  ? '<p class="phb-empty"><i class="ti ti-info-circle"></i> This grade doesn\'t use a competition ladder &mdash; see results and fixtures below.</p>'
+                  : '<p class="phb-empty"><i class="ti ti-clock-hour-4"></i> Ladder populates once the season is under way.</p>');
 
             var res = g.results.length
               ? g.results.slice(0, 6).map(function (r) {
