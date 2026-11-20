@@ -1699,6 +1699,21 @@ window.RDCA_DATA = {
       "melways": "288D7",
       "dbId": "74",
       "mapQuery": "1 Park Road, Yarra Junction VIC 3797, Yarra Juncrion, Victoria, Australia"
+    },
+    {
+      "key": "glenwaverley",
+      "name": "Glen Waverley Junior Cricket Club",
+      "grade": "Juniors",
+      "logo": "/logos/glenwaverley.png",
+      "logoT20": "/logos/t20/glenwaverley.png",
+      "colors": [
+        "#02733a",
+        "#f8d826"
+      ],
+      "real": true,
+      "established": "1960",
+      "suburb": "Glen Waverley",
+      "mapQuery": "Glen Waverley, Victoria, Australia"
     }
   ],
   "sections": {
