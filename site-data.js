@@ -3008,11 +3008,8 @@ window.RDCA_DATA = {
             "photo": "/images/committee/andy-laws.webp"
           },
           {
-            "role": "Mentor",
-            "name": "Steve Pascoe OAM",
-            "phone": "0431 170 963",
-            "email": "steve.ann1@outlook.com",
-            "photo": "/images/committee/steve-pascoe-oam.webp"
+            "role": "Mentor & Umpires Advisor",
+            "name": "John Ward"
           },
           {
             "role": "Committee Member",
@@ -3026,10 +3023,6 @@ window.RDCA_DATA = {
             "phone": "0417 102 057",
             "email": "barbaradawnjohnson@gmail.com",
             "photo": "/images/committee/barry-johnson.webp"
-          },
-          {
-            "role": "Recruitment",
-            "name": "TBA"
           }
         ]
       },
