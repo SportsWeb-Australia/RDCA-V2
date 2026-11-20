@@ -847,7 +847,7 @@ window.RDCA_DATA = {
         "#1a1a1a"
       ],
       "real": true,
-      "site": "http://boroniacc.vic.cricket.com.au",
+      "site": "https://boroniacc.com.au/",
       "phone": "9762 7850",
       "postal": "PO Box 102 Boronia Vic 3155",
       "melways": "64 J9",
@@ -926,7 +926,7 @@ window.RDCA_DATA = {
         "#c8102e"
       ],
       "real": true,
-      "site": "http://cncc.vic.cricket.com.au",
+      "site": "https://www.playhq.com/cricket-australia/org/croydon-north-cricket-club/e72cd0c2",
       "phone": "9726 7771",
       "postal": "PO Box 6035",
       "melways": "37 C7",
@@ -956,7 +956,7 @@ window.RDCA_DATA = {
         "#1f2740"
       ],
       "real": true,
-      "site": "http://www.croydonranges.com.au",
+      "site": "https://www.croydonranges.com.au/",
       "postal": "PO Box 135 Croydon 3136",
       "melways": "51 A1",
       "seniors": {
@@ -1103,7 +1103,7 @@ window.RDCA_DATA = {
         "#1a1a1a"
       ],
       "real": true,
-      "site": "http://www.kilsythcc.vic.cricket.com.au",
+      "site": "https://www.kilsythcricketclub.com.au/",
       "phone": "9728 8773",
       "postal": "PO Box 306 Kilsyth 3137",
       "melways": "51 H8",
@@ -1200,7 +1200,7 @@ window.RDCA_DATA = {
         "#b11722"
       ],
       "real": true,
-      "site": "https://www.facebook.com/mooroolbarkcricketclub",
+      "site": "https://mooroolbarkcricketclub.com",
       "phone": "9725 0612",
       "postal": "PO Box 210 Mooroolbark 3138",
       "melways": "51 J2",
@@ -1366,7 +1366,7 @@ window.RDCA_DATA = {
       "code": "SCR",
       "established": "1952/53",
       "suburb": "Croydon",
-      "site": "http://scr.rdca.com",
+      "site": "https://www.southcroydoncc.com.au/",
       "phone": "9725 7016",
       "email": "scr@rdca.com",
       "pastNames": "Croydon Footballers (1952 - 1972) <br> South Croydon (1972 - Present)",
@@ -1388,7 +1388,7 @@ window.RDCA_DATA = {
       "ground": "Coleman Reserve",
       "suburb": "South Warrandyte",
       "melways": "35J7",
-      "site": "http://swt.rdca.com",
+      "site": "https://www.southwarrandytecc.com",
       "phone": "9879 9342",
       "email": "swt@rdca.com",
       "pastNames": "South Warrandyte (1931 - 2001) <br> South Warrandyte Hawks (2001 - Present)",
@@ -1418,7 +1418,7 @@ window.RDCA_DATA = {
       "established": "1964/65",
       "ground": "J.W. Manson Reserve",
       "suburb": "Wantirna",
-      "site": "http://sta.rdca.com",
+      "site": "https://standrewscricket.club/",
       "phone": "9887 4174",
       "email": "sta@rdca.com",
       "pastNames": "Heathmont Pres (1964 - 1969) <br> St Andrews (1969 - Present)",
@@ -1435,7 +1435,7 @@ window.RDCA_DATA = {
         "#33383d"
       ],
       "real": true,
-      "site": "http://templetoncc.com.au",
+      "site": "https://www.templetoncricketclub.com",
       "phone": "9837 5755",
       "postal": "P.O. Box 5281, Studfield 3152",
       "melways": "63 G9",
@@ -1475,7 +1475,7 @@ window.RDCA_DATA = {
         "#16243f"
       ],
       "real": true,
-      "site": "https://www.WandinCricketClub",
+      "site": "https://www.facebook.com/WandinCricketClub/",
       "ground": "410 Clegg Road, Wandin North VIC 3139",
       "contact": {
         "name": "David Thorne",
@@ -1549,7 +1549,7 @@ window.RDCA_DATA = {
         "#9e1b22"
       ],
       "real": true,
-      "site": "http://www.swhcc.com.au",
+      "site": "https://www.warrandytecc.com",
       "phone": "9879 9342",
       "melways": "35 J7",
       "seniors": {
@@ -1651,7 +1651,7 @@ window.RDCA_DATA = {
         "#2b2f36"
       ],
       "real": true,
-      "site": "https://www./yarrajunctioncc",
+      "site": "",
       "postal": "PO Box 337 Lilydale VIC 3140 © 2025",
       "ground": "1 Park Road, Yarra Junction VIC 3797",
       "contact": {
@@ -1945,8 +1945,8 @@ window.RDCA_DATA = {
   "repSelection": {
     "title": "Rep Cricket Selection",
     "intro": "Representative selection information for the RDCA. Edit the <code>body</code> field in site-data.js to publish updates — plain paragraphs, lists and links are all supported.",
-    "updated": "",
-    "body": "<p>Representative team selection information will be published here.</p><p>Teams for the coming season have not yet been selected. Selection details, trial dates and squad announcements will appear on this page once confirmed by the Association.</p>",
+    "updated": "20 November 2026",
+    "body": "<p>Our junior representative teams for Season 2026/27 are listed below, with the team manager for each side. <strong>Teams are still being finalised</strong> &mdash; selection is in progress, and <strong>fixtures are expected to be released in early-to-mid December</strong>. This page will be updated as squads and fixtures are confirmed.</p><h3>Junior Representative Teams &amp; Managers</h3><ul><li><strong>Under 12 Boys</strong> &mdash; Keith Mitchell</li><li><strong>Under 12 Boys</strong> &mdash; Josh Browne</li><li><strong>Under 12 Girls</strong> &mdash; Claudia Fatone</li><li><strong>Under 13 Boys</strong> &mdash; Des Nolan</li><li><strong>Under 13 Boys</strong> &mdash; Mark Keating</li><li><strong>Under 14 Boys</strong> &mdash; Russell Allen</li><li><strong>Under 14 Girls</strong> &mdash; Julie Savage</li><li><strong>Under 16 Boys</strong> &mdash; Keith Mackay</li><li><strong>Under 17 Boys</strong> &mdash; Jim Beitzel</li><li><strong>Under 17 Girls</strong> &mdash; Mel Jones</li></ul>",
     "editable": true,
     "needsReview": true
   },
@@ -3066,6 +3066,20 @@ window.RDCA_DATA = {
     ]
   },
   "sponsors": [
+    {
+      "name": "Your Clubroom",
+      "tier": "Season 2026/27 Partner",
+      "url": "https://www.yourclubroom.com.au",
+      "logo": "/sponsors/your-clubroom.webp",
+      "grad": [
+        "#15181d",
+        "#2b333d"
+      ],
+      "logoMode": "bare",
+      "cta": "Visit Website",
+      "blurb": "Your Clubroom brings together the products and services community sporting clubs rely on &mdash; bar and canteen supplies, medical and first-aid essentials, and printing and signage &mdash; in one convenient, reliable place. Their focus is the volunteers behind the scenes: the people on the bar, in the canteen, the trainers looking after players and everyone who keeps the club ticking along week after week &mdash; helping clubs save time, simplify purchasing and get what they need throughout the season. A proud partner of RDCA clubs throughout Season 2026/27.",
+      "real": true
+    },
     {
       "name": "Saints Landscaping",
       "tier": "Landscaping Partner",
