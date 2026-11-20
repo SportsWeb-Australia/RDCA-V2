@@ -980,11 +980,16 @@
           // name is the leading portion, so pop trailing tokens until a club matches.
           var CLUBS = (D().clubs) || [];
           function slug(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
+          // On the T20 page (data-logos="t20") use each club's ORIGINAL logo (logoT20);
+          // everywhere else uses the current main logo. Lets the T20 Big Bash keep the
+          // original crests while the rest of the site moves to the new club logos.
+          var useT20 = !!(mount.getAttribute && mount.getAttribute("data-logos") === "t20");
+          function logoOf(c) { return (useT20 && c.logoT20) ? c.logoT20 : c.logo; }
           var CREST = {};
           CLUBS.forEach(function (c) {
-            if (!c || !c.logo) return;
-            CREST[slug(c.key)] = c.logo;
-            CREST[slug(String(c.name || "").replace(/cc\s*$/i, ""))] = c.logo;
+            if (!c) return; var lg = logoOf(c); if (!lg) return;
+            CREST[slug(c.key)] = lg;
+            CREST[slug(String(c.name || "").replace(/cc\s*$/i, ""))] = lg;
           });
           function crestFor(team) {
             var toks = String(team || "").split(/\s+/).filter(Boolean);
@@ -1181,7 +1186,7 @@
       var clubs = (D().clubs) || [];
       function slug(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
       var CREST = {};
-      clubs.forEach(function (c) { if (!c || !c.logo) return; CREST[slug(c.key)] = c.logo; CREST[slug(String(c.name || "").replace(/cc\s*$/i, ""))] = c.logo; });
+      clubs.forEach(function (c) { if (!c) return; var lg = c.logoT20 || c.logo; if (!lg) return; CREST[slug(c.key)] = lg; CREST[slug(String(c.name || "").replace(/cc\s*$/i, ""))] = lg; });
       function crestFor(team) { var t = String(team || "").split(/\s+/).filter(Boolean); while (t.length) { var k = slug(t.join("")); if (CREST[k]) return CREST[k]; t.pop(); } return null; }
       function mono(team) { var w = String(team || "").replace(/\b(t20|mens|senior|men|cc)\b/ig, "").trim().split(/\s+/).filter(Boolean); return ((w[0] || "").charAt(0) + ((w[1] || "").charAt(0) || "")).toUpperCase() || "?"; }
       function crest(team) { var l = crestFor(team); return l ? '<span class="phb-crest"><img src="' + esc(l) + '" alt="" loading="lazy"></span>' : '<span class="phb-crest phb-mono">' + esc(mono(team)) + '</span>'; }

@@ -472,7 +472,7 @@ body[data-page="umpires"] .page-wrap .section-block{max-width:1180px;margin-left
 .sec-about .prose strong{color:#fff}
 .sec-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);position:relative;z-index:1}
 .sec-fact{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:13px 15px}
-.sec-fact-ic{width:38px;height:38px;flex-shrink:0;border-radius:10px;background:rgba(204,34,34,.2);color:#ff8a6b;display:flex;align-items:center;justify-content:center;font-size:19px}
+.sec-fact-ic{width:38px;height:38px;flex-shrink:0;border-radius:10px;background:rgba(204,34,34,.2);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px}
 .sec-fact-tx{display:flex;flex-direction:column;min-width:0}
 .sec-fact-tx span{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.55)}
 .sec-fact-tx b{font-size:14px;color:#fff;font-weight:700;line-height:1.25}

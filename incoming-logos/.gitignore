@@ -1,0 +1,4 @@
+# Staging area — don't commit dropped logo files; the installer copies them into /logos/.
+*
+!.gitignore
+!README.md

@@ -798,6 +798,7 @@ window.RDCA_DATA = {
       "name": "Ainslie Park CC",
       "grade": "Division 3",
       "logo": "/logos/ainsliepark.webp",
+      "logoT20": "/logos/t20/ainsliepark.webp",
       "colors": [
         "#1f7a3a",
         "#172419"
@@ -820,6 +821,7 @@ window.RDCA_DATA = {
       "name": "Bayswater CC",
       "grade": "Division 4",
       "logo": "/logos/bayswater.webp",
+      "logoT20": "/logos/t20/bayswater.webp",
       "colors": [
         "#2f8bd6",
         "#16306b"
@@ -842,6 +844,7 @@ window.RDCA_DATA = {
       "name": "Boronia CC",
       "grade": "Division 3",
       "logo": "/logos/boronia.webp",
+      "logoT20": "/logos/t20/boronia.webp",
       "colors": [
         "#caa23a",
         "#1a1a1a"
@@ -872,6 +875,7 @@ window.RDCA_DATA = {
       "name": "Chirnside Park CC",
       "grade": "Division 2",
       "logo": "/logos/chirnsidepark.webp",
+      "logoT20": "/logos/t20/chirnsidepark.webp",
       "colors": [
         "#2f6fc6",
         "#15224a"
@@ -902,6 +906,7 @@ window.RDCA_DATA = {
       "name": "Coldstream CC",
       "grade": "Division 2",
       "logo": "/logos/coldstream.webp",
+      "logoT20": "/logos/t20/coldstream.webp",
       "colors": [
         "#5fb52b",
         "#2c6e17"
@@ -921,6 +926,7 @@ window.RDCA_DATA = {
       "name": "Croydon North CC",
       "grade": "Division 2",
       "logo": "/logos/croydonnorth.webp",
+      "logoT20": "/logos/t20/croydonnorth.webp",
       "colors": [
         "#8b9298",
         "#c8102e"
@@ -951,6 +957,7 @@ window.RDCA_DATA = {
       "name": "Croydon Ranges CC",
       "grade": "Division 5",
       "logo": "/logos/croydonranges.webp",
+      "logoT20": "/logos/t20/croydonranges.webp",
       "colors": [
         "#8b9298",
         "#1f2740"
@@ -982,6 +989,7 @@ window.RDCA_DATA = {
       "name": "East Ringwood CC",
       "grade": "Division 4",
       "logo": "/logos/eastringwood.webp",
+      "logoT20": "/logos/t20/eastringwood.webp",
       "colors": [
         "#ef7d12",
         "#3a3f45"
@@ -1003,6 +1011,7 @@ window.RDCA_DATA = {
       "name": "Eastfield CC",
       "grade": "Division 5",
       "logo": "/logos/eastfield.webp",
+      "logoT20": "/logos/t20/eastfield.webp",
       "colors": [
         "#aeb4ba",
         "#2b2f36"
@@ -1033,6 +1042,7 @@ window.RDCA_DATA = {
       "name": "Healesville CC",
       "grade": "Premier Division",
       "logo": "/logos/healesville.webp",
+      "logoT20": "/logos/t20/healesville.webp",
       "colors": [
         "#f4761b",
         "#d51f12"
@@ -1051,6 +1061,7 @@ window.RDCA_DATA = {
       "key": "heatherdale",
       "name": "Heatherdale CC",
       "logo": "/logos/heatherdale.webp",
+      "logoT20": "/logos/t20/heatherdale.webp",
       "code": "HED",
       "ground": "",
       "site": "",
@@ -1063,6 +1074,7 @@ window.RDCA_DATA = {
       "name": "Heathwood CC",
       "grade": "Division 4",
       "logo": "/logos/heathwood.webp",
+      "logoT20": "/logos/t20/heathwood.webp",
       "colors": [
         "#e8821e",
         "#2a2018"
@@ -1080,6 +1092,7 @@ window.RDCA_DATA = {
       "name": "Hoddles Creek CC",
       "grade": "Division 3",
       "logo": "/logos/hoddlescreek.webp",
+      "logoT20": "/logos/t20/hoddlescreek.webp",
       "colors": [
         "#7a5a2e",
         "#202c45"
@@ -1098,6 +1111,7 @@ window.RDCA_DATA = {
       "name": "Kilsyth CC",
       "grade": "Division 1",
       "logo": "/logos/kilsyth.webp",
+      "logoT20": "/logos/t20/kilsyth.webp",
       "colors": [
         "#c8102e",
         "#1a1a1a"
@@ -1128,6 +1142,7 @@ window.RDCA_DATA = {
       "name": "Lilydale CC",
       "grade": "Division 1",
       "logo": "/logos/lilydale.webp",
+      "logoT20": "/logos/t20/lilydale.webp",
       "colors": [
         "#2f63c6",
         "#15306b"
@@ -1157,6 +1172,7 @@ window.RDCA_DATA = {
       "key": "lusatiapark",
       "name": "Lusatia Park CC",
       "logo": "/logos/lusatiapark.webp",
+      "logoT20": "/logos/t20/lusatiapark.webp",
       "code": "LPC",
       "mapQuery": "Lusatia Park, Victoria, Australia"
     },
@@ -1165,6 +1181,7 @@ window.RDCA_DATA = {
       "name": "Montrose CC",
       "grade": "Division 1",
       "logo": "/logos/montrose.webp",
+      "logoT20": "/logos/t20/montrose.webp",
       "colors": [
         "#6b7178",
         "#1e9fc4"
@@ -1195,6 +1212,7 @@ window.RDCA_DATA = {
       "name": "Mooroolbark CC",
       "grade": "Division 2",
       "logo": "/logos/mooroolbark.webp",
+      "logoT20": "/logos/t20/mooroolbark.webp",
       "colors": [
         "#202740",
         "#b11722"
@@ -1225,6 +1243,7 @@ window.RDCA_DATA = {
       "name": "Mt Evelyn CC",
       "grade": "Division 2",
       "logo": "/logos/mtevelyn.webp",
+      "logoT20": "/logos/t20/mtevelyn.webp",
       "colors": [
         "#3aa0d8",
         "#1b2730"
@@ -1250,6 +1269,7 @@ window.RDCA_DATA = {
       "name": "North Ringwood CC",
       "grade": "Division 5",
       "logo": "/logos/northringwood.webp",
+      "logoT20": "/logos/t20/northringwood.webp",
       "colors": [
         "#d11f23",
         "#2b2f36"
@@ -1280,6 +1300,7 @@ window.RDCA_DATA = {
       "name": "Norwood CC",
       "grade": "Division 1",
       "logo": "/logos/norwood.webp",
+      "logoT20": "/logos/t20/norwood.webp",
       "colors": [
         "#caa23a",
         "#8a5a20"
@@ -1311,6 +1332,7 @@ window.RDCA_DATA = {
       "name": "Powelltown CC",
       "grade": "Division 3",
       "logo": "/logos/powelltown.webp",
+      "logoT20": "/logos/t20/powelltown.webp",
       "colors": [
         "#c8202a",
         "#1a1a1a"
@@ -1330,6 +1352,7 @@ window.RDCA_DATA = {
       "name": "Seville CC",
       "grade": "Premier Division",
       "logo": "/logos/seville.webp",
+      "logoT20": "/logos/t20/seville.webp",
       "colors": [
         "#9aa1a8",
         "#3a3f45"
@@ -1356,6 +1379,7 @@ window.RDCA_DATA = {
       "name": "South Croydon CC",
       "grade": "Division 5",
       "logo": "/logos/southcroydon.webp",
+      "logoT20": "/logos/t20/southcroydon.webp",
       "colors": [
         "#1f9aa8",
         "#0f5a63"
@@ -1378,6 +1402,7 @@ window.RDCA_DATA = {
       "name": "South Warrandyte CC",
       "grade": "Division 4",
       "logo": "/logos/southwarrandyte.webp",
+      "logoT20": "/logos/t20/southwarrandyte.webp",
       "colors": [
         "#8b9298",
         "#caa23a"
@@ -1400,6 +1425,7 @@ window.RDCA_DATA = {
       "name": "St Andrews CC",
       "grade": "Division 3",
       "logo": "/logos/standrews.webp",
+      "logoT20": "/logos/t20/standrews.webp",
       "colors": [
         "#c8a23a",
         "#1a1a1a"
@@ -1430,6 +1456,7 @@ window.RDCA_DATA = {
       "name": "Templeton CC",
       "grade": "Division 2",
       "logo": "/logos/templeton.webp",
+      "logoT20": "/logos/t20/templeton.webp",
       "colors": [
         "#2f8a3e",
         "#33383d"
@@ -1459,6 +1486,7 @@ window.RDCA_DATA = {
       "key": "vermont",
       "name": "Vermont CC",
       "logo": "/logos/vermont.webp",
+      "logoT20": "/logos/t20/vermont.webp",
       "code": "VER",
       "dbId": "38",
       "mapQuery": "Cnr Canterbury Road & Terrara Road, Vermont VIC 3133",
@@ -1470,6 +1498,7 @@ window.RDCA_DATA = {
       "name": "Wandin CC",
       "grade": "Division 5",
       "logo": "/logos/wandin.webp",
+      "logoT20": "/logos/t20/wandin.webp",
       "colors": [
         "#3a6ea5",
         "#16243f"
@@ -1489,6 +1518,7 @@ window.RDCA_DATA = {
       "name": "Wantirna CC",
       "grade": "Division 4",
       "logo": "/logos/wantirna.webp",
+      "logoT20": "/logos/t20/wantirna.webp",
       "colors": [
         "#8b9298",
         "#cf3a1f"
@@ -1514,6 +1544,7 @@ window.RDCA_DATA = {
       "name": "Wantirna South CC",
       "grade": "Division 3",
       "logo": "/logos/wantirnasouth.webp",
+      "logoT20": "/logos/t20/wantirnasouth.webp",
       "colors": [
         "#d51f23",
         "#1a1a1a"
@@ -1544,6 +1575,7 @@ window.RDCA_DATA = {
       "name": "Warrandyte CC",
       "grade": "Division 1",
       "logo": "/logos/warrandyte.webp",
+      "logoT20": "/logos/t20/warrandyte.webp",
       "colors": [
         "#c39a3b",
         "#9e1b22"
@@ -1573,6 +1605,7 @@ window.RDCA_DATA = {
       "name": "Warranwood CC",
       "grade": "Division 1",
       "logo": "/logos/warranwood.webp",
+      "logoT20": "/logos/t20/warranwood.webp",
       "colors": [
         "#2f5aa8",
         "#16306b"
@@ -1603,6 +1636,7 @@ window.RDCA_DATA = {
       "name": "Wonga Park CC",
       "grade": "Premier Division",
       "logo": "/logos/wongapark.webp",
+      "logoT20": "/logos/t20/wongapark.webp",
       "colors": [
         "#7c3fa1",
         "#27b6c7"
@@ -1629,6 +1663,7 @@ window.RDCA_DATA = {
       "name": "Yarra Glen CC",
       "grade": "Division 5",
       "logo": "/logos/yarraglen.webp",
+      "logoT20": "/logos/t20/yarraglen.webp",
       "colors": [
         "#cc2222",
         "#3a3f45"
@@ -1646,6 +1681,7 @@ window.RDCA_DATA = {
       "name": "Yarra Junction CC",
       "grade": "Division 4",
       "logo": "/logos/yarrajunction.webp",
+      "logoT20": "/logos/t20/yarrajunction.webp",
       "colors": [
         "#aeb4ba",
         "#2b2f36"
