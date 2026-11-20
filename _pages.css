@@ -1131,6 +1131,13 @@ body[data-page="community-big-bash"] .sec-fact{background:rgba(255,255,255,.045)
 body[data-page="community-big-bash"] .sec-fact-ic{background:linear-gradient(135deg,#ff7a2f,#e6371f);color:#fff}
 body[data-page="community-big-bash"] .sec-fact-tx span{color:rgba(255,255,255,.5)}
 body[data-page="community-big-bash"] .sec-fact-tx b{color:#fff}
+/* T20 hero — navy overlay card so the title/subtitle stand out over the video */
+body[data-page="community-big-bash"] .t20-hero-card{display:inline-flex;align-items:center;gap:20px;max-width:780px;background:rgba(11,24,48,.84);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:22px 28px;margin-top:12px;backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);box-shadow:0 20px 54px rgba(0,0,0,.45)}
+body[data-page="community-big-bash"] .t20-hero-card .eyebrow,body[data-page="community-big-bash"] .t20-hero-card h1,body[data-page="community-big-bash"] .t20-hero-card .page-sub{margin:0}
+body[data-page="community-big-bash"] .t20-hero-card h1{margin:5px 0 9px}
+body[data-page="community-big-bash"] .t20-hero-logo{flex-shrink:0;width:88px;height:88px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;padding:10px}
+body[data-page="community-big-bash"] .t20-hero-logo img{width:100%;height:100%;object-fit:contain}
+@media(max-width:600px){body[data-page="community-big-bash"] .t20-hero-card{flex-direction:column;align-items:flex-start;gap:14px;padding:18px 20px;max-width:100%}body[data-page="community-big-bash"] .t20-hero-logo{width:66px;height:66px}}
 
 
 /* T20 Big Bash page: video hero */
