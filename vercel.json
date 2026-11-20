@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/video",
+      "destination": "/podcast",
+      "permanent": false
+    },
+    {
       "source": "/register",
       "destination": "/",
       "permanent": false

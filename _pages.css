@@ -330,6 +330,17 @@ body[data-page="umpires"] .block-hed i{color:var(--red);margin-right:4px}
 .news-soc-head i{color:var(--red);font-size:18px}
 .news-socials .ig-elfsight{min-height:420px}
 @media(max-width:1060px){.news-socials{grid-template-columns:1fr}}
+/* Podcast page */
+.pod-intro{display:flex;gap:20px;align-items:flex-start;background:linear-gradient(150deg,#0d1f3c,#16294a);border-radius:18px;padding:26px 28px;color:#fff;box-shadow:0 14px 40px rgba(13,31,60,.18)}
+.pod-intro-ic{flex-shrink:0;width:54px;height:54px;border-radius:14px;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff}
+.pod-intro-tt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.5px;margin-bottom:8px}
+.pod-intro p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.8);margin:0 0 16px}
+.pod-actions{display:flex;gap:12px;flex-wrap:wrap}
+.pod-eps{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;align-items:start}
+.pod-ep{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(13,31,60,.08)}
+.pod-ep .fb-video{display:block;min-height:260px;background:#0d1f3c}
+.pod-ep-cap{font-size:13px;font-weight:600;color:var(--navy);padding:12px 14px}
+@media(max-width:560px){.pod-intro{flex-direction:column;gap:14px;padding:20px}}
 .cform-note{font-size:12.5px;line-height:1.6;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:12px 14px}
 
 /* ---- branded sponsor cards (mirrors homepage) ---- */

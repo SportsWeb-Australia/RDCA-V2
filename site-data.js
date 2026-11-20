@@ -37291,11 +37291,11 @@ window.RDCA_DATA = {
       {
         "kind": "promo",
         "badge": "Live",
-        "icon": "ti-device-tv",
-        "title": "Watch RDCA cricket live",
-        "text": "Selected games streamed each round, plus replays and the RDCA Cricket Show on Radio Eastern 98.1 FM.",
-        "cta": "Live video",
-        "href": "/video",
+        "icon": "ti-microphone-2",
+        "title": "Listen to the RDCA Podcast",
+        "text": "Marking Centre \u2014 the RDCA Podcast, in cohesion with Icon Sports Melbourne. Watch every episode\u2019s Facebook Live replay or listen on Spotify.",
+        "cta": "Podcast",
+        "href": "/podcast",
         "grad": [
           "#176635",
           "#25a54f"

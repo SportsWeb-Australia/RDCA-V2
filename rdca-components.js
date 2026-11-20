@@ -63,7 +63,7 @@
   <a href="/honours" class="mob-link"><i class="ti ti-award"></i> Honours</a>
   <div class="mob-group">Media</div>
   <a href="/photos" class="mob-link"><i class="ti ti-photo"></i> Photos</a>
-  <a href="/video" class="mob-link"><i class="ti ti-device-tv"></i> Live Video</a>
+  <a href="/podcast" class="mob-link"><i class="ti ti-microphone-2"></i> Podcast</a>
   <a href="/social" class="mob-link"><i class="ti ti-share"></i> Social Media</a>
   <div class="mob-group">RDCA</div>
   <a href="/board" class="mob-link"><i class="ti ti-users"></i> The Board</a>
@@ -111,7 +111,7 @@
         <a class="nav-link nav-drop-toggle" href="/photos">Media <i class="ti ti-chevron-down" style="font-size:12px"></i></a>
         <div class="nav-drop">
           <a href="/photos">Photos</a>
-          <a href="/video">Live Video</a>
+          <a href="/podcast">Podcast</a>
           <a href="/social">Social Media</a>
         </div>
       </div>
@@ -180,7 +180,7 @@
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">Club &amp; Community</div>
-      <a class="f-link" href="/clubs">Clubs</a><a class="f-link" href="/news">News</a><a class="f-link" href="/honours">Honours</a><a class="f-link" href="/photos">Photos</a><a class="f-link" href="/video">Live Video</a><a class="f-link" href="/social">Social Media</a><a class="f-link" href="/sponsors">Sponsors &amp; Partners</a>
+      <a class="f-link" href="/clubs">Clubs</a><a class="f-link" href="/news">News</a><a class="f-link" href="/honours">Honours</a><a class="f-link" href="/photos">Photos</a><a class="f-link" href="/podcast">Podcast</a><a class="f-link" href="/social">Social Media</a><a class="f-link" href="/sponsors">Sponsors &amp; Partners</a>
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">RDCA</div>
@@ -208,7 +208,7 @@
     "clubs": "/clubs", "fixtures": "/competition", "results": "/competition",
     "ladders": "/competition", "stats": "/competition", "umpires": "/umpires",
     "representative": "/juniors", "contact": "/contact", "rdca": "/board",
-    "media": "/photos", "photos": "/photos", "live video": "/video",
+    "media": "/photos", "photos": "/photos", "podcast": "/podcast",
     "social media": "/social", "social": "/social"
   };
   // page key (body[data-page]) -> which nav item to highlight
@@ -219,7 +219,7 @@
     "clubs":"clubs","news":"news","honours":"honours",
     "board":"rdca","committees":"rdca","documents":"rdca","sponsors":"rdca",
     "child-safety":"rdca","contact":"rdca","umpires":"rdca",
-    "photos":"media","video":"media","social":"media"
+    "photos":"media","podcast":"media","social":"media"
   };
 
   function wireNav() {
