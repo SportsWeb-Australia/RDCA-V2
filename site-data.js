@@ -1774,7 +1774,7 @@ window.RDCA_DATA = {
         "real": true
       },
       "docList": [
-        { "title": "Women's East Rules 2025/26", "url": "/docs/Womens-East-Rules-2025-26.pdf", "icon": "ti-file-text", "real": true },
+        { "title": "Women's Rules 2026/27", "url": "/docs/Womens-Rules-2026-27.pdf", "icon": "ti-file-text", "real": true },
         { "title": "Code of Conduct", "url": "/docs/Code-of-Conduct-Players-2025-26.pdf", "icon": "ti-clipboard-check", "real": true }
       ],
       "links": [
@@ -2720,10 +2720,10 @@ window.RDCA_DATA = {
       "real": true
     },
     {
-      "title": "Women's East Rules 2025/26",
+      "title": "Women's Rules 2026/27",
       "cat": "Women's",
       "sec": "womens",
-      "url": "/docs/Womens-East-Rules-2025-26.pdf",
+      "url": "/docs/Womens-Rules-2026-27.pdf",
       "type": "pdf",
       "icon": "ti-file-text",
       "real": true
