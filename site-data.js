@@ -37307,8 +37307,8 @@ window.RDCA_DATA = {
         "kind": "promo",
         "badge": "Live",
         "icon": "ti-microphone-2",
-        "title": "Listen to the RDCA Podcast",
-        "text": "Marking Centre \u2014 the RDCA Podcast, in cohesion with Icon Sports Melbourne. Watch every episode\u2019s Facebook Live replay or listen on Spotify.",
+        "title": "The RDCA Podcast with Jacko & Carders",
+        "text": "Jacko & Carders break down the weekend\u2019s cricket across the grades. New shows go live on the RDCA Facebook page through the season \u2014 watch every episode\u2019s replay.",
         "cta": "Podcast",
         "href": "/podcast",
         "grad": [
