@@ -44,3 +44,6 @@ RDCA-migration-archive/
 # Raw honours DB dump contains club credential columns - archive only, never commit
 *.sql
 rdca_website.sql
+
+# ---- Stray archives dropped in the repo (never deploy these) ----
+*.zip
