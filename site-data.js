@@ -2922,7 +2922,7 @@ window.RDCA_DATA = {
             "orgUrl": "https://sportsweb.com.au",
             "email": "carson@sportsweb.com.au",
             "photo": "/images/committee/carson-brooks.webp",
-            "note": "For all association website enquiries.",
+            "note": "(Not a committee member) — for all association website enquiries.",
             "real": true,
             "phone": "0456 749 946"
           }
