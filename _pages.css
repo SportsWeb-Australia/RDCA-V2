@@ -28,7 +28,9 @@
 /* ---- generic page container + section rhythm ---- */
 .page-wrap{max-width:1480px;margin:0 auto;padding:38px 20px 62px}
 .section-block{margin-bottom:48px}
-.section-block:last-child{margin-bottom:0}
+/* Only zero the gap on the page's own final block — NOT a section-block that is the
+   sole child of a render mount (e.g. #sec-about), which must keep its gap to the next section. */
+.page-wrap > .section-block:last-child{margin-bottom:0}
 .block-hed{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.4px;color:var(--navy);margin-bottom:9px}
 .block-sub{font-size:13px;color:var(--muted);margin-bottom:22px;max-width:680px;line-height:1.6}
 .hub-note{display:flex;gap:10px;align-items:flex-start;background:#eef2f8;border:1px solid var(--border);border-left:3px solid var(--red);border-radius:10px;padding:12px 14px;margin-bottom:30px;font-size:12.5px;line-height:1.55;color:var(--navy);max-width:880px}
@@ -128,7 +130,7 @@ a.cg-item:hover .cg-ext{color:#e8b84b}
 .phb-lt{width:100%;border-collapse:collapse;font-size:12.5px}
 .phb-lt th{text-align:center;font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);padding:0 6px 8px;border-bottom:2px solid var(--border);font-weight:700}
 .phb-lt td{padding:8px 6px;border-bottom:1px solid var(--border);text-align:center;color:var(--navy)}
-.phb-lt tbody tr:hover{background:var(--bg)}
+.phb-lt tbody tr:hover{background:rgba(255,255,255,.07)}
 .phb-c-pos{width:34px}
 .phb-c-team{text-align:left!important}
 .phb-c-form{width:96px}
@@ -319,6 +321,12 @@ a.cg-item:hover .cg-ext{color:#e8b84b}
 /* Navy card wrapper so a .cform placed on a light page stays legible (white-on-navy) */
 .ump-form-card{background:linear-gradient(155deg,#0d1f3c,#16294a);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:26px;box-shadow:0 16px 44px rgba(13,31,60,.2)}
 @media(max-width:560px){.ump-form-card{padding:20px 18px}}
+/* Become an Umpire — content + photo two-column */
+.ump-join{display:grid;grid-template-columns:1.45fr 1fr;gap:22px;align-items:stretch}
+.ump-join .panel{margin:0}
+.ump-figure{margin:0;border-radius:16px;overflow:hidden;box-shadow:0 14px 36px rgba(13,31,60,.16);min-height:300px}
+.ump-figure img{width:100%;height:100%;min-height:300px;object-fit:cover;object-position:center 30%;display:block}
+@media(max-width:820px){.ump-join{grid-template-columns:1fr}.ump-figure{min-height:260px}.ump-figure img{min-height:260px}}
 /* Photo hero + section polish (About Umpires) */
 .page-hero-photo{background-size:cover;background-position:center 28%}
 body[data-page="umpires"] .block-hed i{color:var(--red);margin-right:4px}
