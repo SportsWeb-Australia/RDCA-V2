@@ -230,3 +230,48 @@
   window.addEventListener("scroll", show, { passive: true });
   if (document.body) mount(); else document.addEventListener("DOMContentLoaded", mount);
 })();
+
+/* ---- Time-limited site alert popup (auto-expires; shows on every page) ----
+   To remove early, delete this block or set expires to a past time.
+   This alert auto-switches off after the `expires` timestamp with no further edits. */
+(function () {
+  var ALERT = {
+    id: "jnr-mixed-cancel-2026-11-20",
+    expires: 1795162408000, // Fri 20 Nov 2026, 7:13pm AEDT — popup stops showing after this
+    title: "Junior Mixed matches cancelled tonight",
+    body: "Tonight&rsquo;s RDCA Junior Mixed Competition matches &mdash; Friday 20 November &mdash; are cancelled due to ongoing rain and wet ground conditions. The safety of our junior cricketers, volunteers and families always comes first. Thanks to all clubs and families for your understanding &mdash; fingers crossed the rain eases overnight so Saturday morning games can go ahead as scheduled. Stay safe and dry.",
+    link: "/notices#jnr-mixed-cancel"
+  };
+  try {
+    if (Date.now() >= ALERT.expires) return;
+    if (localStorage.getItem("rdca_alert_" + ALERT.id)) return;
+  } catch (e) {}
+  function build() {
+    if (document.getElementById("rdcaAlertPop") || !document.body) return;
+    var ov = document.createElement("div");
+    ov.id = "rdcaAlertPop";
+    ov.style.cssText = "position:fixed;inset:0;z-index:4000;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(6,14,26,.62)";
+    ov.innerHTML =
+      '<div role="dialog" aria-modal="true" aria-label="' + ALERT.title + '" style="position:relative;max-width:440px;width:100%;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.42)">' +
+        '<div style="height:5px;background:linear-gradient(90deg,#cc2222,#ff6b6b)"></div>' +
+        '<button type="button" id="rdcaAlertX" aria-label="Close" style="position:absolute;top:12px;right:12px;width:30px;height:30px;border:none;border-radius:50%;background:rgba(13,31,60,.08);color:#0d1f3c;font-size:17px;line-height:1;cursor:pointer">&times;</button>' +
+        '<div style="padding:22px 22px 20px">' +
+          '<div style="display:flex;align-items:center;gap:9px;margin-bottom:11px"><span style="width:38px;height:38px;border-radius:10px;background:rgba(204,34,34,.1);color:#cc2222;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-cloud-rain"></i></span><span style="font-family:\'Bebas Neue\',sans-serif;font-size:13px;letter-spacing:.8px;color:#cc2222;text-transform:uppercase">RDCA Notice</span></div>' +
+          '<h2 style="margin:0 0 9px;font-size:20px;line-height:1.25;color:#0d1f3c">🏏 ' + ALERT.title + '</h2>' +
+          '<p style="margin:0 0 17px;font-size:14px;line-height:1.6;color:#46536a">' + ALERT.body + '</p>' +
+          '<div style="display:flex;gap:10px;flex-wrap:wrap">' +
+            '<a href="' + ALERT.link + '" style="flex:1;min-width:120px;text-align:center;background:#cc2222;color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:11px 14px;border-radius:9px">More info</a>' +
+            '<button type="button" id="rdcaAlertOk" style="flex:1;min-width:120px;background:rgba(13,31,60,.06);color:#0d1f3c;border:none;font-weight:700;font-size:13px;padding:11px 14px;border-radius:9px;cursor:pointer">Got it</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    function dismiss() { try { localStorage.setItem("rdca_alert_" + ALERT.id, "1"); } catch (e) {} if (ov.parentNode) ov.parentNode.removeChild(ov); document.removeEventListener("keydown", onKey); }
+    function onKey(e) { if (e.key === "Escape") dismiss(); }
+    ov.addEventListener("click", function (e) { if (e.target === ov) dismiss(); });
+    document.body.appendChild(ov);
+    document.getElementById("rdcaAlertX").addEventListener("click", dismiss);
+    document.getElementById("rdcaAlertOk").addEventListener("click", dismiss);
+    document.addEventListener("keydown", onKey);
+  }
+  setTimeout(function () { if (document.body) build(); else document.addEventListener("DOMContentLoaded", build); }, 650);
+})();
