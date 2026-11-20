@@ -3420,14 +3420,14 @@ window.RDCA_DATA = {
       "name": "SportsWeb Australia",
       "tier": "Website Partner",
       "url": "https://sportsweb.com.au",
-      "logo": "/sponsors/sportsweb-australia.webp",
+      "logo": "/sponsors/sportsweb360.svg",
       "grad": [
         "#10153a",
         "#2a3a8a"
       ],
       "logoMode": "chip",
       "cta": "Visit Website",
-      "blurb": "Specialist websites for cricket clubs and associations — boosting your online presence and sponsorship.",
+      "blurb": "From your club website to complete club management, SportsWeb360° brings everything together in one connected system — powered by Skip, your friendly AI assistant. One login, eight connected areas and AI doing the heavy lifting, so volunteers spend less time on admin and more on running a great club.",
       "real": true
     }
   ],
