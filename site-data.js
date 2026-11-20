@@ -356,6 +356,7 @@ window.RDCA_DATA = {
       {
         "role": "General Member (Women's)",
         "name": "Natasha Jorgensen",
+            "photo": "/images/committee/natasha-jorgensen.webp",
         "email": "tash.jorgensen@gmail.com",
         "real": true
       },
@@ -375,6 +376,7 @@ window.RDCA_DATA = {
       {
         "role": "Competitions Administrator",
         "name": "Julie Mackinnon",
+            "photo": "/images/committee/julie-mackinnon.webp",
         "email": "jmackinnon@cricketvictoria.com.au",
         "real": true
       }
@@ -2921,6 +2923,7 @@ window.RDCA_DATA = {
           {
             "role": "Competitions Administrator",
             "name": "Julie Mackinnon",
+            "photo": "/images/committee/julie-mackinnon.webp",
             "email": "playhq@rdca.com"
           },
           {
@@ -3017,6 +3020,7 @@ window.RDCA_DATA = {
           {
             "role": "Competitions Administrator",
             "name": "Julie Mackinnon",
+            "photo": "/images/committee/julie-mackinnon.webp",
             "email": "womens@rdca.com"
           },
           {
@@ -3063,6 +3067,7 @@ window.RDCA_DATA = {
           {
             "role": "BoM Rep / Rules Coordinator",
             "name": "Natasha Jorgensen",
+            "photo": "/images/committee/natasha-jorgensen.webp",
             "email": "tash.jorgensen@gmail.com"
           },
           {
