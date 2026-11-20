@@ -972,7 +972,7 @@
           data.comps.forEach(function (c){ ["last", "current"].forEach(function (ph){ if (c[ph] && Array.isArray(c[ph].grades)) c[ph].grades.sort(gradeCmp); }); });
           function n(x) { return x == null ? "&ndash;" : String(x); }
           function pc(x) { return x == null ? "&ndash;" : (Math.round(x * 1000) / 1000); }
-          var ci = 0, gi = 0;
+          var ci = 0, gi = 0, giR = 0, giF = 0;   // gi=ladder, giR=results, giF=fixtures (independent grade selects)
           function grades() { var s = seasonOf(data.comps[ci]); return (s && s.grades) || []; }
 
           // ---- club-crest resolver: match a PlayHQ team name to a club logo ----
@@ -1060,9 +1060,12 @@
             var tabs = data.comps.map(function (c, i) {
               return '<button class="phb-comp' + (i === ci ? ' active' : '') + '" data-i="' + i + '">' + esc(c.key) + '</button>';
             }).join("");
-            var opts = gs.map(function (x, i) {
-              return '<option value="' + i + '"' + (i === gi ? ' selected' : '') + '>' + esc(x.grade) + '</option>';
-            }).join("");
+            function gradeOpts(sel){ return gs.map(function (x, i) { return '<option value="' + i + '"' + (i === sel ? ' selected' : '') + '>' + esc(x.grade) + '</option>'; }).join(""); }
+            var opts = gradeOpts(gi);
+            if (giR >= gs.length) giR = 0; if (giF >= gs.length) giF = 0;
+            var optsR = gradeOpts(giR), optsF = gradeOpts(giF);
+            var gR = gs[giR] || { ladder: [], results: [], fixtures: [] };
+            var gF = gs[giF] || { ladder: [], results: [], fixtures: [] };
             var note = useCurrent
               ? '<span class="phb-live"><i class="phb-dot"></i> Live</span> ' + esc(season.season)
               : esc(season.season) + ' <span class="phb-last">last season &middot; final ladders &amp; results</span>';
@@ -1085,8 +1088,8 @@
                   ? '<p class="phb-empty"><i class="ti ti-info-circle"></i> This grade doesn\'t use a competition ladder &mdash; see results and fixtures below.</p>'
                   : '<p class="phb-empty"><i class="ti ti-clock-hour-4"></i> Ladder populates once the season is under way.</p>');
 
-            var res = g.results.length
-              ? g.results.slice(0, 6).map(function (r) {
+            var res = gR.results.length
+              ? gR.results.slice(0, 6).map(function (r) {
                   function side(name, isWin, dim, score) {
                     return '<div class="phb-side' + (isWin ? ' win' : '') + (dim ? ' dim' : '') + '">' + crest(name) +
                       '<span class="phb-sn">' + esc(name) + '</span>' +
@@ -1102,8 +1105,8 @@
                 }).join("")
               : '<p class="phb-empty"><i class="ti ti-cricket"></i> No results yet.</p>';
 
-            var fix = g.fixtures.length
-              ? g.fixtures.slice(0, 8).map(function (r) {
+            var fix = gF.fixtures.length
+              ? gF.fixtures.slice(0, 8).map(function (r) {
                   return '<div class="phb-fx">' + dchip(r.date) +
                     '<div class="phb-fx-main"><div class="phb-fx-teams">' +
                       crest(r.home) + '<span class="phb-fx-tn">' + esc(r.home) + '</span>' +
@@ -1125,8 +1128,8 @@
                 '<div class="phb-season">' + note + '</div>' +
                 '<div class="phb-col phb-ladder"><div class="phb-ch"><i class="ti ti-list-numbers"></i> Ladder</div>' + lad + '</div>' +
                 '<div class="phb-grid2">' +
-                  '<div class="phb-col"><div class="phb-ch"><i class="ti ti-chart-bar"></i> Recent Results</div>' + res + '</div>' +
-                  '<div class="phb-col"><div class="phb-ch"><i class="ti ti-calendar-event"></i> Upcoming Fixtures</div>' + fix + '</div>' +
+                  '<div class="phb-col"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-chart-bar"></i> Recent Results</span>' + (gs.length > 1 ? '<select class="phb-grade-res phb-grade-mini" aria-label="Choose a grade for results">' + optsR + '</select>' : '') + '</div>' + res + '</div>' +
+                  '<div class="phb-col"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-calendar-event"></i> Upcoming Fixtures</span>' + (gs.length > 1 ? '<select class="phb-grade-fix phb-grade-mini" aria-label="Choose a grade for fixtures">' + optsF + '</select>' : '') + '</div>' + fix + '</div>' +
                 '</div>' +
                 (wantLeaders ? '<div class="phb-perf"><div class="phb-ch phb-perf-hd"><i class="ti ti-trophy"></i> Top Performers <span class="phb-perf-g">' + esc(g.grade) + '</span></div><div id="phb-ldr"><p class="phb-empty"><i class="ti ti-loader"></i> Loading player stats…</p></div></div>' : '') +
               '</div>';
@@ -1153,10 +1156,12 @@
           render();
           mount.addEventListener("click", function (e) {
             var b = e.target.closest(".phb-comp"); if (!b) return;
-            ci = +b.getAttribute("data-i"); gi = 0; render();
+            ci = +b.getAttribute("data-i"); gi = 0; giR = 0; giF = 0; render();
           });
           mount.addEventListener("change", function (e) {
-            if (e.target.classList.contains("phb-grade")) { gi = +e.target.value; render(); }
+            if (e.target.classList.contains("phb-grade-res")) { giR = +e.target.value; render(); }
+            else if (e.target.classList.contains("phb-grade-fix")) { giF = +e.target.value; render(); }
+            else if (e.target.classList.contains("phb-grade")) { gi = +e.target.value; render(); }
           });
           var searchTimer = null;
           mount.addEventListener("input", function (e) {
@@ -1167,7 +1172,7 @@
               if (String(val).trim().length < 2) return;
               var hit = searchGrades(val);
               if (hit && (hit.c !== ci || hit.g !== gi)) {
-                ci = hit.c; gi = hit.g; render();
+                ci = hit.c; gi = hit.g; giR = hit.g; giF = hit.g; render();
                 var inp = mount.querySelector(".phb-search");
                 if (inp) { inp.value = val; inp.focus(); }
               }
