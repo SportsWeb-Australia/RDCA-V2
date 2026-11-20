@@ -1,0 +1,24 @@
+{
+  // Cloudflare Pages config for the RDCA site (forms run as Pages Functions in functions/).
+  // Static site, no build step — output is the repo root.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "rdca",
+  "pages_build_output_dir": ".",
+  "compatibility_date": "2026-01-01",
+
+  // Create this KV namespace in Cloudflare and paste its id here (or bind it in the
+  // Pages dashboard → Settings → Functions → KV namespace bindings, binding name ENQUIRIES).
+  // It stores every form submission + the per-IP rate-limit counter.
+  "kv_namespaces": [{ "binding": "ENQUIRIES", "id": "REPLACE_WITH_KV_NAMESPACE_ID" }],
+
+  // Non-secret vars. The SECRET (ZEPTOMAIL_SEND_TOKEN) is set in the dashboard, never here.
+  // FORMS_TEST_MODE stays "true" until the token + verified sender are in place — then flip to "false".
+  "vars": {
+    "FORMS_TEST_MODE": "true",
+    "ZEPTOMAIL_REGION": "cpaas-au",
+    "ZEPTOMAIL_FROM_NAME": "RDCA Website",
+    "ZEPTOMAIL_FROM_ADDRESS": "noreply@rdca.com",
+    "FORMS_NOTIFICATION_EMAIL": "admin@rdca.com",
+    "FORMS_NOTIFICATION_CC": "info@sportsweb.com.au"
+  }
+}

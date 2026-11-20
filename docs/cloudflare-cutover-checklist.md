@@ -72,11 +72,24 @@ the saved zone file line by line.
 
 - **SitePulse** widget: `data-website-status="draft"` → `"live"` on all pages
   (and in `playhq.js` `api.sw1.status`). Bump `sw.js`.
-- **Contact form:** set the ZeptoMail env vars in the host (`ZEPTO_TOKEN`,
-  `ZEPTO_FROM`, `CONTACT_TO`). NOTE: `api/contact.js` is a **Vercel** serverless
-  function — on Cloudflare Pages it must be ported to a Pages Function
-  (`functions/api/contact.js`) or the form pointed at a Worker. **Flagged: this
-  is the one piece that does not carry over as-is.**
+- **Forms (Contact + Become an Umpire):** now run as the Pages Function
+  `functions/api/contact.js`, upgraded to the SportsWeb **Zoho CPaaS** standard
+  (ZeptoMail via `cpaas.zoho.com.au/v1.1/email`, honeypot + per-IP rate limit,
+  every submission saved to KV before send). `wrangler.jsonc` documents the config.
+  At go-live:
+  1. **Create a KV namespace** and bind it as **`ENQUIRIES`** (paste its id into
+     `wrangler.jsonc` or bind it in the Pages dashboard).
+  2. Set env vars: **`ZEPTOMAIL_SEND_TOKEN`** (secret), **`ZEPTOMAIL_FROM_ADDRESS`**
+     (a sender verified in ZeptoMail on the rdca.com domain — needs ZeptoMail
+     domain/DKIM setup), `FORMS_NOTIFICATION_EMAIL` (default `admin@rdca.com`),
+     optional `FORMS_NOTIFICATION_CC`, `ZEPTOMAIL_REGION=cpaas-au`.
+  3. Flip **`FORMS_TEST_MODE` from `true` → `false`** once the token + sender are in
+     place (until then submissions are saved to KV but not emailed, so nothing is lost).
+  4. Send a test through both forms; confirm it lands in the notification inbox.
+  (The legacy Vercel `api/contact.js` stays for the Vercel staging site only; it uses
+  the older `ZEPTO_*` vars and is not used once on Cloudflare.)
+  **The `Register` form is still front-end only — wire it to the same endpoint or the
+  SportsWeb One intake when that step is done.**
 - **Analytics:** enable Cloudflare Web Analytics with one click in the Pages
   project (recommended — no token, covers the self-contained homepage too). Only
   if you prefer the token method, paste the token into BOTH `rdca-components.js`
