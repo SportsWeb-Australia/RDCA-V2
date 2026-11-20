@@ -683,7 +683,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
       <div class="hmc" id="hmc2">
         <div class="hmc-hdr">
           <span class="badge badge-red" style="background:var(--red)">Latest Results</span>
-          <span id="hmc2-grade" class="hmc-comp" style="font-size:11px;max-width:150px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>
+          <select id="hmc2-grade-sel" class="hmc-sel" aria-label="Choose a grade for results"><option value="">Loading&hellip;</option></select>
         </div>
         <div id="hmc2-body" style="height:188px;display:flex;flex-direction:column;justify-content:center"><div class="hmc-comp" style="padding:16px 0">Loading results&hellip;</div></div>
         <div id="hmc2-dots" class="hmc-dots"></div>
@@ -1216,8 +1216,8 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
       (function(){var _cr=function(c){return /senior/i.test(c)?0:(/women/i.test(c)?1:(/junior/i.test(c)?2:3));};
         GRADES.sort(function(a,b){var d=_cr(a.comp)-_cr(b.comp);return d?d:_gradeCmp(a.grade.grade||a.gname,b.grade.grade||b.gname);});})();
       var LEAD_API="https://rdca-stats.carson-cfd.workers.dev/leaders";
-      var curIt=null,curLead=null,panel=0,timer=null,leadReq=0;
-      var _body2=document.getElementById("hmc2-body"),_dots2=document.getElementById("hmc2-dots"),_g2=document.getElementById("hmc2-grade"),panel2=0,timer2=null;
+      var curIt=null,curIt2=null,curLead=null,panel=0,timer=null,leadReq=0;
+      var _body2=document.getElementById("hmc2-body"),_dots2=document.getElementById("hmc2-dots"),_sel2=document.getElementById("hmc2-grade-sel"),panel2=0,timer2=null;
       function side(team,win,score){var isW=win&&win===team;
         return '<div class="hmc-team"><div class="hmc-tid">'+cc(team,36)+'<div><div class="hmc-name"'+(win&&!isW?' style="color:rgba(255,255,255,.5)"':'')+'>'+_nm(team)+'</div><div class="hmc-sub">'+(isW?'Won':(win?'Lost':'Result'))+'</div></div></div><div class="hmc-score'+(isW?'':' dim')+'" style="font-size:22px">'+(score||'')+'</div></div>';}
       function resultPanel(){
@@ -1248,11 +1248,11 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
         if(_dots)_dots.innerHTML=ps.map(function(_,i){return '<button class="hmc-dot'+(i===panel?' on':'')+'" data-i="'+i+'" aria-label="View '+ps[i].label+'"></button>';}).join("");
       }
       function startRot(){if(timer)clearInterval(timer);timer=setInterval(function(){var ps=panels();if(ps.length<2)return;panel=(panel+1)%ps.length;draw();},5000);}
-      function results2(){return (curIt&&curIt.grade.results)?curIt.grade.results.slice(0,6):[];}
+      function results2(){return (curIt2&&curIt2.grade.results)?curIt2.grade.results.slice(0,6):[];}
       function draw2(){
-        if(!_body2||!curIt)return;
-        var rs=results2(); if(_g2)_g2.textContent=curIt.comp+" · "+curIt.gname;
-        if(!rs.length){_body2.innerHTML='<div class="hmc-comp" style="padding:16px 0">No results yet in '+curIt.gname+'.</div>';if(_dots2)_dots2.innerHTML='';return;}
+        if(!_body2||!curIt2)return;
+        var rs=results2();
+        if(!rs.length){_body2.innerHTML='<div class="hmc-comp" style="padding:16px 0">No results yet in '+curIt2.gname+'.</div>';if(_dots2)_dots2.innerHTML='';return;}
         if(panel2>=rs.length)panel2=0; var r=rs[panel2];
         var _u2=(r&&r.id)?("https://www.playhq.com/cricket-australia/games/"+r.id):"https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association";
         _body2.innerHTML='<a href="'+_u2+'" target="_blank" rel="noopener" title="View on PlayHQ" style="display:block;text-decoration:none;color:inherit"><div class="hmc-comp" style="margin-bottom:8px">'+(r.round||"")+(r.date?" · "+_date(r.date):"")+' <i class="ti ti-external-link" style="font-size:10px;opacity:.5"></i></div>'+side(r.home,r.winner,r.homeScore)+side(r.away,r.winner,r.awayScore)+'</a>';
@@ -1260,12 +1260,13 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
       }
       function startRot2(){if(timer2)clearInterval(timer2);timer2=setInterval(function(){var rs=results2();if(rs.length<2)return;panel2=(panel2+1)%rs.length;draw2();},4000);}
       function selectGrade(key){
-        curIt=byKey[key]||GRADES[0];curLead=null;panel=0;draw();panel2=0;draw2();startRot2();
+        curIt=byKey[key]||GRADES[0];curLead=null;panel=0;draw();
         var id=curIt.grade.id;if(!id)return;var req=++leadReq;
         fetch(LEAD_API+"?grade="+encodeURIComponent(id),{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}).then(function(j){
           if(req!==leadReq)return;if(j&&!j.error)curLead=j;draw();
         }).catch(function(){});
       }
+      function selectGrade2(key){ curIt2=byKey[key]||GRADES[0]; panel2=0; draw2(); startRot2(); }
       if(_sel&&GRADES.length){
         var groups={},order=["Seniors","Juniors","Women’s"];
         GRADES.forEach(function(it){(groups[it.comp]=groups[it.comp]||[]).push(it);});
@@ -1280,13 +1281,21 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
         _sel.value=def;
         _sel.addEventListener("change",function(){try{localStorage.setItem("rdca_hmc_grade",_sel.value);}catch(e){}selectGrade(_sel.value);startRot();});
         selectGrade(def);startRot();
+        if(_sel2){
+          _sel2.innerHTML=ghtml;
+          var saved2=null;try{saved2=localStorage.getItem("rdca_hmc2_grade");}catch(e){}
+          var def2=(saved2&&byKey[saved2])?saved2:def;
+          _sel2.value=def2;
+          _sel2.addEventListener("change",function(){try{localStorage.setItem("rdca_hmc2_grade",_sel2.value);}catch(e){}selectGrade2(_sel2.value);});
+          selectGrade2(def2);
+        }
         if(_dots)_dots.addEventListener("click",function(e){var d=e.target.closest(".hmc-dot");if(d){panel=+d.getAttribute("data-i");draw();startRot();}});
         if(_dots2)_dots2.addEventListener("click",function(e){var d=e.target.closest(".hmc-dot");if(d){panel2=+d.getAttribute("data-i");draw2();startRot2();}});
         var _card=document.getElementById("hmc");
         if(_card){_card.addEventListener("mouseenter",function(){if(timer)clearInterval(timer);});_card.addEventListener("mouseleave",startRot);}
         var _card2=document.getElementById("hmc2");
         if(_card2){_card2.addEventListener("mouseenter",function(){if(timer2)clearInterval(timer2);});_card2.addEventListener("mouseleave",startRot2);}
-      } else if(GRADES.length){curIt=GRADES[0];draw();draw2();}
+      } else if(GRADES.length){curIt=GRADES[0];curIt2=GRADES[0];draw();draw2();}
     }
     }catch(e){}
 
