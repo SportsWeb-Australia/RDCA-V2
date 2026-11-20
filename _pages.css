@@ -460,7 +460,7 @@ body[data-page="umpires"] .page-wrap .section-block{max-width:1180px;margin-left
 .cs-block{padding-top:0}
 .sec-about{background:linear-gradient(155deg,#0d1f3c,#16294a);border:1px solid rgba(255,255,255,.1);border-radius:18px;box-shadow:0 16px 40px rgba(13,31,60,.24);padding:26px 26px 24px;position:relative;overflow:hidden}
 .sec-about .prose,.sec-about-lead{max-width:none}
-.sec-fact-link{color:var(--red);font-weight:700;text-decoration:none}
+.sec-fact-link{color:#fff;font-weight:700;text-decoration:none}
 .sec-fact-link:hover{text-decoration:underline}
 .sec-about::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#e8b84b,#cc2222)}
 .sec-about-hd{display:flex;align-items:center;gap:16px;margin-bottom:16px;position:relative;z-index:1}
@@ -1138,6 +1138,14 @@ body[data-page="community-big-bash"] .t20-hero-card h1{margin:5px 0 9px}
 body[data-page="community-big-bash"] .t20-hero-logo{flex-shrink:0;width:88px;height:88px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;padding:10px}
 body[data-page="community-big-bash"] .t20-hero-logo img{width:100%;height:100%;object-fit:contain}
 @media(max-width:600px){body[data-page="community-big-bash"] .t20-hero-card{flex-direction:column;align-items:flex-start;gap:14px;padding:18px 20px;max-width:100%}body[data-page="community-big-bash"] .t20-hero-logo{width:66px;height:66px}}
+/* T20 latest news cards */
+body[data-page="community-big-bash"] .t20-news{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:16px}
+body[data-page="community-big-bash"] .t20-news-card{display:flex;flex-direction:column;background:linear-gradient(155deg,#0b1222,#13182b 60%,#241019);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px 18px 16px;text-decoration:none;color:#fff;transition:transform .15s,border-color .15s;box-shadow:0 10px 30px rgba(8,10,20,.3)}
+body[data-page="community-big-bash"] .t20-news-card:hover{transform:translateY(-3px);border-color:rgba(255,122,47,.5)}
+body[data-page="community-big-bash"] .t20-news-src{font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#ff9a5a;display:flex;align-items:center;gap:6px;margin-bottom:9px}
+body[data-page="community-big-bash"] .t20-news-tt{font-size:16px;font-weight:700;line-height:1.3;margin-bottom:8px}
+body[data-page="community-big-bash"] .t20-news-ex{font-size:13px;line-height:1.55;color:rgba(255,255,255,.72);margin:0 0 14px}
+body[data-page="community-big-bash"] .t20-news-go{margin-top:auto;font-size:12px;font-weight:700;color:#fff;display:inline-flex;align-items:center;gap:5px}
 
 
 /* T20 Big Bash page: video hero */
