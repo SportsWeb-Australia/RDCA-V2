@@ -176,7 +176,7 @@
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">Competitions</div>
-      <a class="f-link" href="/competition">Competition Hub</a><a class="f-link" href="/senior-men">Senior Men</a><a class="f-link" href="/senior-women">Senior Women</a><a class="f-link" href="/juniors">Juniors</a><a class="f-link" href="/veterans">Veterans</a><a class="f-link" href="/community-big-bash">T20 Big Bash</a>
+      <a class="f-link" href="/match-centre">Match Centre</a><a class="f-link" href="/senior-men">Senior Men</a><a class="f-link" href="/senior-women">Senior Women</a><a class="f-link" href="/juniors">Juniors</a><a class="f-link" href="/veterans">Veterans</a><a class="f-link" href="/community-big-bash">T20 Big Bash</a>
     </div>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.8px;color:rgba(255,255,255,.66);margin-bottom:12px;text-transform:uppercase">Club &amp; Community</div>
@@ -204,9 +204,9 @@
 
   // ---- nav wiring (edit once, applies to every inner page) ----
   var NAVMAP = {
-    "home": "/", "competitions": "/competition", "news": "/news",
-    "clubs": "/clubs", "fixtures": "/competition", "results": "/competition",
-    "ladders": "/competition", "stats": "/competition", "umpires": "/umpires",
+    "home": "/", "competitions": "/match-centre", "news": "/news",
+    "clubs": "/clubs", "fixtures": "/match-centre#fixtures", "results": "/match-centre#results",
+    "ladders": "/match-centre#ladder", "stats": "/match-centre", "umpires": "/umpires",
     "representative": "/juniors", "contact": "/contact", "rdca": "/board",
     "media": "/photos", "photos": "/photos", "podcast": "/podcast",
     "social media": "/social", "social": "/social"

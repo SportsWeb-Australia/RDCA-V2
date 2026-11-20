@@ -176,8 +176,13 @@
       "permanent": true
     },
     {
+      "source": "/competition",
+      "destination": "/match-centre",
+      "permanent": false
+    },
+    {
       "source": "/mycricket-database",
-      "destination": "/competition",
+      "destination": "/match-centre",
       "permanent": true
     },
     {

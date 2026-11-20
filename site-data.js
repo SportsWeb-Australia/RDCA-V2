@@ -1712,8 +1712,16 @@ window.RDCA_DATA = {
       ],
       "real": true,
       "established": "1960",
+      "ground": "Brentwood Reserve, 11-31 Maylands Crescent, Glen Waverley VIC 3150",
       "suburb": "Glen Waverley",
-      "mapQuery": "Glen Waverley, Victoria, Australia"
+      "site": "https://www.glenwaverleycc.com",
+      "email": "secretarygwcc@gmail.com",
+      "phone": "0435 286 542",
+      "contact": {
+        "name": "Sagar Pawday (Juniors)",
+        "phone": "0435 286 542"
+      },
+      "mapQuery": "Brentwood Reserve, 11-31 Maylands Crescent, Glen Waverley VIC 3150, Australia"
     }
   ],
   "sections": {
