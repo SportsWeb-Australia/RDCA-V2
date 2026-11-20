@@ -310,6 +310,7 @@ window.RDCA_DATA = {
       {
         "role": "Vice President",
         "name": "Pat Meehan",
+        "email": "pcmeehan@bigpond.net.au",
         "photo": "/images/committee/pat-meehan.webp",
         "real": true
       },
@@ -325,13 +326,14 @@ window.RDCA_DATA = {
         "role": "Senior Chairman",
         "name": "Wayne Hartley",
         "phone": "0411 403 149",
+        "email": "hartleyfam@bigpond.com",
         "real": true
       },
       {
         "role": "Admin Manager",
         "name": "Timothy Court",
         "phone": "0407 838 275",
-        "email": "court@rdca.com",
+        "email": "admin@rdca.com",
         "photo": "/images/committee/timothy-court.webp",
         "real": true
       },
@@ -344,32 +346,36 @@ window.RDCA_DATA = {
         "real": true
       },
       {
-        "role": "Marketing & Sponsorship",
+        "role": "Marketing & Sponsorship Manager",
         "name": "Jo Fairy",
         "phone": "0411 313 334",
-        "email": "marketing@rdca.com",
+        "email": "jo@fieldofview.com.au",
         "photo": "/images/committee/jo-fairy.webp",
         "real": true
       },
       {
-        "role": "Women's Representative / Liaison",
-        "name": "Natasha Jorgensson",
+        "role": "General Member (Women's)",
+        "name": "Natasha Jorgensen",
+        "email": "tash.jorgensen@gmail.com",
         "real": true
       },
       {
-        "role": "Juniors Representative",
+        "role": "General Member (Juniors)",
         "name": "Gavin Kellar",
+        "email": "gkellar@whitefriars.vic.edu.au",
         "photo": "/images/committee/gavin-kellar.webp",
         "real": true
       },
       {
-        "role": "General Committee Member",
+        "role": "General Member",
         "name": "Steven Howard",
+        "email": "SHoward@mcphail.com.au",
         "real": true
       },
       {
-        "role": "Administration & Competitions Administrator",
+        "role": "Competitions Administrator",
         "name": "Julie Mackinnon",
+        "email": "jmackinnon@cricketvictoria.com.au",
         "real": true
       }
     ]
@@ -2798,12 +2804,6 @@ window.RDCA_DATA = {
         "real": true,
         "members": [
           {
-            "role": "Chair",
-            "name": "Wayne Hartley",
-            "phone": "0411 403 149",
-            "email": "hartleyfam@bigpond.com"
-          },
-          {
             "role": "Senior Secretary",
             "name": "Paul Broussard",
             "phone": "0438 342 358",
@@ -2820,7 +2820,26 @@ window.RDCA_DATA = {
           {
             "role": "VMCU Rep",
             "name": "Pat Meehan",
+            "email": "pcmeehan@bigpond.net.au",
             "photo": "/images/committee/pat-meehan.webp"
+          },
+          {
+            "role": "Senior Chairman",
+            "name": "Wayne Hartley",
+            "phone": "0411 403 149",
+            "email": "hartleyfam@bigpond.com"
+          },
+          {
+            "role": "General Committee",
+            "name": "Steve Oxley",
+            "email": "steve@cadox.com.au",
+            "photo": "/images/committee/steve-oxley.webp"
+          },
+          {
+            "role": "PlayHQ",
+            "name": "Adam Kuklycz",
+            "phone": "0402 382 899",
+            "email": "adamk@mcservices.com.au"
           },
           {
             "role": "Veterans Secretary",
@@ -2830,20 +2849,20 @@ window.RDCA_DATA = {
             "photo": "/images/committee/peter-chamings.webp"
           },
           {
-            "role": "General Committee",
-            "name": "David Peel",
-            "photo": "/images/committee/david-peel.webp"
+            "role": "Umpires' Representative",
+            "name": "Duncan Cant",
+            "email": "cant5@bigpond.com",
+            "real": true
           },
           {
-            "role": "General Committee",
-            "name": "Steve Oxley",
-            "photo": "/images/committee/steve-oxley.webp"
+            "role": "Players' Representative",
+            "name": "Mark Unternahrer",
+            "email": "markunternahrer@gmail.com"
           },
           {
-            "role": "PlayHQ",
-            "name": "Adam Kuklych",
-            "phone": "0402 382 899",
-            "email": "adam@mcservices.com.au"
+            "role": "Competitions Administrator",
+            "name": "Julie Mackinnon",
+            "email": "playhq@rdca.com"
           },
           {
             "role": "Association Website",
@@ -2855,11 +2874,6 @@ window.RDCA_DATA = {
             "note": "For all association website enquiries.",
             "real": true,
             "phone": "0456 749 946"
-          },
-          {
-            "role": "Umpires' Representative",
-            "name": "Duncan Cant",
-            "real": true
           }
         ]
       },
@@ -2868,14 +2882,14 @@ window.RDCA_DATA = {
         "real": true,
         "members": [
           {
-            "role": "Junior President",
+            "role": "President",
             "name": "Gavin Kellar",
             "phone": "0401 032 404",
             "email": "gkellar@whitefriars.vic.edu.au",
             "photo": "/images/committee/gavin-kellar.webp"
           },
           {
-            "role": "Secretary",
+            "role": "Secretary / PlayHQ",
             "name": "Bill Stafford",
             "phone": "0400 442 050",
             "email": "billstafford1@bigpond.com",
@@ -2885,39 +2899,39 @@ window.RDCA_DATA = {
             "role": "Girls' Coordinator",
             "name": "Cherie Howland",
             "phone": "0479 196 435",
-            "email": "RDCAgirls@gmail.com"
+            "email": "rdcagirls@gmail.com"
           },
           {
-            "role": "Junior Umpire Coordinator",
+            "role": "Umpires",
             "name": "Doug Dowling",
             "phone": "0432 374 748",
             "email": "dougdowling03@gmail.com"
           },
           {
-            "role": "Girls' Rep Cricket & Development",
+            "role": "Junior Girls' Rep Cricket & Development",
             "name": "Dave Sykes",
             "phone": "0419 388 196",
             "email": "dave_sykes_6@yahoo.com.au"
           },
           {
-            "role": "Committee",
+            "role": "General Committee",
             "name": "Kristi Disney",
             "phone": "0431 309 269",
             "email": "kristidisney@bigpond.com"
           },
           {
-            "role": "Committee",
+            "role": "General Committee",
             "name": "Eloise Howland",
-            "email": "howlands179@gmail.com"
+            "email": "ellahowland07@gmail.com"
           },
           {
-            "role": "Committee",
+            "role": "General Committee",
             "name": "Luke Henderson",
             "phone": "0418 313 850",
-            "email": "luke.henderson3@bigpond.com"
+            "email": "lukehenderson597@gmail.com"
           },
           {
-            "role": "Committee",
+            "role": "General Committee",
             "name": "Leah Parker",
             "phone": "0411 417 253",
             "email": "leahandstuart@hotmail.com"
@@ -2929,14 +2943,10 @@ window.RDCA_DATA = {
         "real": true,
         "members": [
           {
-            "role": "Acting Chair",
+            "role": "BoM Admin / Acting Chair",
             "name": "Timothy Court",
-            "email": "womens@rdca.com",
+            "email": "admin@rdca.com",
             "photo": "/images/committee/timothy-court.webp"
-          },
-          {
-            "role": "Acting Chair & Rules Coordinator",
-            "name": "Natasha Jorgensson"
           },
           {
             "role": "Secretary",
@@ -2946,42 +2956,60 @@ window.RDCA_DATA = {
             "photo": "/images/committee/pamela-vodopier.webp"
           },
           {
-            "role": "Senior Acting Chair",
+            "role": "Competitions Administrator",
+            "name": "Julie Mackinnon",
+            "email": "womens@rdca.com"
+          },
+          {
+            "role": "Junior Rep",
+            "name": "Cherie Howland",
+            "email": "rdcagirls@gmail.com"
+          },
+          {
+            "role": "Senior Chairman / Acting Chair",
             "name": "Wayne Hartley",
             "phone": "0411 403 149",
             "email": "hartleyfam@bigpond.com"
           },
           {
-            "role": "Junior Representative",
-            "name": "Cherie Howland"
-          },
-          {
             "role": "Umpire Coordinator",
-            "name": "Tanya Kelly"
+            "name": "Tania Kelly",
+            "email": "rdca.womensumpireliaison.tania@gmail.com"
           },
           {
-            "role": "PlayHQ Contact",
-            "name": "Belinda Tory"
-          },
-          {
-            "role": "Rep Coordinator",
-            "name": "David Sykes"
-          },
-          {
-            "role": "Media Coordinator",
-            "name": "Ella Howland"
-          },
-          {
-            "role": "General Member",
-            "name": "Lisa Hilton"
-          },
-          {
-            "role": "General Member",
-            "name": "Kelly Dohle"
+            "role": "PlayHQ / Fixtures",
+            "name": "Belinda Torney",
+            "email": "belinda.torney59@gmail.com"
           },
           {
             "role": "Committee Member",
-            "name": "Julie Mackinnon"
+            "name": "Lisa Hilton",
+            "email": "kermit6985@hotmail.com"
+          },
+          {
+            "role": "Committee Member",
+            "name": "Kelly Dohle",
+            "email": "kelly.dohle@gmail.com"
+          },
+          {
+            "role": "Media Coordinator",
+            "name": "Ella Howland",
+            "email": "rdcawomensmedia@gmail.com"
+          },
+          {
+            "role": "Committee Member",
+            "name": "David Swierzbiolek",
+            "email": "womens@croydonranges.com.au"
+          },
+          {
+            "role": "BoM Rep / Rules Coordinator",
+            "name": "Natasha Jorgensen",
+            "email": "tash.jorgensen@gmail.com"
+          },
+          {
+            "role": "Representative Team Coordinator",
+            "name": "David Sykes",
+            "email": "dave_sykes_6@yahoo.com.au"
           }
         ]
       },
@@ -2998,7 +3026,18 @@ window.RDCA_DATA = {
           },
           {
             "role": "Secretary",
-            "name": "Doug Wooles"
+            "name": "Doug Wooles",
+            "email": "sdwooles@gmail.com"
+          },
+          {
+            "role": "Assistant Secretary",
+            "name": "Duncan Cant",
+            "email": "cant5@bigpond.com"
+          },
+          {
+            "role": "Umpire Advisor",
+            "name": "John Ward",
+            "email": "johnward2762@gmail.com"
           },
           {
             "role": "Selector",
@@ -3006,23 +3045,6 @@ window.RDCA_DATA = {
             "phone": "0418 545 175",
             "email": "alaws2709@gmail.com",
             "photo": "/images/committee/andy-laws.webp"
-          },
-          {
-            "role": "Mentor & Umpires Advisor",
-            "name": "John Ward"
-          },
-          {
-            "role": "Committee Member",
-            "name": "Lothar Pilz",
-            "email": "rdca.lothar.pilz@gmail.com",
-            "photo": "/images/committee/lothar-pilz.webp"
-          },
-          {
-            "role": "Merchandise",
-            "name": "Barry Johnson",
-            "phone": "0417 102 057",
-            "email": "barbaradawnjohnson@gmail.com",
-            "photo": "/images/committee/barry-johnson.webp"
           }
         ]
       },

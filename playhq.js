@@ -21,15 +21,22 @@ window.RDCA_PLAYHQ = {
 
   /* Per-section competition links (link-out for now).
      key matches the section pages (juniors/seniors/veterans/womens). */
-  competitions: {
-    seniors:  { label: "RDCA Seniors",  season: "Summer 2026/27", needsReview: true,
-                url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/rdca-seniors-cricket-summer-202324/ba69a757" },
-    juniors:  { label: "RDCA Juniors",  season: "Summer 2026/27", needsReview: true,
-                url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/rdca-juniors-summer-202324/28066211" },
-    womens:   { label: "RDCA Women's (East)", season: "Summer 2026/27", needsReview: true,
-                url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/rdca-womens-east-summer-202324/2e56af2f" },
+  /* Season-independent grade deep-links (PlayHQ resolves /s/g/<grade-short-id>
+     to the CURRENT season automatically — no season slug to go stale). The old
+     entries here were 2023/24 season pages, which now render last-season data /
+     404s. Each points at a flagship current grade; PlayHQ's grade page carries a
+     grade selector so visitors can switch within the section. Verified live
+     2026/27 on 2026-11-20. Veterans has no current PlayHQ competition, so it
+     links to the org landing page (always valid). */
+    competitions: {
+    seniors:  { label: "RDCA Seniors",  season: "Summer 2026/27",
+                url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/s/g/2d04b1c5" },
+    juniors:  { label: "RDCA Juniors",  season: "Summer 2026/27",
+                url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/s/g/2b4cac0b" },
+    womens:   { label: "RDCA Women's", season: "Summer 2026/27",
+                url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/s/g/79f6c504" },
     veterans: { label: "RDCA Veterans", season: "Summer 2026/27", needsReview: true,
-                url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/710bdac9" }
+                url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association" }
   },
 
   /* ==========================================================================
