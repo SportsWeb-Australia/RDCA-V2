@@ -3151,9 +3151,9 @@ window.RDCA_DATA = {
       "real": true
     },
     {
-      "name": "Bendigo Bank Mooroolbark",
+      "name": "Community Bank Mt Evelyn",
       "tier": "Banking Partner",
-      "url": "https://www.bendigobank.com.au/branch/vic/community-bank-mooroolbark/",
+      "url": "https://www.bendigobank.com.au/branch/vic/community-bank-mt-evelyn/",
       "logo": "https://res.cloudinary.com/dozdbhjhs/image/upload/v1780769147/Resized_Sponsor_logos10_jgn2lt.avif",
       "grad": [
         "#4a0e20",
@@ -3161,7 +3161,7 @@ window.RDCA_DATA = {
       ],
       "logoMode": "chip",
       "cta": "Visit Branch",
-      "blurb": "Community Bank Mooroolbark — local banking that gives back. Proudly supporting RDCA cricket.",
+      "blurb": "Community Bank Mt Evelyn — local banking that gives back, with profits reinvested into community projects. Proudly supporting RDCA cricket.",
       "real": true
     },
     {
