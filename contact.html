@@ -112,21 +112,6 @@
 <div data-rdca="footer"></div>
 
 <script>
-  (function(){
-    var f = document.getElementById("enquiry-form");
-    if (!f) return;
-    f.addEventListener("submit", function(e){
-      e.preventDefault();
-      var n = document.getElementById("enquiry-note");
-      n.hidden = false;
-      n.textContent = "Thanks! This is a preview form — the live RDCA enquiry form (Zoho) will be embedded here and deliver messages straight to the association.";
-      var b = f.querySelector("button[type=submit]");
-      if (b){ b.disabled = true; b.style.opacity = ".6"; b.style.cursor = "default"; }
-    });
-  })();
-</script>
-
-<script>
 (function(){
   var f=document.getElementById("enquiry-form"); if(!f) return;
   var note=document.getElementById("enquiry-note");
