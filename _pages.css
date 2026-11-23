@@ -236,7 +236,7 @@ a.cg-item:hover .cg-ext{color:#e8b84b}
 .club-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease}
 .club-card:hover{transform:translateY(-2px);box-shadow:var(--shadow2)}
 .club-band{height:92px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy),var(--navy3))}
-.club-band img{height:68px;max-width:86%;object-fit:contain;filter:drop-shadow(0 2px 5px rgba(0,0,0,.35))}
+.club-band img{height:68px;max-width:86%;object-fit:contain;border-radius:10px;filter:drop-shadow(0 2px 5px rgba(0,0,0,.35))}
 .club-mono{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.95);display:inline-flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.5px;box-shadow:0 2px 8px rgba(0,0,0,.28)}
 .club-hero-mono{font-family:'Bebas Neue',sans-serif;font-size:42px;letter-spacing:1px;color:#fff}
 .club-body{padding:13px 14px}
@@ -721,8 +721,9 @@ body[data-page="umpires"] .page-wrap .section-block{max-width:1180px;margin-left
 .tsl-list{display:flex;flex-direction:column;gap:18px}
 .tsl-panel{position:relative;overflow:hidden;background:linear-gradient(150deg,#0a1830 0%,#142b50 72%,#1a3461 100%);border-radius:16px;padding:22px 22px 18px;color:#fff;box-shadow:0 10px 34px rgba(13,31,60,.18)}
 .tsl-panel::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--red),#ff6b6b)}
-.tsl-crest{position:absolute;right:-22px;top:12px;width:224px;height:224px;opacity:.16;pointer-events:none;z-index:0}
+.tsl-crest{position:absolute;right:-20px;top:8px;width:240px;height:240px;opacity:.3;pointer-events:none;z-index:0;transition:opacity .25s}
 .tsl-crest img{width:100%;height:100%;object-fit:contain;filter:brightness(0) invert(1)}
+.tsl-panel:hover .tsl-crest{opacity:.42}
 .tsl-hd-l{display:flex;align-items:center;gap:12px;min-width:0}
 .tsl-logo{flex:0 0 46px;width:46px;height:46px;border-radius:11px;background:#fff;display:flex;align-items:center;justify-content:center;padding:5px;box-shadow:0 2px 8px rgba(0,0,0,.28);position:relative;z-index:1}
 .tsl-logo img{width:100%;height:100%;object-fit:contain}
