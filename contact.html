@@ -115,9 +115,19 @@
 (function(){
   var f=document.getElementById("enquiry-form"); if(!f) return;
   var note=document.getElementById("enquiry-note");
-  function say(msg,bad){ note.hidden=false; note.textContent=msg; note.className="cform-note"+(bad?" bad":" good"); }
+  var msg=f.querySelector('[name="message"]');
+  // General enquiry: message must be at least 10 characters (trimmed, matching the server).
+  // Drives a clear, friendly validation message and blocks submit until met.
+  function checkMsg(){
+    if(!msg) return;
+    var v=(msg.value||"").trim();
+    msg.setCustomValidity(v.length<10 ? "Please enter at least 10 characters in your message." : "");
+  }
+  if(msg) msg.addEventListener("input",checkMsg);
+  function say(m,bad){ note.hidden=false; note.textContent=m; note.className="cform-note"+(bad?" bad":" good"); }
   f.addEventListener("submit",function(e){
     e.preventDefault();
+    checkMsg();
     if(!f.checkValidity()){ f.reportValidity(); return; }
     var btn=f.querySelector("button[type=submit]"), original=btn.innerHTML;
     btn.disabled=true; btn.innerHTML='<i class="ti ti-loader"></i> Sending…';
