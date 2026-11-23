@@ -1257,7 +1257,7 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
         if(!curIt)return;var ps=panels();if(panel>=ps.length)panel=0;var p=ps[panel];
         if(_label)_label.textContent=p.label;
         if(p.k==="runs"){var x=curLead.runs[0];_body.innerHTML=statPanel(x,x.runs,(x.inns||0)+' inns · '+(x.balls||0)+' balls');}
-        else if(p.k==="wkts"){var y=curLead.wickets[0];_body.innerHTML=statPanel(y,y.wickets+' <span style="font-size:14px">wkts</span>',(y.overs||0)+' overs');}
+        else if(p.k==="wkts"){var y=curLead.wickets[0];_body.innerHTML=statPanel(y,y.wickets+' <span style="font-size:14px">wkts</span>',(y.overs==null?0:Math.round(+y.overs*100)/100)+' overs');}
         else if(p.k==="dis"){var z=curLead.dismissals[0];_body.innerHTML=statPanel(z,z.total+' <span style="font-size:14px">dis</span>',z.catches+'c · '+z.stumpings+'st · '+z.runouts+'ro');}
         else {_body.innerHTML='<div class="hmc-comp" style="padding:16px 0">Player stats appear once '+curIt.gname+' matches are scored.</div>';}
         if(_dots)_dots.innerHTML=ps.map(function(_,i){return '<button class="hmc-dot'+(i===panel?' on':'')+'" data-i="'+i+'" aria-label="View '+ps[i].label+'"></button>';}).join("");
@@ -1360,7 +1360,7 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
       if(_pw){
         if(_pl&&_pl.wickets&&_pl.wickets.length){
           _pw.innerHTML='<div class="pbl"><div class="pbl-hd"><span class="pbl-hd-ic"><i class="ti ti-cricket"></i></span> Leading Wicket Takers</div>'
-            +_pl.wickets.map(function(p,i){return _prow(i,p,p.wickets,true,p.overs+' ov');}).join("")+'</div>';
+            +_pl.wickets.map(function(p,i){return _prow(i,p,p.wickets,true,(Math.round(+p.overs*100)/100)+' ov');}).join("")+'</div>';
         } else { _pw.innerHTML=''; }
       }
     }catch(e){}

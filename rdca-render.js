@@ -671,7 +671,7 @@
         return '<div class="mc-team'+(side.batting?' batting':'')+'">'+ crest(side) +
           '<div class="mc-team-id"><div class="mc-team-nm">'+esc(side.name)+'</div>'+
             (side.note?'<div class="mc-team-sub">'+esc(side.note)+'</div>':(side.batting?'<div class="mc-team-sub">Batting</div>':''))+'</div>'+
-          '<div class="mc-score"><b>'+esc(side.score||"")+'</b>'+(side.overs?'<span>'+esc(side.overs)+' ov</span>':'')+'</div></div>';
+          '<div class="mc-score"><b>'+esc(side.score||"")+'</b>'+(side.overs?'<span>'+esc(Math.round(+side.overs*100)/100)+' ov</span>':'')+'</div></div>';
       }
       var statusMap = { live:["LIVE","mc-live"], tea:["TEA","mc-break"], stumps:["STUMPS","mc-break"], result:["RESULT","mc-result"] };
       var dots = function(arr){ return (arr||[]).map(function(x){
@@ -1116,6 +1116,11 @@
                 }).join("")
               : '<p class="phb-empty"><i class="ti ti-calendar-off"></i> No upcoming fixtures.</p>';
 
+            var _gen = data.generatedAt ? new Date(data.generatedAt) : null;
+            function _upd(){ return _gen ? ('Updated ' + _gen.toLocaleDateString('en-AU',{day:'numeric',month:'short'}) + ', ' + _gen.toLocaleTimeString('en-AU',{hour:'numeric',minute:'2-digit'})) : ''; }
+            var _lastR = (g.results && g.results[0] && g.results[0].round) || '';
+            var _nextR = (g.fixtures && g.fixtures[0] && g.fixtures[0].round) || '';
+            function _sub(round){ return '<div class="phb-sub"><i class="ti ti-refresh"></i> ' + (round ? (esc(round) + ' &middot; ') : '') + _upd() + '</div>'; }
             mount.innerHTML =
               '<div class="phb">' +
                 '<div class="phb-bar">' + (data.comps.length > 1 ? '<div class="phb-tabs">' + tabs + '</div>' : '') +
@@ -1126,12 +1131,12 @@
                       : '<span class="phb-grade-single">' + esc(g.grade || season.season || '') + '</span>') +
                   '</div></div>' +
                 '<div class="phb-season">' + note + '</div>' +
-                '<div class="phb-col phb-ladder" id="ladder"><div class="phb-ch"><i class="ti ti-list-numbers"></i> Ladder</div>' + lad + '</div>' +
+                '<div class="phb-col phb-ladder" id="ladder"><div class="phb-ch"><i class="ti ti-list-numbers"></i> Ladder</div>' + _sub(_lastR ? ('After ' + _lastR) : '') + lad + '</div>' +
                 '<div class="phb-grid2">' +
-                  '<div class="phb-col" id="results"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-chart-bar"></i> Recent Results</span>' + (gs.length > 1 ? '<select class="phb-grade-res phb-grade-mini" aria-label="Choose a grade for results">' + optsR + '</select>' : '') + '</div>' + res + '</div>' +
-                  '<div class="phb-col" id="fixtures"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-calendar-event"></i> Upcoming Fixtures</span>' + (gs.length > 1 ? '<select class="phb-grade-fix phb-grade-mini" aria-label="Choose a grade for fixtures">' + optsF + '</select>' : '') + '</div>' + fix + '</div>' +
+                  '<div class="phb-col" id="results"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-chart-bar"></i> Recent Results</span>' + (gs.length > 1 ? '<select class="phb-grade-res phb-grade-mini" aria-label="Choose a grade for results">' + optsR + '</select>' : '') + '</div>' + _sub(_lastR ? ('After ' + _lastR) : '') + res + '</div>' +
+                  '<div class="phb-col" id="fixtures"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-calendar-event"></i> Upcoming Fixtures</span>' + (gs.length > 1 ? '<select class="phb-grade-fix phb-grade-mini" aria-label="Choose a grade for fixtures">' + optsF + '</select>' : '') + '</div>' + _sub(_nextR ? ('Next: ' + _nextR) : '') + fix + '</div>' +
                 '</div>' +
-                (wantLeaders ? '<div class="phb-perf"><div class="phb-ch phb-perf-hd"><i class="ti ti-trophy"></i> Top Performers <span class="phb-perf-g">' + esc(g.grade) + '</span></div><div id="phb-ldr"><p class="phb-empty"><i class="ti ti-loader"></i> Loading player stats…</p></div></div>' : '') +
+                (wantLeaders ? '<div class="phb-perf"><div class="phb-ch phb-perf-hd"><i class="ti ti-trophy"></i> Season&rsquo;s Top Performers <span class="phb-perf-g">' + esc(g.grade) + '</span></div>' + _sub(_lastR ? ('After ' + _lastR) : '') + '<div id="phb-ldr"><p class="phb-empty"><i class="ti ti-loader"></i> Loading player stats…</p></div></div>' : '') +
               '</div>';
             if (wantLeaders && g.id) {
               var req = ++leadReq;
@@ -1146,7 +1151,7 @@
                   el.innerHTML =
                     '<div class="bbl-grid">' +
                       '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-trending-up"></i> Top Run Scorers</div>' + ldrRows(j.runs, function (p) { return p.runs; }, function (p) { return (p.inns || 0) + ' inns &middot; ' + (p.balls || 0) + ' balls'; }) + '</div>' +
-                      '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-wind"></i> Leading Wicket Takers</div>' + ldrRows(j.wickets, function (p) { return p.wickets; }, function (p) { return (p.overs || 0) + ' ov'; }) + '</div>' +
+                      '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-wind"></i> Leading Wicket Takers</div>' + ldrRows(j.wickets, function (p) { return p.wickets; }, function (p) { return (p.overs==null?0:Math.round(+p.overs*100)/100) + ' ov'; }) + '</div>' +
                       '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-hand-stop"></i> Dismissals</div>' + ldrRows(j.dismissals, function (p) { return p.total; }, function (p) { return p.catches + 'c &middot; ' + p.stumpings + 'st &middot; ' + p.runouts + 'ro'; }) + '</div>' +
                     '</div>' +
                     '<div class="phb-key"><b>Dismissals key:</b> <span class="phb-key-i">c</span> caught &middot; <span class="phb-key-i">st</span> stumped &middot; <span class="phb-key-i">ro</span> run out</div>';
@@ -1228,7 +1233,7 @@
               '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-trending-up"></i> Top Run Scorers</div>' +
                 rows(bb.runs, function (p) { return p.runs; }, function (p) { return p.balls + " balls"; }) + '</div>' +
               '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-wind"></i> Leading Wicket Takers</div>' +
-                rows(bb.wickets, function (p) { return p.wickets; }, function (p) { return p.overs + " ov"; }) + '</div>' +
+                rows(bb.wickets, function (p) { return p.wickets; }, function (p) { return (Math.round(+p.overs*100)/100) + " ov"; }) + '</div>' +
               '<div class="bbl-col"><div class="phb-ch"><i class="ti ti-hand-stop"></i> Dismissals</div>' +
                 rows(bb.dismissals, function (p) { return p.total; }, function (p) { return p.catches + 'c &middot; ' + p.stumpings + 'st &middot; ' + p.runouts + 'ro'; }) + '</div>' +
             '</div>' +
