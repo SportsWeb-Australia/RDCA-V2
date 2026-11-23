@@ -47,3 +47,16 @@ rdca_website.sql
 
 # ---- Stray archives dropped in the repo (never deploy these) ----
 *.zip
+
+# ---- Environment / secrets (never commit) ----
+# Local env files and framework variants. Templates (.env.example / .env.sample) ARE committed.
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.preview
+.vercel/.env*
+!.env.example
+!.env.sample
+!.env.*.example
