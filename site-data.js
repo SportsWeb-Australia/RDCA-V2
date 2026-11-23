@@ -3237,7 +3237,7 @@ window.RDCA_DATA = {
         "#051a2a",
         "#0a3050"
       ],
-      "logoMode": "bare",
+      "logoMode": "chip",
       "cta": "Get a Free Quote",
       "blurb": "Melbourne's trusted fridge and appliance repair specialists. Fast, affordable, same-day service.",
       "real": true
