@@ -433,7 +433,7 @@ body[data-page="umpires"] .block-hed i{color:var(--red);margin-right:4px}
 .board-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:16px}
 .board-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:22px 16px;text-align:center;display:flex;flex-direction:column}
 .board-av{width:92px;height:92px;border-radius:50%;margin:0 auto 12px;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--navy3));display:flex;align-items:center;justify-content:center}
-.board-av img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.board-av img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .board-av-init{font-family:'Bebas Neue',sans-serif;font-size:32px;color:#fff;letter-spacing:1px}
 .board-name{font-weight:700;font-size:16px;color:var(--navy);margin-bottom:3px}
 .board-role{font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
