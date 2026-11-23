@@ -123,7 +123,7 @@
           <a href="/events">Events</a>
           <a href="/sponsors">Sponsors &amp; Partners</a>
           <a href="https://www.cricketvictoria.com.au/safeguarding/child-safeguarding/" target="_blank" rel="noopener">Child Safety</a>
-          <a href="/contact">Contact</a>
+          <a href="/contact">Contact Us</a>
         </div>
       </div>
     </div>
