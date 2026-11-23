@@ -165,7 +165,7 @@
     news: function (sel) {
       var catIcon = {
         "Association":"ti-flag", "Representative":"ti-shield-half-filled",
-        "Umpires":"ti-gavel", "Finals":"ti-trophy", "Juniors":"ti-friends",
+        "Umpires":"UMP", "Finals":"ti-trophy", "Juniors":"ti-friends",
         "Women's":"ti-cricket", "Seniors":"ti-trophy", "Veterans":"ti-medal"
       };
       var html = (D().news || []).map(function (n) {
@@ -174,7 +174,7 @@
         var attrs = ext ? ' target="_blank" rel="noopener"' : '';
         var media = n.image
           ? '<div class="news-card-img" style="background-image:url(\'' + esc(n.image) + '\')"></div>'
-          : '<div class="news-card-img news-card-ph"><i class="ti ' + (catIcon[n.cat] || "ti-news") + '"></i></div>';
+          : '<div class="news-card-img news-card-ph">' + (catIcon[n.cat] === "UMP" ? '<i class="ump-ico"></i>' : '<i class="ti ' + (catIcon[n.cat] || "ti-news") + '"></i>') + '</div>';
         return '<a class="news-card" href="' + href + '"' + attrs + '>' + media +
                  '<div class="news-card-bd">' +
                    '<span class="news-card-cat">' + esc(n.cat) + ' &middot; ' + esc(n.date) + (ext ? ' &middot; <i class="ti ti-brand-facebook"></i> Facebook' : '') + '</span>' +
@@ -191,13 +191,13 @@
       var list = D().news || [];
       if (!list.length) { set(sel, ""); return; }
       var n = list[0];
-      var catIcon = { "Association":"ti-flag","Representative":"ti-shield-half-filled","Umpires":"ti-gavel","Finals":"ti-trophy","Juniors":"ti-friends","Women's":"ti-cricket","Seniors":"ti-trophy","Veterans":"ti-medal" };
+      var catIcon = { "Association":"ti-flag","Representative":"ti-shield-half-filled","Umpires":"UMP","Finals":"ti-trophy","Juniors":"ti-friends","Women's":"ti-cricket","Seniors":"ti-trophy","Veterans":"ti-medal" };
       var img = n.image;
       if (!img && n.slug) { var art = (D().articles || []).filter(function (a) { return a.slug === n.slug; })[0]; if (art && art.image) img = art.image; }
       var href = n.slug ? ("/article?slug=" + encodeURIComponent(n.slug)) : esc(n.url);
       var media = img
         ? '<div class="news-feat-media"><img src="' + esc(img) + '" alt="' + esc(n.title) + '"></div>'
-        : '<div class="news-feat-media is-ic"><i class="ti ' + (catIcon[n.cat] || "ti-news") + '"></i></div>';
+        : '<div class="news-feat-media is-ic">' + (catIcon[n.cat] === "UMP" ? '<i class="ump-ico"></i>' : '<i class="ti ' + (catIcon[n.cat] || "ti-news") + '"></i>') + '</div>';
       set(sel,
         '<a class="news-feat" href="' + href + '">' +
           media +

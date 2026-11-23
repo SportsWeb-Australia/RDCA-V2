@@ -1,0 +1,20 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor" role="img" aria-label="Umpire">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- raised arms + hands -->
+    <path d="M26 41 L12 17" stroke-width="6"/>
+    <path d="M38 41 L52 17" stroke-width="6"/>
+    <!-- legs -->
+    <path d="M30 55 L29 62" stroke-width="6"/>
+    <path d="M34 55 L35 62" stroke-width="6"/>
+  </g>
+  <!-- neck -->
+  <rect x="29.6" y="33" width="4.8" height="9" rx="2.2"/>
+  <!-- torso -->
+  <path d="M27 40 L37 40 Q39 40 39 42 L38 56 L26 56 L25 42 Q25 40 27 40 Z"/>
+  <!-- head -->
+  <circle cx="32" cy="31" r="4.3"/>
+  <!-- hat crown -->
+  <path d="M27 26 Q27 17.5 32 17.5 Q37 17.5 37 26 Z"/>
+  <!-- wide brim (on top) -->
+  <ellipse cx="32" cy="26" rx="12" ry="4.4"/>
+</svg>
