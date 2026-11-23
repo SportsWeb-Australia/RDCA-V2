@@ -1397,6 +1397,16 @@
       if (p) p.classList.add("active");
       return;
     }
+    var cx = e.target.closest(".hof-close");
+    if (cx) {
+      var crow = cx.closest(".hof-bio");
+      if (crow) {
+        crow.classList.remove("open");
+        var cn = document.querySelector('.hof-name[data-bio="' + crow.id + '"]');
+        if (cn) { cn.classList.remove("on"); cn.scrollIntoView({ block: "nearest" }); }
+      }
+      return;
+    }
     var n = e.target.closest(".hof-name");
     if (n) {
       var row = document.getElementById(n.getAttribute("data-bio"));
@@ -1405,7 +1415,13 @@
       var tbl = n.closest("table");
       if (tbl) tbl.querySelectorAll(".hof-bio.open").forEach(function (r) { r.classList.remove("open"); });
       if (tbl) tbl.querySelectorAll(".hof-name.on").forEach(function (b) { b.classList.remove("on"); });
-      if (!open) { row.classList.add("open"); n.classList.add("on"); }
+      if (!open) {
+        row.classList.add("open"); n.classList.add("on");
+        var inb = row.querySelector(".hof-bio-in");
+        if (inb && !inb.querySelector(".hof-close")) {
+          inb.insertAdjacentHTML("beforeend", '<button type="button" class="hof-close" aria-label="Close write-up"><i class="ti ti-x"></i></button>');
+        }
+      }
     }
   });
 })();

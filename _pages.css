@@ -900,8 +900,10 @@ cursor:pointer;text-align:left;border-bottom:1px dashed rgba(30,61,107,.45)}
 .hof-dec{color:var(--muted);font-size:11px}
 .hof-bio{display:none}
 .hof-bio.open{display:table-row}
-.hof-bio-in{background:linear-gradient(180deg,rgba(13,31,60,.05),transparent);
-border-left:3px solid var(--red);border-radius:0 10px 10px 0;padding:14px 18px;margin:2px 0 8px}
+.hof-bio-in{position:relative;background:linear-gradient(180deg,rgba(13,31,60,.05),transparent);
+border-left:3px solid var(--red);border-radius:0 10px 10px 0;padding:14px 46px 14px 18px;margin:2px 0 8px}
+.hof-close{position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--muted);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;line-height:1;transition:all .15s}
+.hof-close:hover{background:var(--red);border-color:var(--red);color:#fff}
 .hof-bio-in h4{margin:0 0 8px;font-size:15px;color:var(--navy)}
 .hof-bio-in .hof-yr{font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.4px}
 .hof-bio-in p{margin:0 0 8px;font-size:13.5px;line-height:1.65}
