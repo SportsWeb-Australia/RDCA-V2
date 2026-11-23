@@ -51,9 +51,10 @@ const FIELDS = [
 
 function config(env) {
   const live = String(env.FORMS_TEST_MODE ?? "true").toLowerCase() === "false";
-  const token = env.ZEPTOMAIL_SEND_TOKEN || "";
-  const from = env.ZEPTOMAIL_FROM_ADDRESS || "";
-  const notify = env.FORMS_NOTIFICATION_EMAIL || "";
+  // Accept the Vercel-style ZEPTO_*/CONTACT_TO names too, so one env config is portable across hosts.
+  const token = env.ZEPTO_TOKEN || env.ZEPTOMAIL_SEND_TOKEN || "";
+  const from = env.ZEPTO_FROM || env.ZEPTOMAIL_FROM_ADDRESS || "";
+  const notify = env.CONTACT_TO || env.FORMS_NOTIFICATION_EMAIL || "";
   const cc = String(env.FORMS_NOTIFICATION_CC || "").split(",").map((x) => x.trim())
     .filter((x) => isEmail(x) && x.toLowerCase() !== notify.toLowerCase());
   const region = String(env.ZEPTOMAIL_REGION || "cpaas-au").toLowerCase();
@@ -61,7 +62,7 @@ function config(env) {
     send: live && !!token && !!from && !!notify,
     token, from, notify, cc,
     fromName: env.ZEPTOMAIL_FROM_NAME || "RDCA Website",
-    endpoint: (env.ZEPTOMAIL_API_ENDPOINT || "").trim() || ENDPOINTS[region] || ENDPOINTS["cpaas-au"],
+    endpoint: (env.ZEPTO_API || env.ZEPTOMAIL_API_ENDPOINT || "").trim() || ENDPOINTS[region] || ENDPOINTS["cpaas-au"],
   };
 }
 

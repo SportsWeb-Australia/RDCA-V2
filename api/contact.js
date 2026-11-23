@@ -23,6 +23,26 @@ module.exports = async function handler(req, res) {
 
   if (b.website) return res.status(200).json({ ok: true });          // honeypot: silently accept
 
+  // --- light per-IP rate limit: Upstash REST if configured, else in-memory (best-effort) ---
+  const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim() || "unknown";
+  const LIMIT = 5, WINDOW = 600; // 5 submissions / 10 min / IP
+  let blocked = false;
+  const KV_URL = process.env.UPSTASH_REDIS_REST_URL, KV_TOK = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (KV_URL && KV_TOK) {
+    try {
+      const key = "rl:contact:" + ip, auth = { Authorization: "Bearer " + KV_TOK };
+      const n = (await (await fetch(`${KV_URL}/incr/${encodeURIComponent(key)}`, { headers: auth })).json()).result;
+      if (n === 1) await fetch(`${KV_URL}/expire/${encodeURIComponent(key)}/${WINDOW}`, { headers: auth });
+      if (n > LIMIT) blocked = true;
+    } catch (e) { console.error("ratelimit", e && e.message); }
+  } else {
+    globalThis.__rl = globalThis.__rl || new Map();
+    const now = Date.now(), rec = globalThis.__rl.get(ip);
+    if (rec && now - rec.t < WINDOW * 1000) { rec.n++; if (rec.n > LIMIT) blocked = true; }
+    else globalThis.__rl.set(ip, { t: now, n: 1 });
+  }
+  if (blocked) return res.status(429).json({ error: "Too many submissions — please try again in a few minutes." });
+
   const name = String(b.name || "").trim();
   const email = String(b.email || "").trim();
   const subject = String(b.subject || "").trim() || "Website enquiry";
@@ -49,7 +69,7 @@ module.exports = async function handler(req, res) {
   try {
     const r = await fetch(API, {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json", Authorization: ZEPTO_TOKEN },
+      headers: { "Content-Type": "application/json", Accept: "application/json", Authorization: /^Zoho-enczapikey/.test(ZEPTO_TOKEN) ? ZEPTO_TOKEN : ("Zoho-enczapikey " + ZEPTO_TOKEN) },
       body: JSON.stringify({
         from: { address: ZEPTO_FROM, name: "RDCA Website" },
         to: [{ email_address: { address: CONTACT_TO, name: process.env.CONTACT_TO_NAME || "RDCA" } }],
