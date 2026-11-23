@@ -1260,7 +1260,7 @@
 
       function panel(t, isLatest) {
         var club = clubOf(t.club);
-        var crest = (club && club.logo) ? club.logo : "";
+        var crest = (club && club.logo) ? club.logo : (t.club ? "/logos/" + String(t.club).toLowerCase().replace(/[^a-z0-9]/g, "") + ".webp" : "");
         var bg = clubBg(club);
         var rows = (t.players || []).map(function (p) {
           var tag = p.c ? '<span class="tsl-tag c">C</span>' : (p.wk ? '<span class="tsl-tag wk">WK</span>' : '');
@@ -1272,10 +1272,12 @@
         return '<div class="tsl-panel" style="background:' + bg + '">' +
             (crest ? '<div class="tsl-crest"><img src="' + esc(crest) + '" alt=""></div>' : '') +
             (isLatest ? '<span class="tsl-kicker"><i class="ti ti-clock-hour-4" style="font-size:12px"></i> Latest selection</span>' : '') +
-            '<div class="tsl-hd"><div>' +
+            '<div class="tsl-hd"><div class="tsl-hd-l">' +
+              (crest ? '<span class="tsl-logo"><img src="' + esc(crest) + '" alt="" loading="lazy" onerror="this.parentNode.style.display=\'none\'"></span>' : '') +
+              '<div>' +
               '<div class="tsl-name">' + esc(t.team) + '</div>' +
               '<div class="tsl-meta">' + esc(t.grade) + ' &middot; ' + esc(t.round) +
-                (t.date ? ' &middot; ' + esc(t.date) : '') + (t.venue ? ' &middot; ' + esc(t.venue) : '') + '</div></div>' +
+                (t.date ? ' &middot; ' + esc(t.date) : '') + (t.venue ? ' &middot; ' + esc(t.venue) : '') + '</div></div></div>' +
               (t.status ? '<span class="tsl-status ' + statusCls + '">' + (statusCls === "ok" ? '<i class="ti ti-check" style="font-size:12px"></i> ' : '') + esc(t.status) + '</span>' : '') +
             '</div>' +
             '<div class="tsl-grid">' + rows + '</div>' +
