@@ -452,6 +452,17 @@ body[data-page="umpires"] .block-hed i{color:var(--red);margin-right:4px}
 .committee-tile:hover{transform:translateY(-2px);box-shadow:var(--shadow2);border-color:rgba(204,34,34,.35)}
 .ct-ic{flex:0 0 48px;width:48px;height:48px;border-radius:13px;background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 5px 13px rgba(13,31,60,.3)}
 .committee-tile:nth-child(2) .ct-ic,.committee-tile:nth-child(4) .ct-ic{background:linear-gradient(135deg,var(--red),var(--red2))}
+/* Cricket Blast promo card (Juniors page) */
+.cb-promo{display:flex;align-items:center;gap:22px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+.cb-promo:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(13,31,60,.14)}
+.cb-promo-logo{flex:0 0 132px;width:132px;height:96px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--border);border-radius:14px;padding:10px}
+.cb-promo-logo img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.cb-promo-tx{display:flex;flex-direction:column;min-width:0}
+.cb-promo-ey{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+.cb-promo-hed{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1.05;color:var(--navy);margin:2px 0 6px}
+.cb-promo-p{font-size:14px;line-height:1.55;color:var(--muted);margin-bottom:12px}
+.cb-promo-btn{align-self:flex-start}
+@media(max-width:560px){.cb-promo{flex-direction:column;text-align:center;align-items:center;gap:14px}.cb-promo-logo{width:100%;max-width:220px;height:84px}.cb-promo-btn{align-self:center}}
 /* Umpire signal icon — recolorable mask, behaves like a font glyph (inherits currentColor + font-size) */
 .ump-ico{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.28em;background-color:currentColor;-webkit-mask:url(/icons/umpire.png) center/contain no-repeat;mask:url(/icons/umpire.png) center/contain no-repeat}
 .ct-lbl{font-weight:700;font-size:14.5px;color:var(--navy);flex:1;line-height:1.25}
