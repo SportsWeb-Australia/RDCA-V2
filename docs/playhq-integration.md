@@ -73,3 +73,41 @@ The publishable key reads `fx_fixtures`, `ladder`, `news`, `sponsors`, `events`
 for the RDCA club over REST (HTTP 200, currently 0 rows — nothing has been
 written yet). RLS permits the anonymous read; no service key is used anywhere in
 the site.
+
+## TODO — Round top performers (homepage hero card + Match Centre)
+
+**Status: PARKED — needs a Worker change.** The current `/playhq` feed carries only
+season leaders (`premierLeaders`) and the per-grade season `/leaders?grade=<id>`
+endpoint. Each `result` object is `{round, date, home, away, winner, homeScore,
+awayScore}` — **no player data and no game id**, so "last round" performers cannot
+be derived on the site.
+
+### Worker change required (`rdca-stats` — separate repo, not in this repo)
+
+For each grade's **latest completed round**, fetch that round's game scorecards from
+PlayHQ (the Worker already holds the key) and attach the round's top performers to
+the feed. Preferred shape — **per grade, single latest round**:
+
+```jsonc
+// on each grade object in comps[].current.grades[]
+"roundPerformers": {
+  "round": "R6",
+  "bat":  [ { "name": "...", "team": "Montrose 1XI", "runs": 112, "balls": 78 },  ... up to 3 ],
+  "bowl": [ { "name": "...", "team": "St Andrews 1XI", "wickets": 5, "overs": 9.2 }, ... up to 3 ]
+}
+```
+
+(2–3 names per side per discipline is enough; overs rounded to <=2dp like the rest.)
+
+### Site-side build (quick, once the field exists)
+
+Homepage hero card (`#hmc`, `index.html`) and Match Centre (`playhqHub`,
+`rdca-render.js`):
+
+- Source: **latest completed round only** (NOT season — season performers live in the
+  "Season Top Performers" block).
+- Rotation: **6 panels** — top 3 run-scorers + top 3 wicket-takers of that round.
+- Order: **alternate each move** — Bat #1 → Bowl #1 → Bat #2 → Bowl #2 → Bat #3 →
+  Bowl #3 → (loop).
+- Header label: **"Round R<n>"** (not "Season to …").
+- Respect the grade dropdown (per-grade `roundPerformers`).
