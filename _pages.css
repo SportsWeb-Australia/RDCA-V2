@@ -454,6 +454,8 @@ body[data-page="umpires"] .block-hed i{color:var(--red);margin-right:4px}
 .committee-tile:nth-child(2) .ct-ic,.committee-tile:nth-child(4) .ct-ic{background:linear-gradient(135deg,var(--red),var(--red2))}
 /* Umpire signal icon — recolorable mask, behaves like a font glyph (inherits currentColor + font-size) */
 .ump-ico{display:inline-block;width:1em;height:1em;vertical-align:-.15em;background-color:currentColor;-webkit-mask:url(/icons/umpire.png) center/contain no-repeat;mask:url(/icons/umpire.png) center/contain no-repeat}
+/* bolder strokes for small badge contexts so the fine linework holds up */
+.ua-ump-ic .ump-ico{-webkit-mask-image:url(/icons/umpire-bold.png);mask-image:url(/icons/umpire-bold.png)}
 .ct-lbl{font-weight:700;font-size:14.5px;color:var(--navy);flex:1;line-height:1.25}
 .ct-arr{color:var(--muted);font-size:18px;flex-shrink:0}
 .committee-tile:hover .ct-arr{color:var(--red)}
