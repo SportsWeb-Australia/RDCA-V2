@@ -393,8 +393,16 @@ window.RDCA_DATA = {
   "photosNote": "Match-day galleries are shot by Field of View Photography (an RDCA partner) and hosted on their site. Cover images here are placeholders — swap each for the season's real cover.",
   "photoAlbums": [
     {
-      "season": "Season 2025/26",
+      "season": "Season 2026/27",
       "tag": "Latest",
+      "url": "https://fieldofviewphotography.shootproof.com/gallery/de1357a0-6ce1-4abe-9fa4-e05175dddd58/album/23675696",
+      "cover": "/images/galleries/season-2026-27.webp",
+      "coverSquare": true,
+      "coverCredit": "Field of View Photography"
+    },
+    {
+      "season": "Season 2025/26",
+      "tag": "",
       "url": "https://fieldofviewphotography.shootproof.com/gallery/28411719/album/21236651",
       "cover": "/images/galleries/season-2025-26.webp",
       "coverSquare": true,
@@ -3229,20 +3237,6 @@ window.RDCA_DATA = {
       "real": true
     },
     {
-      "name": "Fridge Repairs Today",
-      "tier": "Official Sponsor",
-      "url": "https://www.fridgerepairs.net.au/",
-      "logo": "https://res.cloudinary.com/dozdbhjhs/image/upload/v1780769263/Fridge-Repairs-Melbourne_gxvytd.webp",
-      "grad": [
-        "#051a2a",
-        "#0a3050"
-      ],
-      "logoMode": "chip",
-      "cta": "Get a Free Quote",
-      "blurb": "Melbourne's trusted fridge and appliance repair specialists. Fast, affordable, same-day service.",
-      "real": true
-    },
-    {
       "name": "Good Sports",
       "tier": "Community Wellbeing Partner",
       "url": "https://goodsports.com.au/",
@@ -3369,48 +3363,6 @@ window.RDCA_DATA = {
       "real": true
     },
     {
-      "name": "Matrix Roofing",
-      "tier": "Roofing Partner",
-      "url": "https://matrixroofing.com.au/",
-      "logo": "/sponsors/matrix-roofing.webp",
-      "grad": [
-        "#16181c",
-        "#2c3138"
-      ],
-      "logoMode": "chip",
-      "cta": "Get a Quote",
-      "blurb": "Roof restoration and repair specialists servicing Melbourne's eastern and south-eastern suburbs.",
-      "real": true
-    },
-    {
-      "name": "Shieldguard Security",
-      "tier": "Security Partner",
-      "url": "https://www.shieldguard.com.au/",
-      "logo": "/sponsors/shieldguard-security.webp",
-      "grad": [
-        "#15181d",
-        "#2e353f"
-      ],
-      "logoMode": "chip",
-      "cta": "Visit Website",
-      "blurb": "Melbourne family business since 1974 — custom steel and wrought-iron security doors, gates and grilles.",
-      "real": true
-    },
-    {
-      "name": "Best Embroidery",
-      "tier": "Apparel Partner",
-      "url": "https://bestembroidery.com.au/",
-      "logo": "/sponsors/best-embroidery.webp",
-      "grad": [
-        "#3a0e1a",
-        "#7a1f38"
-      ],
-      "logoMode": "chip",
-      "cta": "Get a Quote",
-      "blurb": "Melbourne embroidery specialists — custom logos on workwear, uniforms and corporate apparel.",
-      "real": true
-    },
-    {
       "name": "ChildSafe",
       "tier": "Child Safety Partner",
       "url": "https://www.childsafe.org.au/",
@@ -3450,34 +3402,6 @@ window.RDCA_DATA = {
       "logoMode": "chip",
       "cta": "Tune In",
       "blurb": "Community radio for Melbourne's east — local news, information and music powered by members and sponsors.",
-      "real": true
-    },
-    {
-      "name": "Michael Sukkar MP",
-      "tier": "Federal Member for Deakin",
-      "url": "http://www.michaelsukkar.com.au/",
-      "logo": "/sponsors/michael-sukkar-mp.webp",
-      "grad": [
-        "#0a2746",
-        "#13497e"
-      ],
-      "logoMode": "chip",
-      "cta": "Visit Website",
-      "blurb": "Federal Member for Deakin, proudly supporting community sport across Melbourne's eastern suburbs.",
-      "real": true
-    },
-    {
-      "name": "David Hodgett MP",
-      "tier": "State Member for Croydon",
-      "url": "https://davidhodgett.com.au/",
-      "logo": "/sponsors/david-hodgett-mp.webp",
-      "grad": [
-        "#0c2240",
-        "#154173"
-      ],
-      "logoMode": "chip",
-      "cta": "Visit Website",
-      "blurb": "State Member for Croydon, backing local residents, businesses and community clubs.",
       "real": true
     },
     {

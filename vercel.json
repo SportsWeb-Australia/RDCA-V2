@@ -3,7 +3,7 @@
     {
       "source": "/video",
       "destination": "/podcast",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/register",
@@ -22,8 +22,8 @@
     },
     {
       "source": "/communications",
-      "destination": "/",
-      "permanent": false
+      "destination": "/news",
+      "permanent": true
     },
     {
       "source": "/suspended-players",
@@ -52,7 +52,7 @@
     },
     {
       "source": "/copy-2-of-rep-team-girls",
-      "destination": "/rep-selection",
+      "destination": "/juniors",
       "permanent": true
     },
     {
@@ -82,17 +82,17 @@
     },
     {
       "source": "/copy-of-rep-team-girls",
-      "destination": "/rep-selection",
+      "destination": "/juniors",
       "permanent": true
     },
     {
       "source": "/copy-of-rep-team-u12-boys",
-      "destination": "/rep-selection",
+      "destination": "/juniors",
       "permanent": true
     },
     {
       "source": "/copy-of-rep-team-u16-girls",
-      "destination": "/rep-selection",
+      "destination": "/juniors",
       "permanent": true
     },
     {
@@ -127,12 +127,12 @@
     },
     {
       "source": "/junior-rep-girls",
-      "destination": "/rep-selection",
+      "destination": "/juniors",
       "permanent": true
     },
     {
       "source": "/junior-state-rep-players",
-      "destination": "/",
+      "destination": "/juniors",
       "permanent": true
     },
     {
@@ -157,28 +157,28 @@
     },
     {
       "source": "/juniors-under-12s",
-      "destination": "/rep-selection",
+      "destination": "/juniors",
       "permanent": true
     },
     {
       "source": "/juniors-under-14s",
-      "destination": "/rep-selection",
+      "destination": "/juniors",
       "permanent": true
     },
     {
       "source": "/juniors-under-16s",
-      "destination": "/rep-selection",
+      "destination": "/juniors",
       "permanent": true
     },
     {
       "source": "/juniors-under-18s",
-      "destination": "/rep-selection",
+      "destination": "/juniors",
       "permanent": true
     },
     {
       "source": "/competition",
       "destination": "/match-centre",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/mycricket-database",
@@ -267,7 +267,7 @@
     },
     {
       "source": "/rep-cricket-seniors",
-      "destination": "/",
+      "destination": "/senior-men",
       "permanent": true
     },
     {
@@ -297,7 +297,7 @@
     },
     {
       "source": "/seniors-inter-association",
-      "destination": "/",
+      "destination": "/senior-men",
       "permanent": true
     },
     {
