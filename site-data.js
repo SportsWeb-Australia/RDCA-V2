@@ -327,6 +327,7 @@ window.RDCA_DATA = {
         "name": "Wayne Hartley",
         "phone": "0411 403 149",
         "email": "hartleyfam@bigpond.com",
+        "photo": "/images/committee/wayne-hartley.webp",
         "real": true
       },
       {
@@ -2896,7 +2897,8 @@ window.RDCA_DATA = {
             "role": "Senior Chairman",
             "name": "Wayne Hartley",
             "phone": "0411 403 149",
-            "email": "hartleyfam@bigpond.com"
+            "email": "hartleyfam@bigpond.com",
+            "photo": "/images/committee/wayne-hartley.webp"
           },
           {
             "role": "General Committee",
@@ -3040,7 +3042,8 @@ window.RDCA_DATA = {
             "role": "Senior Chairman / Acting Chair",
             "name": "Wayne Hartley",
             "phone": "0411 403 149",
-            "email": "hartleyfam@bigpond.com"
+            "email": "hartleyfam@bigpond.com",
+            "photo": "/images/committee/wayne-hartley.webp"
           },
           {
             "role": "Umpire Coordinator",
