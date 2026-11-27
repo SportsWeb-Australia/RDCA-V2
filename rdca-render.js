@@ -49,7 +49,6 @@
                  '<div class="club-band" style="background:' + grad + '">' + band + '</div>' +
                  '<div class="club-body">' +
                    '<div class="club-name">' + esc(c.name) + '</div>' +
-                   '<div class="club-meta"><i class="ti ti-trophy"></i> ' + esc(c.grade) + '</div>' +
                  '</div></a>';
       }
       var tabs='', panes='';
@@ -90,7 +89,10 @@
 
     // ---- documents / downloads ----
     documents: function (sel) {
-      var docs = D().documents || [];
+      var docs = (D().documents || []).filter(function (d) {
+        // Code of Conduct documents temporarily hidden sitewide (Carson, Nov 2026).
+        return !/code of conduct/i.test(d.title || "");
+      });
       function row(doc){
         var ic = doc.icon || "ti-file-text";
         var act = doc.type === "pdf" ? "ti-download" : "ti-external-link";
@@ -792,6 +794,9 @@
 
     // ---- section code of conduct (native) ----
     sectionConduct: function (sectionKey, sel) {
+      // Code of Conduct temporarily hidden across the site (Carson, Nov 2026).
+      // Remove the next line to restore the per-section Code of Conduct panel.
+      set(sel, ""); return;
       var _all = (D().sections || {});
       var s = _all[sectionKey];
       if (s && s.inherit && _all[s.inherit]) {
@@ -1345,6 +1350,8 @@
         return (DOC_CATS[sectionKey] || []).indexOf(d.cat) >= 0;
       });
       var docList = (s.docList && s.docList.length) ? s.docList : autoDocs;
+      // Code of Conduct documents temporarily hidden sitewide (Carson, Nov 2026).
+      docList = docList.filter(function (d) { return !/code of conduct/i.test(d.title || ""); });
       if (docList.length) {
         docList.forEach(function (d) {
           var local = /^\/docs\//.test(d.url);

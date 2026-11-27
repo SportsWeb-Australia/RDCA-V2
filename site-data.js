@@ -2749,8 +2749,8 @@ window.RDCA_DATA = {
     },
     {
       "title": "Discipline & Protests Framework 2025/26",
-      "cat": "Women's",
-      "sec": "womens",
+      "cat": "Policies",
+      "sec": "general",
       "url": "/docs/Discipline-Protests-Framework-2025-26.pdf",
       "type": "pdf",
       "icon": "ti-file-text",
@@ -3019,13 +3019,6 @@ window.RDCA_DATA = {
             "name": "Timothy Court",
             "email": "admin@rdca.com",
             "photo": "/images/committee/timothy-court.webp"
-          },
-          {
-            "role": "Secretary",
-            "name": "Pamela Vodopier",
-            "phone": "0407 728 786",
-            "email": "pvods74@gmail.com",
-            "photo": "/images/committee/pamela-vodopier.webp"
           },
           {
             "role": "Competitions Administrator",

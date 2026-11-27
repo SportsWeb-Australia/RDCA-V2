@@ -240,7 +240,7 @@ a.cg-item:hover .cg-ext{color:#e8b84b}
 .club-mono{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.95);display:inline-flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.5px;box-shadow:0 2px 8px rgba(0,0,0,.28)}
 .club-hero-mono{font-family:'Bebas Neue',sans-serif;font-size:42px;letter-spacing:1px;color:#fff}
 .club-body{padding:13px 14px}
-.club-name{font-weight:700;font-size:13px;color:var(--navy);line-height:1.3;margin-bottom:5px}
+.club-name{font-weight:700;font-size:13px;color:var(--navy);line-height:1.3}
 .club-meta{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;margin-bottom:3px}
 .club-meta i{font-size:13px;color:var(--red)}
 
