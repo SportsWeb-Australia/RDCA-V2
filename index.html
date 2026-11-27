@@ -992,8 +992,8 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
       <div style="background:var(--bg);border-radius:9px;padding:9px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--navy);line-height:1" id="spot-avg">&mdash;</div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px">Average</div></div>
     </div>
     <div style="margin-bottom:10px">
-      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px"><span>Season progress</span><span style="font-weight:700;color:var(--text)">Rd 14 of 18</span></div>
-      <div style="height:5px;border-radius:3px;background:var(--bg2);overflow:hidden"><div style="height:100%;width:78%;background:var(--red);border-radius:3px"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px"><span>Season progress</span><span style="font-weight:700;color:var(--text)" id="spot-prog-sub">&mdash;</span></div>
+      <div style="height:5px;border-radius:3px;background:var(--bg2);overflow:hidden"><div style="height:100%;width:50%;background:var(--red);border-radius:3px" id="spot-prog-bar"></div></div>
     </div>
     <a class="btn btn-navy btn-sm" style="width:100%;justify-content:center" href="/match-centre">Full Match Centre</a>
   </div>
@@ -1414,19 +1414,39 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
     }catch(e){}
 
 
-    // --- Player Spotlight: real season top run-scorer (Premier 1.1) ---
+    // --- Player Spotlight: rotate top run-scorers across random grades/comps (Carson, Nov 2026) ---
     try{
-      var _sp=(data.premierLeaders&&data.premierLeaders.runs)||[];
-      var _top=_sp[0];
-      if(_top){
-        var _in=_top.inns||0, _avg=_in?(_top.runs/_in).toFixed(1):_top.runs;
-        var _ini=String(_top.name||"").split(/\s+/).map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase();
-        function _set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
-        _set("spot-name",_top.name); _set("spot-meta",_nm(_top.team)+" · Premier 1.1");
-        _set("spot-runs",_top.runs); _set("spot-inns",_in); _set("spot-avg",_avg); _set("spot-av",_ini);
-        var _lg=document.getElementById("spot-logo"), _cr=crest(_top.team);
-        if(_lg&&_cr){_lg.src=_cr;_lg.style.display="block";}
+      var _LEAD="https://rdca-stats.carson-cfd.workers.dev/leaders";
+      function _ini2(nm){return String(nm||"").split(/\s+/).map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase();}
+      function _compOf(nm){nm=String(nm||"");return /senior/i.test(nm)?"Seniors":(/women/i.test(nm)?"Women’s":(/veteran/i.test(nm)?"Veterans":(/junior/i.test(nm)?"Juniors":nm.replace(/^RDCA\s+/,""))));}
+      function _gn2(x){return String(x.grade||x.name||"").replace(/\s*[-(].*$/,"").trim();}
+      function _rnum(s){var m=/(\d+)/.exec(s||"");return m?+m[1]:0;}
+      function _set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+      function _slide(s){ if(!s)return;
+        _set("spot-name",s.name); _set("spot-meta",_nm(s.team)+" · "+s.gname);
+        _set("spot-runs",s.runs); _set("spot-inns",s.inns); _set("spot-avg",s.avg); _set("spot-av",_ini2(s.name));
+        var _lg=document.getElementById("spot-logo"),_cr=crest(s.team);
+        if(_lg){ if(_cr){_lg.src=_cr;_lg.style.display="block";} else {_lg.style.display="none";} }
+        _set("spot-prog-sub", s.round?("Round "+s.round):"In season");
+        var _pb=document.getElementById("spot-prog-bar"); if(_pb)_pb.style.width=(s.round?Math.min(100,Math.round(s.round/14*100)):50)+"%";
       }
+      // instant seed with the Premier 1.1 top scorer
+      var _ps=(data.premierLeaders&&data.premierLeaders.runs)||[];
+      if(_ps[0]){var _t=_ps[0],_i=_t.inns||0;_slide({name:_t.name,team:_t.team,runs:_t.runs,inns:_i,avg:_i?(_t.runs/_i).toFixed(1):_t.runs,gname:"Premier 1.1",round:_rnum(g.results&&g.results[0]&&g.results[0].round)});}
+      // varied pool: grades that have an id + results, grouped by competition
+      var _byC={};
+      (data.comps||[]).forEach(function(c){((seasonOf(c).grades)||[]).forEach(function(gr){ if(!gr.id||!(gr.results&&gr.results.length))return; var k=_compOf(c.name||c.key); (_byC[k]=_byC[k]||[]).push({comp:k,gname:_gn2(gr),grade:gr}); });});
+      var _comps=Object.keys(_byC).sort(function(){return Math.random()-0.5;});
+      function _pk(a){return a[Math.floor(Math.random()*a.length)];}
+      var _chosen=[];
+      _comps.forEach(function(k){ if(_chosen.length<3)_chosen.push(_pk(_byC[k])); });
+      while(_chosen.length<2 && _comps.length){ _chosen.push(_pk(_byC[_comps[0]])); }
+      Promise.all(_chosen.map(function(ch){ return fetch(_LEAD+"?grade="+encodeURIComponent(ch.grade.id),{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}).then(function(j){ var tp=j&&j.runs&&j.runs[0]; if(!tp)return null; var i=tp.inns||0; return {name:tp.name,team:tp.team,runs:tp.runs,inns:i,avg:i?(tp.runs/i).toFixed(1):tp.runs,gname:ch.gname,round:_rnum(ch.grade.results&&ch.grade.results[0]&&ch.grade.results[0].round)}; }).catch(function(){return null;}); })).then(function(list){
+        var slides=list.filter(Boolean);
+        if(!slides.length)return;
+        var i=0; _slide(slides[0]);
+        if(slides.length>1){ setInterval(function(){ i=(i+1)%slides.length; _slide(slides[i]); },7000); }
+      });
     }catch(e){}
 
   }).catch(function(){});
