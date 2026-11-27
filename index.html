@@ -1445,7 +1445,7 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
         var slides=list.filter(Boolean);
         if(!slides.length)return;
         var i=0; _slide(slides[0]);
-        if(slides.length>1){ setInterval(function(){ i=(i+1)%slides.length; _slide(slides[i]); },7000); }
+        if(slides.length>1){ setInterval(function(){ i=(i+1)%slides.length; _slide(slides[i]); },4000); }
       });
     }catch(e){}
 
