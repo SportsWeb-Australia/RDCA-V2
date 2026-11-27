@@ -32,7 +32,7 @@
     "topbar": `<a class="skip-link" href="#main">Skip to main content</a><div class="topbar">
   <div style="display:flex;align-items:center;gap:18px">
     <div class="tb-item"><i class="ti ti-map-pin"></i> Ringwood, Victoria</div>
-    <div class="tb-item"><i class="ti ti-mail"></i> admin@rdca.com.au</div>
+    <div class="tb-item"><i class="ti ti-mail"></i> admin@rdca.com</div>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
     <span class="tb-item" id="tb-weather" style="display:inline-flex;align-items:center;margin-right:6px"></span><div class="t-soc">
