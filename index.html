@@ -1470,5 +1470,57 @@ fetch('https://api.open-meteo.com/v1/forecast?latitude=-37.8153&longitude=145.23
   show(0); start();
 })();
 </script>
+<script>
+/* Home news: newest article featured + rotate, merging the manual articles below
+   with the live Facebook feed (/api/feed). Newest = hero, next = first card; the
+   Facebook + Newsroom tiles stay fixed. Falls back to the markup already in the
+   page if JS or the feed is unavailable. Facebook posts arrive via the connector
+   and slot in by date automatically — no manual edit. */
+(function () {
+  var heroEl = document.querySelector(".news-hero"), grid = document.querySelector(".news-grid");
+  if (!heroEl || !grid || !window.fetch) return;
+  var card1 = grid.querySelector(".nc");
+  if (!card1) return;
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+  function escA(s){ return esc(s).replace(/'/g,"&#39;"); }
+  /* Manual articles — keep roughly in step with site-data.js news[]. */
+  var SEED = [
+    { slug:"junior-team-of-the-round-r5-6", cat:"Juniors", title:"Junior Team of the Round — Rounds 5 & 6", image:"/photos/junior-totr-r5-6.webp", pos:"center top", date:"2026-11-27", meta:"RDCA Junior Mixed · 27 November 2026" },
+    { slug:"womens-around-the-grounds", cat:"Women's", title:"Around the Grounds — RDCA Women's Cricket", image:"/photos/fb-womens-aroundgrounds.jpg", pos:"center top", date:"2026-11-18", meta:"RDCA Women's · 16 Nov" },
+    { slug:"mental-health-round", cat:"Community", title:"Let's Change the Game for Mental Health", image:"/photos/fb-mental-health-round.jpg", pos:"center top", date:"2026-11-18", meta:"OTLR Mate 2 Mate Round · Jan 2027" }
+  ];
+  function metaOf(it){ if(it.meta) return it.meta; try{ var d=new Date(it.date); if(!isNaN(d)) return "RDCA · "+d.toLocaleDateString("en-AU",{day:"numeric",month:"short"}); }catch(e){} return "RDCA"; }
+  function hrefOf(it){ return it.slug ? ("/article?slug="+encodeURIComponent(it.slug)) : (it.url||"/news"); }
+  function imgCss(it){ return it.image ? ("background-image:url('"+escA(it.image)+"');background-position:"+(it.pos||"center top")) : "background:linear-gradient(135deg,var(--navy),var(--navy3))"; }
+  function setTarget(el,it){ if(it.slug) el.removeAttribute("target"); else { el.setAttribute("target","_blank"); el.setAttribute("rel","noopener"); } }
+  function render(list){
+    var hero=list[0], c1=list[1];
+    if(hero){
+      heroEl.setAttribute("href",hrefOf(hero)); setTarget(heroEl,hero);
+      heroEl.innerHTML =
+        '<div class="nh-img" style="'+imgCss(hero)+'"></div><div class="nh-overlay"></div>'+
+        '<div class="nh-body"><div style="margin-bottom:8px"><span class="badge badge-red">'+esc(hero.cat||"News")+'</span></div>'+
+        '<div style="font-family:\'Bebas Neue\',sans-serif;font-size:26px;color:#fff;line-height:1.05;margin-bottom:6px">'+esc(hero.title)+'</div>'+
+        '<div style="font-size:11px;color:rgba(255,255,255,.5)">'+esc(metaOf(hero))+'</div></div>';
+    }
+    if(c1){
+      card1.setAttribute("href",hrefOf(c1)); setTarget(card1,c1);
+      card1.innerHTML =
+        '<div class="nct" style="'+imgCss(c1)+'"></div>'+
+        '<div class="ncb"><div style="margin-bottom:6px;display:flex;align-items:center;justify-content:space-between">'+
+        '<span class="badge badge-red">'+esc(c1.cat||"News")+'</span>'+(c1.slug?'':'<span style="font-size:10px;color:var(--muted)"><i class="ti ti-brand-facebook"></i> Facebook</span>')+'</div>'+
+        '<div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:5px">'+esc(c1.title)+'</div>'+
+        '<div style="font-size:11px;color:var(--muted)">'+esc(metaOf(c1))+'</div></div>';
+    }
+  }
+  fetch("/api/feed?type=news",{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}).then(function(j){
+    var feed=((j&&j.news)||[]).map(function(it){ return { url:it.url, cat:it.cat||"News", title:it.title, image:it.image, date:it.date, meta:it.excerpt||"" }; });
+    var seen={}, uniq=[];
+    SEED.concat(feed).forEach(function(x){ if(!x||!x.title) return; var k=x.title.toLowerCase(); if(seen[k]) return; seen[k]=1; uniq.push(x); });
+    uniq.sort(function(a,b){ return String(b.date||"").localeCompare(String(a.date||"")); });
+    render(uniq);
+  }).catch(function(){ render(SEED); });
+})();
+</script>
 </body>
 </html>

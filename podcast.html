@@ -92,5 +92,44 @@
 </main>
 <div data-rdca="sponsor-carousel"></div>
 <div data-rdca="footer"></div>
+<script>
+/* Auto-podcast: prepend the latest RDCA Facebook videos from /api/feed.
+   Silent fallback to the episodes hard-coded above if the feed is empty
+   or unavailable. New shows appear here automatically once the connector
+   posts them — no manual edit needed. */
+(function () {
+  var wrap = document.querySelector(".pod-eps");
+  if (!wrap || !window.fetch) return;
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]; }); }
+  function fmtDate(d) { try { var dt = new Date(d); if (isNaN(dt)) return ""; return dt.toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" }); } catch (e) { return ""; } }
+  function hrefOf(src) { try { var m = /href=([^&]+)/.exec(src || ""); return m ? decodeURIComponent(m[1]).replace(/\/+$/, "") : ""; } catch (e) { return ""; } }
+  fetch("/api/feed?type=podcast", { cache: "no-cache" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (j) {
+      var items = (j && j.podcast) || [];
+      if (!items.length) return;
+      var seen = {};
+      wrap.querySelectorAll("iframe").forEach(function (f) { var h = hrefOf(f.getAttribute("src")); if (h) seen[h] = 1; });
+      var frag = document.createDocumentFragment(), added = 0;
+      items.forEach(function (it) {
+        if (!it.embed) return;
+        var h = hrefOf(it.embed); if (h && seen[h]) return; seen[h] = 1;
+        var dt = fmtDate(it.date), el = document.createElement("div");
+        el.className = "pod-ep";
+        el.innerHTML =
+          '<div class="pod-ep-vid"><iframe src="' + esc(it.embed) + '" title="' + esc(it.title || "RDCA Podcast LIVE") + '" allowfullscreen scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe></div>' +
+          '<div class="pod-ep-cap">' + esc(it.title || "RDCA Podcast LIVE") + (added === 0 ? " &mdash; latest show" : "") + '</div>' +
+          (dt ? '<div class="pod-ep-date"><i class="ti ti-calendar-event"></i> ' + esc(dt) + '</div>' : '');
+        frag.appendChild(el); added++;
+      });
+      if (added) {
+        var oldCap = wrap.querySelector(".pod-ep-cap");
+        if (oldCap) oldCap.innerHTML = oldCap.innerHTML.replace(/\s*(?:&mdash;|—)\s*latest show/i, "");
+        wrap.insertBefore(frag, wrap.firstChild);
+      }
+    })
+    .catch(function () {});
+})();
+</script>
 </body>
 </html>
