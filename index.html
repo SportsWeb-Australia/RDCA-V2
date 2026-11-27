@@ -936,8 +936,9 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
       <div style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.5">Get the latest scores, news and announcements every week during the season.</div>
     </div>
     <div style="display:flex;gap:8px;min-width:280px;flex-wrap:wrap">
-      <input class="nl-input" type="email" placeholder="Your email address">
-      <button class="btn btn-red"><i class="ti ti-send" style="font-size:14px"></i> Subscribe</button>
+      <input class="nl-input" id="nl-email" type="email" placeholder="Your email address" autocomplete="email" aria-label="Your email address">
+      <button class="btn btn-red" id="nl-btn" type="button"><i class="ti ti-send" style="font-size:14px"></i> Subscribe</button>
+      <p id="nl-msg" style="flex-basis:100%;margin:3px 2px 0;font-size:12px;line-height:1.4" hidden></p>
     </div>
   </div>
 </div>
@@ -1583,6 +1584,29 @@ fetch('https://api.open-meteo.com/v1/forecast?latitude=-37.8153&longitude=145.23
     uniq.sort(function(a,b){ return String(b.date||"").localeCompare(String(a.date||"")); });
     render(uniq);
   }).catch(function(){ render(SEED); });
+})();
+</script>
+<script>
+/* Newsletter subscribe — captures the signup via the contact endpoint so the
+   association receives it (can be wired to a dedicated list service later). */
+(function () {
+  var email = document.getElementById("nl-email"), btn = document.getElementById("nl-btn"), msg = document.getElementById("nl-msg");
+  if (!email || !btn || !msg) return;
+  function say(t, ok) { msg.hidden = false; msg.textContent = t; msg.style.color = ok ? "#9af5b4" : "#ffb3b3"; }
+  function submit() {
+    var v = (email.value || "").trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { say("Please enter a valid email address.", false); email.focus(); return; }
+    btn.disabled = true; var orig = btn.innerHTML; btn.innerHTML = '<i class="ti ti-loader"></i> Subscribing…';
+    fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: "Newsletter subscriber", email: v, subject: "Newsletter signup", message: "Please add this address to the RDCA newsletter mailing list." }) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (res.ok && res.j.ok) { email.value = ""; say("Thanks — you're on the list. We'll be in touch during the season.", true); btn.disabled = true; btn.innerHTML = '<i class="ti ti-check"></i> Subscribed'; }
+        else { say(res.j.error || "Something went wrong — please try again.", false); btn.disabled = false; btn.innerHTML = orig; }
+      })
+      .catch(function () { say("Couldn't subscribe just now — please try again.", false); btn.disabled = false; btn.innerHTML = orig; });
+  }
+  btn.addEventListener("click", submit);
+  email.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); submit(); } });
 })();
 </script>
 </body>
