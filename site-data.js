@@ -3418,6 +3418,17 @@ window.RDCA_DATA = {
   ],
   "articles": [
     {
+      "slug": "junior-team-of-the-round-r5-6",
+      "title": "Junior Team of the Round — Rounds 5 & 6",
+      "cat": "Juniors",
+      "date": "2026-11-27",
+      "author": "RDCA Media",
+      "meta": "RDCA Junior Mixed Competition",
+      "image": "/photos/junior-totr-r5-6.webp",
+      "real": true,
+      "body": "<p class='lead'>Congratulations to the RDCA Junior Team of the Round for Rounds 5 &amp; 6 &mdash; a standout fortnight across the association&rsquo;s junior competition.</p><div style='display:flex;justify-content:center;margin:22px 0'><img src='/photos/junior-totr-r5-6.webp' alt='RDCA Junior Team of the Round — Rounds 5 and 6' style='max-width:100%;width:540px;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.18)'></div><ol style='line-height:1.9;padding-left:20px'><li><strong>Heath Crutchley</strong> &mdash; The Basin U16 (1) &middot; 96 <em>(Batter)</em></li><li><strong>Jessie Bartlett</strong> &mdash; Warranwood Stage 3 &middot; 84, 1/8, 1 ro <em>(Batter)</em></li><li><strong>Raff Morcombe</strong> &mdash; Healesville U16 (1) &middot; 83 <em>(Batter)</em></li><li><strong>Mason Wheat</strong> &mdash; Mooroolbark U16 (1) &middot; 71* <em>(Batter)</em></li><li><strong>William Reid</strong> &mdash; Warranwood U16 (1) &middot; 70, 1/18, 1 ro <em>(Batter)</em></li><li><strong>Bryce Johnson</strong> &mdash; Mt Evelyn U12 (1) &middot; 58, 2/5, 1 ct <em>(Wicketkeeper)</em></li><li><strong>Alexander Tran</strong> &mdash; South Croydon U16 (1) &middot; 42*, 4/8, 1 ct <em>(All-rounder)</em></li><li><strong>Harry Thomas</strong> &mdash; Healesville U16 (1) &middot; 5/16 <em>(Bowler)</em></li><li><strong>Joshua Deckert</strong> &mdash; North Ringwood U16 (1) &middot; 4/10 <em>(Bowler)</em></li><li><strong>Jacdan Mikaelian</strong> &mdash; Mt Evelyn U14 (1) &middot; 20*, 4/16 <em>(Bowler)</em></li><li><strong>Lochlan Stewart</strong> &mdash; Mooroolbark U16 (1) &middot; 6, 3/12 <em>(Bowler)</em></li></ol>"
+    },
+    {
       "slug": "womens-around-the-grounds",
       "title": "Around the Grounds — RDCA Women’s Cricket",
       "cat": "Women’s Cricket",
@@ -3441,6 +3452,15 @@ window.RDCA_DATA = {
     }
   ],
   "news": [
+    {
+      "title": "Junior Team of the Round — Rounds 5 & 6",
+      "date": "2026-11-27",
+      "cat": "Juniors",
+      "excerpt": "The RDCA Junior Team of the Round for Rounds 5 & 6 — congratulations to all 11 selected players across the junior competition.",
+      "url": "/article?slug=junior-team-of-the-round-r5-6",
+      "slug": "junior-team-of-the-round-r5-6",
+      "image": "/photos/junior-totr-r5-6.webp"
+    },
     {
       "title": "Let's Change the Game for Mental Health",
       "date": "2026-11-17",
