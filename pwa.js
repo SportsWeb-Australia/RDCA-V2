@@ -236,11 +236,11 @@
    This alert auto-switches off after the `expires` timestamp with no further edits. */
 (function () {
   var ALERT = {
-    id: "jnr-mixed-cancel-2026-11-20",
-    expires: 1795162408000, // Fri 20 Nov 2026, 7:13pm AEDT — popup stops showing after this
+    id: "jnr-mixed-cancel-2026-11-27",
+    expires: 1795771800000, // Fri 27 Nov 2026, 8:30pm AEDT — popup stops showing after this
     title: "Junior Mixed matches cancelled tonight",
-    body: "Tonight&rsquo;s RDCA Junior Mixed Competition matches &mdash; Friday 20 November &mdash; are cancelled due to ongoing rain and wet ground conditions. The safety of our junior cricketers, volunteers and families always comes first. Thanks to all clubs and families for your understanding &mdash; fingers crossed the rain eases overnight so Saturday morning games can go ahead as scheduled. Stay safe and dry.",
-    link: "/notices#jnr-mixed-cancel"
+    body: "We are really sorry, but the weather has once again won tonight, Friday the 27th of November. Due to the heavy rain currently falling across the district, combined with further thunderstorms forecast this evening, all RDCA Junior Mixed Competition matches scheduled for tonight have been cancelled. While we know our players are eager to get back on the field, the safety of our junior cricketers, volunteers, officials and families must always remain our highest priority. Thank you to all clubs and families for your ongoing understanding and support. Unfortunately, the outlook for overnight weather and tomorrow morning is also not looking particularly promising. We will continue to monitor conditions closely and provide a further update regarding Saturday morning matches before 7:00am tomorrow. Stay safe, stay dry, and let&rsquo;s hope for an improvement in conditions and the opportunity to get some cricket in tomorrow.",
+    link: "/notices"
   };
   try {
     if (Date.now() >= ALERT.expires) return;

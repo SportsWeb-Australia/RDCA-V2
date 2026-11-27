@@ -11,7 +11,8 @@
 /communications                    /                          302
 /suspended-players                 /                          302
 /about-veterans                    /veterans                  301
-/appointments                      /umpire-appointments       301
+/appointments                      /umpires                   302
+/umpire-appointments               /umpires                   302
 /blog                              /news                      301
 /calendar-of-events                /events                    301
 /copy-2-of-rep-team-girls          /rep-selection             301

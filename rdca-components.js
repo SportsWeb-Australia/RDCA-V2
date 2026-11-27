@@ -97,7 +97,7 @@
         <div class="nav-drop">
           <a href="/umpires">Umpiring Overview</a>
           <a href="/become-an-umpire">Become an Umpire</a>
-          <a href="/umpire-appointments">Appointments</a>
+          <!-- Appointments hidden for now (Carson, Nov 2026): <a href="/umpire-appointments">Appointments</a> -->
           <a href="/umpire-training">Training</a>
           <a href="/umpire-documents">Documents</a>
         </div>

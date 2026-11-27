@@ -37,8 +37,13 @@
     },
     {
       "source": "/appointments",
-      "destination": "/umpire-appointments",
-      "permanent": true
+      "destination": "/umpires",
+      "permanent": false
+    },
+    {
+      "source": "/umpire-appointments",
+      "destination": "/umpires",
+      "permanent": false
     },
     {
       "source": "/blog",

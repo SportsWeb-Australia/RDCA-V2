@@ -35,8 +35,8 @@ window.RDCA_PLAYHQ = {
                 url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/s/g/2b4cac0b" },
     womens:   { label: "RDCA Women's", season: "Summer 2026/27",
                 url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/s/g/79f6c504" },
-    veterans: { label: "RDCA Veterans", season: "Summer 2026/27", needsReview: true,
-                url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association" }
+    veterans: { label: "RDCA Veterans", season: "Summer 2026/27",
+                url: "https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association/rdca-seniors-cricket-summer-202627/over-40-vets-t20/1c66d8ec" }
   },
 
   /* ==========================================================================
