@@ -792,9 +792,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 <div class="card" id="comp-hub" style="padding:0">
   <div class="sec-hdr">
     <div><div class="eyebrow">2026/27 Season</div><div class="s-hed" style="margin-bottom:6px">Ladders</div><div class="pl-upd" id="cp-updated"></div></div>
-    <select style="font-family:'DM Sans',sans-serif;font-size:12px;padding:6px 12px;border-radius:7px;border:1px solid var(--border);background:var(--bg);color:var(--text);cursor:pointer">
-      <option>Premier Division</option><option>Division 1</option><option>Division 2</option>
-    </select>
+    <select id="cp-grade" aria-label="Choose a grade" style="font-family:'DM Sans',sans-serif;font-size:12px;padding:6px 12px;border-radius:7px;border:1px solid var(--border);background:var(--bg);color:var(--text);cursor:pointer;max-width:210px"><option>Premier Division</option></select>
   </div>
   <div class="comp-tabs">
     <div class="comp-tab active" onclick="switchTab('ladder',this)"><i class="ti ti-list-numbers" style="font-size:13px;margin-right:4px"></i>Ladder</div>
@@ -1147,7 +1145,7 @@ color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:13px
 <script>
 function fxShow(g,el){document.querySelectorAll('.fx-pill').forEach(function(p){p.classList.remove('active');});el.classList.add('active');document.querySelectorAll('.fx-group').forEach(function(x){x.classList.remove('active');});var grp=document.getElementById('fx-'+g);if(grp)grp.classList.add('active');try{localStorage.setItem('rdcaFxDiv',g);}catch(e){}}
 document.addEventListener('DOMContentLoaded',function(){try{var g=localStorage.getItem('rdcaFxDiv');if(!g)return;var ps=document.querySelectorAll('.fx-pill');for(var k=0;k<ps.length;k++){if(ps[k].getAttribute('data-fx')===g){fxShow(g,ps[k]);break;}}}catch(e){}});
-function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(function(t){t.classList.remove('active');});el.classList.add('active');document.querySelectorAll('.comp-pane').forEach(function(p){p.classList.remove('active');});var pane=document.getElementById('cp-'+name);if(pane)pane.classList.add('active');}
+function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(function(t){t.classList.remove('active');});el.classList.add('active');document.querySelectorAll('.comp-pane').forEach(function(p){p.classList.remove('active');});var pane=document.getElementById('cp-'+name);if(pane)pane.classList.add('active');if(window.__cpTab)window.__cpTab(name);}
 /* Competition Hub — live from the PlayHQ feed (Worker -> static fallback). Overwrites
    the sample ladder/fixtures/results on success; leaves them if the feed is down. */
 (function(){
@@ -1168,20 +1166,59 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
     var sen=data.comps.filter(function(c){return /senior/i.test(c.key||c.name||"");})[0]||data.comps[0];
     var g=((seasonOf(sen).grades)||[])[0]; if(!g)return;
     function formFor(team){var seq=[],res=g.results||[];for(var i=0;i<res.length&&seq.length<5;i++){var r=res[i];if(r.home!==team&&r.away!==team)continue;seq.push(!r.winner?"D":(r.winner===team?"W":"L"));}return seq.reverse();}
-    var lad=document.getElementById("cp-ladder");
-    if(lad&&g.ladder&&g.ladder.length){
-      lad.innerHTML='<div class="ladder-wrap"><table class="lt"><thead><tr><th style="width:28px"></th><th style="width:34px"></th><th class="tl">Club</th><th>P</th><th>W</th><th>L</th><th>Form</th><th>Pts</th><th>%</th></tr></thead><tbody>'+
-        g.ladder.slice(0,8).map(function(r){
-          var form=formFor(r.team).map(function(o){return '<span class="fp fp'+o+'">'+o+'</span>';}).join("");
-          return '<tr'+(r.pos===1?' class="promo"':'')+'><td><div class="'+(r.pos===1?"lp-top":"lp-norm")+'">'+r.pos+'</div></td><td>'+cc(r.team,30)+'</td><td class="tl"><span style="font-weight:'+(r.pos<=2?700:500)+'">'+r.team+'</span></td><td>'+n(r.p)+'</td><td><b>'+n(r.w)+'</b></td><td class="dm">'+n(r.l)+'</td><td><div class="frow">'+form+'</div></td><td><span class="pts"'+(r.pos===1?' style="color:var(--red)"':'')+'>'+n(r.pts)+'</span></td><td class="dm">'+(r.pct==null?"&ndash;":r.pct)+'</td></tr>';
-        }).join("")+'</tbody></table></div>';
-    }
-    var fx=document.getElementById("cp-fixtures"),fl=(g.fixtures||[]).slice(0,5);
-    if(fx)fx.innerHTML=fl.length?fl.map(function(r){var d=r.date?new Date(r.date):null,ok=d&&!isNaN(d);return '<div class="fxr"><div class="fxd" style="width:46px;height:46px"><div style="font-family:\'Bebas Neue\',sans-serif;font-size:22px;color:#fff;line-height:1">'+(ok?d.getDate():"")+'</div><div style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase">'+(ok?["SUN","MON","TUE","WED","THU","FRI","SAT"][d.getDay()]:"")+'</div></div><div class="fxi"><div class="fxt">'+r.home+' vs '+r.away+'</div><div class="fxm"><i class="ti ti-trophy" style="font-size:10px"></i>'+g.grade+' &middot; '+(r.round||"")+'</div></div><a href="/match-centre#fixtures" class="btn btn-navy btn-sm" style="flex-shrink:0">Details</a></div>';}).join(""):'<p class="muted" style="padding:14px">No upcoming fixtures.</p>';
-    var rs=document.getElementById("cp-results"),rl=(g.results||[]).slice(0,4);
-    if(rs)rs.innerHTML=rl.length?rl.map(function(r){var _u=r&&r.id?("https://www.playhq.com/cricket-australia/games/"+r.id):"https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association";return '<a class="rrow" href="'+_u+'" target="_blank" rel="noopener" title="View on PlayHQ" style="display:block;text-decoration:none;color:inherit"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span class="badge badge-gray">'+(r.round||"")+'</span>'+(r.winner?'<span style="font-size:11px;font-weight:700;color:#16a34a">'+r.winner+' won <i class="ti ti-external-link" style="font-size:10px;opacity:.6"></i></span>':'<i class="ti ti-external-link" style="font-size:10px;opacity:.5"></i>')+'</div><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:2px 0'+(r.winner&&r.winner!==r.home?';opacity:.55':'')+'">'+cc(r.home,24)+'<span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+r.home+'</span><span style="font-family:\'Bebas Neue\',sans-serif;font-size:16px;padding-left:8px">'+(r.homeScore||"")+'</span></div><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:2px 0'+(r.winner&&r.winner!==r.away?';opacity:.55':'')+'">'+cc(r.away,24)+'<span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+r.away+'</span><span style="font-family:\'Bebas Neue\',sans-serif;font-size:16px;padding-left:8px">'+(r.awayScore||"")+'</span></div></a>';}).join(""):'<p class="muted" style="padding:14px">No results yet.</p>';
-    var _cu=document.getElementById("cp-updated");
-    if(_cu){var _lr=(g.results&&g.results[0]&&g.results[0].round)||"";_cu.innerHTML='<i class="ti ti-refresh"></i> '+(_lr?('After '+_lr+' &middot; '):'')+_updTxt();}
+    // ---- Competition hub: independent grade dropdown per table, default Premier Division (Carson, Nov 2026) ----
+    (function(){
+      function formFor(gg,team){var seq=[],res=gg.results||[];for(var i=0;i<res.length&&seq.length<5;i++){var r=res[i];if(r.home!==team&&r.away!==team)continue;seq.push(!r.winner?"D":(r.winner===team?"W":"L"));}return seq.reverse();}
+      function renderLadder(gg){var lad=document.getElementById("cp-ladder");if(!lad)return;
+        if(!(gg.ladder&&gg.ladder.length)){lad.innerHTML='<p class="muted" style="padding:16px 20px">No ladder for this grade yet.</p>';return;}
+        lad.innerHTML='<div class="ladder-wrap"><table class="lt"><thead><tr><th style="width:28px"></th><th style="width:34px"></th><th class="tl">Club</th><th>P</th><th>W</th><th>L</th><th>Form</th><th>Pts</th><th>%</th></tr></thead><tbody>'+
+          gg.ladder.slice(0,8).map(function(r){
+            var form=formFor(gg,r.team).map(function(o){return '<span class="fp fp'+o+'">'+o+'</span>';}).join("");
+            return '<tr'+(r.pos===1?' class="promo"':'')+'><td><div class="'+(r.pos===1?"lp-top":"lp-norm")+'">'+r.pos+'</div></td><td>'+cc(r.team,30)+'</td><td class="tl"><span style="font-weight:'+(r.pos<=2?700:500)+'">'+r.team+'</span></td><td>'+n(r.p)+'</td><td><b>'+n(r.w)+'</b></td><td class="dm">'+n(r.l)+'</td><td><div class="frow">'+form+'</div></td><td><span class="pts"'+(r.pos===1?' style="color:var(--red)"':'')+'>'+n(r.pts)+'</span></td><td class="dm">'+(r.pct==null?"&ndash;":r.pct)+'</td></tr>';
+          }).join("")+'</tbody></table></div>';
+      }
+      function renderFixtures(gg){var fx=document.getElementById("cp-fixtures");if(!fx)return;var fl=(gg.fixtures||[]).slice(0,5);
+        fx.innerHTML=fl.length?fl.map(function(r){var d=r.date?new Date(r.date):null,ok=d&&!isNaN(d);return '<div class="fxr"><div class="fxd" style="width:46px;height:46px"><div style="font-family:\'Bebas Neue\',sans-serif;font-size:22px;color:#fff;line-height:1">'+(ok?d.getDate():"")+'</div><div style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase">'+(ok?["SUN","MON","TUE","WED","THU","FRI","SAT"][d.getDay()]:"")+'</div></div><div class="fxi"><div class="fxt">'+r.home+' vs '+r.away+'</div><div class="fxm"><i class="ti ti-trophy" style="font-size:10px"></i>'+gg.grade+' &middot; '+(r.round||"")+'</div></div><a href="/match-centre#fixtures" class="btn btn-navy btn-sm" style="flex-shrink:0">Details</a></div>';}).join(""):'<p class="muted" style="padding:14px">No upcoming fixtures.</p>';
+      }
+      function renderResults(gg){var rs=document.getElementById("cp-results");if(!rs)return;var rl=(gg.results||[]).slice(0,4);
+        rs.innerHTML=rl.length?rl.map(function(r){var _u=r&&r.id?("https://www.playhq.com/cricket-australia/games/"+r.id):"https://www.playhq.com/cricket-australia/org/ringwood-and-district-cricket-association";return '<a class="rrow" href="'+_u+'" target="_blank" rel="noopener" title="View on PlayHQ" style="display:block;text-decoration:none;color:inherit"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span class="badge badge-gray">'+(r.round||"")+'</span>'+(r.winner?'<span style="font-size:11px;font-weight:700;color:#16a34a">'+r.winner+' won <i class="ti ti-external-link" style="font-size:10px;opacity:.6"></i></span>':'<i class="ti ti-external-link" style="font-size:10px;opacity:.5"></i>')+'</div><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:2px 0'+(r.winner&&r.winner!==r.home?';opacity:.55':'')+'">'+cc(r.home,24)+'<span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+r.home+'</span><span style="font-family:\'Bebas Neue\',sans-serif;font-size:16px;padding-left:8px">'+(r.homeScore||"")+'</span></div><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:2px 0'+(r.winner&&r.winner!==r.away?';opacity:.55':'')+'">'+cc(r.away,24)+'<span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+r.away+'</span><span style="font-family:\'Bebas Neue\',sans-serif;font-size:16px;padding-left:8px">'+(r.awayScore||"")+'</span></div></a>';}).join(""):'<p class="muted" style="padding:14px">No results yet.</p>';
+      }
+      function _gl(name){name=String(name||"");return /senior/i.test(name)?"Seniors":(/women/i.test(name)?"Women’s":(/veteran/i.test(name)?"Veterans":(/junior/i.test(name)?"Juniors":name.replace(/^RDCA\s+/,""))));}
+      function _gn(x){return String(x.grade||x.name||"").replace(/\s*[-(].*$/,"").trim();}
+      function _gk(s){s=String(s||"").toLowerCase();var m;
+        if(m=/premier\s*(\d+)\.(\d+)/.exec(s))return [0,+m[1],+m[2],0];
+        if(m=/women'?s?\s*([a-z])\b/.exec(s))return [1,0,0,m[1].charCodeAt(0)];
+        if(m=/^\s*([a-z])\s*grade\b/.exec(s))return [2,0,0,m[1].charCodeAt(0)];
+        if(/t20|big bash/.test(s))return [3,0,0,0];
+        if(m=/u(\d+)\D*?(\d+)?/.exec(s))return [4,-(+m[1]),(m[2]?+m[2]:999),0];
+        return [7,0,0,0];}
+      function _gc(a,b){var ka=_gk(a),kb=_gk(b),i;for(i=0;i<4;i++){if(ka[i]!==kb[i])return ka[i]-kb[i];}return String(a).localeCompare(String(b));}
+      var GR=[],byKey={};
+      (data.comps||[]).forEach(function(c,ci){((seasonOf(c).grades)||[]).forEach(function(gr,gi){
+        if(!((gr.ladder&&gr.ladder.length)||(gr.fixtures&&gr.fixtures.length)||(gr.results&&gr.results.length)))return;
+        var it={key:ci+":"+gi,comp:_gl(c.name||c.key),gname:_gn(gr),grade:gr};GR.push(it);byKey[it.key]=it;
+      });});
+      var _cr=function(c){return /senior/i.test(c)?0:(/women/i.test(c)?1:(/junior/i.test(c)?2:3));};
+      GR.sort(function(a,b){var d=_cr(a.comp)-_cr(b.comp);return d?d:_gc(a.grade.grade||a.gname,b.grade.grade||b.gname);});
+      if(!GR.length){renderLadder(g);renderFixtures(g);renderResults(g);return;}
+      var premIt=GR.filter(function(it){return /premier\s*1\.1/i.test(it.gname)||/premier\s*division/i.test(it.gname);})[0]||GR[0];
+      var tg={ladder:premIt.key,fixtures:premIt.key,results:premIt.key};
+      try{var sv=JSON.parse(localStorage.getItem("rdca_cp_grades")||"null");if(sv)["ladder","fixtures","results"].forEach(function(t){if(sv[t]&&byKey[sv[t]])tg[t]=sv[t];});}catch(e){}
+      function save(){try{localStorage.setItem("rdca_cp_grades",JSON.stringify(tg));}catch(e){}}
+      function curTab(){var a=document.querySelector(".comp-tab.active");if(a){if(/fixtures/i.test(a.textContent))return "fixtures";if(/results/i.test(a.textContent))return "results";}return "ladder";}
+      function stamp(gg){var _cu=document.getElementById("cp-updated");if(_cu){var _lr=(gg.results&&gg.results[0]&&gg.results[0].round)||"";_cu.innerHTML='<i class="ti ti-refresh"></i> '+(_lr?('After '+_lr+' &middot; '):'')+_updTxt();}}
+      var sel=document.getElementById("cp-grade");
+      if(sel){var groups={},order=["Seniors","Women’s","Juniors","Veterans"];
+        GR.forEach(function(it){(groups[it.comp]=groups[it.comp]||[]).push(it);});
+        var oh="";order.concat(Object.keys(groups).filter(function(k){return order.indexOf(k)<0;})).forEach(function(gl){if(!groups[gl])return;oh+='<optgroup label="'+gl+'">'+groups[gl].map(function(it){return '<option value="'+it.key+'">'+it.gname+'</option>';}).join("")+'</optgroup>';});
+        sel.innerHTML=oh;}
+      function gradeFor(t){return (byKey[tg[t]]||premIt).grade;}
+      function renderTab(t){var gg=gradeFor(t);if(t==="fixtures")renderFixtures(gg);else if(t==="results")renderResults(gg);else renderLadder(gg);stamp(gg);}
+      renderLadder(gradeFor("ladder"));renderFixtures(gradeFor("fixtures"));renderResults(gradeFor("results"));
+      if(sel){sel.value=tg[curTab()];stamp(gradeFor(curTab()));
+        sel.addEventListener("change",function(){var t=curTab();if(byKey[sel.value]){tg[t]=sel.value;save();renderTab(t);}});}
+      window.__cpTab=function(name){if(sel&&tg[name])sel.value=tg[name];stamp(gradeFor(name));};
+    })();
     ["hmc-upd","hmc2-upd","fx-upd"].forEach(function(id){var e=document.getElementById(id);if(e&&_gen)e.innerHTML='<i class="ti ti-refresh"></i> '+_updTxt();});
     var _pu=document.getElementById("perf-updated");if(_pu&&_gen){var _plr=(g.results&&g.results[0]&&g.results[0].round)||"";_pu.innerHTML='<i class="ti ti-refresh"></i> '+(_plr?'Season to '+_plr+' &middot; ':'')+_updTxt();}
 
