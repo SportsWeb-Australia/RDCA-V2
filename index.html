@@ -1260,6 +1260,8 @@ function switchTab(name,el){document.querySelectorAll('.comp-tab').forEach(funct
         return '<div class="tk-it"><span class="tk-gr">'+pgname+'</span><span class="tk-tm">'+txt+'</span>'+(r.round?'<span class="tk-nt">'+r.round+'</span>':'')+'</div>';
       }).join("");
       tk.innerHTML = items ? (items+items) : '<div class="tk-it"><span class="tk-nt">Results will appear here once the season is underway.</span></div>';
+      // Scale scroll speed to item count so it reads at a steady pace (duration only; keeps the hover-pause rule).
+      if(_tkList.length) tk.style.animationDuration = Math.max(16, _tkList.length*5) + "s";
     }
     // Hero card — rotating: Latest Result / Top Run Scorer / Leading Wicket Taker, per grade
     var _sel=document.getElementById("hmc-grade"), _body=document.getElementById("hmc-body"),
