@@ -339,9 +339,7 @@
                '<tr class="hof-bio" id="' + id + '"><td colspan="3"><div class="hof-bio-in"><h4>' + esc(m.name) +
                ' <span class="hof-yr">' + esc(m.season) + '</span></h4>' + body + '</div></td></tr>';
       }).join("");
-      set(sel, '<p class="block-sub lm-count">' + list.length + ' life members &middot; ' +
-        list.filter(function (x) { return x.bio; }).length + ' with write-ups</p>' +
-        '<table class="honours-table hof-table"><thead><tr><th style="width:110px">Season</th><th>Life Member</th><th style="width:110px">Association</th></tr></thead><tbody>' + rows + '</tbody></table>');
+      set(sel, '<table class="honours-table hof-table"><thead><tr><th style="width:110px">Season</th><th>Life Member</th><th style="width:110px">Association</th></tr></thead><tbody>' + rows + '</tbody></table>');
     },
 
     // ---- Board of Management history (from the honours database) ----
