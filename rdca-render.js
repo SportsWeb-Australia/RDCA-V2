@@ -1135,23 +1135,21 @@
             var _lastRP = (gP.results && gP.results[0] && gP.results[0].round) || '';
             function _sub(round){ return '<div class="phb-sub"><i class="ti ti-refresh"></i> ' + (round ? (esc(round) + ' &middot; ') : '') + _upd() + '</div>'; }
             var _ladderCol =
-                '<div class="phb-col phb-ladder" id="ladder"><div class="phb-ch"><i class="ti ti-list-numbers"></i> Ladder</div>' + _sub(_lastR ? ('After ' + _lastR) : '') + lad + '</div>';
+                '<div class="phb-col phb-ladder" id="ladder"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-list-numbers"></i> Ladder</span>' + (gs.length > 1 ? '<select class="phb-grade-ladder phb-grade-mini" aria-label="Choose a grade for the ladder">' + opts + '</select>' : '') + '</div>' + _sub(_lastR ? ('After ' + _lastR) : '') + lad + '</div>';
             var _rfGrid =
                 '<div class="phb-grid2">' +
                   '<div class="phb-col" id="results"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-chart-bar"></i> Recent Results</span>' + (gs.length > 1 ? '<select class="phb-grade-res phb-grade-mini" aria-label="Choose a grade for results">' + optsR + '</select>' : '') + '</div>' + _sub(_lastR ? ('After ' + _lastR) : '') + res + '</div>' +
                   '<div class="phb-col" id="fixtures"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-calendar-event"></i> Upcoming Fixtures</span>' + (gs.length > 1 ? '<select class="phb-grade-fix phb-grade-mini" aria-label="Choose a grade for fixtures">' + optsF + '</select>' : '') + '</div>' + _sub(_nextR ? ('Next: ' + _nextR) : '') + fix + '</div>' +
                 '</div>';
-            // T20 Big Bash page shows Results & Fixtures above the Ladder (Carson, Nov 2026);
-            // every other hub keeps the Ladder first.
-            var _hubBody = useT20 ? (_rfGrid + _ladderCol) : (_ladderCol + _rfGrid);
+            // T20 Big Bash AND the full Match Centre show Results & Fixtures above the
+            // Ladder (Carson, Nov 2026); the plain competition hub keeps the Ladder first.
+            var _hubBody = (useT20 || wantLeaders) ? (_rfGrid + _ladderCol) : (_ladderCol + _rfGrid);
             mount.innerHTML =
               '<div class="phb">' +
                 '<div class="phb-bar">' + (data.comps.length > 1 ? '<div class="phb-tabs">' + tabs + '</div>' : '') +
                   '<div class="phb-bar-r">' +
                     (wantLeaders ? '<input class="phb-search" type="search" placeholder="Search grade or club…" aria-label="Search grade or club">' : '') +
-                    (gs.length > 1
-                      ? '<label class="phb-grade-wrap"><span>Grade</span><select class="phb-grade mc-grade-select">' + opts + '</select></label>'
-                      : '<span class="phb-grade-single">' + esc(g.grade || season.season || '') + '</span>') +
+                    (gs.length > 1 ? '' : '<span class="phb-grade-single">' + esc(g.grade || season.season || '') + '</span>') +
                   '</div></div>' +
                 '<div class="phb-season">' + note + '</div>' +
                 _hubBody +
@@ -1203,6 +1201,7 @@
             if (e.target.classList.contains("phb-grade-res")) { giR = +e.target.value; render(); save(); }
             else if (e.target.classList.contains("phb-grade-fix")) { giF = +e.target.value; render(); save(); }
             else if (e.target.classList.contains("phb-grade-perf")) { giP = +e.target.value; render(); save(); }
+            else if (e.target.classList.contains("phb-grade-ladder")) { gi = +e.target.value; render(); save(); }
             else if (e.target.classList.contains("phb-grade")) { gi = +e.target.value; render(); save(); }
           });
           var searchTimer = null;

@@ -132,8 +132,8 @@ a.cg-item:hover .cg-ext{color:#e8b84b}
 .phb-grade-mini option{color:#0d1f3c}
 /* Top Performers header sits on the light section background, so its grade
    dropdown needs dark-on-light styling (the mini default is white-on-navy). */
-.phb-grade-perf{background:var(--bg);color:var(--navy);border:1px solid var(--border)}
-.phb-grade-perf option{color:var(--navy)}
+.phb-grade-perf,.phb-grade-ladder{background:var(--bg);color:var(--navy);border:1px solid var(--border)}
+.phb-grade-perf option,.phb-grade-ladder option{color:var(--navy)}
 #ladder,#results,#fixtures{scroll-margin-top:90px}
 .phb-ch i{color:var(--red);font-size:17px}
 .phb-empty{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);background:var(--bg);border:1px dashed var(--border);border-radius:10px;padding:14px}
