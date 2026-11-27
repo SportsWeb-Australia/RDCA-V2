@@ -238,6 +238,7 @@
   var ALERT = {
     id: "jnr-mixed-cancel-2026-11-27",
     expires: 1795771800000, // Fri 27 Nov 2026, 8:30pm AEDT — popup stops showing after this
+    date: "Friday 27 November 2026",
     title: "Junior Mixed matches cancelled tonight",
     body: "We are really sorry, but the weather has once again won tonight, Friday the 27th of November. Due to the heavy rain currently falling across the district, combined with further thunderstorms forecast this evening, all RDCA Junior Mixed Competition matches scheduled for tonight have been cancelled. While we know our players are eager to get back on the field, the safety of our junior cricketers, volunteers, officials and families must always remain our highest priority. Thank you to all clubs and families for your ongoing understanding and support. Unfortunately, the outlook for overnight weather and tomorrow morning is also not looking particularly promising. We will continue to monitor conditions closely and provide a further update regarding Saturday morning matches before 7:00am tomorrow. Stay safe, stay dry, and let&rsquo;s hope for an improvement in conditions and the opportunity to get some cricket in tomorrow.",
     link: "/notices"
@@ -257,7 +258,8 @@
         '<button type="button" id="rdcaAlertX" aria-label="Close" style="position:absolute;top:12px;right:12px;width:30px;height:30px;border:none;border-radius:50%;background:rgba(13,31,60,.08);color:#0d1f3c;font-size:17px;line-height:1;cursor:pointer">&times;</button>' +
         '<div style="padding:22px 22px 20px">' +
           '<div style="display:flex;align-items:center;gap:9px;margin-bottom:11px"><span style="width:38px;height:38px;border-radius:10px;background:rgba(204,34,34,.1);color:#cc2222;display:flex;align-items:center;justify-content:center;font-size:20px"><i class="ti ti-cloud-rain"></i></span><span style="font-family:\'Bebas Neue\',sans-serif;font-size:13px;letter-spacing:.8px;color:#cc2222;text-transform:uppercase">RDCA Notice</span></div>' +
-          '<h2 style="margin:0 0 9px;font-size:20px;line-height:1.25;color:#0d1f3c">🏏 ' + ALERT.title + '</h2>' +
+          '<h2 style="margin:0 0 7px;font-size:20px;line-height:1.25;color:#0d1f3c">🏏 ' + ALERT.title + '</h2>' +
+          (ALERT.date ? '<div style="font-size:12px;font-weight:600;color:#8793a7;margin:0 0 12px;display:flex;align-items:center;gap:5px"><i class="ti ti-calendar-event" style="font-size:13px;color:#cc2222"></i> ' + ALERT.date + '</div>' : '') +
           '<p style="margin:0 0 17px;font-size:14px;line-height:1.6;color:#46536a">' + ALERT.body + '</p>' +
           '<div style="display:flex;gap:10px;flex-wrap:wrap">' +
             '<a href="' + ALERT.link + '" style="flex:1;min-width:120px;text-align:center;background:#cc2222;color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:11px 14px;border-radius:9px">More info</a>' +

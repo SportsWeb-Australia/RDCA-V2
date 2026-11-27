@@ -34,7 +34,9 @@
   .nt{display:flex;gap:18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:22px 24px;margin-bottom:0;scroll-margin-top:90px}
   .nt-ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px}
   .nt-cat{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
-  .nt-tt{font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:.3px;color:var(--navy);line-height:1.05;margin-bottom:7px}
+  .nt-tt{font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:.3px;color:var(--navy);line-height:1.05;margin-bottom:5px}
+  .nt-date{font-size:11.5px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:5px;margin-bottom:9px}
+  .nt-date i{font-size:13px;color:var(--red)}
   .nt p{font-size:14px;line-height:1.65;color:var(--text);margin:0 0 8px;max-width:1100px}
   .nt a.nt-link{font-size:13px;font-weight:700;color:var(--red);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
   .nt-push{display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:rgba(204,34,34,.06);border:1px solid rgba(204,34,34,.2);border-radius:var(--r);padding:16px 18px;margin:0 0 22px}
@@ -65,64 +67,54 @@
     <button type="button" data-rdca-alerts class="btn btn-red"><i class="ti ti-bell"></i> Turn on alerts</button>
   </div>
 
-  <div class="nt-list">
-
-    <div class="nt" id="jnr-mixed-cancel">
-      <div class="nt-ic" style="background:rgba(204,34,34,.1);color:#cc2222"><i class="ti ti-cloud-rain"></i></div>
-      <div>
-        <div class="nt-cat">Weather</div>
-        <div class="nt-tt">🏏 Junior Mixed matches cancelled tonight — Friday 20 November</div>
-        <p>All RDCA Junior Mixed Competition matches scheduled for tonight, Friday 20 November, are cancelled due to ongoing rain and wet ground conditions. We know our players are keen to get out there, but the safety of our junior cricketers, volunteers and families always comes first.</p>
-        <p>Thanks to all clubs and families for your understanding. Fingers crossed the rain eases overnight so Saturday morning games can go ahead as scheduled — stay safe, stay dry, and here's hoping for sunshine and plenty of cricket tomorrow.</p>
-        <a class="nt-link" href="/clubs">Find your club <i class="ti ti-arrow-right"></i></a>
-      </div>
-    </div>
-
-    <div class="nt" id="agm">
-      <div class="nt-ic" style="background:rgba(204,34,34,.1);color:#cc2222"><i class="ti ti-calendar"></i></div>
-      <div>
-        <div class="nt-cat">Association</div>
-        <div class="nt-tt">AGM scheduled 28 January — all member clubs invited</div>
-        <p>The RDCA Annual General Meeting is scheduled for 28 January. All member clubs are invited and are encouraged to send at least one delegate.</p>
-        <p>Formal notice, the agenda and annual reports are circulated to club secretaries beforehand. Any items clubs wish to raise should be submitted to the Board in advance of the meeting.</p>
-        <a class="nt-link" href="/committees">RDCA committees &amp; contacts <i class="ti ti-arrow-right"></i></a>
-      </div>
-    </div>
-
-    <div class="nt" id="ground-closures">
-      <div class="nt-ic" style="background:rgba(30,61,107,.1);color:#1e3d6b"><i class="ti ti-cloud-rain"></i></div>
-      <div>
-        <div class="nt-cat">Grounds</div>
-        <div class="nt-tt">Ground closures in effect — check conditions before travel</div>
-        <p>Following recent weather, a number of grounds are closed or under assessment. Players and officials should check the latest ground status before travelling, as conditions can change at short notice on match mornings.</p>
-        <p>Club ground managers will update availability as council assessments are completed. When in doubt, confirm with your club before heading out.</p>
-        <a class="nt-link" href="/clubs">Find your club <i class="ti ti-arrow-right"></i></a>
-      </div>
-    </div>
-
-    <div class="nt" id="awards">
-      <div class="nt-ic" style="background:rgba(22,163,74,.1);color:#16a34a"><i class="ti ti-award"></i></div>
-      <div>
-        <div class="nt-cat">Events</div>
-        <div class="nt-tt">RDCA Awards Night — nominations open until 31 January</div>
-        <p>Nominations for the RDCA Annual Awards Night are open until 31 January. Clubs can nominate players, volunteers and teams across all grades — senior, junior, women's and veterans.</p>
-        <p>The Awards Night celebrates the season's standout contributors. See the event page for the date, venue and table bookings.</p>
-        <a class="nt-link" href="/event?event=awards-night">Awards Night details <i class="ti ti-arrow-right"></i></a>
-      </div>
-    </div>
-
-    <div class="nt" id="safe-cricket">
-      <div class="nt-ic" style="background:rgba(124,61,139,.1);color:#7c3d8b"><i class="ti ti-shield"></i></div>
-      <div>
-        <div class="nt-cat">Policy</div>
-        <div class="nt-tt">Safe Cricket policy updated — all clubs must review by February</div>
-        <p>The RDCA Safe Cricket / Child Safety policy has been updated. All clubs must review the revised policy and confirm compliance by the end of February.</p>
-        <p>The full policy and supporting resources are available on the Child Safety page. Club child‑safety officers should ensure all relevant volunteers are briefed.</p>
-        <a class="nt-link" href="/child-safety">Child Safety policy <i class="ti ti-arrow-right"></i></a>
-      </div>
-    </div>
-
-  </div>
+  <div class="nt-list" id="nt-list"></div>
+  <script>
+  /* Data-driven RDCA notices. Edit the NOTICES list to add/change a notice —
+     each shows its posted date/time, newest first. */
+  (function(){
+    var host=document.getElementById("nt-list"); if(!host) return;
+    var TONE={red:["rgba(204,34,34,.1)","#cc2222"],navy:["rgba(30,61,107,.1)","#1e3d6b"],green:["rgba(22,163,74,.1)","#16a34a"],purple:["rgba(124,61,139,.1)","#7c3d8b"]};
+    function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+    function fmt(d){try{var dt=new Date(d);if(isNaN(dt))return"";return dt.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short",year:"numeric"})+" · "+dt.toLocaleTimeString("en-AU",{hour:"numeric",minute:"2-digit"});}catch(e){return"";}}
+    var NOTICES=[
+      { id:"jnr-mixed-cancel", cat:"Weather", icon:"ti-cloud-rain", tone:"red",
+        title:"🏏 Junior Mixed matches cancelled tonight — Friday 27 November",
+        posted:"2026-11-27T17:00:00+11:00",
+        body:["All RDCA Junior Mixed Competition matches scheduled for tonight, Friday 27 November, are cancelled due to heavy rain and further thunderstorms forecast this evening. The safety of our junior cricketers, volunteers, officials and families always comes first.","Thanks to all clubs and families for your understanding. We will provide a further update on Saturday morning matches before 7:00am tomorrow — stay safe and dry."],
+        link:"/clubs", linkLabel:"Find your club" },
+      { id:"ground-closures", cat:"Grounds", icon:"ti-cloud-rain", tone:"navy",
+        title:"Ground closures in effect — check conditions before travel",
+        posted:"2026-11-27T08:00:00+11:00",
+        body:["Following recent weather, a number of grounds are closed or under assessment. Players and officials should check the latest ground status before travelling, as conditions can change at short notice on match mornings.","Club ground managers will update availability as council assessments are completed. When in doubt, confirm with your club before heading out."],
+        link:"/clubs", linkLabel:"Find your club" },
+      { id:"agm", cat:"Association", icon:"ti-calendar", tone:"red",
+        title:"AGM scheduled 28 January — all member clubs invited",
+        posted:"2026-11-24T10:00:00+11:00",
+        body:["The RDCA Annual General Meeting is scheduled for 28 January. All member clubs are invited and are encouraged to send at least one delegate.","Formal notice, the agenda and annual reports are circulated to club secretaries beforehand. Any items clubs wish to raise should be submitted to the Board in advance of the meeting."],
+        link:"/committees", linkLabel:"RDCA committees & contacts" },
+      { id:"awards", cat:"Events", icon:"ti-award", tone:"green",
+        title:"RDCA Awards Night — nominations open until 31 January",
+        posted:"2026-11-20T12:00:00+11:00",
+        body:["Nominations for the RDCA Annual Awards Night are open until 31 January. Clubs can nominate players, volunteers and teams across all grades — senior, junior, women's and veterans.","The Awards Night celebrates the season's standout contributors. See the event page for the date, venue and table bookings."],
+        link:"/event?event=awards-night", linkLabel:"Awards Night details" },
+      { id:"safe-cricket", cat:"Policy", icon:"ti-shield", tone:"purple",
+        title:"Safe Cricket policy updated — all clubs must review by February",
+        posted:"2026-11-18T09:00:00+11:00",
+        body:["The RDCA Safe Cricket / Child Safety policy has been updated. All clubs must review the revised policy and confirm compliance by the end of February.","The full policy and supporting resources are available on the Child Safety page. Club child-safety officers should ensure all relevant volunteers are briefed."],
+        link:"/child-safety", linkLabel:"Child Safety policy" }
+    ];
+    NOTICES.sort(function(a,b){return String(b.posted||"").localeCompare(String(a.posted||""));});
+    host.innerHTML=NOTICES.map(function(nt){var tn=TONE[nt.tone]||TONE.red;var p=fmt(nt.posted);
+      return '<div class="nt" id="'+esc(nt.id||"")+'"><div class="nt-ic" style="background:'+tn[0]+';color:'+tn[1]+'"><i class="ti '+esc(nt.icon||"ti-bell")+'"></i></div><div>'+
+        '<div class="nt-cat">'+esc(nt.cat||"")+'</div>'+
+        '<div class="nt-tt">'+esc(nt.title||"")+'</div>'+
+        (p?'<div class="nt-date"><i class="ti ti-clock"></i> Posted '+esc(p)+'</div>':'')+
+        (nt.body||[]).map(function(x){return '<p>'+esc(x)+'</p>';}).join("")+
+        (nt.link?'<a class="nt-link" href="'+esc(nt.link)+'">'+esc(nt.linkLabel||"Read more")+' <i class="ti ti-arrow-right"></i></a>':'')+
+      '</div></div>';
+    }).join("");
+  })();
+  </script>
 
   <p class="muted-note" style="max-width:760px;margin-top:6px">Notice dates and details shown are illustrative sample content.</p>
 </div>
