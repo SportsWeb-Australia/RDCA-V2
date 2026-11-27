@@ -104,8 +104,10 @@
       }
       // Grade sections + a General ("Association / All Grades") section for docs
       // that apply to everyone. A document's section comes from its `sec` field
-      // (junior|senior|womens|veteran|general); anything untagged falls into
-      // General. Deduped by URL so shared docs appear once.
+      // (junior|senior|womens|veteran|general, or an array of these); anything
+      // untagged falls into General. Deduped by URL PER SECTION, so a shared doc
+      // can appear in more than one tab (list its sections) while never showing
+      // twice within the same tab.
       var SECTIONS = [
         { key: "junior",  label: "Juniors" },
         { key: "senior",  label: "Seniors" },
@@ -113,10 +115,16 @@
         { key: "veteran", label: "Veterans" },
         { key: "general", label: "Association / All Grades" }
       ];
-      var seen = {}, bySec = { junior: [], senior: [], womens: [], veteran: [], general: [] };
+      var bySec = { junior: [], senior: [], womens: [], veteran: [], general: [] };
+      var seenBy = { junior: {}, senior: {}, womens: {}, veteran: {}, general: {} };
       docs.forEach(function (dc) {
-        var u = dc.url || dc.title; if (seen[u]) return; seen[u] = 1;
-        (bySec[dc.sec] || bySec.general).push(dc);
+        var u = dc.url || dc.title;
+        var secs = Array.isArray(dc.sec) ? dc.sec : [dc.sec];
+        secs.forEach(function (s) {
+          var b = bySec[s] ? s : "general";
+          if (seenBy[b][u]) return; seenBy[b][u] = 1;
+          bySec[b].push(dc);
+        });
       });
       var tabs = '', panes = '', firstActive = true;
       SECTIONS.forEach(function (s) {

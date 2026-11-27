@@ -2516,6 +2516,51 @@ window.RDCA_DATA = {
       "real": true
     },
     {
+      "title": "Clearances & Transfers Guide",
+      "cat": "Forms & Rules",
+      "sec": "junior",
+      "url": "/docs/Clearances-Transfers-Guide.pdf",
+      "type": "pdf",
+      "icon": "ti-file-text",
+      "real": true
+    },
+    {
+      "title": "Member Protection By Law",
+      "cat": "Conduct & Safety",
+      "sec": "junior",
+      "url": "/docs/Member-Protection-By-Law.pdf",
+      "type": "pdf",
+      "icon": "ti-shield-check",
+      "real": true
+    },
+    {
+      "title": "Member Protection Policy",
+      "cat": "Conduct & Safety",
+      "sec": "junior",
+      "url": "/docs/Member-Protection-Policy.pdf",
+      "type": "pdf",
+      "icon": "ti-shield-check",
+      "real": true
+    },
+    {
+      "title": "Children & Young People Policy",
+      "cat": "Child Safety",
+      "sec": "junior",
+      "url": "https://resources.playcommunity.pulselive.com/playcommunity/document/2024/11/27/9ddd3384-e1e0-4488-9d3a-dc25eaeefa71/Australian-Cricket-s-Policy-for-Safeguarding-Children-Young-People.pdf",
+      "type": "link",
+      "icon": "ti-shield-check",
+      "real": true
+    },
+    {
+      "title": "Looking After Our Kids",
+      "cat": "Child Safety",
+      "sec": "junior",
+      "url": "https://resources.playcommunity.pulselive.com/playcommunity/document/2024/11/27/7587ce1b-83d1-4c80-aa92-8d085ec1faf0/Australian-Cricket-s-Looking-After-Our-Kids-Code-of-Behaviour.pdf",
+      "type": "link",
+      "icon": "ti-shield-check",
+      "real": true
+    },
+    {
       "title": "RDCA Annual Report 2024/25",
       "cat": "Annual Reports",
       "url": "/docs/RDCA-Annual-Report-2024-25.pdf",
