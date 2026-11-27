@@ -1875,51 +1875,7 @@ window.RDCA_DATA = {
         "label": "Junior Code of Conduct",
         "file": "/docs/RDCA-Code-of-Conduct.pdf",
         "real": true
-      },
-      "repTeams": [
-        {
-          "label": "Rep Team — U12 Boys",
-          "url": "/placeholder?title=U12%20Boys%20Rep%20Team&status=tbs",
-          "real": true,
-          "blank": true
-        },
-        {
-          "label": "Rep Team — U12 Girls",
-          "url": "/placeholder?title=U12%20Girls%20Rep%20Team&status=tbs",
-          "real": true,
-          "blank": true
-        },
-        {
-          "label": "Rep Team — U14 Boys",
-          "url": "/placeholder?title=U14%20Boys%20Rep%20Team&status=tbs",
-          "real": true,
-          "blank": true
-        },
-        {
-          "label": "Rep Team — U14 Girls",
-          "url": "/placeholder?title=U14%20Girls%20Rep%20Team&status=tbs",
-          "real": true,
-          "blank": true
-        },
-        {
-          "label": "Rep Team — U16 Boys",
-          "url": "/placeholder?title=U16%20Boys%20Rep%20Team&status=tbs",
-          "real": true,
-          "blank": true
-        },
-        {
-          "label": "Rep Team — U17 Girls",
-          "url": "/placeholder?title=U17%20Girls%20Rep%20Team&status=tbs",
-          "real": true,
-          "blank": true
-        },
-        {
-          "label": "Rep Team — U17 Boys",
-          "url": "/placeholder?title=U17%20Boys%20Rep%20Team&status=tbs",
-          "real": true,
-          "blank": true
-        }
-      ]
+      }
     },
     "seniors": {
       "title": "Seniors",
