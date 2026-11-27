@@ -977,7 +977,7 @@
           data.comps.forEach(function (c){ ["last", "current"].forEach(function (ph){ if (c[ph] && Array.isArray(c[ph].grades)) c[ph].grades.sort(gradeCmp); }); });
           function n(x) { return x == null ? "&ndash;" : String(x); }
           function pc(x) { return x == null ? "&ndash;" : (Math.round(x * 1000) / 1000); }
-          var ci = 0, gi = 0, giR = 0, giF = 0;   // gi=ladder, giR=results, giF=fixtures (independent grade selects)
+          var ci = 0, gi = 0, giR = 0, giF = 0, giP = 0;   // gi=ladder, giR=results, giF=fixtures, giP=top performers (independent grade selects)
           function grades() { var s = seasonOf(data.comps[ci]); return (s && s.grades) || []; }
 
           // ---- club-crest resolver: match a PlayHQ team name to a club logo ----
@@ -1067,10 +1067,11 @@
             }).join("");
             function gradeOpts(sel){ return gs.map(function (x, i) { return '<option value="' + i + '"' + (i === sel ? ' selected' : '') + '>' + esc(x.grade) + '</option>'; }).join(""); }
             var opts = gradeOpts(gi);
-            if (giR >= gs.length) giR = 0; if (giF >= gs.length) giF = 0;
-            var optsR = gradeOpts(giR), optsF = gradeOpts(giF);
+            if (giR >= gs.length) giR = 0; if (giF >= gs.length) giF = 0; if (giP >= gs.length) giP = 0;
+            var optsR = gradeOpts(giR), optsF = gradeOpts(giF), optsP = gradeOpts(giP);
             var gR = gs[giR] || { ladder: [], results: [], fixtures: [] };
             var gF = gs[giF] || { ladder: [], results: [], fixtures: [] };
+            var gP = gs[giP] || { ladder: [], results: [], fixtures: [] };
             var note = useCurrent
               ? '<span class="phb-live"><i class="phb-dot"></i> Live</span> ' + esc(season.season)
               : esc(season.season) + ' <span class="phb-last">last season &middot; final ladders &amp; results</span>';
@@ -1125,7 +1126,18 @@
             function _upd(){ return _gen ? ('Updated ' + _gen.toLocaleDateString('en-AU',{day:'numeric',month:'short'}) + ', ' + _gen.toLocaleTimeString('en-AU',{hour:'numeric',minute:'2-digit'})) : ''; }
             var _lastR = (g.results && g.results[0] && g.results[0].round) || '';
             var _nextR = (g.fixtures && g.fixtures[0] && g.fixtures[0].round) || '';
+            var _lastRP = (gP.results && gP.results[0] && gP.results[0].round) || '';
             function _sub(round){ return '<div class="phb-sub"><i class="ti ti-refresh"></i> ' + (round ? (esc(round) + ' &middot; ') : '') + _upd() + '</div>'; }
+            var _ladderCol =
+                '<div class="phb-col phb-ladder" id="ladder"><div class="phb-ch"><i class="ti ti-list-numbers"></i> Ladder</div>' + _sub(_lastR ? ('After ' + _lastR) : '') + lad + '</div>';
+            var _rfGrid =
+                '<div class="phb-grid2">' +
+                  '<div class="phb-col" id="results"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-chart-bar"></i> Recent Results</span>' + (gs.length > 1 ? '<select class="phb-grade-res phb-grade-mini" aria-label="Choose a grade for results">' + optsR + '</select>' : '') + '</div>' + _sub(_lastR ? ('After ' + _lastR) : '') + res + '</div>' +
+                  '<div class="phb-col" id="fixtures"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-calendar-event"></i> Upcoming Fixtures</span>' + (gs.length > 1 ? '<select class="phb-grade-fix phb-grade-mini" aria-label="Choose a grade for fixtures">' + optsF + '</select>' : '') + '</div>' + _sub(_nextR ? ('Next: ' + _nextR) : '') + fix + '</div>' +
+                '</div>';
+            // T20 Big Bash page shows Results & Fixtures above the Ladder (Carson, Nov 2026);
+            // every other hub keeps the Ladder first.
+            var _hubBody = useT20 ? (_rfGrid + _ladderCol) : (_ladderCol + _rfGrid);
             mount.innerHTML =
               '<div class="phb">' +
                 '<div class="phb-bar">' + (data.comps.length > 1 ? '<div class="phb-tabs">' + tabs + '</div>' : '') +
@@ -1136,16 +1148,12 @@
                       : '<span class="phb-grade-single">' + esc(g.grade || season.season || '') + '</span>') +
                   '</div></div>' +
                 '<div class="phb-season">' + note + '</div>' +
-                '<div class="phb-col phb-ladder" id="ladder"><div class="phb-ch"><i class="ti ti-list-numbers"></i> Ladder</div>' + _sub(_lastR ? ('After ' + _lastR) : '') + lad + '</div>' +
-                '<div class="phb-grid2">' +
-                  '<div class="phb-col" id="results"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-chart-bar"></i> Recent Results</span>' + (gs.length > 1 ? '<select class="phb-grade-res phb-grade-mini" aria-label="Choose a grade for results">' + optsR + '</select>' : '') + '</div>' + _sub(_lastR ? ('After ' + _lastR) : '') + res + '</div>' +
-                  '<div class="phb-col" id="fixtures"><div class="phb-ch phb-ch-sel"><span><i class="ti ti-calendar-event"></i> Upcoming Fixtures</span>' + (gs.length > 1 ? '<select class="phb-grade-fix phb-grade-mini" aria-label="Choose a grade for fixtures">' + optsF + '</select>' : '') + '</div>' + _sub(_nextR ? ('Next: ' + _nextR) : '') + fix + '</div>' +
-                '</div>' +
-                (wantLeaders ? '<div class="phb-perf"><div class="phb-ch phb-perf-hd"><i class="ti ti-trophy"></i> Season&rsquo;s Top Performers <span class="phb-perf-g">' + esc(g.grade) + '</span></div>' + _sub(_lastR ? ('After ' + _lastR) : '') + '<div id="phb-ldr"><p class="phb-empty"><i class="ti ti-loader"></i> Loading player stats…</p></div></div>' : '') +
+                _hubBody +
+                (wantLeaders ? '<div class="phb-perf"><div class="phb-ch phb-perf-hd phb-ch-sel"><span><i class="ti ti-trophy"></i> Season&rsquo;s Top Performers</span>' + (gs.length > 1 ? '<select class="phb-grade-perf phb-grade-mini" aria-label="Choose a grade for top performers">' + optsP + '</select>' : '<span class="phb-perf-g">' + esc(gP.grade) + '</span>') + '</div>' + _sub(_lastRP ? ('After ' + _lastRP) : '') + '<div id="phb-ldr"><p class="phb-empty"><i class="ti ti-loader"></i> Loading player stats…</p></div></div>' : '') +
               '</div>';
-            if (wantLeaders && g.id) {
+            if (wantLeaders && gP.id) {
               var req = ++leadReq;
-              fetch(LEAD_API + "?grade=" + encodeURIComponent(g.id), { cache: "no-cache" })
+              fetch(LEAD_API + "?grade=" + encodeURIComponent(gP.id), { cache: "no-cache" })
                 .then(function (r) { return r.ok ? r.json() : null; })
                 .then(function (j) {
                   if (req !== leadReq) return;
@@ -1165,7 +1173,7 @@
           }
           // Remember the visitor's last competition + grades on the full Match Centre hub.
           var PKEY = "rdca_mc_sel";
-          function save(){ if (!wantLeaders) return; try { localStorage.setItem(PKEY, JSON.stringify({ c: ci, gi: gi, giR: giR, giF: giF })); } catch (e) {} }
+          function save(){ if (!wantLeaders) return; try { localStorage.setItem(PKEY, JSON.stringify({ c: ci, gi: gi, giR: giR, giF: giF, giP: giP })); } catch (e) {} }
           if (wantLeaders) { try {
             var _s = JSON.parse(localStorage.getItem(PKEY) || "null");
             if (_s && _s.c >= 0 && _s.c < data.comps.length) {
@@ -1173,6 +1181,7 @@
               gi = (_s.gi >= 0 && _s.gi < _n) ? _s.gi : 0;
               giR = (_s.giR >= 0 && _s.giR < _n) ? _s.giR : 0;
               giF = (_s.giF >= 0 && _s.giF < _n) ? _s.giF : 0;
+              giP = (_s.giP >= 0 && _s.giP < _n) ? _s.giP : 0;
             }
           } catch (e) {} }
           render();
@@ -1182,11 +1191,12 @@
           }
           mount.addEventListener("click", function (e) {
             var b = e.target.closest(".phb-comp"); if (!b) return;
-            ci = +b.getAttribute("data-i"); gi = 0; giR = 0; giF = 0; render(); save();
+            ci = +b.getAttribute("data-i"); gi = 0; giR = 0; giF = 0; giP = 0; render(); save();
           });
           mount.addEventListener("change", function (e) {
             if (e.target.classList.contains("phb-grade-res")) { giR = +e.target.value; render(); save(); }
             else if (e.target.classList.contains("phb-grade-fix")) { giF = +e.target.value; render(); save(); }
+            else if (e.target.classList.contains("phb-grade-perf")) { giP = +e.target.value; render(); save(); }
             else if (e.target.classList.contains("phb-grade")) { gi = +e.target.value; render(); save(); }
           });
           var searchTimer = null;
@@ -1198,7 +1208,7 @@
               if (String(val).trim().length < 2) return;
               var hit = searchGrades(val);
               if (hit && (hit.c !== ci || hit.g !== gi)) {
-                ci = hit.c; gi = hit.g; giR = hit.g; giF = hit.g; render(); save();
+                ci = hit.c; gi = hit.g; giR = hit.g; giF = hit.g; giP = hit.g; render(); save();
                 var inp = mount.querySelector(".phb-search");
                 if (inp) { inp.value = val; inp.focus(); }
               }
