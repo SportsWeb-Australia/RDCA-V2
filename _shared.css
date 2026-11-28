@@ -59,6 +59,7 @@ img{display:block;max-width:100%}
 .nav-icon-btn[data-tip]:hover::after{opacity:1;transform:translateX(-50%) translateY(0)}
 .nav-icon-btn[data-tip]:hover::before{opacity:1}
 .hamburger{display:none;min-width:44px;min-height:44px}
+.mast-wx{display:none;align-items:center}
 /* MOB MENU */
 .mob-menu{display:none;position:fixed;inset:0;z-index:300;background:var(--navy);padding:20px;overflow-y:auto;flex-direction:column;gap:4px}
 .mob-menu.open{display:flex}
@@ -260,8 +261,8 @@ table.lt th.tl,table.lt td.tl{text-align:left}
   .perf-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-  /* Keep a slim top bar on mobile showing only the weather chip, top-right */
-  .topbar{display:flex;justify-content:flex-end;padding:4px 12px}
+  /* Weather now lives in the masthead on mobile — hide the slim top bar */
+  .topbar{display:none}
   .topbar>div:first-child{display:none}
   .topbar .t-soc{display:none}
   .topbar #tb-weather{margin-right:0}
@@ -274,7 +275,8 @@ table.lt th.tl,table.lt td.tl{text-align:left}
   /* Hamburger — large, visible, away from edge */
   .hamburger{display:flex;width:52px;height:52px;border-radius:12px;background:rgba(255,255,255,.18) !important;flex-shrink:0}
   .hamburger i{font-size:26px !important;color:#fff !important}
-  .nav-actions{margin-right:10px;gap:0;flex-shrink:0}
+  .nav-actions{margin-left:auto;margin-right:10px;gap:0;flex-shrink:0;align-items:center}
+  .mast-wx{display:inline-flex;margin-right:10px}
   .nav-inner{padding:0 0 0 12px;overflow:visible}
   .brand-sub{display:none}
   /* Prevent ANY horizontal scroll */

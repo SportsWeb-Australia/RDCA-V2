@@ -32,7 +32,7 @@
     "topbar": `<a class="skip-link" href="#main">Skip to main content</a><div class="topbar">
   <div style="display:flex;align-items:center;gap:18px">
     <div class="tb-item"><i class="ti ti-map-pin"></i> Ringwood, Victoria</div>
-    <div class="tb-item"><i class="ti ti-mail"></i> admin@rdca.com</div>
+    <div class="tb-item"><i class="ti ti-mail"></i> jmackinnon@cricketvictoria.com.au</div>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
     <span class="tb-item" id="tb-weather" style="display:inline-flex;align-items:center;margin-right:6px"></span><div class="t-soc">
@@ -129,6 +129,7 @@
     <div class="nav-actions">
       <button class="nav-icon-btn" data-rdca-alerts type="button" data-tip="Match-day alerts" aria-label="Match-day alerts"><i class="ti ti-bell" style="font-size:18px"></i></button>
       <button class="nav-icon-btn" type="button" data-tip="Search the site" aria-label="Search the site"><i class="ti ti-search" style="font-size:18px"></i></button>
+      <span class="mast-wx" id="tb-weather-m" aria-hidden="true"></span>
       <button class="nav-icon-btn hamburger" onclick="document.getElementById('mob-menu').classList.add('open')"><i class="ti ti-menu-2" style="font-size:18px"></i></button>
     </div>
   </div>
@@ -339,6 +340,8 @@
           chip.className = "wx-chip"; chip.title = ic[1] + " · Ringwood";
           chip.innerHTML = '<i class="ti ' + ic[0] + '"></i> ' + t + '° <span class="wx-loc">Ringwood</span>';
           host.appendChild(chip);
+          var mm = document.getElementById("tb-weather-m");
+          if (mm) { mm.innerHTML = ""; mm.appendChild(chip.cloneNode(true)); }
         }).catch(function(){});
     } catch(e){}
   }
@@ -377,11 +380,34 @@
     }catch(e){}
   }
 
+  // ---- Ticker manual scrub (swipe / drag / wheel) on all devices ----
+  function initTickerScrub(){
+    try{
+      var sc=document.querySelector(".ticker-scroll"),tk=document.getElementById("tk-track");
+      if(!sc||!tk) return;
+      var half=0,pos=0,dragging=false,sx=0,base=0,moved=false,rt=null;
+      function measure(){half=tk.scrollWidth/2;}
+      measure();setTimeout(measure,800);setTimeout(measure,2500);window.addEventListener("resize",measure);
+      function read(){var m=getComputedStyle(tk).transform;if(m&&m.indexOf("matrix")===0){var a=m.slice(7,-1).split(",");return -parseFloat(a[4])||0;}return pos;}
+      function wrap(p){if(half>0){p=((p%half)+half)%half;}return p;}
+      function hold(){var p=wrap(read());pos=p;tk.style.animation="none";tk.style.transform="translateX("+(-p)+"px)";return p;}
+      function set(p){pos=wrap(p);tk.style.transform="translateX("+(-pos)+"px)";}
+      function resume(){clearTimeout(rt);rt=setTimeout(function(){tk.style.animation="";tk.style.transform="";},3500);}
+      sc.style.cursor="grab";sc.style.touchAction="pan-y";
+      sc.addEventListener("pointerdown",function(e){dragging=true;moved=false;sx=e.clientX;base=hold();try{sc.setPointerCapture(e.pointerId);}catch(_){}sc.style.cursor="grabbing";});
+      sc.addEventListener("pointermove",function(e){if(!dragging)return;var dx=e.clientX-sx;if(Math.abs(dx)>3)moved=true;set(base-dx);});
+      function end(){if(!dragging)return;dragging=false;sc.style.cursor="grab";resume();}
+      sc.addEventListener("pointerup",end);sc.addEventListener("pointercancel",end);
+      sc.addEventListener("wheel",function(e){var d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;if(!d)return;e.preventDefault();hold();set(pos+d);resume();},{passive:false});
+      sc.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);
+    }catch(e){}
+  }
+
   window.RDCA = window.RDCA || {};
   window.RDCA.mount = mount;
   window.RDCA.LOGO = LOGO;
 
-  function boot(){ mount(); initWeather(); initTicker(); }
+  function boot(){ mount(); initWeather(); initTicker(); initTickerScrub(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();
